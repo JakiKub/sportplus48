@@ -1,0 +1,600 @@
+body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, body.reset-password {
+    background-color: black;
+}
+body.home {
+    background-image: url("../content/home-page.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+body.home.logged-in {
+    background: linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%), url("../content/background-user.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body.contact {
+    background-image: url("../content/contact-page.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0
+}
+body.actions {
+    background-image: url("../content/actions-page.jpg");
+    height: 2160px;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+body.add-activity {
+    background-image: url('../content/add-activ-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+.navbar {
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between;
+    width: 1000px;
+    font-size: 27px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    align-items: flex-end;
+    top: 5%;
+    right: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar a, .navbar p {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.navbar a:hover, .navbar p:hover {
+    text-decoration: underline;
+    text-decoration-color: #CAB99F;
+    scale: 1.2;
+}
+.navbar p.troll {
+    cursor: pointer;
+}
+.navbar-actions {
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-between;
+    width: 1000px;
+    font-size: 27px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    align-items: flex-end;
+    top: 5%;
+    right: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar-actions a, .navbar-actions p {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.navbar-actions a:hover, .navbar-actions p:hover {
+    text-decoration: underline;
+    text-decoration-color: #CAB99F;
+    scale: 1.2;
+}
+.navbar-actions p.troll {
+    cursor: pointer;
+}
+.navbar-home {
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between;
+    width: 1000px;
+    font-size: 27px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    align-items: flex-end;
+    top: 5%;
+    right: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar-home a, .navbar-home p {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.navbar-home a:hover, .navbar-home p:hover {
+    text-decoration: underline;
+    text-decoration-color: #CAB99F;
+    scale: 1.2;
+}
+.navbar-home p.troll {
+    cursor: pointer;
+}
+.navbar-home-logged-in {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    color: rgb(134, 138, 143);
+    font-family: 'Poppins Medium', sans-serif;
+    font-size: 27px;
+    left: 3%;
+    bottom: 18%;
+    justify-content: space-between;
+    text-decoration: none;
+}
+.navbar-home-logged-in p {
+    margin-top: 3px;
+    margin-bottom: 4px;
+    width: 350px;
+    height: 70px;
+    transition-duration: 0.55s;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgb(233, 235, 238);
+}
+.navbar-home-logged-in a {
+    text-decoration: none;
+    color: rgb(233, 235, 238);
+    margin-left: 10px;
+}
+.navbar-home-logged-in p:hover {
+    background-image: linear-gradient(90deg, rgb(119, 89, 57), rgb(204, 184, 161));
+    scale: 1.15;
+    border: none;
+    border-radius: 20px;
+}
+.add-activ-ico, .progress-ico, .records-ico, .ranking-ico, .challenge-ico, .points-ico {
+    margin-left:30px;
+}
+.add-activ-ico {
+    margin-right: 15px;
+}
+.progress-ico {
+    margin-right: 4px;
+}
+.records-ico {
+    margin-right: 7px;
+}
+.ranking-ico {
+    margin-right: 7px;
+}
+.challenge-ico {
+    margin-right: 4px;
+}
+.inspir-ico {
+    margin-right: 18px;
+    margin-left: 34px;
+}
+.points-ico {
+    margin-right: 11px;
+}
+.log-in-register {
+    color: #CAB99F;
+    position: absolute;
+    width: 700px;
+    margin: 0;
+    text-align: center;
+    top: 720px;
+    left: 240px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.log-in, .register {
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: #CAB99F;
+    border-radius: 25px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-color: transparent;
+    transition-duration: 0.7s;
+    background-color: transparent;
+    color: #CAB99F;
+    margin-top: 10px;
+    z-index: 2;
+    margin-left: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.log-in:hover, .register:hover {
+    scale: 1.1;
+    border-color: #CAB99F;
+}
+.logo {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 65%;
+    left: 2%;
+    /*z-index: 0;*/
+    width: 100px;
+    height: 300px;
+    align-items: center;
+}
+.logo-home {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 65%;
+    left: 2%;
+    /*z-index: 0;*/
+    width: 100px;
+    height: 300px;
+    align-items: center;
+}
+.instagram-logo, .tiktok-logo {
+    margin-right: 0;
+    transition-duration: 0.7s;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.instagram-logo:hover, .tiktok-logo:hover {
+    scale: 1.2;
+}
+.contact-data {
+    position: relative;
+    color: white;
+    top: 53%;
+    left: 20%;
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    width: 500px;
+    height: 200px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+}
+.contact-data p {
+    margin: 0;
+}
+.logo-contact {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 44%;
+    left: 3%;
+    z-index: 0;
+    width: 100px;
+    height: 300px;
+    align-items: center;
+}
+.leave-us-a-message {
+    position: relative;
+    top: 27%;
+    left: 14.3%;
+    background-color: transparent;
+    border-color: transparent;
+    transition-duration: 0.7s;
+}
+.leave-us-a-message:hover {
+    scale: 1.1;
+}
+.log-in-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: transparent;
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.log-in-modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+.log-in-modal {
+    background-color: transparent;
+    background-image: url("../content/ekr-login.png");
+    display: flex;
+    width: 1335px;
+    max-width: 100%;
+    height: 760px;
+    max-height: 100%;
+}
+.log-in-close {
+    position: absolute;
+    background-color: transparent;
+    border: transparent;
+    width: 18px;
+    height: 18px;
+    top: 12.5%;
+    right: 17%;
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+.log-in-in-modal {
+    width: 482px;
+    height: 132px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    transition-duration: 0.7s;
+}
+.log-in-modal p{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    bottom: 50%;
+    right: 20.2%;
+}
+.log-in-modal a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    transition-duration: 1.5s;
+}
+.log-in-modal a:hover {
+    text-decoration: underline;
+    text-decoration-color: #CAB99F;
+    scale: 1.2;
+}
+.log-in-modal input.email {
+    width: 400px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 38%;
+    left: 20.5%;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.log-in-modal input.password {
+    width: 400px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 38%;
+    right: 27.25%;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.register-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: transparent;
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.register-modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+.register-modal {
+    background-color: transparent;
+    background-image: url("../content/ekr-register.png");
+    display: flex;
+    width: 1335px;
+    max-width: 100%;
+    height: 760px;
+    max-height: 100%;
+}
+.register-close {
+    position: absolute;
+    background-color: transparent;
+    border: transparent;
+    width: 18px;
+    height: 18px;
+    top: 12.5%;
+    right: 17%;
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+.register-in-modal {
+    width: 482px;
+    height: 132px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 65%;
+    left: 36.5%;
+    transition-duration: 0.7s;
+}
+.register-modal input.email {
+    width: 400px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 38%;
+    left: 20.5%;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.register-modal input.password {
+    width: 400px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 38%;
+    right: 27.25%;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.register-modal input.username {
+    width: 400px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 20.5%;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+.register-modal input.nationalities {
+    width: 400px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 27.25%;
+    font-size: 30px;
+    font-family: 'Poppins' sans-serif;
+    color: black;
+}
+.register-modal p.termsOfServiceText {
+    top: 60%;
+    left: 19.82%;
+    background-color: transparent;
+    position: absolute;
+    width: 250px;
+    height: 50px;
+    margin: 0;
+    color: white;
+    font-size: 20px;
+}
+.log-in-close:hover, .log-in-in-modal:hover, .register-close:hover, .register-in-moda:hover {
+    scale: 1.1;
+}
+h1.profile, p.profile {
+    color: white;
+    margin: 20px;
+}
+span.profile {
+    color: white;
+}
+.profile-container {
+    position: absolute;
+    top: 35%;
+    right: 6.15%;
+    height: 250px;
+    width: 1000px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 45px;
+    background-color: rgba(2, 2, 68, 0.7);
+}
+.profile-logout-button {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    transition-duration: 0.7s;
+    position: absolute;
+    right: 6.15%;
+    bottom: 10%;
+    display: none;
+}
+.profile-logout-button:hover {
+    scale: 1.2;
+}
+p.days {
+    /*margin-right: 137px;*/
+    left: 31%;
+}
+p.hours {
+    /*margin-left: 0;
+    margin-right: 176px;*/
+    left: 48.75%;
+}
+p.minutes {
+    right: 26.3%;
+}
+p.days, p.hours, p.minutes {
+    margin: 0;
+    font-family: 'Leto', sans-serif;
+    font-size: 150px;
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    display: flex;
+    justify-items: center;
+    width: auto;
+    height: auto;
+    top: 44%;
+}
+body.add-activity p {
+    margin: 0;
+}
+.upload-evidence {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: 36.3%;
+    left: 43%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 0;
+}
+.upload-evidence:hover {
+    scale: 1.05;
+}
+.send-approval {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: 23.8%;
+    left: 24.7%;
+    cursor: pointer;
+    margin: 0;
+    transition-duration: 0.4s;
+}
+.send-approval:hover {
+    scale: 1.05;
+}
+a.user-panel-back {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: rgb(10, 19, 138);
+    margin: 0;
+    position: absolute;
+    top: 1%;
+    left: 3%;
+    transition-duration: 0.3s;
+}
+a.user-panel-back:hover {
+    scale: 1.18;
+}

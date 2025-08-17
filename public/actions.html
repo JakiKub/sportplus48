@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+        <title>Sport +48 - Actions</title>
+        <link rel="shortcut icon" href="../content/logo-ikona-str.png">
+        <link rel="stylesheet" href="/style.css">    
+    </head>
+    <body class="actions">
+        <div class="navbar-actions">
+            <p><a href="home.html">home</a></p>
+            <p><a href="about-us.html">about us</a></p>
+            <p><a href="sports.html">sports</a></p>
+            <p><a href="actions.html">actions</a></p>
+            <p><a href="coutries.html">countries</a></p>
+            <p><a href="contact.html">contact</a></p>
+            <p class="troll">EN</p>
+        </div>
+        <div class="time">
+            <p class="days" id="daysId"></p>
+            <p class="hours" id="hoursId"></p>
+            <p class="minutes" id="minutesId"></p>
+        </div>
+        <div class="logo">
+            <div class="tiktok-logo">
+                <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/tiktok-png.png"></a>
+            </div>
+            <div class="instagram-logo">
+                <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/instagram-png.png"></a>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const date = new Date(2025, 9, 11, 20, 48);//to jest do zmiany bo nie wiem jaka dat tu ma byc
+
+                function updateCountdown() {
+                    const now = new Date();
+                    const difference = date.getTime() - now.getTime();
+
+                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+                    document.getElementById("daysId").innerText = days;
+                    document.getElementById("hoursId").innerText = hours;
+                    document.getElementById("minutesId").innerText = minutes;
+                }
+
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            });
+        </script>
+    </body>
+</html>
