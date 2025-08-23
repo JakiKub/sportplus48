@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add activity</title>
+        <title>Sport +48 - Add activity</title>
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="../content/logo-ikona-str.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +11,54 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     </head>
     <body class="add-activity">
-        <p><a href="home.html" class="user-panel-back">BACK TO USER PANEL</a></p>
-        <button class="upload-evidence"><img src="../content/upload-file.png"></button>
-        <button class="send-approval"><img src="../content/approval.png"></button>
+        <div class="navbar-logged-in-top" id="navbarAddActivLoggedInTop">
+            <div class="navbar-logged-in-top-wrapper" id="navbarAddActivLoggedInTopWrapper">
+                <h3 class="navbar-logged-in-top-username"><span id="usernameTop"></span></h3>
+                <p class="navbar-logged-in-top-email"><span id="emailTop"></span></p>
+            </div>
+            <div class="navbar-logged-in-top-user-notif-wrapper">
+                <button class="navbar-logged-in-top-user"><a href="dashboard.html"><img src="../content/ui-user-button.png"></a></button>
+                <button class="navbar-logged-in-top-notification"><img src="../content/ui-notification-button.png"></button>
+                <button id="profileLogOutAddActiv" class="navbar-logout-button"><img src="../content/ui-logout-button.png"></button>
+            </div>
+        </div>
+        <div class="navbar-logged-in" id="navbarAddActiv">
+            <div class="navbar-logged-in-main">
+                <a href="dashboard.html"><img src="../content/ui-dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/ui-home.png" class="home-ico"></a>
+            </div>
+            <div class="navbar-logged-in-ypttt">
+                <a href="add-activity.html"><img src="../content/ui-add-activ.png" class="add-activ-ico"></a>
+                <a><img src="../content/ui-progress.png" class="progress-ico"></a>
+                <a><img src="../content/ui-records.png" class="records-ico"></a>
+                <a><img src="../content/ui-points.png" class="points-ico"></a>
+            </div>
+            <div class="navbar-logged-in-other">
+                <a><img src="../content/ui-ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/ui-48-sport-challenge.png" class="challenge-ico"></a>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const user = JSON.parse(localStorage.getItem("user"));
+
+                const navbarAddActivLoggedInTopWrapper = document.getElementById("navbarAddActivLoggedInTopWrapper");
+
+                if (user && navbarAddActivLoggedInTopWrapper) {
+                    document.getElementById("usernameTop").textContent = user.username;
+                    document.getElementById("emailTop").textContent = user.email;
+                    document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
+                    document.getElementById("navbarAddActiv").style.display = "flex";
+                }
+            });
+
+            const profileLogOutAddActiv = document.getElementById("profileLogOutAddActiv");
+            if (profileLogOutAddActiv) {
+                profileLogOutAddActiv.addEventListener("click", () => {
+                localStorage.removeItem("user");
+                location.reload();
+                });
+            }
+        </script>
     </body>
 </html>

@@ -1,41 +1,11 @@
-body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, body.reset-password {
-    background-color: black;
-}
-body.home {
-    background-image: url("../content/home-page.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-}
-body.home.logged-in {
-    background: linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%), url("../content/background-user.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-body.contact {
-    background-image: url("../content/contact-page.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0
-}
-body.actions {
-    background-image: url("../content/actions-page.jpg");
-    height: 2160px;
+* {
     margin: 0;
     padding: 0;
-    overflow-y: scroll;
+    box-sizing: border-box;
 }
-body.add-activity {
-    background-image: url('../content/add-activ-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
+/*main*/
+body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, body.reset-password, body.home {
+    background-color: black;
 }
 .navbar {
     color: aliceblue;
@@ -66,6 +36,125 @@ body.add-activity {
 .navbar p.troll {
     cursor: pointer;
 }
+.navbar-logged-in-top {
+    width: 25vw;
+    height: auto;
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    right: 1%;
+    top: 2%;
+    margin: 0;
+}
+.navbar-logged-in-top-user-notif-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    height: auto;
+    margin: 0;
+    justify-content: flex-end;
+}
+.navbar-logged-in-top-notification {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.navbar-logged-in-top-user, .navbar-logged-in-top-notification, .navbar-logout-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.navbar-logged-in-top-user:hover, .navbar-logged-in-top-notification:hover, .navbar-logout-button:hover {
+    scale: 1.2;
+}
+.navbar-logged-in-top-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 12vw;
+    height: auto;
+    margin-top: 10px;
+    text-align: right;
+}
+.navbar-logged-in-top-username, .navbar-logged-in-top-email {
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar-logged-in-top-username {
+    font-size: 1.2em;
+}
+.navbar-logged-in-top-email {
+    font-size: 1.005em;
+}
+.navbar-logged-in {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 21%;
+    left: 3%;
+    text-align: left;
+    padding: 0;
+}
+.navbar-logged-in-main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 110px;
+}
+.navbar-logged-in-ypttt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    position: relative;
+    margin-bottom: 120px;
+}
+.navbar-logged-in-other {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    position: relative;
+    margin-bottom: -7px;
+}
+.dashboard-ico, .home-ico, .add-activ-ico, .progress-ico, .records-ico, .points-ico, .ranking-ico, .challenge-ico {
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+.dashboard-ico:hover, .home-ico:hover, .add-activ-ico:hover, .progress-ico:hover, .records-ico:hover, .points-ico:hover, .ranking-ico:hover, .challenge-ico:hover {
+    scale: 1.05;
+    background: linear-gradient(90deg, #1D1C2D, #413C8E);
+    border-radius: 23px;
+}
+.logo {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 65%;
+    left: 2%;
+    width: 7vw;
+    height: 32.54vh;
+    align-items: center;
+}
+.instagram-logo, .tiktok-logo {
+    margin-right: 0;
+    transition-duration: 0.7s;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.instagram-logo:hover, .tiktok-logo:hover {
+    scale: 1.2;
+}
+
+/*about-us*/
+
+/*actions*/
+body.actions {
+    background-image: url("../content/actions-page.jpg");
+    height: 2160px;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
 .navbar-actions {
     color: aliceblue;
     display: flex;
@@ -95,149 +184,50 @@ body.add-activity {
 .navbar-actions p.troll {
     cursor: pointer;
 }
-.navbar-home {
-    color: aliceblue;
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    justify-content: space-between;
-    width: 62vw;
-    font-size: 1.7em;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bolder;
-    align-items: flex-end;
-    top: 5%;
-    right: 3%;
-    padding-left: 20px;
-    padding-right: 20px;
+p.days {
+    /*margin-right: 137px;*/
+    left: 31%;
 }
-.navbar-home a, .navbar-home p {
-    color: white;
-    text-decoration: none;
-    transition-duration: 0.4s;
+p.hours {
+    /*margin-left: 0;
+    margin-right: 176px;*/
+    left: 48.75%;
 }
-.navbar-home a:hover, .navbar-home p:hover {
-    text-decoration: underline;
-    text-decoration-color: #CAB99F;
-    scale: 1.2;
+p.minutes {
+    right: 26.3%;
 }
-.navbar-home p.troll {
-    cursor: pointer;
-}
-.navbar-home-logged-in {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    color: rgb(134, 138, 143);
-    font-family: 'Poppins Medium', sans-serif;
-    font-size: 27px;
-    left: 3%;
-    bottom: 18%;
-    justify-content: space-between;
-    text-decoration: none;
-}
-.navbar-home-logged-in p {
-    margin-top: 3px;
-    margin-bottom: 4px;
-    width: 350px;
-    height: 70px;
-    transition-duration: 0.55s;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: rgb(233, 235, 238);
-}
-.navbar-home-logged-in a {
-    text-decoration: none;
-    color: rgb(233, 235, 238);
-    margin-left: 10px;
-}
-.navbar-home-logged-in p:hover {
-    background-image: linear-gradient(90deg, rgb(119, 89, 57), rgb(204, 184, 161));
-    scale: 1.15;
-    border: none;
-    border-radius: 20px;
-}
-.add-activ-ico, .progress-ico, .records-ico, .ranking-ico, .challenge-ico, .points-ico {
-    margin-left:30px;
-}
-.add-activ-ico {
-    margin-right: 15px;
-}
-.progress-ico {
-    margin-right: 4px;
-}
-.records-ico {
-    margin-right: 7px;
-}
-.ranking-ico {
-    margin-right: 7px;
-}
-.challenge-ico {
-    margin-right: 4px;
-}
-.inspir-ico {
-    margin-right: 18px;
-    margin-left: 34px;
-}
-.points-ico {
-    margin-right: 11px;
-}
-.log-in-register {
-    color: #CAB99F;
-    position: absolute;
-    width: 700px;
+p.days, p.hours, p.minutes {
     margin: 0;
-    text-align: center;
-    top: 720px;
-    left: 240px;
-    padding-bottom: 10px;
-    cursor: pointer;
-}
-.log-in, .register {
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
-    color: #CAB99F;
-    border-radius: 25px;
-    padding-left: 40px;
-    padding-right: 40px;
-    border-color: transparent;
-    transition-duration: 0.7s;
-    background-color: transparent;
-    color: #CAB99F;
-    margin-top: 10px;
-    z-index: 2;
-    margin-left: 20px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.log-in:hover, .register:hover {
-    scale: 1.1;
-    border-color: #CAB99F;
-}
-.logo {
-    position: fixed;
+    font-family: 'Leto', sans-serif;
+    font-size: 150px;
+    color: white;
+    font-weight: bolder;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    margin-top: 0;
-    margin-bottom: 0;
-    top: 65%;
-    left: 2%;
-    /*z-index: 0;*/
-    width: 7vw;
-    height: 32.54vh;
-    align-items: center;
+    justify-items: center;
+    width: auto;
+    height: auto;
+    top: 44%;
 }
-.instagram-logo, .tiktok-logo {
-    margin-right: 0;
-    transition-duration: 0.7s;
-    margin-top: 0;
-    margin-bottom: 0;
+
+/*add-activity*/
+body.add-activity {
+    background-image: url("../content/background-ui.jpg");
+    background-size: 1920px 1080px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
 }
-.instagram-logo:hover, .tiktok-logo:hover {
-    scale: 1.2;
+
+/*contact*/
+body.contact {
+    background-image: url("../content/contact-page.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0
 }
 .contact-data {
     position: relative;
@@ -279,6 +269,84 @@ body.add-activity {
 }
 .leave-us-a-message:hover {
     scale: 1.1;
+}
+
+/*countries*/
+
+/*dashboard*/
+body.dashboard {
+    background-image: url("../content/home-page.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+body.dashboard.logged-in {
+    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/background-ui.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.navbar-dashboard-logged-out {
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between;
+    width: 62vw;
+    font-size: 1.7em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    align-items: flex-end;
+    top: 5%;
+    right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar-dashboard-logged-out a, .navbar-dashboard-logged-out p {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+.navbar-dashboard-logged-out a:hover, .navbar-dashboard-logged-out p:hover {
+    text-decoration: underline;
+    text-decoration-color: #CAB99F;
+    scale: 1.2;
+}
+.navbar-dashboard-logged-out p.troll {
+    cursor: pointer;
+}
+.log-in-register {
+    color: #CAB99F;
+    position: absolute;
+    width: 700px;
+    margin: 0;
+    text-align: center;
+    top: 720px;
+    left: 240px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.log-in, .register {
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: #CAB99F;
+    border-radius: 25px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-color: transparent;
+    transition-duration: 0.7s;
+    background-color: transparent;
+    color: #CAB99F;
+    margin-top: 10px;
+    z-index: 2;
+    margin-left: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.log-in:hover, .register:hover {
+    scale: 1.1;
+    border-color: #CAB99F;
 }
 .log-in-modal-container {
     display: flex;
@@ -503,85 +571,11 @@ span.profile {
     font-size: 45px;
     background-color: rgba(2, 2, 68, 0.7);
 }
-.profile-logout-button {
-    background-color: transparent;
-    border-color: transparent;
-    cursor: pointer;
-    transition-duration: 0.7s;
-    position: absolute;
-    right: 6.15%;
-    bottom: 10%;
-    display: none;
-}
-.profile-logout-button:hover {
-    scale: 1.2;
-}
-p.days {
-    /*margin-right: 137px;*/
-    left: 31%;
-}
-p.hours {
-    /*margin-left: 0;
-    margin-right: 176px;*/
-    left: 48.75%;
-}
-p.minutes {
-    right: 26.3%;
-}
-p.days, p.hours, p.minutes {
-    margin: 0;
-    font-family: 'Leto', sans-serif;
-    font-size: 150px;
-    color: white;
-    font-weight: bolder;
-    position: absolute;
-    display: flex;
-    justify-items: center;
-    width: auto;
-    height: auto;
-    top: 44%;
-}
-body.add-activity p {
-    margin: 0;
-}
-.upload-evidence {
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    bottom: 36.3%;
-    left: 43%;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    margin: 0;
-}
-.upload-evidence:hover {
-    scale: 1.05;
-}
-.send-approval {
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    bottom: 23.8%;
-    left: 24.7%;
-    cursor: pointer;
-    margin: 0;
-    transition-duration: 0.4s;
-}
-.send-approval:hover {
-    scale: 1.05;
-}
-a.user-panel-back {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bolder;
-    font-size: 1.2em;
-    text-decoration: none;
-    color: rgb(10, 19, 138);
-    margin: 0;
-    position: absolute;
-    top: 1%;
-    left: 3%;
-    transition-duration: 0.3s;
-}
-a.user-panel-back:hover {
-    scale: 1.18;
-}
+
+/*forgot-password*/
+
+/*home*/
+
+/*reset-password*/
+
+/*sports*/
