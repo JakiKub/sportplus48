@@ -76,9 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("navbarDashboardLoggedIn").style.display = "flex";
     document.getElementById("profileLogOut").style.display = "flex";
     document.getElementById("navbarDashboardLoggedInTop").style.display = "flex";
+    document.getElementById("streakContainer").style.display = "flex";
+    document.getElementById("believeInMagic").style.display = "flex";
+    document.getElementById("motivQuote").style.display = "flex";
+    document.getElementById("personalGoals").style.display = "flex";
     document.getElementById("usernameDashboardTop").textContent = user.username;
     document.getElementById("emailDashboardTop").textContent = user.email;
-    profileContainer.style.display = "block";
+    //profileContainer.style.display = "block";
     document.body.classList.add("logged-in");
   }
 
@@ -88,5 +92,74 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.removeItem("user");
       location.reload();
     });
-  }
+  };
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const streakButton = document.getElementById("streakButton");
+  const streak = document.getElementById("streak");
+  streak.textContent = streak.dataset.value;
+  let streakCounter = Number(localStorage.getItem("streak") || 0);
+  let lastClick = localStorage.getItem("lastClickDate");
+  streak.dataset.value = streakCounter;
+  streak.textContent = streakCounter;
+
+  streakButton.addEventListener("click", () => {
+    const todaysDate = new Date().toISOString().split("T")[0];
+
+    if (lastClick === todaysDate) {
+      alert("juz kliknales kurwo");
+      return;
+    };
+
+    streakCounter++;
+    localStorage.setItem("streak", streakCounter);
+    localStorage.setItem("lastClickDate", todaysDate)
+
+    streak.dataset.value = streakCounter;
+    streak.textContent = streakCounter;
+
+    lastClick = todaysDate;
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const quoteList = [
+    { quote: "Silny człowiek jest najmocniejszy, gdy jest sam.", person: "Adolf Hitler" },
+    { quote: "Tylko ten, kto posiada młodzież, zdobywa przyszłość.", person: "Adolf Hitler" },
+    { quote: "A ile dywizji ma papież?", person: "Józef Stalin" },
+    { quote: "Czego się bać? Trzeba pracować!", person: "Józef Stalin" },
+  ]
+
+  const quoteChange = document.getElementById("quoteChange");
+  const quote = document.getElementById("quote");
+  const person = document.getElementById("person");
+
+  function getRandomQuote() {
+    const randomQuote = quoteList[Math.floor(Math.random() * quoteList.length)];
+    quote.textContent = randomQuote.quote;
+    person.textContent = randomQuote.person;
+  }
+
+  function resetAnims() {
+    quote.classList.remove("quote-slide-down");
+    person.classList.remove("person-slide-up");
+
+    setTimeout(() => {
+      quote.classList.add("quote-slide-down");
+      person.classList.add("person-slide-up");
+    }, 10)
+  }
+
+  getRandomQuote();
+  resetAnims();
+
+  quoteChange.onclick = function() {
+    getRandomQuote();
+    resetAnims();
+
+    quoteChange.classList.remove("quote-change-rotate");
+
+    setTimeout(() => {
+      quoteChange.classList.add("quote-change-rotate");
+    }, 10)
+  };
+})

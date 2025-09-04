@@ -30,7 +30,7 @@
             <div class="navbar-logged-in-top-user-notif-wrapper">
                 <button class="navbar-logged-in-top-user"><a href="dashboard.html"><img src="../content/ui-user-button.png"></a></button>
                 <button class="navbar-logged-in-top-notification"><img src="../content/ui-notification-button.png"></button>
-                <button id="profileLogOut" class="navbar-logout-button"><img src="../content/ui-logout-button.png"></button>
+                <button id="profileLogOut" class="navbar-logout-button"><img src="../content/logout.png"></button>
             </div>
         </div>
         <div class="navbar-logged-in" id="navbarDashboardLoggedIn">
@@ -49,6 +49,20 @@
                 <a href="actions.html"><img src="../content/ui-48-sport-challenge.png" class="challenge-ico"></a>
             </div>
         </div>
+        <div class="streak-container" id="streakContainer">
+            <span id="streak" data-value="0" class="streak-counter"></span>
+            <button id="streakInfo"><img src="../content/streak_info.png"></button>
+            <button id="streakButton"><img src="../content/add_a_new_streak_day.png"></button>
+        </div>
+        <div class="believe-in-magic" id="believeInMagic"></div>
+        <div class="motiv-quote" id="motivQuote">
+            <button id="quoteChange"></button>
+            <div id="randomQuote">
+                <h3 id="quote"></h3>
+                <p id="person"></p>
+            </div>
+        </div>
+        <div class="personal-goals" id="personalGoals"></div>
         <div class="profile-container" id="profileContainer" style="display: none;">
             <h1 class="profile"><span id="username" class="profile"></span></h1>
             <p class="profile"><span id="nationality" class="profile"></span></p>

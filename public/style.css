@@ -68,6 +68,9 @@ body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, b
 .navbar-logged-in-top-user:hover, .navbar-logged-in-top-notification:hover, .navbar-logout-button:hover {
     scale: 1.2;
 }
+.navbar-logged-in-top:active, .navbar-logged-in-top-notification:active, .navbar-logout-button:active {
+    scale: 1;
+}
 .navbar-logged-in-top-wrapper {
     display: flex;
     flex-direction: column;
@@ -90,29 +93,29 @@ body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, b
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 21%;
-    left: 3%;
+    top: 17.5%;
+    left: 2.8%;
     text-align: left;
     padding: 0;
 }
 .navbar-logged-in-main {
     display: flex;
     flex-direction: column;
-    margin-bottom: 110px;
+    margin-bottom: 90px;
 }
 .navbar-logged-in-ypttt {
     display: flex;
     flex-direction: column;
     margin-left: 0;
     position: relative;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
 }
 .navbar-logged-in-other {
     display: flex;
     flex-direction: column;
     margin-left: 0;
     position: relative;
-    margin-bottom: -7px;
+
 }
 .dashboard-ico, .home-ico, .add-activ-ico, .progress-ico, .records-ico, .points-ico, .ranking-ico, .challenge-ico {
     cursor: pointer;
@@ -143,6 +146,9 @@ body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, b
 }
 .instagram-logo:hover, .tiktok-logo:hover {
     scale: 1.2;
+}
+.instagram-logo:active, .tiktok-logo:active {
+    scale: 1;
 }
 
 /*about-us*/
@@ -283,9 +289,10 @@ body.dashboard {
     margin: 0;
 }
 body.dashboard.logged-in {
-    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/background-ui.jpg");
-    background-size: cover;
+    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/UI-backgr.jpg");
+    background-size: contain;
     background-repeat: no-repeat;
+    background-color: #0B0C20;
 }
 .navbar-dashboard-logged-out {
     color: aliceblue;
@@ -562,7 +569,7 @@ span.profile {
 }
 .profile-container {
     position: absolute;
-    top: 35%;
+    top: 40%;
     right: 6.15%;
     height: 250px;
     width: 1000px;
@@ -570,6 +577,226 @@ span.profile {
     font-family: 'Poppins', sans-serif;
     font-size: 45px;
     background-color: rgba(2, 2, 68, 0.7);
+}
+.streak-container {
+    width: 584px;
+    height: 65px;
+    position: absolute;
+    top: 36.9%;
+    left: 26%;
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("../content/training_streak.png");
+    margin: 0;
+
+    animation: streakContainerSlideLeft 1s linear;
+}
+@keyframes streakContainerSlideLeft {
+    0% {
+        left: 50%;
+        opacity: 0.2;
+    }
+    50% {
+        left: 35%;
+        opacity: 0.7;
+    }
+    100% {
+        left: 26%;
+        opacity: 1;
+    }
+}
+span.streak-counter {
+    color: white;
+    position: absolute;
+    left: 37%;
+    margin: 0;
+    font-size: 2.3em;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 0px 10px;
+    font-family: "Poppins", sans-serif;
+}
+#streakButton {
+    position: absolute;
+    right: 2%;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+#streakInfo {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 38%;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+#streakButton:hover, #streakInfo:hover {
+    scale: 1.05;
+}
+.believe-in-magic {
+    background-image: url("../content/believe_in_the_magic.png");
+    width: 584px;
+    height: 476px;
+    margin: 0;
+    position: absolute;
+    left: 26%;
+    bottom: 2%;
+    display: none;
+
+    animation: believeInMagicSlideLeft 1s linear;
+}
+@keyframes believeInMagicSlideLeft {
+    0% {
+        left: 50%;
+        opacity: 0.5;
+    }
+    50% {
+        left: 35%;
+        opacity: 0.7;
+    }
+    100% {
+        left: 26%;
+        opacity: 1;
+    }
+}
+.motiv-quote {
+    width: 654px;
+    height: 234px;
+    background-image: url("../content/motivational_quote.png");
+    position: absolute;
+    top: 36.9%;
+    right: 5%;
+    display: none;
+
+    animation: motivQuoteSlideLeft 1.05s linear;
+}
+@keyframes motivQuoteSlideLeft {
+    0% {
+        right: -15%;
+        opacity: 0.5;
+    }
+    100% {
+        right: 5%;
+        opacity: 1;
+    }
+}
+#quoteChange {
+    background-image: url("../content/quote_change.png");
+    width: 60px;
+    height: 59px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 4%;
+    top: 6.5%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#quoteChange.quote-change-rotate {
+    animation: quoteChangeRotate 1s ease running forwards;
+}
+#quoteChange:hover {
+    scale: 1.05;
+}
+#quoteChange:active {
+    scale: 1;
+}
+@keyframes quoteChangeRotate {
+    0% {
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+#randomQuote {
+    position: absolute;
+    width: 380px;
+    height: 150px;
+    bottom: 8%;
+    right: 20%;
+    display: flex;
+    flex-direction: column;
+}
+#quote {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    position: absolute;
+    top: 2%;
+    left: 5%;
+}
+#quote.quote-slide-down {
+    animation: quoteSlideDown 1s linear running ;
+}
+@keyframes quoteSlideDown {
+    0% {
+        top: -50%;
+        opacity: 0.2;
+    }
+    33% {
+        top: -25%;
+        opacity: 0.5;
+    }
+    66% {
+        top: -10%;
+        opacity: 0.7;
+    }
+    100% {
+        top: 2%;
+        opacity: 1;
+    }
+}
+#person {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    position: absolute;
+    left: 5%;
+    bottom: 2%;
+}
+#person.person-slide-up {
+    animation: personSlideUp 1s linear running;
+}
+@keyframes personSlideUp {
+    0% {
+        bottom: -50%;
+        opacity: 0.5;
+    }
+    50% {
+        bottom: -25%;
+        opacity: 0.7;
+    }
+    100% {
+        bottom: 2%;
+        opacity: 1;
+    }
+}
+.personal-goals {
+    width: 654px;
+    height: 304px;
+    background-image: url("../content/personalized_goals.png");
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+    margin: 0;
+    display: none;
+
+    animation: personalGoalsSlideLeft 1.05s linear;
+}
+@keyframes personalGoalsSlideLeft {
+    0% {
+        right: -15%;
+        opacity: 0.5;
+    }
+    100% {
+        right: 5%;
+        opacity: 1;
+    }
 }
 
 /*forgot-password*/
