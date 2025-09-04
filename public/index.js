@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const todaysDate = new Date().toISOString().split("T")[0];
 
     if (lastClick === todaysDate) {
-      alert("juz kliknales kurwo");
+      alert("juz kliknales dzisiaj");
       return;
     };
 
@@ -123,10 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 document.addEventListener("DOMContentLoaded", () => {
   const quoteList = [
-    { quote: "Silny człowiek jest najmocniejszy, gdy jest sam.", person: "Adolf Hitler" },
-    { quote: "Tylko ten, kto posiada młodzież, zdobywa przyszłość.", person: "Adolf Hitler" },
-    { quote: "A ile dywizji ma papież?", person: "Józef Stalin" },
-    { quote: "Czego się bać? Trzeba pracować!", person: "Józef Stalin" },
+    { quote: "jakis cytat 1", person: "osoba 1" },
+    { quote: "jakis cytat 2", person: "osoba 2" },
+    { quote: "jakis cytat 3", person: "osoba 3" },
+    { quote: "jakis cytat 4", person: "osoba 4" },
   ]
 
   const quoteChange = document.getElementById("quoteChange");
