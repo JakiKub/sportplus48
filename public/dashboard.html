@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
         <script src="index.js" defer></script>
     </head>
     <body class="dashboard">
@@ -20,8 +20,9 @@
             <p><a href="actions.html">actions</a></p>
             <p><a href="coutries.html">countries</a></p>
             <p><a href="contact.html">contact</a></p>
-            <p class="troll">EN</p>
+            <p class="troll" id="testPTroll">EN</p>
         </div>
+        <!-- <p id="testP"></p> -->
         <div class="navbar-logged-in-top" id="navbarDashboardLoggedInTop">
             <div class="navbar-logged-in-top-wrapper" id="navbarDashboardLoggedInTopWrsapper">
                 <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
@@ -40,7 +41,7 @@
             </div>
             <div class="navbar-logged-in-ypttt">
                 <a href="add-activity.html"><img src="../content/ui-add-activ.png" class="add-activ-ico"></a>
-                <a><img src="../content/ui-progress.png" class="progress-ico"></a>
+                <a href="progress.html"><img src="../content/ui-progress.png" class="progress-ico"></a>
                 <a><img src="../content/ui-records.png" class="records-ico"></a>
                 <a><img src="../content/ui-points.png" class="points-ico"></a>
             </div>
@@ -74,28 +75,37 @@
         <div id="logInModalContainer" class="log-in-modal-container">
             <div class="log-in-modal">
                 <form id="logInForm">
-                    <button id="logInClose" class="log-in-close"><img src="../content/x-button.png"></button>
+                    <button id="logInClose" class="log-in-close"><img src="../content/Xbutton.png"></button>
+                    <img src="../content/Login3.png" id="loginText">
+                    <img src="../content/Login4.png" id="loginEmailText">
+                    <img src="../content/Login5.png" id="loginPasswordText">
                     <input type="email" id="logInEmail" name="email" class="email" required>
                     <input type="password" id="logInPassword" name="password" class="password" required>
-                    <p><a href="forgot-password.html">forgot your password?</a></p>
-                    <button type="submit" class="log-in-in-modal"><img src="../content/button-login.png"></button>
+                    <p><a href="forgot-password.html">Forgot your password?</a></p>
+                    <button type="submit" class="log-in-in-modal"><img src="../content/LoginButton.png"></button>
                 </form>
             </div>
         </div>
         <div id="registerModalContainer" class="register-modal-container">
             <div class="register-modal">
                 <form action="/register" method="post">
-                    <button id="registerClose" class="register-close" type="button"><img src="../content/x-button.png"></button>
+                    <button id="registerClose" class="register-close" type="button"><img src="../content/Xbutton.png"></button>
+                    <img src="../content/Register3.png" id="registerTextTop">
+                    <img src="../content/Register4.png" id="registerEmailText">
+                    <img src="../content/Register5.png" id="registerPasswordText">
                     <input type="email" id="registerEmail" name="email" class="email" required>
                     <input type="password" id="registerPassword" name="password" class="password" required>
+                    <img src="../content/Register6.png" id="registerUsernameText">
+                    <img src="../content/Register7.png" id="registerNationalityText">
                     <input type="text" id="username" name="username" class="username" maxlength="20" required>
                     <input list="nationalities" name="nationality" class="nationalities">
                     <datalist id="nationalities" class="nationalities">
                         <option value="Poland">Poland</option>
                         <option value="England">England</option>
                     </datalist>
-                    <p class="termsOfServiceText"><input type="checkbox" class="termsOfService" required>I accept terms of service</p>
-                    <button type="submit" class="register-in-modal"><img src="../content/button-register.png"></button>
+                    <!-- <p class="termsOfServiceText"><input type="checkbox" class="termsOfService" required>I accept terms of service</p> -->
+                    <button type="submit" class="register-in-modal"><img src="../content/RegisterButton.png"></button>
+                    <img src="../content/Register2.png" id="registerTextBottom">
                 </form>
             </div>
         </div>

@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="../content/logo-ikona-str.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="add-activity">
         <div class="navbar-logged-in-top" id="navbarAddActivLoggedInTop">
@@ -29,7 +29,7 @@
             </div>
             <div class="navbar-logged-in-ypttt">
                 <a href="add-activity.html"><img src="../content/ui-add-activ.png" class="add-activ-ico"></a>
-                <a><img src="../content/ui-progress.png" class="progress-ico"></a>
+                <a href="progress.html"><img src="../content/ui-progress.png" class="progress-ico"></a>
                 <a><img src="../content/ui-records.png" class="records-ico"></a>
                 <a><img src="../content/ui-points.png" class="points-ico"></a>
             </div>
@@ -38,6 +38,11 @@
                 <a href="actions.html"><img src="../content/ui-48-sport-challenge.png" class="challenge-ico"></a>
             </div>
         </div>
+        <form action="/api/activity" method="POST">
+            <input type="text" name="testMessage" required>
+            <button type="submit" id="testSubmitBttn"></button>
+        </form>
+
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const user = JSON.parse(localStorage.getItem("user"));

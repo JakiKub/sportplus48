@@ -5,11 +5,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
-const connect = mongoose.connect(process.env.MONGO_URI)
+const connect = mongoose.connect(process.env.MONGO_URI);
+const sqlite3 = require('sqlite3');
+const { open } = require('sqlite');
+let db;
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/content', express.static(path.join(__dirname, 'content')));
 app.get('/', (req, res) => {
@@ -24,6 +27,66 @@ const transporter = nodemailer.createTransport({
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
   }
+});
+// testy add-activ
+const startServ = async () => {
+  db = await open ({
+    filename: "./activities.db",
+    driver: sqlite3.Database
+  });
+  await db.exec (`
+      CREATE TABLE IF NOT EXISTS activities (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      testMessage TEXT,
+      status TEXT
+    )
+  `)
+};
+
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+    console.log(`serwer dziala na porcie ${PORT}`);
+});
+
+app.post("/api/activity", async (req, res) => {
+  const { testMessage } = req.body;
+
+  const result = await db.run (
+    "INSERT INTO activities (testMessage, status) VALUES (?, ?)",
+    [testMessage, "pending"]
+  )
+  const activityId = result.lastID;
+
+  const approveLink = `http://localhost:3000/api/approve/${activityId}`;
+  const denyLink = `http://localhost:3000/api/deny/${activityId}`;
+
+  await transporter.sendMail ({
+    from: process.env.SMTP_USER,
+    to: process.env.SMTP_USER,
+    subject: "test rejestracji aktywnosci",
+    html: `
+      <p><b>${testMessage}</b></p>
+      <a href="${approveLink}">akcptuj</a> |
+      <a href="${denyLink}">odmow</a>
+    `
+  })
+
+  res.send("czekaj sb teraz");
+})
+
+app.get("/api/approve/:id", async (req, res) => {
+  await db.run("UPDATE activities SET status = 'approved' WHERE id = ?", [req.params.id]);
+  res.send("aktywnosc zaakceptowana");
+});
+
+app.get("/api/deny/:id", async (req, res) => {
+  await db.run("UPDATE activities SET status = 'denied' WHERE id = ?", [req.params.id]);
+  res.send("aktywnosc odrzucona");
+});
+
+app.get("/api/activities", async (req, res) => {
+  const rows = await db.all("SELECT * FROM activities WHERE status = 'approved'");
+  res.json(rows);
 });
 
 try {
@@ -61,7 +124,7 @@ const logInSchema = new mongoose.Schema({
 const collection = new mongoose.model("users", logInSchema);
 
 app.post('/register', async (req, res) => {
-  console.log("req.body:", req.body);
+  //console.log("req.body:", req.body);
   
   const data = {
     email: req.body.email,
@@ -173,7 +236,4 @@ app.post('/reset-password/:token', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-    console.log(`serwer dziala na porcie ${PORT}`);
-});
+startServ();

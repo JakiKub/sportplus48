@@ -2,39 +2,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: clip;
 }
 /*main*/
-body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, body.reset-password, body.home {
+body.about-us, body.sports, body.profile, body.forgot-password, body.reset-password, body.home {
     background-color: black;
 }
 .navbar {
     color: aliceblue;
     display: flex;
     flex-direction: row;
-    position: fixed;
+    position: absolute;
     justify-content: space-between;
-    width: 62vw;
-    font-size: 1.7em;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bolder;
-    align-items: flex-end;
-    top: 5%;
+    width: 65vw;
+    font-size: 1.2em;
+    font-family: 'Radio Canada', sans-serif;
+    align-items: center;
+    top: 9%;
     right: 3%;
     padding-left: 20px;
     padding-right: 20px;
 }
-.navbar a, .navbar p {
+.navbar a, a.troll {
     color: white;
     text-decoration: none;
     transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
-.navbar a:hover, .navbar p:hover {
+.navbar a:hover {
     text-decoration: underline;
     text-decoration-color: #CAB99F;
     scale: 1.2;
 }
-.navbar p.troll {
-    cursor: pointer;
+a.troll:hover {
+    scale: 1.05;
 }
 .navbar-logged-in-top {
     width: 25vw;
@@ -81,7 +84,7 @@ body.about-us, body.coutries, body.sports, body.profile, body.forgot-password, b
 }
 .navbar-logged-in-top-username, .navbar-logged-in-top-email {
     color: whitesmoke;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
 }
 .navbar-logged-in-top-username {
     font-size: 1.2em;
@@ -169,7 +172,7 @@ body.actions {
     justify-content: space-between;
     width: 62vw;
     font-size: 1.7em;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     font-weight: bolder;
     align-items: flex-end;
     top: 5%;
@@ -204,7 +207,7 @@ p.minutes {
 }
 p.days, p.hours, p.minutes {
     margin: 0;
-    font-family: 'Leto', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     font-size: 150px;
     color: white;
     font-weight: bolder;
@@ -226,58 +229,407 @@ body.add-activity {
     margin: 0;
 }
 
+/* articles */
+body.articles {
+    background-image: url("../content/Articles\ Background.jpg");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    z-index: 0;
+}
+.article-category {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    scale: 0.8;
+    justify-content: space-between;
+    width: 100%;
+    top: 23%;
+    z-index: 2;
+}
+.article-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+.article-button:hover {
+    scale: 1.05;
+}
+.article-button:active {
+    scale: 1;
+}
+@keyframes sportNewsSlide {
+    0% {
+        left: 100%;
+    }
+    25% {
+        left: 75%;
+    }
+    50% {
+        left: 50%;
+    }
+    75% {
+        left: 25%;
+    }
+    100% {
+        left: 9.75%;
+    }
+}
+@keyframes workoutSlide {
+    0% {
+        left: 100%;
+    }
+    25% {
+        left: 75%;
+    }
+    50% {
+        left: 50%;
+    }
+    75% {
+        left: 25%;
+    }
+    100% {
+        left: 9.75%;
+    }
+}
+@keyframes healthSlide {
+    0% {
+        left: 100%;
+    }
+    25% {
+        left: 75%;
+    }
+    50% {
+        left: 50%;
+    }
+    75% {
+        left: 25%;
+    }
+    100% {
+        left: 9.75%;
+    }
+}
+@keyframes historySlide {
+    0% {
+        left: 100%;
+    }
+    25% {
+        left: 75%;
+    }
+    50% {
+        left: 50%;
+    }
+    75% {
+        left: 25%;
+    }
+    100% {
+        left: 9.75%;
+    }
+}
+@keyframes insidesSlide {
+    0% {
+        left: 100%;
+    }
+    25% {
+        left: 75%;
+    }
+    50% {
+        left: 50%;
+    }
+    75% {
+        left: 25%;
+    }
+    100% {
+        left: 9.75%;
+    }
+}
+@keyframes sportExplainedSlide {
+    0% {
+        left: 100%;
+    }
+    25% {
+        left: 75%;
+    }
+    50% {
+        left: 50%;
+    }
+    75% {
+        left: 25%;
+    }
+    100% {
+        left: 9.75%;
+    }
+}
+.sport-news {
+    display: flex;
+    min-height: 50vh;
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left: 9.75%;
+    margin: 0;
+    overflow: hidden;
+
+    animation: sportNewsSlide 1.5s linear forwards running;
+}
+.workout-advice {
+    animation: workoutSlide 1.5s linear forwards running;
+}
+.health-zone {
+    animation: healthSlide 1.5s linear forwards running;
+}
+.game-history {
+    animation: historySlide 1.5s linear forwards running;
+}
+.game-insides {
+    animation: insidesSlide 1.5s linear forwards running;
+}
+.sport-explained {
+    animation: sportExplainedSlide 1.5s linear forwards running;
+}
+.workout-advice, .health-zone, .game-history, .game-insides, .sport-explained {
+    display: none;
+    min-height: 50vh;
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left: 9.75%;
+    margin: 0;
+}
+.titles {
+    max-width: 541px;
+    max-height: 35px;
+}
+
 /*contact*/
 body.contact {
-    background-image: url("../content/contact-page.jpg");
+    background-image: url("../content/contact-us-background.jpg"), linear-gradient(to bottom, #07081A 20%, #15095B);
     background-size: cover;
-    background-position: center;
+    background-position: top left;
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0
 }
-.contact-data {
-    position: relative;
-    color: white;
-    top: 53%;
-    left: 20%;
-    font-size: 32px;
-    font-family: 'Poppins', sans-serif;
-    width: 500px;
-    height: 200px;
-    margin: 0;
+.navbar-contact {
+    color: aliceblue;
     display: flex;
-    flex-direction: column;
-    gap: 65px;
-}
-.contact-data p {
-    margin: 0;
-}
-.logo-contact {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
-    margin-bottom: 0;
-    top: 44%;
-    left: 3%;
-    z-index: 0;
-    width: 100px;
-    height: 300px;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between;
+    width: 65vw;
+    font-size: 1.2em;
+    font-family: 'Radio Canada', sans-serif;
     align-items: center;
+    top: 9%;
+    right: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navbar-contact a, a.troll {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.navbar-contact a:hover {
+    text-decoration: underline;
+    text-decoration-color: #CAB99F;
+    scale: 1.2;
+}
+a.troll:hover {
+    scale: 1.05;
+}
+.leave-a-message {
+    position: absolute;
+    bottom: 16%;
+    left: 15%;
+    display: flex;
+    flex-direction: column;
 }
 .leave-us-a-message {
-    position: relative;
-    top: 27%;
-    left: 14.3%;
     background-color: transparent;
     border-color: transparent;
     transition-duration: 0.7s;
+    margin-top: 1.3em;;
 }
 .leave-us-a-message:hover {
     scale: 1.1;
 }
+.leave-us-a-message:active {
+    scale: 1;
+}
+.contact-data {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 14.3%;
+    width: 50%;
+    justify-content: space-between;
+    padding: 0;
+}
+.address, .phone, .email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 23%;
+}
+#city, #phoneNumber, #contactEmail {
+    color: white;
+    /* margin-top: 20px; */
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.5em;
+    position: absolute;
+    top: 130%;
+    text-align: center;
+}
+#noDirect {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.5em;
+    position: absolute;
+    text-align: center;
+    top: 220%;
+}
+#contactTitle {
+    position: absolute;
+    top: 30%;
+    left: 13%;
+}
 
 /*countries*/
+ body.countries {
+    background-image: url("../content/background-countries-2.jpg");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+.jakies-napisy {
+    scale: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    max-width: 705px;
+    position: absolute;
+    top: 30%;
+    left: 8%;
+}
+#earthCountries {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -100;
+
+    animation: earthCountriesIntro 2s linear forwards running;
+}
+@keyframes earthCountriesIntro {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.countries-counter {
+    scale: 0.8;
+    display: flex;
+    flex-direction: column;
+    max-width: 588px;
+    max-height: 700px;
+    position: absolute;
+    right: 12%;
+    bottom: 5%;
+    gap: 60px;
+}
+.countries-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#countriesSlideLeft, #countriesSlideRight {
+    border: none;
+    background: transparent;
+    transition-duration: 0.4s;
+    max-width: 80px;
+    max-height: 80px;
+}
+#countriesSlideLeft:hover, #countriesSlideRight:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+#countriesSlideLeft:active, #countriesSlideRight:active {
+    scale: 1;
+}
+#countriesNumber {
+    color: white;
+    font-size: 20em;
+    font-weight: bold;
+    font-family: 'Radio Canada';
+    text-align: center;
+}
+#currentCountry {
+    /* max-width: 276px;
+    max-height: 64px; */
+    background-image: url("../content/POL-countries.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    width: 276px;
+    height: 64px;
+    z-index: 2;
+}
+#currentCountry.slide-left {
+    animation: countrySlideLeft 0.7s linear forwards running;
+}
+#currentCountry.slide-right {
+    animation: countrySlideRight 0.7s linear forwards running;
+}
+@keyframes countrySlideLeft {
+    0% {
+        opacity: 0
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes countrySlideRight {
+    0% {
+        opacity: 0
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 /*dashboard*/
 body.dashboard {
@@ -302,7 +654,7 @@ body.dashboard.logged-in {
     justify-content: space-between;
     width: 62vw;
     font-size: 1.7em;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     font-weight: bolder;
     align-items: flex-end;
     top: 5%;
@@ -336,7 +688,7 @@ body.dashboard.logged-in {
 }
 .log-in, .register {
     font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     color: #CAB99F;
     border-radius: 25px;
     padding-left: 40px;
@@ -376,7 +728,7 @@ body.dashboard.logged-in {
 }
 .log-in-modal {
     background-color: transparent;
-    background-image: url("../content/ekr-login.png");
+    background-image: url("../content/Login1.png");
     display: flex;
     width: 1335px;
     max-width: 100%;
@@ -387,16 +739,16 @@ body.dashboard.logged-in {
     position: absolute;
     background-color: transparent;
     border: transparent;
-    width: 18px;
-    height: 18px;
+    width: 30px;
+    height: 30px;
     top: 12.5%;
     right: 17%;
     cursor: pointer;
     transition-duration: 0.7s;
 }
 .log-in-in-modal {
-    width: 482px;
-    height: 132px;
+    width: 534px;
+    height: 181px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -407,7 +759,7 @@ body.dashboard.logged-in {
 }
 .log-in-modal p{
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     position: absolute;
     font-size: 20px;
     bottom: 50%;
@@ -416,7 +768,7 @@ body.dashboard.logged-in {
 .log-in-modal a {
     color: white;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     transition-duration: 1.5s;
 }
 .log-in-modal a:hover {
@@ -425,28 +777,45 @@ body.dashboard.logged-in {
     scale: 1.2;
 }
 .log-in-modal input.email {
-    width: 400px;
+    width: 550px;
     height: 50px;
     border-color: transparent;
-    background-color: transparent;
+    background-color: white;
     position: absolute;
     top: 38%;
     left: 20.5%;
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    font-family: 'Radio Canada', sans-serif;
     color: black;
 }
 .log-in-modal input.password {
-    width: 400px;
+    width: 550px;
     height: 50px;
     border-color: transparent;
-    background-color: transparent;
+    background-color: white;
     position: absolute;
     top: 38%;
-    right: 27.25%;
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    right: 20%;
+    font-size: 1.6em;
+    font-family: 'Radio Canada', sans-serif;
     color: black;
+}
+#loginText {
+    position: absolute;
+    width: 602px;
+    height: 50px;
+    top: 19%;
+    left: 35%;
+}
+#loginEmailText {
+    position: absolute;
+    left: 20.5%;
+    top: 35%;
+}
+#loginPasswordText {
+    position: absolute;
+    top: 34.2%;
+    left: 50.28%;
 }
 .register-modal-container {
     display: flex;
@@ -469,7 +838,7 @@ body.dashboard.logged-in {
 }
 .register-modal {
     background-color: transparent;
-    background-image: url("../content/ekr-register.png");
+    background-image: url("../content/Register1.png");
     display: flex;
     width: 1335px;
     max-width: 100%;
@@ -480,71 +849,91 @@ body.dashboard.logged-in {
     position: absolute;
     background-color: transparent;
     border: transparent;
-    width: 18px;
-    height: 18px;
+    width: 30px;
+    height: 30px;
     top: 12.5%;
     right: 17%;
     cursor: pointer;
     transition-duration: 0.7s;
 }
 .register-in-modal {
-    width: 482px;
-    height: 132px;
+    width: 534px;
+    height: 177px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 65%;
+    top: 54%;
     left: 36.5%;
     transition-duration: 0.7s;
 }
 .register-modal input.email {
-    width: 400px;
+    width: 520px;
     height: 50px;
     border-color: transparent;
-    background-color: transparent;
+    background-color: white;
     position: absolute;
     top: 38%;
     left: 20.5%;
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    font-family: 'Radio Canada', sans-serif;
     color: black;
 }
 .register-modal input.password {
-    width: 400px;
+    width: 520px;
     height: 50px;
     border-color: transparent;
-    background-color: transparent;
+    background-color: white;
     position: absolute;
     top: 38%;
-    right: 27.25%;
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    right: 20%;
+    font-size: 1.6em;
+    font-family: 'Radio Canada', sans-serif;
     color: black;
 }
 .register-modal input.username {
-    width: 400px;
+    width: 520px;
     height: 50px;
     border-color: transparent;
-    background-color: transparent;
+    background-color: white;
     position: absolute;
     top: 50%;
     left: 20.5%;
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    font-family: 'Radio Canada', sans-serif;
     color: black;
 }
 .register-modal input.nationalities {
-    width: 400px;
+    width: 520px;
     height: 50px;
     border-color: transparent;
-    background-color: transparent;
+    background-color: white;
     position: absolute;
     top: 50%;
-    right: 27.25%;
-    font-size: 30px;
-    font-family: 'Poppins' sans-serif;
+    right: 20%;
+    font-size: 1.6em;
+    font-family: 'Radio Canada' sans-serif;
     color: black;
+}
+#registerEmailText {
+    position: absolute;
+    left: 20.5%;
+    top: 36%;
+}
+#registerPasswordText {
+    position: absolute;
+    top: 36%;
+    left: 52.3%;
+}
+#registerUsernameText {
+    position: absolute;
+    left: 20.5%;
+    top: 48%;
+}
+#registerNationalityText {
+    position: absolute;
+    top: 48%;
+    left: 52.3%;
 }
 .register-modal p.termsOfServiceText {
     top: 60%;
@@ -557,8 +946,18 @@ body.dashboard.logged-in {
     color: white;
     font-size: 20px;
 }
-.log-in-close:hover, .log-in-in-modal:hover, .register-close:hover, .register-in-moda:hover {
-    scale: 1.1;
+#registerTextTop {
+    position: absolute;
+    top: 19%;
+    left: 34%;
+}
+#registerTextBottom {
+    position: absolute;
+    left: 31%;
+    bottom: 18.5%;
+}
+.log-in-close:hover, .log-in-in-modal:hover, .register-close:hover, .register-in-modal:hover {
+    scale: 1.03;
 }
 h1.profile, p.profile {
     color: white;
@@ -574,7 +973,7 @@ span.profile {
     height: 250px;
     width: 1000px;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     font-size: 45px;
     background-color: rgba(2, 2, 68, 0.7);
 }
@@ -616,7 +1015,7 @@ span.streak-counter {
     border: 1px solid white;
     border-radius: 25px;
     padding: 0px 10px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Radio Canada", sans-serif;
 }
 #streakButton {
     position: absolute;
@@ -724,7 +1123,7 @@ span.streak-counter {
 }
 #quote {
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     font-size: 25px;
     position: absolute;
     top: 2%;
@@ -753,7 +1152,7 @@ span.streak-counter {
 }
 #person {
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Radio Canada', sans-serif;
     font-size: 15px;
     position: absolute;
     left: 5%;
@@ -806,3 +1205,19 @@ span.streak-counter {
 /*reset-password*/
 
 /*sports*/
+
+/* test */
+#testSubmitBttn {
+    width: 100px;
+    height: 50px;
+    background-color: red
+}
+
+#testP {
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    background-image: url("../content/test-p.png");
+}

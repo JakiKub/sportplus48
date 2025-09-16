@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-wodth, initial-scale=1.0">
+        <title>Progress - Sport +48</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <ul id="activities"></ul>
+
+        <script>
+            async function loadActivities() {
+            const res = await fetch("/api/activities");
+            const activities = await res.json();
+
+            const list = document.getElementById("activities");
+            list.innerHTML = "";
+            activities.forEach(act => {
+                const li = document.createElement("li");
+                li.textContent = `${act.testMessage}`;
+                list.appendChild(li);
+            });
+            }
+
+            loadActivities();
+        </script>
+    </body>
+</html>

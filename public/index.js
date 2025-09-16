@@ -163,3 +163,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 10)
   };
 })
+document.addEventListener("DOMContentLoaded", () => {
+  const testPTroll = document.getElementById("testPTroll");
+  const testP = document.getElementById("testP");
+
+  testPTroll.addEventListener("mouseover", () => {
+    testP.style.backgroundImage = 'url("../content/test-p-2.png")';
+  })
+  testPTroll.addEventListener("mouseout", () => {
+    testP.style.backgroundImage = 'url("../content/test-p.png")';
+  })
+})

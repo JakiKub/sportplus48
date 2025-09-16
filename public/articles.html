@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Articles - Sport +48</title>
+        <link rel="shortcut icon" href="../content/logo-ikona-str.png">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    </head>
+    <body class="articles">
+        <div class="navbar">
+            <a href="dashboard.html">dashboard</a>
+            <a href="home.html">home</a>
+            <a href="about-us.html">about us</a>
+            <a href="articles.html">articles</a>
+            <a href="actions.html">actions</a>
+            <a href="coutries.html">countries</a>
+            <a href="contact.html">contact</a>
+            <a class="troll"><img src="../content/en-bttn.png"></a>
+        </div>
+        <div class="article-category">
+            <button class="article-button" id="sportNews"><img src="../content/Sport News.png"></button>
+            <button class="article-button" id="workoutAdvice"><img src="../content/Workout Advice.png"></button>
+            <button class="article-button" id="healthZone"><img src="../content/Health Zone.png"></button>
+            <button class="article-button" id="gameHistory"><img src="../content/History Of The Game.png"></button>
+            <button class="article-button" id="gameInsides"><img src="../content/Inside The Game.png"></button>
+            <button class="article-button" id="sportExplained"><img src="../content/Sport Explained.png"></button>
+        </div>
+        <div class="sport-news">
+            <img src="../content/SPORT NEWS Title.png" class="titles">
+            <div class="basketball"></div>
+            <div class="football"></div>
+            <div class="handball"></div>
+            <div class="hockey"></div>
+            <div class="olympics"></div>
+            <div class="tennis"></div>
+            <div class="volleyball"></div>
+        </div>
+        <div class="workout-advice">
+            <img src="../content/WORKOUT ADVICE Title.png" class="titles">
+        </div>
+        <div class="health-zone">
+            <img src="../content/HEALTH ZONE Title.png" class="titles">
+        </div>
+        <div class="game-history">
+            <img src="../content/HISTORY OF THE GAME Title.png" class="titles">
+        </div>
+        <div class="game-insides">
+            <img src="../content/INSIDE THE GAME Title.png" class="titles">
+        </div>
+        <div class="sport-explained">
+            <img src="../content/SPORT EXPLAINED Title.png" class="titles">
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const sportNews = document.getElementById("sportNews");
+                const workoutAdvice = document.getElementById("workoutAdvice");
+                const healthZone = document.getElementById("healthZone");
+                const gameHistory = document.getElementById("gameHistory");
+                const gameInsides = document.getElementById("gameInsides");
+                const sportExplained = document.getElementById("sportExplained");
+
+                const sport_news = document.getElementsByClassName("sport-news")[0];
+                const workout_advice = document.getElementsByClassName("workout-advice")[0];
+                const health_zone = document.getElementsByClassName("health-zone")[0];
+                const game_history = document.getElementsByClassName("game-history")[0];
+                const game_insides = document.getElementsByClassName("game-insides")[0];
+                const sport_explained = document.getElementsByClassName("sport-explained")[0];
+
+                const sportNewsSlide = document.getAnimations("sportNewsSlide")[0];
+                const workoutSlide = document.getAnimations("workoutSlide")[0];
+                const healthSlide = document.getAnimations("healthSlide")[0];
+                const historySlide = document.getAnimations("historySlide")[0];
+                const insidesSlide = document.getAnimations("insidesSlide")[0];
+                const sportExplainedSlide = document.getAnimations("sportExplainedSlide")[0];
+
+                sportNews.onclick = function() {
+                    sport_news.style.display = "flex";
+                    workout_advice.style.display = "none";
+                    health_zone.style.display = "none";
+                    game_history.style.display = "none";
+                    game_insides.style.display = "none";
+                    sport_explained.style.display = "none";
+
+                    sportNewsSlide.pause();
+                    sportNewsSlide.play();
+                }
+                workoutAdvice.onclick = function() {
+                    sport_news.style.display = "none";
+                    workout_advice.style.display = "flex";
+                    health_zone.style.display = "none";
+                    game_history.style.display = "none";
+                    game_insides.style.display = "none";
+                    sport_explained.style.display = "none";
+
+                    
+                    workoutSlide.play();
+                }
+                healthZone.onclick = function() {
+                    sport_news.style.display = "none";
+                    workout_advice.style.display = "none";
+                    health_zone.style.display = "flex";
+                    game_history.style.display = "none";
+                    game_insides.style.display = "none";
+                    sport_explained.style.display = "none";
+
+                    healthSlide.play();
+                }
+                gameHistory.onclick = function() {
+                    sport_news.style.display = "none";
+                    workout_advice.style.display = "none";
+                    health_zone.style.display = "none";
+                    game_history.style.display = "flex";
+                    game_insides.style.display = "none";
+                    sport_explained.style.display = "none";
+
+                    historySlide.play;
+                }
+                gameInsides.onclick = function() {
+                    sport_news.style.display = "none";
+                    workout_advice.style.display = "none";
+                    health_zone.style.display = "none";
+                    game_history.style.display = "none";
+                    game_insides.style.display = "flex";
+                    sport_explained.style.display = "none";
+
+                    insidesSlide.play();
+                }
+                sportExplained.onclick = function() {
+                    sport_news.style.display = "none";
+                    workout_advice.style.display = "none";
+                    health_zone.style.display = "none";
+                    game_history.style.display = "none";
+                    game_insides.style.display = "none";
+                    sport_explained.style.display = "flex";
+
+                    sportExplainedSlide.play();
+                }
+            })
+        </script>
+    </body>
+</html>
