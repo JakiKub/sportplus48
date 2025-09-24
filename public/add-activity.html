@@ -11,48 +11,72 @@
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="add-activity">
-        <div class="navbar-logged-in-top" id="navbarAddActivLoggedInTop">
-            <div class="navbar-logged-in-top-wrapper" id="navbarAddActivLoggedInTopWrapper">
+        <img src="../content/logohuju.png" class="logo-hóju">
+        <div class="navbar-top-wrapper" id="navbarTopWrapper">
+            <button id="userBttn" class="user-bttn"></button>
+            <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
                 <h3 class="navbar-logged-in-top-username"><span id="usernameTop"></span></h3>
                 <p class="navbar-logged-in-top-email"><span id="emailTop"></span></p>
             </div>
-            <div class="navbar-logged-in-top-user-notif-wrapper">
-                <button class="navbar-logged-in-top-user"><a href="dashboard.html"><img src="../content/ui-user-button.png"></a></button>
-                <button class="navbar-logged-in-top-notification"><img src="../content/ui-notification-button.png"></button>
-                <button id="profileLogOutAddActiv" class="navbar-logout-button"><img src="../content/logout.png"></button>
-            </div>
+        </div>
+        <div class="navbar-add-activ-top">
+            <button id="enBttn" class="en-bttn"></button>
+            <button id="notifBttn" class="notif-bttn"></button>
+            <button id="profileLogOutAddActiv" class="logout-bttn"></button>
         </div>
         <div class="navbar-logged-in" id="navbarAddActiv">
             <div class="navbar-logged-in-main">
-                <a href="dashboard.html"><img src="../content/ui-dashboard.png" class="dashboard-ico"></a>
-                <a href="home.html"><img src="../content/ui-home.png" class="home-ico"></a>
+                <img src="../content/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/sb home.png" class="home-ico"></a>
             </div>
             <div class="navbar-logged-in-ypttt">
-                <a href="add-activity.html"><img src="../content/ui-add-activ.png" class="add-activ-ico"></a>
-                <a href="progress.html"><img src="../content/ui-progress.png" class="progress-ico"></a>
-                <a><img src="../content/ui-records.png" class="records-ico"></a>
-                <a><img src="../content/ui-points.png" class="points-ico"></a>
+                <img src="../content/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/sb progress.png" class="progress-ico"></a>
+                <a><img src="../content/sb records.png" class="records-ico"></a>
+                <a><img src="../content/sb points.png" class="points-ico"></a>
             </div>
             <div class="navbar-logged-in-other">
-                <a><img src="../content/ui-ranking.png" class="ranking-ico"></a>
-                <a href="actions.html"><img src="../content/ui-48-sport-challenge.png" class="challenge-ico"></a>
+                <img src="../content/dsh other.png" class="other-dsh">
+                <a><img src="../content/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
-        <form action="/api/activity" method="POST">
-            <input type="text" name="testMessage" required>
-            <button type="submit" id="testSubmitBttn"></button>
+        <img src="../content/register activity title.png" id="titleRegisterActiv">
+        <form action="/api/activity" id="addActivForm" method="POST">
+            <div class="activs-div">
+                <p class="sel-activ">Select Activity</p><select name="activs" id="activs" required>
+                    <option value="">SELECT ACTIVITY (pls dont choose this one i beg you ~ programmer)</option>
+                    <option value="running">RUNNING</option>
+                    <option value="swimming">SWIMMING</option>
+                </select>
+            </div>
+            <div class="dist-time-div">
+                <div class="dist-div">
+                    <p class="dist-p">Distance</p><input type="number" name="distance" id="distance"><p class="km-p">KM</p>
+                </div>
+                <div class="time-div">
+                    <p class="time-p">Time</p><input type="time" name="time" id="time">
+                </div>
+            </div>
+            <div class="evid-div">
+                <p class="evid-p">Upload Evidence</p><button type="button" id="uploadEvidence"></button>
+            </div>
+            <button type="submit" id="submitBttn"></button>
         </form>
+        <img src="../content/discl.png" id="disclaimerIAmNotPlayingByTheRules">
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const user = JSON.parse(localStorage.getItem("user"));
 
-                const navbarAddActivLoggedInTopWrapper = document.getElementById("navbarAddActivLoggedInTopWrapper");
+                const navbarUserEmailTopWrapper = document.getElementById("navbarUserEmailTopWrapper");
 
-                if (user && navbarAddActivLoggedInTopWrapper) {
+                if (user && navbarUserEmailTopWrapper) {
                     document.getElementById("usernameTop").textContent = user.username;
                     document.getElementById("emailTop").textContent = user.email;
-                    document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
+                    //document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
                     document.getElementById("navbarAddActiv").style.display = "flex";
                 }
             });
@@ -64,6 +88,19 @@
                 location.reload();
                 });
             }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const timeInput = document.querySelector('input[type="time"]');
+
+                timeInput.addEventListener("click", () => {
+                    if (timeInput.showPicker) {
+                        timeInput.showPicker();
+                    }
+                });
+            })
+            document.getElementById("userBttn").addEventListener("click", () => {
+                window.location.href = 'dashboard.html';
+            })
         </script>
     </body>
 </html>

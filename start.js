@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const connect = mongoose.connect(process.env.MONGO_URI);
-const sqlite3 = require('sqlite3');
-const { open } = require('sqlite');
-let db;
+// const sqlite3 = require('sqlite3');
+// const { open } = require('sqlite');
+// let db;
 
 const app = express();
 app.use(express.json());
@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SMTP_PASS
   }
 });
-// testy add-activ
+/* testy add-activ
 const startServ = async () => {
   db = await open ({
     filename: "./activities.db",
@@ -41,14 +41,14 @@ const startServ = async () => {
       status TEXT
     )
   `)
-};
+}; */
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`serwer dziala na porcie ${PORT}`);
 });
 
-app.post("/api/activity", async (req, res) => {
+/* app.post("/api/activity", async (req, res) => {
   const { testMessage } = req.body;
 
   const result = await db.run (
@@ -87,7 +87,7 @@ app.get("/api/deny/:id", async (req, res) => {
 app.get("/api/activities", async (req, res) => {
   const rows = await db.all("SELECT * FROM activities WHERE status = 'approved'");
   res.json(rows);
-});
+}); */
 
 try {
   connect.then(async () => {
@@ -122,6 +122,18 @@ const logInSchema = new mongoose.Schema({
 })
 
 const collection = new mongoose.model("users", logInSchema);
+
+// const addActivSchema = new mongoose.Schema({
+//   activity: {
+//     type: String,
+//     required: true
+//   },
+//   distance: {
+//     type: Number,
+//     required: true
+//   },
+//   time: 
+// })
 
 app.post('/register', async (req, res) => {
   //console.log("req.body:", req.body);
@@ -236,4 +248,4 @@ app.post('/reset-password/:token', async (req, res) => {
   }
 });
 
-startServ();
+//startServ();

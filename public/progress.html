@@ -2,31 +2,85 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-wodth, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Progress - Sport +48</title>
+        <link rel="shortcut icon" href="../content/logo-ikona-str.png">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <ul id="activities"></ul>
+    <body class="progress">
+        <img src="../content/logohuju.png" class="logo-hóju">
+        <div id="navbarProgressTop" class="navbar-top-wrapper">
+            <button id="userBttn" class="user-bttn"></button>
+            <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
+                <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
+                <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
+            </div>
+        </div>
+        <div id="navbarTop" class="navbar-user-email-top-wrapper">
+            <button id="enBttn" class="en-bttn"></button>
+            <button id="notifBttn" class="notif-bttn"></button>
+            <button id="profileLogOut" class="logout-bttn"></button>
+        </div>
+        <div class="navbar-logged-in" id="navbarProgressLoggedIn">
+            <div class="navbar-logged-in-main">
+                <img src="../content/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/sb home.png" class="home-ico"></a>
+            </div>
+            <div class="navbar-logged-in-ypttt">
+                <img src="../content/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/sb progress.png" class="progress-ico"></a>
+                <a><img src="../content/sb records.png" class="records-ico"></a>
+                <a><img src="../content/sb points.png" class="points-ico"></a>
+            </div>
+            <div class="navbar-logged-in-other">
+                <img src="../content/dsh other.png" class="other-dsh">
+                <a><img src="../content/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/sb 48sc.png" class="challenge-ico"></a>
+            </div>
+        </div>
+        <!--<ul id="activities"></ul>-->
 
         <script>
-            async function loadActivities() {
-            const res = await fetch("/api/activities");
-            const activities = await res.json();
+            // async function loadActivities() {
+            // const res = await fetch("/api/activities");
+            // const activities = await res.json();
 
-            const list = document.getElementById("activities");
-            list.innerHTML = "";
-            activities.forEach(act => {
-                const li = document.createElement("li");
-                li.textContent = `${act.testMessage}`;
-                list.appendChild(li);
-            });
-            }
+            // const list = document.getElementById("activities");
+            // list.innerHTML = "";
+            // activities.forEach(act => {
+            //     const li = document.createElement("li");
+            //     li.textContent = `${act.testMessage}`;
+            //     list.appendChild(li);
+            // });
+            // }
 
-            loadActivities();
+            // loadActivities();
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const user = JSON.parse(localStorage.getItem("user"));
+
+                const navbarUserEmailTopWrapper = document.getElementById("navbarUserEmailTopWrapper");
+
+                if (user && navbarUserEmailTopWrapper) {
+                    document.getElementById("usernameDashboardTop").textContent = user.username;
+                    document.getElementById("emailDashboardTop").textContent = user.email;
+                    document.getElementById("navbarTop").style.display = "flex";
+                    //document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
+                }
+
+                const profileLogOut = document.getElementById("profileLogOut");
+                if (profileLogOut) {
+                    profileLogOut.addEventListener("click", () => {
+                    localStorage.removeItem("user");
+                    location.reload();
+                    });
+                };
+            })
         </script>
     </body>
 </html>

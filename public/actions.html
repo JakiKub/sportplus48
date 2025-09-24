@@ -8,36 +8,55 @@
         <link rel="stylesheet" href="/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="actions">
-        <div class="navbar">
-            <a href="dashboard.html">dashboard</a>
-            <a href="home.html">home</a>
-            <a href="about-us.html">about us</a>
-            <a href="articles.html">articles</a>
-            <a href="actions.html">actions</a>
-            <a href="coutries.html">countries</a>
-            <a href="contact.html">contact</a>
-            <a class="troll"><img src="../content/en-bttn.png"></a>
+        <div class="logo-wrapper">
+            <img src="../content/LOGO AKCJI 2.png" id="logoAkcjiDwa">
+            <img src="../content/LOGO AKCJI.png" id="logoAkcji">
         </div>
+        <div class="navbar-actions">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about-event.html">About</a>
+            <a href="schedule-event.html">Schedule</a>
+            <a href="partners-event.html">Partners</a>
+            <a href="documents-event.html">Documents</a>
+            <a href="faq-event.html">FAQ</a>
         </div>
+        <img src="../content/where the future - napis.png" id="gdzieSaTeDzieci">
+        <img src="../content/odliczanie2.jpg" id="nowyRokDwa">
         <div class="time">
-            <p class="days" id="daysId"></p>
-            <p class="hours" id="hoursId"></p>
-            <p class="minutes" id="minutesId"></p>
+            <div class="days-div">
+                <p class="days" id="daysId"></p>
+                <p class="days-text">Days</p>
+            </div>
+            <p class="dwukropek">:</p>
+            <div class="hours-div">
+                <p class="hours" id="hoursId"></p>
+                <p class="hours-text">Hours</p>
+            </div>
+            <p class="dwukropek">:</p>
+            <div class="minutes-div">
+                <p class="minutes" id="minutesId"></p>
+                <p class="minutes-text">Minutes</p>
+            </div>
+            <p class="dwukropek">:</p>
+            <div class="seconds-div">
+                <p class="seconds" id="secondsId"></p>
+                <p class="seconds-text">Seconds</p>
+            </div>
         </div>
-        <div class="logo">
+        <!-- <div class="logo">
             <div class="tiktok-logo">
                 <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/tiktok-png.png"></a>
             </div>
             <div class="instagram-logo">
                 <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/instagram-png.png"></a>
             </div>
-        </div>
+        </div> -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                const date = new Date(2025, 9, 11, 20, 48);//to jest do zmiany bo nie wiem jaka dat tu ma byc
+                const date = new Date(2025, 9, 10, 12, 0, 0);
 
                 function updateCountdown() {
                     const now = new Date();
@@ -46,10 +65,12 @@
                     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
                     document.getElementById("daysId").innerText = days;
                     document.getElementById("hoursId").innerText = hours;
                     document.getElementById("minutesId").innerText = minutes;
+                    document.getElementById("secondsId").innerText = seconds;
                 }
 
                 updateCountdown();

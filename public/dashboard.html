@@ -12,6 +12,7 @@
         <script src="index.js" defer></script>
     </head>
     <body class="dashboard">
+        <img src="../content/logohuju.png" class="logo-hóju" id="logoHóju">
         <div class="navbar-dashboard-logged-out" id="navbarDashboardLoggedOut">
             <p><a href="dashboard.html">dashboard</a></p>
             <p><a href="home.html">home</a></p>
@@ -22,40 +23,70 @@
             <p><a href="contact.html">contact</a></p>
             <p class="troll" id="testPTroll">EN</p>
         </div>
-        <!-- <p id="testP"></p> -->
-        <div class="navbar-logged-in-top" id="navbarDashboardLoggedInTop">
-            <div class="navbar-logged-in-top-wrapper" id="navbarDashboardLoggedInTopWrsapper">
+        <div id="navbarDashboardLoggedInTop">
+            <button id="userBttn" class="user-bttn"></button>
+            <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
                 <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
                 <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
             </div>
-            <div class="navbar-logged-in-top-user-notif-wrapper">
-                <button class="navbar-logged-in-top-user"><a href="dashboard.html"><img src="../content/ui-user-button.png"></a></button>
-                <button class="navbar-logged-in-top-notification"><img src="../content/ui-notification-button.png"></button>
-                <button id="profileLogOut" class="navbar-logout-button"><img src="../content/logout.png"></button>
+        </div>
+        <div id="navbarTop">
+            <button id="enBttn" class="en-bttn"></button>
+            <button id="notifBttn" class="notif-bttn"></button>
+            <button id="profileLogOut" class="logout-bttn"></button>
+        </div>
+        <div class="some-text" id="someText">
+            <img src="../content/keep working title dashboard.png" id="keepWorking">
+            <p id="someTextP">Believe in your own abilities and take one step each day on your way to the top</p>
+        </div>
+        <div class="sc-starts-in" id="scStartsIn">
+            <img src="../content/chujchujchuj1.png" id="scImg">
+            <div class="dsh-days" id="dshDays">
+                <p id="dshDaysNumber"></p>
+                <p id="dshDaysP">DAYS</p>
+            </div>
+            <div class="dsh-hours" id="dshHours">
+                <p id="dshHoursNumber"></p>
+                <p id="dshHoursP">HOURS</p>
+            </div>
+            <div class="dsh-minutes" id="dshMinutes">
+                <p id="dshMinutesNumber"></p>
+                <p id="dshMinutesP">MINUTES</p>
+            </div>
+            <div class="dsh-seconds" id="dshSeconds">
+                <p id="dshSecondsNumber"></p>
+                <p id="dshSecondsP">SECONDS</p>
             </div>
         </div>
-        <div class="navbar-logged-in" id="navbarDashboardLoggedIn">
+         <div class="navbar-logged-in" id="navbarDashboardLoggedIn">
             <div class="navbar-logged-in-main">
-                <a href="dashboard.html"><img src="../content/ui-dashboard.png" class="dashboard-ico"></a>
-                <a href="home.html"><img src="../content/ui-home.png" class="home-ico"></a>
+                <img src="../content/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/sb home.png" class="home-ico"></a>
             </div>
             <div class="navbar-logged-in-ypttt">
-                <a href="add-activity.html"><img src="../content/ui-add-activ.png" class="add-activ-ico"></a>
-                <a href="progress.html"><img src="../content/ui-progress.png" class="progress-ico"></a>
-                <a><img src="../content/ui-records.png" class="records-ico"></a>
-                <a><img src="../content/ui-points.png" class="points-ico"></a>
+                <img src="../content/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/sb progress.png" class="progress-ico"></a>
+                <a><img src="../content/sb records.png" class="records-ico"></a>
+                <a><img src="../content/sb points.png" class="points-ico"></a>
             </div>
             <div class="navbar-logged-in-other">
-                <a><img src="../content/ui-ranking.png" class="ranking-ico"></a>
-                <a href="actions.html"><img src="../content/ui-48-sport-challenge.png" class="challenge-ico"></a>
+                <img src="../content/dsh other.png" class="other-dsh">
+                <a><img src="../content/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
         <div class="streak-container" id="streakContainer">
-            <span id="streak" data-value="0" class="streak-counter"></span>
-            <button id="streakInfo"><img src="../content/streak_info.png"></button>
-            <button id="streakButton"><img src="../content/add_a_new_streak_day.png"></button>
+            <div class="streak-counter-div">
+                <span id="streak" data-value="0" class="streak-counter"></span>
+            </div>
+            <button id="streakButton"><img src="../content/streak2.png"></button>
+            <a class="streak-lm" id="streakLearnMore">Learn more</a>
         </div>
-        <div class="believe-in-magic" id="believeInMagic"></div>
+        <div class="daily-challenge" id="dailyChallenge">
+            <h3 id="challenge"></h3>
+        </div>
         <div class="motiv-quote" id="motivQuote">
             <button id="quoteChange"></button>
             <div id="randomQuote">
@@ -63,7 +94,14 @@
                 <p id="person"></p>
             </div>
         </div>
-        <div class="personal-goals" id="personalGoals"></div>
+        <div class="personal-goals" id="personalGoals">
+            
+        </div>
+        <div class="get-inspired" id="getInspired">
+            <button id="inspirChange"></button>
+            <p id="textInGetInspir"></p>
+        </div>
+         <!-- profileContainer i tak sie nie wyswietla wiec jest tylko do warunku w index.js krotko mowiac nie usuwac tego. dziala to dziala -->
         <div class="profile-container" id="profileContainer" style="display: none;">
             <h1 class="profile"><span id="username" class="profile"></span></h1>
             <p class="profile"><span id="nationality" class="profile"></span></p>

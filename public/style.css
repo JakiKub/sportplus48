@@ -1,8 +1,16 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none; /* usuwa ikonkę zegara */
+  -webkit-appearance: none;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: clip;
 }
 /*main*/
 body.about-us, body.sports, body.profile, body.forgot-password, body.reset-password, body.home {
@@ -97,37 +105,48 @@ a.troll:hover {
     flex-direction: column;
     position: absolute;
     top: 17.5%;
-    left: 2.8%;
+    left: 0%;
     text-align: left;
+    gap: 40px;
     padding: 0;
 }
-.navbar-logged-in-main {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 90px;
-}
-.navbar-logged-in-ypttt {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0;
+.main-dsh, .ypttp-dsh, .other-dsh {
     position: relative;
-    margin-bottom: 90px;
+    left: 10%;
 }
-.navbar-logged-in-other {
+.navbar-logged-in-main, .navbar-logged-in-ypttt, .navbar-logged-in-other {
     display: flex;
     flex-direction: column;
-    margin-left: 0;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+.navbar-logged-in a {
+    display: flex;
+    align-items: center;
+    width: 432px;
+    height: 50px;
+    text-decoration: none;
+    transition-duration: 2s;
+}
+.navbar-logged-in a:hover {
+    background: linear-gradient(90deg, #1A2A77, #0C0F30);
+}
+.navbar-logged-in a img {
+    width: auto;
+    height: auto; 
+    max-height: 100%;
     position: relative;
-
+    left: 10%;
+}
+.navbar-logged-in a img {
+    transition-duration: .4s;
+}
+.navbar-logged-in a img:hover {
+    transform: scale(1.02);
 }
 .dashboard-ico, .home-ico, .add-activ-ico, .progress-ico, .records-ico, .points-ico, .ranking-ico, .challenge-ico {
     cursor: pointer;
-    transition-duration: 0.4s;
-}
-.dashboard-ico:hover, .home-ico:hover, .add-activ-ico:hover, .progress-ico:hover, .records-ico:hover, .points-ico:hover, .ranking-ico:hover, .challenge-ico:hover {
-    scale: 1.05;
-    background: linear-gradient(90deg, #1D1C2D, #413C8E);
-    border-radius: 23px;
 }
 .logo {
     position: fixed;
@@ -153,16 +172,77 @@ a.troll:hover {
 .instagram-logo:active, .tiktok-logo:active {
     scale: 1;
 }
-
+.logo-hóju {
+    transform: scale(.83);
+    transform-origin: top left;
+    position: absolute;
+    top: 5%;
+    left: 4%;
+}
+.en-bttn {
+    background-image: url("../content/dashboard\ en\ button.png");
+    width: 71px;
+    height: 71px;
+    background-color: transparent;
+    border: none;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+.notif-bttn {
+    background-image: url("../content/dashboard\ notification\ button.png");
+    width: 71px;
+    height: 71px;
+    background-color: transparent;
+    border: none;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+.logout-bttn {
+    background-image: url("../content/dashboard\ logout\ button.png");
+    width: 71px;
+    height: 71px;
+    background-color: transparent;
+    border: none;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+.user-bttn {
+    background-image: url("../content/dashboard\ user.png");
+    width: 78px;
+    height: 78px;
+    background-color: transparent;
+    border: none;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+.en-bttn:hover, .notif-bttn:hover, .logout-bttn:hover {
+    transform: scale(1.03);
+}
+.en-bttn:active, .notif-bttn:active, .logout-bttn:active {
+    transform: scale(1);
+}
+.user-bttn:hover {
+    transform: scale(1.03);
+}
+.user-bttn:active {
+    transform: scale(1);
+}
+.navbar-user-email-top-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 /*about-us*/
 
 /*actions*/
 body.actions {
-    background-image: url("../content/actions-page.jpg");
-    height: 2160px;
+    background-image: url("../content/background-main.jpg");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-y: scroll;
+    overflow: visible !important;
 }
 .navbar-actions {
     color: aliceblue;
@@ -170,12 +250,11 @@ body.actions {
     flex-direction: row;
     position: absolute;
     justify-content: space-between;
-    width: 62vw;
-    font-size: 1.7em;
+    width: 55%;
+    font-size: 1.4em;
     font-family: 'Radio Canada', sans-serif;
-    font-weight: bolder;
-    align-items: flex-end;
-    top: 5%;
+    align-items: center;
+    top: 9.8%;
     right: 3%;
     padding-left: 20px;
     padding-right: 20px;
@@ -193,40 +272,413 @@ body.actions {
 .navbar-actions p.troll {
     cursor: pointer;
 }
-p.days {
-    /*margin-right: 137px;*/
-    left: 31%;
-}
-p.hours {
-    /*margin-left: 0;
-    margin-right: 176px;*/
-    left: 48.75%;
-}
-p.minutes {
-    right: 26.3%;
-}
-p.days, p.hours, p.minutes {
+.time {
     margin: 0;
-    font-family: 'Radio Canada', sans-serif;
-    font-size: 150px;
+    font-family: 'Inter', sans-serif;
     color: white;
-    font-weight: bolder;
     position: absolute;
     display: flex;
     justify-items: center;
-    width: auto;
-    height: auto;
+    align-items: center;
+    gap: 20px;
+    width: 30%;
+    height: 8%;
+    bottom: 10%;
+    right: 20%;
+}
+.days-div, .hours-div, .minutes-div, .seconds-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+p.days, p.hours, p.minutes, p.seconds {
+    font-size: 4em;
+    font-weight: bolder;
+}
+p.dwukropek {
+    font-size: 2.4em;
+}
+p.days-text, p.hours-text, p.minutes-text, p.seconds-text {
+    font-size: 1em
+}
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    transform: scale(.3);
+    transform-origin: top left;
+}
+#logoAkcji, #logoAkcjiDwa {
+    margin: 0;
+}
+#gdzieSaTeDzieci {
+    position: absolute;
+    bottom: 30%;
+    left: 24%;
+    transform: scale(.9);
+}
+#nowyRokDwa {
+    transform: scale(.9);
+    z-index: -1000;
+    position: absolute;
+    bottom: 5%;
+    left: 20.3%;
+}
+
+/*about event*/
+body.about-event {
+    background-image: url("../content/background-about.jpg");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+#titleAbout {
+    position: absolute;
+    transform: scale(.8);
+    transform-origin: top left;
+    top: 20%;
+    left: 7%;
+}
+.za-dlugi-tekst {
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    left: 7%;
+    top: 40%;
+    width: 680px;
+    gap: 70px;
+}
+
+/* partners event */
+body.partners-event {
+    background-image: url("../content/background-partners.jpg");
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+#titlePartners {
+    transform: scale(.85);
+    transform-origin: top left;
+    position: absolute;
+    left: 7%;
+    top: 20%;
+}
+p.partners-text {
+    color: white;
+    font-size: 1.7em;
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    left: 7%;
+    top: 34.3%;
+}
+#projectPartners {
+    transform: scale(.82);
+    transform-origin: top left;
+    position: absolute;
+    left: 7%;
     top: 44%;
 }
+.partners-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    position: absolute;
+    left: 7%;
+    top: 52%;
+}
+#actionPartners {
+    transform: scale(.82);
+    transform-origin: top left;
+    position: absolute;
+    left: 7%;
+    top: 67.2%;
+}
+
+/* schedule event */
+body.schedule-event {
+    background-image: url("../content/background-schedule.jpg");
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+#titleSchedule {
+    transform: scale(.82);
+    transform-origin: top left;
+    position: absolute;
+    right: 3.4%;
+    top: 22.6%;
+}
+#scheduleGraph {
+    transform: scale(.86);
+    transform-origin: top left;
+    position: absolute;
+    right: 7%;
+    top: 40%;
+}
+
+/* documents event */
+body.documents-event {
+    background-image: url("../content/background-documents.jpg");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.documents-list {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    top: 30%;
+    right: 11.5%;
+}
+.documents-list a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.7em;
+    font-weight: 500;
+}
+#titleDocuments {
+    transform: scale(.815);
+    transform-origin: top left;
+    position: absolute;
+    top: 21%;
+    right: -6%;
+    margin: 0;
+}
+
+/* faq event */
+body.faq-event {
+    background-color: #05061B;
+    margin: 0;
+    padding: 0;
+}
+#titleFaq {
+    transform: scale(.82);
+    position: absolute;
+    top: 18%;
+    left: 10%;
+}
+.faq-questions {
+    display: flex;
+    flex-direction: column;
+}
+#faq1 {
+    background-image: url("../content/faq1.png");
+}
+/* #faq2 {
+
+}
+#faq3 {
+
+}
+#faq4 {
+
+}
+#faq5 {
+
+}
+#faq6 {
+
+}
+#faq7 {
+
+}
+#faq8 {
+
+} */
 
 /*add-activity*/
 body.add-activity {
-    background-image: url("../content/background-ui.jpg");
-    background-size: 1920px 1080px;
+    background-image: url("../content/dashboard\ background.jpg");
+    background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
+}
+#titleRegisterActiv {
+    transform: scale(.9);
+    transform-origin: top left;
+    position: absolute;
+    top: 28%;
+    right: 24%;
+}
+#disclaimerIAmNotPlayingByTheRules {
+    transform: scale(.78);
+    transform-origin: top left;
+    position: absolute;
+    right: 1%;
+    bottom: 11%;
+}
+#addActivForm {
+    height: 36%;
+    width: 1124px;
+    border: none;
+    position: absolute;
+    right: 8.5%;
+    top: 41%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+#activs {
+    background-image: url("../content/select\ activity.png");
+    appearance: none;
+    min-width: 917px;
+    min-height: 64px;
+    width: 917px;
+    height: 64px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+}
+.activs-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+p.sel-activ, p.evid-p {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.28em;
+    font-weight: 400;
+}
+option {
+    background-color: black;
+    color: white;
+}
+.dist-time-div {
+    display: flex;
+    flex-direction: row;
+    gap: 222px;
+}
+.dist-div, .time-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+#distance {
+    background-image: url("../content/distance.png");
+    width: 279px;
+    height: 64px;
+    background-color: transparent;
+    border: none;
+    appearance: none; 
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 2.4em;
+    font-weight: 500;
+}
+#time {
+    background-image: url("../content/time.png");
+    width: 279px;
+    height: 64px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 2.4em;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+p.dist-p, p.time-p, p.km-p {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.28em;
+    font-weight: 400;
+}
+#submitBttn {
+    background-image: url("../content/send\ for\ approval.png");
+    width: 1123px;
+    height: 64px;
+    background-color: transparent;
+    border: none;
+    transition-duration: .4s;
+}
+#submitBttn:hover {
+    transform: scale(1.023);
+    cursor: pointer;
+}
+#submitBttn:active {
+    transform: scale(1);
+}
+#uploadEvidence {
+    background-image: url("../content/upload\ file.png");
+    width: 917px;
+    height: 64px;
+    background-color: transparent;
+    border: none;
+    transition-duration: 0.4s;
+}
+.evid-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+#uploadEvidence:hover {
+    transform: scale(1.023);
+    cursor: pointer;
+}
+#uploadEvidence:active {
+    transform: scale(1);
+}
+.navbar-add-activ-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 223px;
+    height: 73px;
+    gap: 5px;
+    position: absolute;
+    top: 6%;
+    right: 4%;
+}
+.navbar-top-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 6%;
+    left: 25%;
+    align-items: center;
+    gap: 20px;
 }
 
 /* articles */
@@ -238,6 +690,7 @@ body.articles {
     height: 100vh;
     margin: 0;
     z-index: 0;
+    overflow: hidden;
 }
 .article-category {
     position: absolute;
@@ -641,10 +1094,14 @@ body.dashboard {
     margin: 0;
 }
 body.dashboard.logged-in {
-    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/UI-backgr.jpg");
-    background-size: contain;
+    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/dashboard\ background.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: top left;
     background-color: #0B0C20;
+}
+#logoHóju {
+    display: none;
 }
 .navbar-dashboard-logged-out {
     color: aliceblue;
@@ -653,11 +1110,11 @@ body.dashboard.logged-in {
     position: fixed;
     justify-content: space-between;
     width: 62vw;
-    font-size: 1.7em;
+    font-size: 1.2em;
     font-family: 'Radio Canada', sans-serif;
     font-weight: bolder;
     align-items: flex-end;
-    top: 5%;
+    top: 6.8%;
     right: 3%;
     padding-left: 20px;
     padding-right: 20px;
@@ -978,21 +1435,37 @@ span.profile {
     background-color: rgba(2, 2, 68, 0.7);
 }
 .streak-container {
-    width: 584px;
-    height: 65px;
+    width: 662px;
+    height: 64px;
     position: absolute;
     top: 36.9%;
-    left: 26%;
+    left: 24%;
     display: none;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 25px;
     align-items: center;
-    background-image: url("../content/training_streak.png");
+    background-image: url("../content/training\ streak.png");
     margin: 0;
 
     animation: streakContainerSlideLeft 1s linear;
 }
-@keyframes streakContainerSlideLeft {
+a.streak-lm {
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+    font-size: 1.4em;
+    font-family: 'Radio Canada', sans-serif;
+    font-weight: 300;
+    transition-duration: .4s;
+}
+a.streak-lm:hover {
+    transform: scale(1.05);
+}
+a.streak-lm:active {
+    transform: scale(1);
+}
+/* @keyframes streakContainerSlideLeft {
     0% {
         left: 50%;
         opacity: 0.2;
@@ -1005,76 +1478,45 @@ span.profile {
         left: 26%;
         opacity: 1;
     }
-}
+} */
 span.streak-counter {
     color: white;
-    position: absolute;
-    left: 37%;
-    margin: 0;
     font-size: 2.3em;
-    border: 1px solid white;
-    border-radius: 25px;
-    padding: 0px 10px;
     font-family: "Radio Canada", sans-serif;
 }
+.streak-counter-div {
+    background-image: url("../content/streak1.png");
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #streakButton {
-    position: absolute;
-    right: 2%;
     margin: 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
     transition-duration: 0.4s;
 }
-#streakInfo {
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    right: 38%;
-    cursor: pointer;
-    transition-duration: 0.4s;
+#streakButton:hover {
+    transform: scale(1.05);
 }
-#streakButton:hover, #streakInfo:hover {
-    scale: 1.05;
-}
-.believe-in-magic {
-    background-image: url("../content/believe_in_the_magic.png");
-    width: 584px;
-    height: 476px;
-    margin: 0;
-    position: absolute;
-    left: 26%;
-    bottom: 2%;
-    display: none;
-
-    animation: believeInMagicSlideLeft 1s linear;
-}
-@keyframes believeInMagicSlideLeft {
-    0% {
-        left: 50%;
-        opacity: 0.5;
-    }
-    50% {
-        left: 35%;
-        opacity: 0.7;
-    }
-    100% {
-        left: 26%;
-        opacity: 1;
-    }
+#streakButton:active {
+    transform: scale(1);
 }
 .motiv-quote {
-    width: 654px;
-    height: 234px;
-    background-image: url("../content/motivational_quote.png");
+    width: 696px;
+    height: 298px;
+    background-image: url("../content/motivational\ quote.png");
     position: absolute;
     top: 36.9%;
-    right: 5%;
+    right: 2.6%;
     display: none;
 
-    animation: motivQuoteSlideLeft 1.05s linear;
+    /* animation: motivQuoteSlideLeft 1.05s linear; */
 }
-@keyframes motivQuoteSlideLeft {
+/* @keyframes motivQuoteSlideLeft {
     0% {
         right: -15%;
         opacity: 0.5;
@@ -1083,11 +1525,11 @@ span.streak-counter {
         right: 5%;
         opacity: 1;
     }
-}
+} */
 #quoteChange {
-    background-image: url("../content/quote_change.png");
-    width: 60px;
-    height: 59px;
+    background-image: url("../content/change.png");
+    width: 56px;
+    height: 56px;
     background-color: transparent;
     border: none;
     position: absolute;
@@ -1100,10 +1542,10 @@ span.streak-counter {
     animation: quoteChangeRotate 1s ease running forwards;
 }
 #quoteChange:hover {
-    scale: 1.05;
+    transform: scale(1.05);
 }
 #quoteChange:active {
-    scale: 1;
+    transform: scale(1);
 }
 @keyframes quoteChangeRotate {
     0% {
@@ -1116,8 +1558,8 @@ span.streak-counter {
     position: absolute;
     width: 380px;
     height: 150px;
-    bottom: 8%;
-    right: 20%;
+    bottom: 15%;
+    right: 10%;
     display: flex;
     flex-direction: column;
 }
@@ -1163,11 +1605,11 @@ span.streak-counter {
 }
 @keyframes personSlideUp {
     0% {
-        bottom: -50%;
+        bottom: -30%;
         opacity: 0.5;
     }
     50% {
-        bottom: -25%;
+        bottom: -15%;
         opacity: 0.7;
     }
     100% {
@@ -1175,19 +1617,7 @@ span.streak-counter {
         opacity: 1;
     }
 }
-.personal-goals {
-    width: 654px;
-    height: 304px;
-    background-image: url("../content/personalized_goals.png");
-    position: absolute;
-    bottom: 2%;
-    right: 5%;
-    margin: 0;
-    display: none;
-
-    animation: personalGoalsSlideLeft 1.05s linear;
-}
-@keyframes personalGoalsSlideLeft {
+/* @keyframes personalGoalsSlideLeft {
     0% {
         right: -15%;
         opacity: 0.5;
@@ -1196,28 +1626,177 @@ span.streak-counter {
         right: 5%;
         opacity: 1;
     }
+} */
+.daily-challenge {
+    background-image: url("../content/daily\ challenge.png");
+    width: 662px;
+    height: 213px;
+    position: absolute;
+    left: 24%;
+    top: 46.205%;
+    display: none;
+}
+#challenge {
+    color: white;
+    position: absolute;
+    right: 6.5%;
+    top: 5.6%;
+    width: 350px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+.get-inspired {
+    background-image: url("../content/get\ inspired.png");
+    width: 526px;
+    height: 243px;
+    position: absolute;
+    right: 2.6%;
+    bottom: 2.2%;
+    display: none;
+}
+#inspirChange {
+    background-image: url("../content/change.png");
+    width: 56px;
+    height: 56px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 4%;
+    top: 6.5%;
+    transition-duration: 0.4s;
+    cursor: pointer;   
+}
+#inspirChange:hover {
+    transform: scale(1.05);
+}
+#inspirChange:active {
+    transform: scale(1);
+}
+#inspirChange.inspir-change-rotate {
+    animation: inspirChangeRotate 1s ease running forwards;
+}
+@keyframes inspirChangeRotate {
+    0% {
+    }
+    100% {
+        transform: rotate(180deg);
+    }    
+}
+p#textInGetInspir {
+    color: white;
+    position: absolute;
+    bottom: 7.6%;
+    left: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 170px;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: 400;
+}
+.personal-goals {
+    background-image: url("../content/personalized\ goals.png");
+    width: 832px;
+    height: 243px;
+    position: absolute;
+    bottom: 2.2%;
+    left: 24%;
+    display: none;
+}
+.some-text {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 17%;
+    left: 25.6%;
+}
+p#someTextP {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+.sc-starts-in {
+    background-image: url("../content/chujchujchuj2.png");
+    width: 1377px;
+    height: 64px;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    left: 24%;
+    top: 28%;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    gap: 25px;
+}
+#scImg {
+    margin-left: 20px;
+}
+.dsh-days, .dsh-hours, .dsh-minutes, .dsh-seconds {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+p#dshDaysP, p#dshHoursP, p#dshMinutesP, p#dshSecondsP {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
+    font-size: 2.2em;
+    font-weight: 500;
+}
+#navbarDashboardLoggedInTop {
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    top: 6%;
+    left: 25%;
+    align-items: center;
+    gap: 20px;    
+}
+#navbarTop {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 223px;
+    height: 73px;
+    gap: 5px;
+    position: absolute;
+    top: 6%;
+    right: 4%;    
 }
 
 /*forgot-password*/
 
 /*home*/
 
+/* progress */
+body.progress {
+    background-image: url("../content/background\ progress.jpg");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+#navbarProgressLoggedIn {
+    display: flex;
+}
+.border-bckgrnd {
+    background-image: url("");
+}
+
 /*reset-password*/
 
 /*sports*/
-
-/* test */
-#testSubmitBttn {
-    width: 100px;
-    height: 50px;
-    background-color: red
-}
-
-#testP {
-    width: 150px;
-    height: 100px;
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    background-image: url("../content/test-p.png");
-}
