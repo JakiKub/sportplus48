@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sport +48 - Dashboard</title>
-        <link rel="shortcut icon" href="../content/logo-ikona-str.png">
+        <link rel="shortcut icon" href="../content/icons/logo-ikona-str.png">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
         <script src="index.js" defer></script>
     </head>
     <body class="dashboard">
-        <img src="../content/logohuju.png" class="logo-hóju" id="logoHóju">
+        <img src="../content/logos/logohuju.png" class="logo-hóju" id="logoHóju">
         <div class="navbar-dashboard-logged-out" id="navbarDashboardLoggedOut">
             <p><a href="dashboard.html">dashboard</a></p>
             <p><a href="home.html">home</a></p>
@@ -36,11 +36,11 @@
             <button id="profileLogOut" class="logout-bttn"></button>
         </div>
         <div class="some-text" id="someText">
-            <img src="../content/keep working title dashboard.png" id="keepWorking">
+            <img src="../content/titles/keep working title dashboard.png" id="keepWorking">
             <p id="someTextP">Believe in your own abilities and take one step each day on your way to the top</p>
         </div>
         <div class="sc-starts-in" id="scStartsIn">
-            <img src="../content/chujchujchuj1.png" id="scImg">
+            <img src="../content/titles/chujchujchuj1.png" id="scImg">
             <div class="dsh-days" id="dshDays">
                 <p id="dshDaysNumber"></p>
                 <p id="dshDaysP">DAYS</p>
@@ -60,28 +60,28 @@
         </div>
          <div class="navbar-logged-in" id="navbarDashboardLoggedIn">
             <div class="navbar-logged-in-main">
-                <img src="../content/dsh main.png" class="main-dsh">
-                <a href="dashboard.html"><img src="../content/sb dashboard.png" class="dashboard-ico"></a>
-                <a href="home.html"><img src="../content/sb home.png" class="home-ico"></a>
+                <img src="../content/titles/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/titles/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/titles/sb home.png" class="home-ico"></a>
             </div>
             <div class="navbar-logged-in-ypttt">
-                <img src="../content/dsh your.png" class="ypttp-dsh">
-                <a href="add-activity.html"><img src="../content/sb register activity.png" class="add-activ-ico"></a>
-                <a href="progress.html"><img src="../content/sb progress.png" class="progress-ico"></a>
-                <a><img src="../content/sb records.png" class="records-ico"></a>
-                <a><img src="../content/sb points.png" class="points-ico"></a>
+                <img src="../content/titles/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/titles/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/titles/sb progress.png" class="progress-ico"></a>
+                <a href="records.html"><img src="../content/titles/sb records.png" class="records-ico"></a>
+                <a href="points.html"><img src="../content/titles/sb points.png" class="points-ico"></a>
             </div>
             <div class="navbar-logged-in-other">
-                <img src="../content/dsh other.png" class="other-dsh">
-                <a><img src="../content/sb ranking.png" class="ranking-ico"></a>
-                <a href="actions.html"><img src="../content/sb 48sc.png" class="challenge-ico"></a>
+                <img src="../content/titles/dsh other.png" class="other-dsh">
+                <a href="ranking.html"><img src="../content/titles/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
         <div class="streak-container" id="streakContainer">
             <div class="streak-counter-div">
                 <span id="streak" data-value="0" class="streak-counter"></span>
             </div>
-            <button id="streakButton"><img src="../content/streak2.png"></button>
+            <button id="streakButton"><img src="../content/buttons/streak2.png"></button>
             <a class="streak-lm" id="streakLearnMore">Learn more</a>
         </div>
         <div class="daily-challenge" id="dailyChallenge">
@@ -113,28 +113,29 @@
         <div id="logInModalContainer" class="log-in-modal-container">
             <div class="log-in-modal">
                 <form id="logInForm">
-                    <button id="logInClose" class="log-in-close"><img src="../content/Xbutton.png"></button>
-                    <img src="../content/Login3.png" id="loginText">
-                    <img src="../content/Login4.png" id="loginEmailText">
-                    <img src="../content/Login5.png" id="loginPasswordText">
+                    <button id="logInClose" class="log-in-close"><img src="../content/buttons/Xbutton.png"></button>
+                    <img src="../content/titles/Login3.png" id="loginText">
+                    <img src="../content/titles/Login4.png" id="loginEmailText">
+                    <img src="../content/titles/Login5.png" id="loginPasswordText">
                     <input type="email" id="logInEmail" name="email" class="email" required>
                     <input type="password" id="logInPassword" name="password" class="password" required>
                     <p><a href="forgot-password.html">Forgot your password?</a></p>
-                    <button type="submit" class="log-in-in-modal"><img src="../content/LoginButton.png"></button>
+                    <button type="submit" class="log-in-in-modal"><img src="../content/buttons/LoginButton.png"></button>
                 </form>
             </div>
         </div>
         <div id="registerModalContainer" class="register-modal-container">
+            <input type="hidden" name="userId" value="688fa75978355c14d74b5932">
             <div class="register-modal">
                 <form action="/register" method="post">
-                    <button id="registerClose" class="register-close" type="button"><img src="../content/Xbutton.png"></button>
-                    <img src="../content/Register3.png" id="registerTextTop">
-                    <img src="../content/Register4.png" id="registerEmailText">
-                    <img src="../content/Register5.png" id="registerPasswordText">
+                    <button id="registerClose" class="register-close" type="button"><img src="../content/buttons/Xbutton.png"></button>
+                    <img src="../content/titles/Register3.png" id="registerTextTop">
+                    <img src="../content/titles/Register4.png" id="registerEmailText">
+                    <img src="../content/titles/Register5.png" id="registerPasswordText">
                     <input type="email" id="registerEmail" name="email" class="email" required>
                     <input type="password" id="registerPassword" name="password" class="password" required>
-                    <img src="../content/Register6.png" id="registerUsernameText">
-                    <img src="../content/Register7.png" id="registerNationalityText">
+                    <img src="../content/titles/Register6.png" id="registerUsernameText">
+                    <img src="../content/titles/Register7.png" id="registerNationalityText">
                     <input type="text" id="username" name="username" class="username" maxlength="20" required>
                     <input list="nationalities" name="nationality" class="nationalities">
                     <datalist id="nationalities" class="nationalities">
@@ -142,17 +143,17 @@
                         <option value="England">England</option>
                     </datalist>
                     <!-- <p class="termsOfServiceText"><input type="checkbox" class="termsOfService" required>I accept terms of service</p> -->
-                    <button type="submit" class="register-in-modal"><img src="../content/RegisterButton.png"></button>
-                    <img src="../content/Register2.png" id="registerTextBottom">
+                    <button type="submit" class="register-in-modal"><img src="../content/buttons/RegisterButton.png"></button>
+                    <img src="../content/texts/Register2.png" id="registerTextBottom">
                 </form>
             </div>
         </div>
         <div class="logo" id="logoDashboard">
             <div class="tiktok-logo">
-                <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/tiktok-png.png"></a>
+                <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/logos/tiktok-png.png"></a>
             </div>
             <div class="instagram-logo">
-                <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/instagram-png.png"></a>
+                <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/logos/instagram-png.png"></a>
             </div>
         </div>
     </body>

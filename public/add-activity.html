@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sport +48 - Add activity</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="shortcut icon" href="../content/logo-ikona-str.png">
+        <link rel="shortcut icon" href="../content/icons/logo-ikona-str.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="add-activity">
-        <img src="../content/logohuju.png" class="logo-hóju">
+        <img src="../content/logos/logohuju.png" class="logo-hóju">
         <div class="navbar-top-wrapper" id="navbarTopWrapper">
             <button id="userBttn" class="user-bttn"></button>
             <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
@@ -26,27 +26,27 @@
         </div>
         <div class="navbar-logged-in" id="navbarAddActiv">
             <div class="navbar-logged-in-main">
-                <img src="../content/dsh main.png" class="main-dsh">
-                <a href="dashboard.html"><img src="../content/sb dashboard.png" class="dashboard-ico"></a>
-                <a href="home.html"><img src="../content/sb home.png" class="home-ico"></a>
+                <img src="../content/titles/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/titles/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/titles/sb home.png" class="home-ico"></a>
             </div>
             <div class="navbar-logged-in-ypttt">
-                <img src="../content/dsh your.png" class="ypttp-dsh">
-                <a href="add-activity.html"><img src="../content/sb register activity.png" class="add-activ-ico"></a>
-                <a href="progress.html"><img src="../content/sb progress.png" class="progress-ico"></a>
-                <a><img src="../content/sb records.png" class="records-ico"></a>
-                <a><img src="../content/sb points.png" class="points-ico"></a>
+                <img src="../content/titles/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/titles/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/titles/sb progress.png" class="progress-ico"></a>
+                <a href="records.html"><img src="../content/titles/sb records.png" class="records-ico"></a>
+                <a href="points.html"><img src="../content/titles/sb points.png" class="points-ico"></a>
             </div>
             <div class="navbar-logged-in-other">
-                <img src="../content/dsh other.png" class="other-dsh">
-                <a><img src="../content/sb ranking.png" class="ranking-ico"></a>
-                <a href="actions.html"><img src="../content/sb 48sc.png" class="challenge-ico"></a>
+                <img src="../content/titles/dsh other.png" class="other-dsh">
+                <a href="ranking.html"><img src="../content/titles/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
-        <img src="../content/register activity title.png" id="titleRegisterActiv">
-        <form action="/api/activity" id="addActivForm" method="POST">
+        <img src="../content/titles/register activity title.png" id="titleRegisterActiv">
+        <form action="/api/activity" id="addActivForm" method="POST" enctype="multipart/form-data">
             <div class="activs-div">
-                <p class="sel-activ">Select Activity</p><select name="activs" id="activs" required>
+                <p class="sel-activ">Select Activity</p><select name="activity" id="activs" required>
                     <option value="">SELECT ACTIVITY (pls dont choose this one i beg you ~ programmer)</option>
                     <option value="running">RUNNING</option>
                     <option value="swimming">SWIMMING</option>
@@ -61,11 +61,12 @@
                 </div>
             </div>
             <div class="evid-div">
-                <p class="evid-p">Upload Evidence</p><button type="button" id="uploadEvidence"></button>
+                <p class="evid-p">Upload Evidence</p>
+                <input type="file" name="evidence" id="uploadEvidence" accept=".png,.jpg,.jpeg">
             </div>
             <button type="submit" id="submitBttn"></button>
         </form>
-        <img src="../content/discl.png" id="disclaimerIAmNotPlayingByTheRules">
+        <img src="../content/texts/discl.png" id="disclaimerIAmNotPlayingByTheRules">
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Progress - Sport +48</title>
+        <title>Sport +48 - Records</title>
         <link rel="shortcut icon" href="../content/icons/logo-ikona-str.png">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
-    <body class="progress">
+    <body class="records">
         <img src="../content/logos/logohuju.png" class="logo-hóju">
-        <div id="navbarProgressTop" class="navbar-top-wrapper">
+        <div id="navbarRecordsTop" class="navbar-top-wrapper">
             <button id="userBttn" class="user-bttn"></button>
             <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
                 <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
@@ -43,25 +43,32 @@
                 <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
-        <div class="progress-text">
-            <img src="../content/titles/progress title.png" id="progressTitle">
-            <p id="pProgress">Check your progress every day via our website</p>
+        <div class="records-title-div">
+            <img src="../content/titles/records title.png" id="recordsTitle">
+            <p id="recordsTextP">Break boundaries. You are the one who can do it!</p>
         </div>
-        <table id="progressTable">
-            <thead>
-                <tr class="tr-head">
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Activity</th>
-                    <th>Distance</th>
-                    <th>Time</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+        <div class="records-div">
+            <div class="longest-dist">
+                <h2 id="longestDist">--</h2>
+            </div>
+            <div class="most-common">
+                <h2 id="mostCommon">--</h2>
+                <p id="mostCommonP">--</p>
+            </div>
+            <div class="longest-activ">
+                <h2 id="longestActiv">--</h2>
+            </div>
+            <div class="total-activs">
+                <h2 id="totalActivs">--</h2>
+            </div>
+        </div>
+        <div class="monitor-path">
+            <a href="progress.html" id="aProgressRecords"><img src="../content/buttons/checkyourprogress.png"></a>
+        </div>
+        <div class="did-u-knew">
+            <p id="someYkText">Every personal best (PB) is proof that you're capable of more. These small victories boost your confidence, keep you motivated, 
+                and help you push your limits further each time.</p>
+        </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -85,50 +92,15 @@
                 };
             })
 
-            let page = 1;
-            const limit = 6;
-            let loading = false;
+            async function loadRecs() {
+                const res = await fetch('/api/records/');
+                const recs = await res.json();
 
-            async function loadActivs() {
-                if (loading) {
-                    return;
-                }
-                loading = true;
-
-                const res = await fetch(`/api/activity?page=${page}&limit=${limit}`);
-                const data = await res.json();
-
-                const tableBody = document.querySelector("#progressTable tbody");
-
-                data.activities.forEach(act => {
-                    const row = document.createElement("tr");
-                    row.classList.add("activity-row", `${act.activity.toLowerCase().replace(/\s+/g, "-")}-row`);
-
-                    const statusIco = {
-                        pending: "../content/icons/trzykropki.png",
-                        approved: "../content/icons/acc.png",
-                        denied: "../content/icons/den.png",
-                    }[act.status];
-
-                    row.innerHTML = `
-                        <td>
-                            <img src="../content/icons/info.png" class=info-icon" data-id="${act._id}">
-                            <img src="${statusIco}" class="status-icon">
-                        </td>
-                        <td>${new Date(act.createdAt).toLocaleDateString()}</td>
-                        <td>${act.activity}</td>
-                        <td>${act.distance.toFixed(2)} KM</td>
-                        <td>${minutesToHHMM(act.timeInMins)}</td>
-                        <td class="points">${act.points > 0 ? act.points.toFixed(3) : "-"}</td>
-                    `;
-
-                    tableBody.appendChild(row);
-                });
-
-                if (data.activities.length > 0) {
-                    page++;
-                    loading = false;
-                };
+                document.getElementById("longestDist").innerText = recs.longestDistance.toFixed(2);
+                document.getElementById("mostCommonP").innerText = recs.mostCommon.activity;
+                document.getElementById("mostCommon").innerText = recs.mostCommon.count;
+                document.getElementById("longestActiv").innerText = minutesToHHMM(recs.longestActiv);
+                document.getElementById("totalActivs").innerText = recs.totalActivs;
             }
 
             const minutesToHHMM = (minutes) => {
@@ -137,13 +109,7 @@
                 return `${h}:${m}`;
             }
 
-            window.addEventListener("scroll", () => {
-                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
-                    loadActivs();
-                }
-            });
-
-            loadActivs();
+            loadRecs();
         </script>
     </body>
 </html>

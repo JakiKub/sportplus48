@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">   
         <title>Sport +48 - Countries</title>
-        <link rel="shortcut icon" href="../content/logo-ikona-str.png">
+        <link rel="shortcut icon" href="../content/icons/logo-ikona-str.png">
         <link rel="stylesheet" href="/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,31 +19,31 @@
             <a href="actions.html">actions</a>
             <a href="coutries.html">countries</a>
             <a href="contact.html">contact</a>
-            <a class="troll"><img src="../content/en-bttn.png"></a>
+            <a class="troll"><img src="../content/buttons/en-bttn.png"></a>
         </div>
         <div class="jakies-napisy">
-            <img src="../content/Countries Title.png" id="countriesTitle">
-            <img src="../content/Napis1.png" id="napisJeden">
+            <img src="../content/titles/Countries Title.png" id="countriesTitle">
+            <img src="../content/texts/Napis1.png" id="napisJeden">
         </div>
         <div class="countries-counter">
             <div id="countriesNumber" data-value="0"></div>
-            <img src="../content/Napis2.png" id="napisDwa">
+            <img src="../content/texts/Napis2.png" id="napisDwa">
             <div class="countries-slider">
-                <button id="countriesSlideLeft"><img src="../content/bt1.png"></button>
+                <button id="countriesSlideLeft"><img src="../content/buttons/bt1.png"></button>
                 <div id="currentCountry"></div>
-                <button id="countriesSlideRight"><img src="../content/bt2.png"></button>
+                <button id="countriesSlideRight"><img src="../content/buttons/bt2.png"></button>
 
             </div>
         </div>
         <div class="logo">
             <div class="tiktok-logo">
-                <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/tiktok-png.png"></a>
+                <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/logos/tiktok-png.png"></a>
             </div>
             <div class="instagram-logo">
-                <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/instagram-png.png"></a>
+                <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/logos/instagram-png.png"></a>
             </div>
         </div>
-        <img src="../content/earth-countries.png" id="earthCountries">
+        <img src="../content/misc/earth-countries.png" id="earthCountries">
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -87,7 +87,7 @@
 
                 const updateCountries = () => {
                     const currentBackground = countries[currentIndex];
-                    currentCountry.style.backgroundImage = `url('../content/${currentBackground}-countries.png')`;
+                    currentCountry.style.backgroundImage = `url('../content/icons/${currentBackground}-countries.png')`;
                 }
             })
         </script>

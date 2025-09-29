@@ -3,6 +3,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none; /* usuwa ikonkę zegara */
   -webkit-appearance: none;
@@ -180,7 +183,7 @@ a.troll:hover {
     left: 4%;
 }
 .en-bttn {
-    background-image: url("../content/dashboard\ en\ button.png");
+    background-image: url("../content/buttons/dashboard\ en\ button.png");
     width: 71px;
     height: 71px;
     background-color: transparent;
@@ -189,7 +192,7 @@ a.troll:hover {
     cursor: pointer;
 }
 .notif-bttn {
-    background-image: url("../content/dashboard\ notification\ button.png");
+    background-image: url("../content/buttons/dashboard\ notification\ button.png");
     width: 71px;
     height: 71px;
     background-color: transparent;
@@ -198,7 +201,7 @@ a.troll:hover {
     cursor: pointer;
 }
 .logout-bttn {
-    background-image: url("../content/dashboard\ logout\ button.png");
+    background-image: url("../content/buttons/dashboard\ logout\ button.png");
     width: 71px;
     height: 71px;
     background-color: transparent;
@@ -207,7 +210,7 @@ a.troll:hover {
     cursor: pointer;
 }
 .user-bttn {
-    background-image: url("../content/dashboard\ user.png");
+    background-image: url("../content/buttons/dashboard\ user.png");
     width: 78px;
     height: 78px;
     background-color: transparent;
@@ -233,9 +236,10 @@ a.troll:hover {
 }
 /*about-us*/
 
+
 /*actions*/
 body.actions {
-    background-image: url("../content/background-main.jpg");
+    background-image: url("../content/backgrounds/background-main.jpg");
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
@@ -332,7 +336,7 @@ p.days-text, p.hours-text, p.minutes-text, p.seconds-text {
 
 /*about event*/
 body.about-event {
-    background-image: url("../content/background-about.jpg");
+    background-image: url("../content/backgrounds/background-about.jpg");
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
@@ -365,7 +369,7 @@ body.about-event {
 
 /* partners event */
 body.partners-event {
-    background-image: url("../content/background-partners.jpg");
+    background-image: url("../content/backgrounds/background-partners.jpg");
     background-position: top left;
     background-size: cover;
     background-repeat: no-repeat;
@@ -373,8 +377,7 @@ body.partners-event {
     padding: 0;
 }
 #titlePartners {
-    transform: scale(.85);
-    transform-origin: top left;
+    display: flex;
     position: absolute;
     left: 7%;
     top: 20%;
@@ -389,8 +392,7 @@ p.partners-text {
     top: 34.3%;
 }
 #projectPartners {
-    transform: scale(.82);
-    transform-origin: top left;
+    display: flex;
     position: absolute;
     left: 7%;
     top: 44%;
@@ -400,14 +402,14 @@ p.partners-text {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transform: scale(1);
     gap: 80px;
     position: absolute;
     left: 7%;
     top: 52%;
 }
 #actionPartners {
-    transform: scale(.82);
-    transform-origin: top left;
+    display: flex;
     position: absolute;
     left: 7%;
     top: 67.2%;
@@ -415,7 +417,7 @@ p.partners-text {
 
 /* schedule event */
 body.schedule-event {
-    background-image: url("../content/background-schedule.jpg");
+    background-image: url("../content/backgrounds/background-schedule.jpg");
     background-position: top left;
     background-size: cover;
     background-repeat: no-repeat;
@@ -439,7 +441,7 @@ body.schedule-event {
 
 /* documents event */
 body.documents-event {
-    background-image: url("../content/background-documents.jpg");
+    background-image: url("../content/backgrounds/background-documents.jpg");
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
@@ -491,7 +493,7 @@ body.faq-event {
     flex-direction: column;
 }
 #faq1 {
-    background-image: url("../content/faq1.png");
+    background-image: url("../content/buttons/faq1.png");
 }
 /* #faq2 {
 
@@ -517,7 +519,7 @@ body.faq-event {
 
 /*add-activity*/
 body.add-activity {
-    background-image: url("../content/dashboard\ background.jpg");
+    background-image: url("../content/backgrounds/dashboard\ background.jpg");
     background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
@@ -551,7 +553,7 @@ body.add-activity {
     justify-content: space-between;
 }
 #activs {
-    background-image: url("../content/select\ activity.png");
+    background-image: url("../content/div-backgrounds/select\ activity.png");
     appearance: none;
     min-width: 917px;
     min-height: 64px;
@@ -593,7 +595,7 @@ option {
     gap: 30px;
 }
 #distance {
-    background-image: url("../content/distance.png");
+    background-image: url("../content/div-backgrounds/distance.png");
     width: 279px;
     height: 64px;
     background-color: transparent;
@@ -603,9 +605,10 @@ option {
     font-family: 'Radio Canada', sans-serif;
     font-size: 2.4em;
     font-weight: 500;
+    text-align: center;
 }
 #time {
-    background-image: url("../content/time.png");
+    background-image: url("../content/div-backgrounds/time.png");
     width: 279px;
     height: 64px;
     background-color: transparent;
@@ -624,7 +627,7 @@ p.dist-p, p.time-p, p.km-p {
     font-weight: 400;
 }
 #submitBttn {
-    background-image: url("../content/send\ for\ approval.png");
+    background-image: url("../content/buttons/send\ for\ approval.png");
     width: 1123px;
     height: 64px;
     background-color: transparent;
@@ -639,7 +642,7 @@ p.dist-p, p.time-p, p.km-p {
     transform: scale(1);
 }
 #uploadEvidence {
-    background-image: url("../content/upload\ file.png");
+    background-image: url("../content/buttons/upload\ file.png");
     width: 917px;
     height: 64px;
     background-color: transparent;
@@ -683,7 +686,7 @@ p.dist-p, p.time-p, p.km-p {
 
 /* articles */
 body.articles {
-    background-image: url("../content/Articles\ Background.jpg");
+    background-image: url("../content/backgrounds/Articles\ Background.jpg");
     background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
@@ -859,7 +862,7 @@ body.articles {
 
 /*contact*/
 body.contact {
-    background-image: url("../content/contact-us-background.jpg"), linear-gradient(to bottom, #07081A 20%, #15095B);
+    background-image: url("../content/backgrounds/contact-us-background.jpg"), linear-gradient(to bottom, #07081A 20%, #15095B);
     background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
@@ -958,7 +961,7 @@ a.troll:hover {
 
 /*countries*/
  body.countries {
-    background-image: url("../content/background-countries-2.jpg");
+    background-image: url("../content/backgrounds/background-countries-2.jpg");
     background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
@@ -1034,7 +1037,7 @@ a.troll:hover {
 #currentCountry {
     /* max-width: 276px;
     max-height: 64px; */
-    background-image: url("../content/POL-countries.png");
+    background-image: url("../content/icons/POL-countries.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -1086,7 +1089,7 @@ a.troll:hover {
 
 /*dashboard*/
 body.dashboard {
-    background-image: url("../content/home-page.jpg");
+    background-image: url("../content/backgrounds/home-page.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1094,7 +1097,7 @@ body.dashboard {
     margin: 0;
 }
 body.dashboard.logged-in {
-    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/dashboard\ background.jpg");
+    background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/backgrounds/dashboard\ background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top left;
@@ -1185,7 +1188,7 @@ body.dashboard.logged-in {
 }
 .log-in-modal {
     background-color: transparent;
-    background-image: url("../content/Login1.png");
+    background-image: url("../content/div-backgrounds/Login1.png");
     display: flex;
     width: 1335px;
     max-width: 100%;
@@ -1295,7 +1298,7 @@ body.dashboard.logged-in {
 }
 .register-modal {
     background-color: transparent;
-    background-image: url("../content/Register1.png");
+    background-image: url("../content/div-backgrounds/Register1.png");
     display: flex;
     width: 1335px;
     max-width: 100%;
@@ -1445,7 +1448,7 @@ span.profile {
     justify-content: flex-end;
     gap: 25px;
     align-items: center;
-    background-image: url("../content/training\ streak.png");
+    background-image: url("../content/div-backgrounds/training\ streak.png");
     margin: 0;
 
     animation: streakContainerSlideLeft 1s linear;
@@ -1485,7 +1488,7 @@ span.streak-counter {
     font-family: "Radio Canada", sans-serif;
 }
 .streak-counter-div {
-    background-image: url("../content/streak1.png");
+    background-image: url("../content/div-backgrounds/streak1.png");
     width: 160px;
     height: 50px;
     display: flex;
@@ -1508,7 +1511,7 @@ span.streak-counter {
 .motiv-quote {
     width: 696px;
     height: 298px;
-    background-image: url("../content/motivational\ quote.png");
+    background-image: url("../content/div-backgrounds/motivational\ quote.png");
     position: absolute;
     top: 36.9%;
     right: 2.6%;
@@ -1527,7 +1530,7 @@ span.streak-counter {
     }
 } */
 #quoteChange {
-    background-image: url("../content/change.png");
+    background-image: url("../content/buttons/change.png");
     width: 56px;
     height: 56px;
     background-color: transparent;
@@ -1628,7 +1631,7 @@ span.streak-counter {
     }
 } */
 .daily-challenge {
-    background-image: url("../content/daily\ challenge.png");
+    background-image: url("../content/div-backgrounds/daily\ challenge.png");
     width: 662px;
     height: 213px;
     position: absolute;
@@ -1651,7 +1654,7 @@ span.streak-counter {
     font-weight: 400;
 }
 .get-inspired {
-    background-image: url("../content/get\ inspired.png");
+    background-image: url("../content/div-backgrounds/get\ inspired.png");
     width: 526px;
     height: 243px;
     position: absolute;
@@ -1660,7 +1663,7 @@ span.streak-counter {
     display: none;
 }
 #inspirChange {
-    background-image: url("../content/change.png");
+    background-image: url("../content/buttons/change.png");
     width: 56px;
     height: 56px;
     background-color: transparent;
@@ -1703,7 +1706,7 @@ p#textInGetInspir {
     font-weight: 400;
 }
 .personal-goals {
-    background-image: url("../content/personalized\ goals.png");
+    background-image: url("../content/div-backgrounds/personalized\ goals.png");
     width: 832px;
     height: 243px;
     position: absolute;
@@ -1726,7 +1729,7 @@ p#someTextP {
     font-weight: 100;
 }
 .sc-starts-in {
-    background-image: url("../content/chujchujchuj2.png");
+    background-image: url("../content/div-backgrounds/chujchujchuj2.png");
     width: 1377px;
     height: 64px;
     display: none;
@@ -1784,7 +1787,7 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
 
 /* progress */
 body.progress {
-    background-image: url("../content/background\ progress.jpg");
+    background-image: url("../content/backgrounds/background\ progress.jpg");
     background-size: cover;
     background-position: top left;
     background-repeat: no-repeat;
@@ -1795,6 +1798,182 @@ body.progress {
 }
 .border-bckgrnd {
     background-image: url("");
+}
+#progressTable {
+    position: absolute;
+    top: 35%;
+    right: 3.4%;
+    color: white;
+    width: 1377px;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.6em;
+    border-collapse: collapse;
+}
+tr.tr-head {
+    background-image: url("../content/div-backgrounds/gr3.png");
+    width: 1377px;
+    height: 64px;
+    background-repeat: no-repeat;
+}
+tbody {
+    text-align: center;
+}
+tbody tr {
+    border-collapse: collapse;
+    width: 1377px;
+    height: 64px;
+    background-image: url("../content/div-backgrounds/gr1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+}
+#progressTable td, #progressTable th {
+    padding: 20px; 
+}
+.progress-text {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 23.4%;
+    left: 25%;
+    gap: 10px;
+}
+#pProgress {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.4em;
+    font-weight: 200;
+}
+#progressTitle {
+    width: 224px;
+    height: 50px;
+}
+
+/* records */
+body.records {
+    background-image: url("../content/backgrounds/bckgr2.png");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.records-title-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    position: absolute;
+    top: 16%;
+    left: 25%;
+}
+#recordsTitle {
+    width: max-content;
+}
+#recordsTextP {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.monitor-path {
+    background-image: url("../content/div-backgrounds/rec5.png");
+    width: 665px;
+    height: 330px;
+    position: absolute;
+    bottom: 3%;
+    left: 24.7%;
+}
+#aProgressRecords {
+    width: 262px;
+    height: 55px;
+    position: absolute;
+    bottom: 4%;
+    right: 2%;
+    transition-duration: .4s;
+}
+#aProgressRecords:hover {
+    transform: scale(1.03);
+}
+#aProgressRecords:active {
+    transform: scale(1);
+}
+.did-u-knew {
+    background-image: url("../content/div-backgrounds/rec6.png");
+    width: 665px;
+    height: 330px;
+    position: absolute;
+    bottom: 3%;
+    right: 3.3%;
+    display: flex;
+    justify-content: center;
+}
+p#someYkText {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+    text-align: center;
+    padding-left: 65px;
+    padding-right: 65px;
+    position: absolute;
+    bottom: 14%;
+}
+.records-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 72%;
+    position: absolute;
+    left: 24.7%;
+    top: 27.3%;
+}
+.longest-dist {
+    background-image: url("../content/div-backgrounds/rec1.png");
+    width: 322px;
+    height: 291px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.most-common {
+    background-image: url("../content/div-backgrounds/rec7.png");
+    width: 322px;
+    height: 291px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.longest-activ {
+    background-image: url("../content/div-backgrounds/rec3.png");
+    width: 322px;
+    height: 291px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.total-activs {
+    background-image: url("../content/div-backgrounds/rec4.png");
+    width: 322px;
+    height: 291px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2#longestDist, h2#mostCommon, h2#longestActiv, h2#totalActivs {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 5em;
+    font-weight: 500;
+}
+p#mostCommonP {
+    position: absolute;
+    bottom: 7%;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.7em;
+    font-weight: 500;
+    color: #f1dfbc;
 }
 
 /*reset-password*/

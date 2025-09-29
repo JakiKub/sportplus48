@@ -1,3 +1,5 @@
+//cholera wie jak to dziala
+
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -5,10 +7,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const multer = require('multer');
+const session = require('express-session');
+const mongoStore = require('connect-mongo');
 const connect = mongoose.connect(process.env.MONGO_URI);
-// const sqlite3 = require('sqlite3');
-// const { open } = require('sqlite');
-// let db;
+const upload = multer({ storage: multer.memoryStorage() });
 
 const app = express();
 app.use(express.json());
@@ -19,6 +22,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+  cookie: { maxAge: 1000 * 60 * 60 * 24 },
+}))
+
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: process.env.SMTP_PORT,
@@ -28,66 +39,11 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SMTP_PASS
   }
 });
-/* testy add-activ
-const startServ = async () => {
-  db = await open ({
-    filename: "./activities.db",
-    driver: sqlite3.Database
-  });
-  await db.exec (`
-      CREATE TABLE IF NOT EXISTS activities (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      testMessage TEXT,
-      status TEXT
-    )
-  `)
-}; */
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`serwer dziala na porcie ${PORT}`);
 });
-
-/* app.post("/api/activity", async (req, res) => {
-  const { testMessage } = req.body;
-
-  const result = await db.run (
-    "INSERT INTO activities (testMessage, status) VALUES (?, ?)",
-    [testMessage, "pending"]
-  )
-  const activityId = result.lastID;
-
-  const approveLink = `http://localhost:3000/api/approve/${activityId}`;
-  const denyLink = `http://localhost:3000/api/deny/${activityId}`;
-
-  await transporter.sendMail ({
-    from: process.env.SMTP_USER,
-    to: process.env.SMTP_USER,
-    subject: "test rejestracji aktywnosci",
-    html: `
-      <p><b>${testMessage}</b></p>
-      <a href="${approveLink}">akcptuj</a> |
-      <a href="${denyLink}">odmow</a>
-    `
-  })
-
-  res.send("czekaj sb teraz");
-})
-
-app.get("/api/approve/:id", async (req, res) => {
-  await db.run("UPDATE activities SET status = 'approved' WHERE id = ?", [req.params.id]);
-  res.send("aktywnosc zaakceptowana");
-});
-
-app.get("/api/deny/:id", async (req, res) => {
-  await db.run("UPDATE activities SET status = 'denied' WHERE id = ?", [req.params.id]);
-  res.send("aktywnosc odrzucona");
-});
-
-app.get("/api/activities", async (req, res) => {
-  const rows = await db.all("SELECT * FROM activities WHERE status = 'approved'");
-  res.json(rows);
-}); */
 
 try {
   connect.then(async () => {
@@ -102,38 +58,106 @@ try {
 }
 
 const logInSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  username: {
-    type: String,
-    required: true
-  },
-  nationality: {
-    type: String,
-  },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  username: { type: String, required: true },
+  nationality: { type: String, },
   resetToken: String,
   resetTokenExpiry: Date,
 })
 
 const collection = new mongoose.model("users", logInSchema);
 
-// const addActivSchema = new mongoose.Schema({
-//   activity: {
-//     type: String,
-//     required: true
-//   },
-//   distance: {
-//     type: Number,
-//     required: true
-//   },
-//   time: 
-// })
+const activSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "users", required: true },
+  activity: { type: String, required: true },
+  distance: { type: Number, required: true },
+  timeInMins: { type: Number, required: true },
+  status: { type: String, enum: ["pending", "approved", "denied"], default: "pending" },
+  createdAt: { type: Date, default: Date.now },
+  points: { type: Number, default: 0 },
+})
+
+const Activity = mongoose.models.Activity || mongoose.model("Activity", activSchema);
+
+const requireLogin = (req, res, next) => {
+  if (!req.session.userId) {
+    return res.status(401).send("must be logged in");
+  }
+  next();
+}
+
+app.get("/api/activity", async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 20;
+  const skip = (page - 1) * limit;
+
+  const activities = await Activity.find({ userId: req.session.userId }).sort({ createdAt: -1 }).skip(skip).limit(limit);
+
+  res.json({ activities });
+})
+
+app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, res) => {
+  const { activity, distance, time, userId } = req.body;
+
+  const [hours, minutes] = time.split(":").map(Number);
+  const timeInMins = hours * 60 + minutes;
+
+  const newActiv = await Activity.create({
+    userId: req.session.userId,
+    activity,
+    distance: parseFloat(distance),
+    timeInMins,
+    status: "pending",
+  });
+
+  const approveLink = `http://localhost:${PORT}/api/approve/${newActiv._id}`;
+  const denyLink = `http://localhost:${PORT}/api/deny/${newActiv._id}`;
+
+  let mailOpts = {
+    from: process.env.SMTP_USER,
+    to: process.env.SMTP_USER,
+    subject: "nowa aktywnosc",
+    html: `
+      <p><b>${activity}</b> - ${distance}km, ${time}</p>
+      <a href="${approveLink}">accpet</a> | 
+      <a href="${denyLink}">deyn</a>
+    `
+  };
+
+  if (req.file) {
+    mailOpts.attachments = [
+      {
+        filename: req.file.originalname,
+        content: req.file.buffer,
+      },
+    ];
+  }
+
+  await transporter.sendMail(mailOpts);
+
+  res.send("tera czekaj sb");
+});
+
+app.get("/api/approve/:id", async (req, res) => {
+  try {
+    await Activity.findByIdAndUpdate(req.params.id, { status: "approved" });
+    res.send("aktywnosc zaakceptowana");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("blad przy akceptacji aktywnosci");
+  }
+});
+
+app.get("/api/deny/:id", async (req, res) => {
+  try {
+    await Activity.findByIdAndUpdate(req.params.id, { status: "denied" });
+    res.send("aktywnosc odrzucona");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("blad przy odrzucaniu aktywnosci");
+  }
+});
 
 app.post('/register', async (req, res) => {
   //console.log("req.body:", req.body);
@@ -177,6 +201,8 @@ app.post("/login", async (req, res) => {
     if (!isPasswordMatch) {
       return res.status(400).send("zel haslo");
     }
+
+    req.session.userId = user._id;
 
     res.status(200).json({
       username: user.username,
@@ -248,4 +274,38 @@ app.post('/reset-password/:token', async (req, res) => {
   }
 });
 
-//startServ();
+app.get('/api/records', async (req, res) => {
+  try {
+    const userId = req.session.userId;
+    
+    if (!userId) {
+      return res.status(401).json({ error: "未登入" });
+    }
+
+    const longestDistance = await Activity.findOne({ userId, status: "approved" }).sort({ distance: -1 }).select("distance");
+
+    const mostCommon = await Activity.aggregate([
+      { $match: { userId: new mongoose.Types.ObjectId(userId), status: "approved" } },
+      { $group: { _id: "$activity", count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 1 }
+    ]);
+
+    const longestActiv = await Activity.findOne({ userId, status: "approved" }).sort({ timeInMins: -1 }).select("timeInMins");
+
+    const totalActivs = await Activity.countDocuments({ userId, status: "approved" });
+
+    res.json({
+      longestDistance: longestDistance ? longestDistance.distance : 0,
+      mostCommon: mostCommon.length > 0 ? {
+        activity: mostCommon[0]._id,
+        count: mostCommon[0].count,
+      } : { activity: "-", count: 0 },
+      longestActiv: longestActiv ? longestActiv.timeInMins : 0,
+      totalActivs
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "some error that i dont even know" });
+  }
+})

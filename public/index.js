@@ -1,6 +1,6 @@
 // witaj wedrowcze, zapusciles sie wlasnie w nieznane tereny frontendowego javascripta
 // sam autor nie do konca wie jak i dlaczego to dziala, po prostu dziala
-// zakladam ze jedna drobna zmiana i wszystko wybuchnie wiec lepiej nie eksperymentowac
+// zakladam ze jedna drobna zmiana i wszystko wybuchnie wiec lepiej tu nie eksperymentowac
 
 document.addEventListener("DOMContentLoaded", () => {
     const logInButton = document.getElementById("logInButton");
