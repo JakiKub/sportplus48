@@ -47,6 +47,18 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                if (window.devicePixelRatio === 1.25) {
+                    document.querySelector("html").style.zoom = ".8";
+                };
+                if (window.devicePixelRatio === 1.5) {
+                    document.querySelector('html').style.zoom = ".67";
+                };
+                if (window.devicePixelRatio === 1.75) {
+                    document.querySelector('html').style.zoom = ".5";
+                };
+            });
+            
+            document.addEventListener("DOMContentLoaded", () => {
                 const countriesNumber = document.getElementById("countriesNumber");
                 countriesNumber.textContent = countriesNumber.dataset.value;
 

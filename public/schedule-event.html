@@ -22,5 +22,19 @@
         </div>
         <img src="../content/titles/title-schedule.png" id="titleSchedule">
         <img src="../content/misc/schedule-graphic.png" id="scheduleGraph">
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                if (window.devicePixelRatio === 1.25) {
+                    document.querySelector("html").style.zoom = ".8";
+                };
+                if (window.devicePixelRatio === 1.5) {
+                    document.querySelector('html').style.zoom = ".67";
+                };
+                if (window.devicePixelRatio === 1.75) {
+                    document.querySelector('html').style.zoom = ".5";
+                };
+            });
+        </script>
     </body>
 </html>

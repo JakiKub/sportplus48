@@ -2,6 +2,20 @@
 // sam autor nie do konca wie jak i dlaczego to dziala, po prostu dziala
 // zakladam ze jedna drobna zmiana i wszystko wybuchnie wiec lepiej tu nie eksperymentowac
 
+//skalowanie bo czm nie (ustawcie sb wszyscy na 100% a nie jakies dziwne rzeczy)
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.devicePixelRatio === 1.25) {
+    document.querySelector("html").style.zoom = ".8";
+  };
+  if (window.devicePixelRatio === 1.5) {
+    document.querySelector('html').style.zoom = ".67";
+  };
+  if (window.devicePixelRatio === 1.75) {
+    document.querySelector('html').style.zoom = ".5";
+  };
+});
+
+// tez jakies funkcje w login tym razem
 document.addEventListener("DOMContentLoaded", () => {
     const logInButton = document.getElementById("logInButton");
     const logInModalContainer = document.getElementById("logInModalContainer");
@@ -15,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         logInModalContainer.classList.remove("show");
     });
 });
+
+//probably jakies funckje w register idk
 document.addEventListener("DOMContentLoaded", () => {
     const registerButton = document.getElementById("registerButton");
     const registerModalContainer = document.getElementById("registerModalContainer");
@@ -28,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
         registerModalContainer.classList.remove("show");
     });
 });
+
+// logowanie chyba
 document.addEventListener("DOMContentLoaded", () => {
   const logInForm = document.getElementById("logInForm");
 
@@ -62,6 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// logout w dashboardzie
 document.addEventListener("DOMContentLoaded", () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -102,6 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 });
+
+// "logika" streaku
 document.addEventListener("DOMContentLoaded", () => {
   //logika tego nie jest do konca logiczna
 
@@ -140,6 +162,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 });
+
+//rowniez animacje do dashboardu
 document.addEventListener("DOMContentLoaded", () => {
   const challengeList = [
     { challenge: "Kill yourself" },
@@ -151,7 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const randomChallenge = challengeList[Math.floor(Math.random() * challengeList.length)];
 
   document.getElementById("challenge").textContent = randomChallenge.challenge;
-})
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const inspirList = [
     { inspirtext: "fgdstfggjsfgsgfjtsgfgstyfvstvf gdfysgftsjygfvsjgfuysd bfgsdfhf hdfvghsdf" },
@@ -176,15 +201,17 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       inspirChange.classList.add("inspir-change-rotate");
     }, 10)
-  }
-})
+  };
+});
+
+//aniamcje do dashboardu ktore i tak w wiekszosci nie istnieja
 document.addEventListener("DOMContentLoaded", () => {
   const quoteList = [
     { quote: "jakis cytat 1", person: "osoba 1" },
     { quote: "jakis cytat 2", person: "osoba 2" },
     { quote: "jakis cytat 3", person: "osoba 3" },
     { quote: "jakis cytat 4", person: "osoba 4" },
-  ]
+  ];
 
   const quoteChange = document.getElementById("quoteChange");
   const quote = document.getElementById("quote");
@@ -219,18 +246,9 @@ document.addEventListener("DOMContentLoaded", () => {
       quoteChange.classList.add("quote-change-rotate");
     }, 10)
   };
-})
-document.addEventListener("DOMContentLoaded", () => {
-  const testPTroll = document.getElementById("testPTroll");
-  const testP = document.getElementById("testP");
+});
 
-  testPTroll.addEventListener("mouseover", () => {
-    testP.style.backgroundImage = 'url("../content/test-p-2.png")';
-  })
-  testPTroll.addEventListener("mouseout", () => {
-    testP.style.backgroundImage = 'url("../content/test-p.png")';
-  })
-})
+//dashboard time
 document.addEventListener("DOMContentLoaded", () => {
   const date = new Date(2025, 9, 10, 12, 0, 0);
 
@@ -250,5 +268,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateDate();
-  setInterval(updateDate, 1000)
-})
+  setInterval(updateDate, 1000);
+});

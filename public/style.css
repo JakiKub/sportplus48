@@ -1792,6 +1792,7 @@ body.progress {
     background-position: top left;
     background-repeat: no-repeat;
     height: 100vh;
+    overflow: hidden;
 }
 #navbarProgressLoggedIn {
     display: flex;
