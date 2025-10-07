@@ -11,7 +11,80 @@
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="points">
-
+        <img src="../content/logos/logohuju.png" class="logo-hóju">
+        <div class="navbar-logged-in" id="navbarPointsLoggedIn">
+            <div class="navbar-logged-in-main">
+                <img src="../content/titles/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/titles/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/titles/sb home.png" class="home-ico"></a>
+            </div>
+            <div class="navbar-logged-in-ypttt">
+                <img src="../content/titles/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/titles/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/titles/sb progress.png" class="progress-ico"></a>
+                <a href="records.html"><img src="../content/titles/sb records.png" class="records-ico"></a>
+                <a href="points.html"><img src="../content/titles/sb points.png" class="points-ico"></a>
+            </div>
+            <div class="navbar-logged-in-other">
+                <img src="../content/titles/dsh other.png" class="other-dsh">
+                <a href="ranking.html"><img src="../content/titles/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
+            </div>
+        </div>
+        <div class="main-pts-wrapper">
+            <div class="nvbr-pts-wrapper">
+                <div class="nvbr-wrapper">
+                    <div id="navbarPointsTop">
+                        <button id="userBttn" class="user-bttn"></button>
+                        <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
+                            <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
+                            <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
+                        </div>
+                    </div>
+                    <div id="navbarTop" class="navbar-user-email-top-wrapper">
+                        <button id="enBttn" class="en-bttn"></button>
+                        <button id="notifBttn" class="notif-bttn"></button>
+                        <button id="profileLogOut" class="logout-bttn"></button>
+                    </div>
+                </div>
+                <div class="points-title-div">
+                    <img src="../content/titles/Points.png" id="pointsTitle">
+                    <p id="pPoints">Collect points and enjoy the results of your work.</p>
+                </div>
+            </div>
+            <div class="second-pts-div">
+                <div class="total-pts-balance">
+                    <div class="total-pts">
+                        <div class="total-remaining-pts">
+                            <div class="total-points">
+                                <img src="../content/titles/pts - total points.png" id="totalPtsTitle">
+                                <p id="totalPtsP"></p>
+                            </div>
+                            <div class="remaining-pts">
+                                <img src="../content/titles/pts - remaining.png" id="remainingPtsTitle">
+                                <p id="ptsRemaining"></p>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="ptsLvls1"><p id="ptsPLvl1"></p></div>
+                            <div id="progressBar">
+                                <div id="progressBarInside"></div>
+                            </div>
+                            <div id="ptsLvls2"><p id="ptsPLvl2"></p></div>
+                        </div>
+                    </div>
+                    <div class="total-balance">
+                        <div class="total-balance-ins">
+                            <img src="../content/titles/pts - total balance.png" id="totalBalanceTitle">
+                            <p id="totalBalancePts"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="get-discounts">
+                    
+                </div>
+            </div>
+        </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +98,83 @@
                     document.querySelector('html').style.zoom = ".5";
                 };
             });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const user = JSON.parse(localStorage.getItem("user"));
+
+                const navbarUserEmailTopWrapper = document.getElementById("navbarUserEmailTopWrapper");
+
+                if (user && navbarUserEmailTopWrapper) {
+                    document.getElementById("usernameDashboardTop").textContent = user.username;
+                    document.getElementById("emailDashboardTop").textContent = user.email;
+                    document.getElementById("navbarTop").style.display = "flex";
+                    //document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
+                }
+
+                const profileLogOut = document.getElementById("profileLogOut");
+                if (profileLogOut) {
+                    profileLogOut.addEventListener("click", () => {
+                    localStorage.removeItem("user");
+                    location.href = "dashboard.html";
+                    //location.reload();
+                    });
+                };
+            })
+
+            async function loadPts() {
+                const res = await fetch("/api/user/points");
+                const data = await res.json();
+                let second_lvl = 48;
+                let third_lvl = 148;
+                let fourth_lvl = 248;
+                let fifth_lvl = 348;
+                let sixth_lvl = 480;
+
+                /*
+                    ogolnie troche tu smakowitego liczenia, co do progressBar:
+                        sprawdzic roznice miedzy poprzednim lvl a iloscia pkt (licznik ulamka pB) oraz 
+                        reszta rozrysowana w paincie (<3 ms paint)
+
+                        dwa dividery, jeden to border drugi to srodek. % z licznenia wyzej = width pB
+                */
+
+                document.getElementById("totalPtsP").innerText = data.pointsAll.toFixed(3);
+                document.getElementById("totalBalancePts").innerText = data.pointsNow.toFixed(3);
+
+                if (data.pointsAll < second_lvl) {
+                    document.getElementById("ptsRemaining").innerText = (second_lvl - data.pointsAll).toFixed(3);
+                    document.getElementById("progressBarInside").style.width = ((data.pointsAll / second_lvl) * 100) + "%";
+                    document.getElementById("ptsPLvl1").innerText = "1";
+                    document.getElementById("ptsPLvl2").innerText = "2";
+                } else if (data.pointsAll >= second_lvl && data.pointsAll < third_lvl) {
+                    document.getElementById("ptsRemaining").innerText = (third_lvl - data.pointsAll).toFixed(3);
+                    document.getElementById("progressBarInside").style.width = (((data.pointsAll - second_lvl) / (third_lvl - second_lvl)) * 100) + "%";
+                    document.getElementById("ptsPLvl1").innerText = "2";
+                    document.getElementById("ptsPLvl2").innerText = "3";
+                } else if (data.pointsAll >= third_lvl && data.pointsAll < fourth_lvl) {
+                    document.getElementById("ptsRemaining").innerText = (fourth_lvl - data.pointsAll).toFixed(3);
+                    document.getElementById("progressBarInside").style.width = (((data.pointsAll - third_lvl) / (fourth_lvl - third_lvl)) * 100) + "%";
+                    document.getElementById("ptsPLvl1").innerText = "3";
+                    document.getElementById("ptsPLvl2").innerText = "4";
+                } else if (data.pointsAll >= fourth_lvl && data.pointsAll < fifth_lvl) {
+                    document.getElementById("ptsRemaining").innerText = (fifth_lvl - data.pointsAll).toFixed(3);
+                    document.getElementById("progressBarInside").style.width = (((data.pointsAll - fourth_lvl) / (fifth_lvl - fourth_lvl)) * 100) + "%";
+                    document.getElementById("ptsPLvl1").innerText = "4";
+                    document.getElementById("ptsPLvl2").innerText = "5";
+                } else if (data.pointsAll >= fifth_lvl && data.pointsAll < sixth_lvl) {
+                    document.getElementById("ptsRemaining").innerText = (sixth_lvl - data.pointsAll).toFixed(3);
+                    document.getElementById("progressBarInside").style.width = (((data.pointsAll - fifth_lvl) / (sixth_lvl - fifth_lvl)) * 100) + "%";
+                    document.getElementById("ptsPLvl1").innerText = "5";
+                    document.getElementById("ptsPLvl2").innerText = "6";
+                } else if (data.pointsAll >= sixth_lvl) {
+                    document.getElementById("ptsRemaining").innerText = "MAX LEVEL REACHED";
+                    document.getElementById("progressBarInside").style.width = "100%";
+                    document.getElementById("ptsPLvl1").innerText = "5";
+                    document.getElementById("ptsPLvl2").innerText = "6";
+                }
+            }
+
+            loadPts();
         </script>
     </body>
 </html>

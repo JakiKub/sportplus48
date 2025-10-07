@@ -49,7 +49,43 @@
                 <p class="sel-activ">Select Activity</p><select name="activity" id="activs" required>
                     <option value="">SELECT ACTIVITY (pls dont choose this one i beg you ~ programmer)</option>
                     <option value="running">RUNNING</option>
+                    <option value="nordic-walking">NORDIC WALKING</option>
+                    <option value="cycling">CYCLING</option>
+                    <option value="roller-skating">ROLLER SKATING</option>
+                    <option value="scooter">SCOOTER (not an electric one)</option>
                     <option value="swimming">SWIMMING</option>
+                    <option value="kayaking">KAYAKAING</option>
+                    <option value="rowing">ROWING</option>
+                    <option value="crosscountry-skiing">CROSS-COUNTRY SKIING</option>
+                    <option value="skateboarding">SKATEBOARDING</option>
+                    <option value="calisthenics">CALISTHENICS</option>
+                    <option value="gym">GYM</option>
+                    <option value="fitness">FITNESS OR</option>
+                    <option value="crossfit">CROSSFIT</option>
+                    <option value="zumba">ZUMBA</option>
+                    <option value="aerobics">AEROBICS</option>
+                    <option value="yoga">YOGA</option>
+                    <option value="stretching">STRETCHING</option>
+                    <option value="dancing">DANCING</option>
+                    <option value="martial-arts">MARTIAL ARTS</option>
+                    <option value="sport-gymnastics">SPORT GYMNASTICS</option>
+                    <option value="football">FOOTBALL</option>
+                    <option value="volleyball">VOLLEYBALL</option>
+                    <option value="basketball">BASKETBALL</option>
+                    <option value="handball">HANDBALL</option>
+                    <option value="hockey">HOCKEY</option>
+                    <option value="ice-hockey">ICE HOCKEY</option>
+                    <option value="rugby">RUGBY</option>
+                    <option value="floorball">FLOORBALL</option> <!--unihokej jakims cudem to jest-->
+                    <option value="tennis">TENNIS</option>
+                    <option value="squash">SQUASH</option>
+                    <option value="paddle-tennis">PADDLE TENNIS</option>
+                    <option value="badminton">BADMINTON</option>
+                    <option value="climbing">CLIMBING</option>
+                    <option value="rope-jumping">ROPE JUMPING</option>
+                    <option value="ice-skating">ICE SKATING</option>
+                    <option value="parkour">PARKOUR</option>
+                    <option value="freerun">FREERUN</option>
                 </select>
             </div>
             <div class="dist-time-div">
@@ -97,7 +133,8 @@
             if (profileLogOutAddActiv) {
                 profileLogOutAddActiv.addEventListener("click", () => {
                 localStorage.removeItem("user");
-                location.reload();
+                location.href = "dashboard.html";
+                //location.reload();
                 });
             }
 

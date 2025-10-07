@@ -1,5 +1,18 @@
 //cholera wie jak to dziala
 
+/* funkcja na punkty: 
+  const pointsCalc = () => {
+    if (activity === "{nazwa aktywnosci z formularza}") {
+      przelicznik pkt dla tej aktywnosci
+    }
+    itd itd
+  }
+  ogolnie to musze miec w userModel (czy jakkowliek to jest nazwane) points: 0 (number); funkcje licznika moze byc chyba gdziekolwiek i potem w formularzu 
+  rejestracji aktywnosci musze dac points: pointsCalc(activity)
+  punkty trafiaja do points w userModel (?) oraz na progress.html
+  no i jednak pointsNow i pointsAll (kys korcala)
+*/
+
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -64,6 +77,8 @@ const logInSchema = new mongoose.Schema({
   nationality: { type: String, },
   resetToken: String,
   resetTokenExpiry: Date,
+  pointsNow: { type: Number, default: 4.800 },
+  pointsAll: { type: Number, default: 4.800 },
 })
 
 const collection = new mongoose.model("users", logInSchema);
@@ -75,7 +90,7 @@ const activSchema = new mongoose.Schema({
   timeInMins: { type: Number, required: true },
   status: { type: String, enum: ["pending", "approved", "denied"], default: "pending" },
   createdAt: { type: Date, default: Date.now },
-  points: { type: Number, default: 0 },
+  points: { type: Number, default: 4.800 },
 })
 
 const Activity = mongoose.models.Activity || mongoose.model("Activity", activSchema);
@@ -85,6 +100,169 @@ const requireLogin = (req, res, next) => {
     return res.status(401).send("must be logged in");
   }
   next();
+}
+
+const pointsCalc = (activity, distance, timeInMins) => {
+  let points = 0;
+
+  switch (activity) {
+    case "running":
+      points = distance * 2;
+      break;
+
+    case "nordic-walking":
+      points = distance * 1;
+      break;
+    
+    case "cycling":
+      points = distance * 0.5;
+      break;
+
+    case "roller-skating":
+      points = distance * 1.5;
+      break;
+    
+    case "scooter":
+      points = distance * 1;
+      break;
+
+    case "swimming":
+      points = distance * 5;
+      break;
+
+    case "kayaking":
+      points = distance * 2.5;
+      break;
+    
+    case "rowing":
+      points = distance * 2.5;
+      break;
+
+    case "crosscountry-skiing":
+      points = distance * 2.5;
+      break;
+
+    case "skateboarding":
+      points = distance * 1.5;
+      break;
+
+    case "calisthenics":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "gym":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "fitness":
+      points = timeInMins * (8 / 60);
+      break;
+
+    case "crossfit":
+      points = timeInMins * (8 / 60);
+      break;
+
+    case "aerobics":
+      points = timeInMins * (7 / 60);
+      break;
+
+    case "zumba":
+      points = timeInMins * (7 / 60);
+      break;
+
+    case "yoga":
+      points = timeInMins * (4 / 60);
+      break;
+
+    case "stretching":
+      points = timeInMins * (4 / 60);
+      break;
+
+    case "dancing":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "martial-arts":
+      points = timeInMins * (8 / 60);
+      break;
+
+    case "sport-gymnastics":
+      points = timeInMins * (7 / 60);
+      break;
+
+    case "football":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "basketball":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "volleyball":
+      points = timeInMins * (5.5 / 60);
+      break;
+
+    case "handball":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "hockey":
+      points = timeInMins * (6.5 / 60);
+      break;
+
+    case "ice-hockey":
+      points = timeInMins * (6.5 / 60);
+      break;
+
+    case "rugby":
+      points = timeInMins * (6.5 / 60);
+      break;
+
+    case "floorball":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "tennis":
+      points = timeInMins * (6.25 / 60);
+      break;
+
+    case "squash":
+      points = timeInMins * (6.25 / 60);
+      break;
+
+    case "paddle-tennis":
+      points = timeInMins * (6.25 / 60);
+      break;
+
+    case "badminton":
+      points = timeInMins * (6.25 / 60);
+      break;
+
+    case "climbing":
+      points = timeInMins * (6.5 / 60);
+      break;
+
+    case "rope-jumping":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "ice-skating":
+      points = timeInMins * (6 / 60);
+      break;
+
+    case "parkour":
+      points = timeInMins * (6.25 / 60);
+      break;
+
+    case "freerun":
+      points = timeInMins * (6.25 / 60);
+      break;
+
+    default:
+      points = 0;
+  }
+
+  return Number(points.toFixed(3))
 }
 
 app.get("/api/activity", async (req, res) => {
@@ -103,12 +281,18 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
   const [hours, minutes] = time.split(":").map(Number);
   const timeInMins = hours * 60 + minutes;
 
+  const parsedDist = parseFloat(distance) || 0;
+  const parsedTime = parseFloat(timeInMins, 10) || 0;
+
+  const points = pointsCalc(activity, parsedDist, parsedTime);
+
   const newActiv = await Activity.create({
     userId: req.session.userId,
     activity,
-    distance: parseFloat(distance),
-    timeInMins,
+    distance: parsedDist,
+    timeInMins: parsedTime,
     status: "pending",
+    points,
   });
 
   const approveLink = `http://localhost:${PORT}/api/approve/${newActiv._id}`;
@@ -141,7 +325,18 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
 
 app.get("/api/approve/:id", async (req, res) => {
   try {
-    await Activity.findByIdAndUpdate(req.params.id, { status: "approved" });
+    const activity = await Activity.findByIdAndUpdate(req.params.id, { status: "approved" });
+
+    await collection.findByIdAndUpdate(
+      activity.userId,
+      {
+        $inc: {
+          pointsNow: activity.points,
+          pointsAll: activity.points,
+        }
+      }
+    );
+
     res.send("aktywnosc zaakceptowana");
   } catch (err) {
     console.error(err);
@@ -158,6 +353,23 @@ app.get("/api/deny/:id", async (req, res) => {
     res.status(500).send("blad przy odrzucaniu aktywnosci");
   }
 });
+
+app.get("/api/user/points", requireLogin, async(req, res) => {
+  try {
+    const user = await collection.findById(req.session.userId, "pointsNow pointsAll");
+
+    if (!user) {
+      return res.status(404).json({ error: "znajdz user to ci wyswietle" });
+    }
+
+    res.json({
+      pointsNow: user.pointsNow,
+      pointsAll: user.pointsAll
+    })
+  } catch (err) {
+    console.log(err);
+  }
+})
 
 app.post('/register', async (req, res) => {
   //console.log("req.body:", req.body);
@@ -304,6 +516,17 @@ app.get('/api/records', async (req, res) => {
       longestActiv: longestActiv ? longestActiv.timeInMins : 0,
       totalActivs
     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "some error that i dont even know" });
+  }
+});
+
+app.get('/api/ranking', async (req, res) => {
+  try {
+    const mostPoints = await collection.find({}, { username: 1, nationality: 1, pointsAll: 1, _id: 0 }).sort({ pointsAll: -1 }).limit(48);
+
+    res.json({ mostPoints });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "some error that i dont even know" });

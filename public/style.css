@@ -25,7 +25,8 @@ body.about-us, body.sports, body.profile, body.forgot-password, body.reset-passw
     flex-direction: row;
     position: absolute;
     justify-content: space-between;
-    width: 65vw;
+    max-width: 957px;
+    width: 100%;
     font-size: 1.2em;
     font-family: 'Radio Canada', sans-serif;
     align-items: center;
@@ -45,13 +46,13 @@ body.about-us, body.sports, body.profile, body.forgot-password, body.reset-passw
 .navbar a:hover {
     text-decoration: underline;
     text-decoration-color: #CAB99F;
-    scale: 1.2;
+    transform: scale(1.2);
 }
 a.troll:hover {
-    scale: 1.05;
+    transform: scale(1.05);
 }
 .navbar-logged-in-top {
-    width: 25vw;
+    width: 25vw; /*480px?*/
     height: auto;
     display: none;
     flex-direction: row;
@@ -80,10 +81,11 @@ a.troll:hover {
     transition-duration: 0.4s;
 }
 .navbar-logged-in-top-user:hover, .navbar-logged-in-top-notification:hover, .navbar-logout-button:hover {
-    scale: 1.2;
+    transform: scale(1.2);
+    transform-origin: top left;
 }
 .navbar-logged-in-top:active, .navbar-logged-in-top-notification:active, .navbar-logout-button:active {
-    scale: 1;
+    transform: scale(1);
 }
 .navbar-logged-in-top-wrapper {
     display: flex;
@@ -127,7 +129,8 @@ a.troll:hover {
 .navbar-logged-in a {
     display: flex;
     align-items: center;
-    width: 432px;
+    max-width: 432px;
+    width: 100%;
     height: 50px;
     text-decoration: none;
     transition-duration: 2s;
@@ -170,10 +173,10 @@ a.troll:hover {
     margin-bottom: 0;
 }
 .instagram-logo:hover, .tiktok-logo:hover {
-    scale: 1.2;
+    transform: scale(1.2);
 }
 .instagram-logo:active, .tiktok-logo:active {
-    scale: 1;
+    transform: scale(1);
 }
 .logo-hóju {
     transform: scale(.83);
@@ -184,7 +187,8 @@ a.troll:hover {
 }
 .en-bttn {
     background-image: url("../content/buttons/dashboard\ en\ button.png");
-    width: 71px;
+    max-width: 71px;
+    width: 100%;
     height: 71px;
     background-color: transparent;
     border: none;
@@ -193,7 +197,8 @@ a.troll:hover {
 }
 .notif-bttn {
     background-image: url("../content/buttons/dashboard\ notification\ button.png");
-    width: 71px;
+    max-width: 71px;
+    width: 100%;
     height: 71px;
     background-color: transparent;
     border: none;
@@ -202,7 +207,8 @@ a.troll:hover {
 }
 .logout-bttn {
     background-image: url("../content/buttons/dashboard\ logout\ button.png");
-    width: 71px;
+    max-width: 71px;
+    width: 100%;
     height: 71px;
     background-color: transparent;
     border: none;
@@ -211,7 +217,8 @@ a.troll:hover {
 }
 .user-bttn {
     background-image: url("../content/buttons/dashboard\ user.png");
-    width: 78px;
+    min-width: 78px;
+    width: 100%;
     height: 78px;
     background-color: transparent;
     border: none;
@@ -271,7 +278,7 @@ body.actions {
 .navbar-actions a:hover, .navbar-actions p:hover {
     text-decoration: underline;
     text-decoration-color: #CAB99F;
-    scale: 1.2;
+    transform: scale(1.2);
 }
 .navbar-actions p.troll {
     cursor: pointer;
@@ -363,7 +370,8 @@ body.about-event {
     position: absolute;
     left: 7%;
     top: 40%;
-    width: 680px;
+    max-width: 680px;
+    width: 100%;
     gap: 70px;
 }
 
@@ -542,7 +550,8 @@ body.add-activity {
 }
 #addActivForm {
     height: 36%;
-    width: 1124px;
+    width: 100%;
+    max-width: 1124px;
     border: none;
     position: absolute;
     right: 8.5%;
@@ -553,7 +562,9 @@ body.add-activity {
     justify-content: space-between;
 }
 #activs {
+    /* to MOZE nie dzialac */
     background-image: url("../content/div-backgrounds/select\ activity.png");
+    background-position: top left;
     appearance: none;
     min-width: 917px;
     min-height: 64px;
@@ -596,7 +607,8 @@ option {
 }
 #distance {
     background-image: url("../content/div-backgrounds/distance.png");
-    width: 279px;
+    max-width: 279px;
+    width: 100%;
     height: 64px;
     background-color: transparent;
     border: none;
@@ -609,7 +621,8 @@ option {
 }
 #time {
     background-image: url("../content/div-backgrounds/time.png");
-    width: 279px;
+    min-width: 279px;
+    width: 100%;
     height: 64px;
     background-color: transparent;
     border: none;
@@ -628,7 +641,8 @@ p.dist-p, p.time-p, p.km-p {
 }
 #submitBttn {
     background-image: url("../content/buttons/send\ for\ approval.png");
-    width: 1123px;
+    max-width: 1123px;
+    width: 100%;
     height: 64px;
     background-color: transparent;
     border: none;
@@ -643,7 +657,8 @@ p.dist-p, p.time-p, p.km-p {
 }
 #uploadEvidence {
     background-image: url("../content/buttons/upload\ file.png");
-    width: 917px;
+    min-width: 917px;
+    width: 80%;
     height: 64px;
     background-color: transparent;
     border: none;
@@ -667,7 +682,8 @@ p.dist-p, p.time-p, p.km-p {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 223px;
+    max-width: 223px;
+    width: 100%;
     height: 73px;
     gap: 5px;
     position: absolute;
@@ -699,7 +715,7 @@ body.articles {
     position: absolute;
     display: flex;
     flex-direction: row;
-    scale: 0.8;
+    transform: scale(.8);
     justify-content: space-between;
     width: 100%;
     top: 23%;
@@ -712,10 +728,10 @@ body.articles {
     transition-duration: 0.7s;
 }
 .article-button:hover {
-    scale: 1.05;
+    transform: scale(1.05);
 }
 .article-button:active {
-    scale: 1;
+    transform: scale(1);
 }
 @keyframes sportNewsSlide {
     0% {
@@ -895,10 +911,10 @@ body.contact {
 .navbar-contact a:hover {
     text-decoration: underline;
     text-decoration-color: #CAB99F;
-    scale: 1.2;
+    transform: scale(1.2);
 }
 a.troll:hover {
-    scale: 1.05;
+    transform: scale(1.05);
 }
 .leave-a-message {
     position: absolute;
@@ -914,10 +930,10 @@ a.troll:hover {
     margin-top: 1.3em;;
 }
 .leave-us-a-message:hover {
-    scale: 1.1;
+    transform: scale(1.1)
 }
 .leave-us-a-message:active {
-    scale: 1;
+    transform: scale(1);
 }
 .contact-data {
     display: flex;
@@ -960,7 +976,7 @@ a.troll:hover {
 }
 
 /*countries*/
- body.countries {
+body.countries {
     background-image: url("../content/backgrounds/background-countries-2.jpg");
     background-size: cover;
     background-position: top left;
@@ -969,7 +985,8 @@ a.troll:hover {
     margin: 0;
 }
 .jakies-napisy {
-    scale: 0.8;
+    transform: scale(.8);
+    transform-origin: top left;
     display: flex;
     flex-direction: column;
     gap: 10vh;
@@ -998,7 +1015,8 @@ a.troll:hover {
     }
 }
 .countries-counter {
-    scale: 0.8;
+    transform: scale(.8);
+    transform-origin: top left;
     display: flex;
     flex-direction: column;
     max-width: 588px;
@@ -1021,11 +1039,11 @@ a.troll:hover {
     max-height: 80px;
 }
 #countriesSlideLeft:hover, #countriesSlideRight:hover {
-    scale: 1.05;
+    transform: scale(1.05);
     cursor: pointer;
 }
 #countriesSlideLeft:active, #countriesSlideRight:active {
-    scale: 1;
+    transform: scale(1);
 }
 #countriesNumber {
     color: white;
@@ -1042,7 +1060,8 @@ a.troll:hover {
     background-size: contain;
     background-repeat: no-repeat;
     display: block;
-    width: 276px;
+    max-width: 276px;
+    width: 100%;
     height: 64px;
     z-index: 2;
 }
@@ -1130,7 +1149,7 @@ body.dashboard.logged-in {
 .navbar-dashboard-logged-out a:hover, .navbar-dashboard-logged-out p:hover {
     text-decoration: underline;
     text-decoration-color: #CAB99F;
-    scale: 1.2;
+    transform: scale(1.2);
 }
 .navbar-dashboard-logged-out p.troll {
     cursor: pointer;
@@ -1138,19 +1157,20 @@ body.dashboard.logged-in {
 .log-in-register {
     color: #CAB99F;
     position: absolute;
-    width: 700px;
+    max-width: 700px;
+    width: 100%;
     margin: 0;
     text-align: center;
-    top: 720px;
-    left: 240px;
+    top: 77%;
+    left: 12%;
     padding-bottom: 10px;
     cursor: pointer;
 }
 .log-in, .register {
-    font-size: 30px;
+    font-size: 1.9em;
     font-family: 'Radio Canada', sans-serif;
     color: #CAB99F;
-    border-radius: 25px;
+    border-radius: 1.5em;
     padding-left: 40px;
     padding-right: 40px;
     border-color: transparent;
@@ -1164,7 +1184,7 @@ body.dashboard.logged-in {
     cursor: pointer;
 }
 .log-in:hover, .register:hover {
-    scale: 1.1;
+    transform: scale(1.1);
     border-color: #CAB99F;
 }
 .log-in-modal-container {
@@ -1207,7 +1227,8 @@ body.dashboard.logged-in {
     transition-duration: 0.7s;
 }
 .log-in-in-modal {
-    width: 534px;
+    max-width: 534px;
+    width: 100%;
     height: 181px;
     background-color: transparent;
     border: none;
@@ -1221,7 +1242,7 @@ body.dashboard.logged-in {
     color: white;
     font-family: 'Radio Canada', sans-serif;
     position: absolute;
-    font-size: 20px;
+    font-size: 1.3em;
     bottom: 50%;
     right: 20.2%;
 }
@@ -1234,10 +1255,11 @@ body.dashboard.logged-in {
 .log-in-modal a:hover {
     text-decoration: underline;
     text-decoration-color: #CAB99F;
-    scale: 1.2;
+    transform: scale(1.2);
 }
 .log-in-modal input.email {
-    width: 550px;
+    max-width: 550px;
+    width: 100%;
     height: 50px;
     border-color: transparent;
     background-color: white;
@@ -1249,7 +1271,8 @@ body.dashboard.logged-in {
     color: black;
 }
 .log-in-modal input.password {
-    width: 550px;
+    max-width: 550px;
+    width: 100%;
     height: 50px;
     border-color: transparent;
     background-color: white;
@@ -1262,7 +1285,8 @@ body.dashboard.logged-in {
 }
 #loginText {
     position: absolute;
-    width: 602px;
+    max-width: 602px;
+    width: 100%;
     height: 50px;
     top: 19%;
     left: 35%;
@@ -1317,7 +1341,8 @@ body.dashboard.logged-in {
     transition-duration: 0.7s;
 }
 .register-in-modal {
-    width: 534px;
+    max-width: 534px;
+    width: 100%;
     height: 177px;
     background-color: transparent;
     border: none;
@@ -1328,7 +1353,8 @@ body.dashboard.logged-in {
     transition-duration: 0.7s;
 }
 .register-modal input.email {
-    width: 520px;
+    max-width: 520px;
+    width: 100%;
     height: 50px;
     border-color: transparent;
     background-color: white;
@@ -1340,7 +1366,8 @@ body.dashboard.logged-in {
     color: black;
 }
 .register-modal input.password {
-    width: 520px;
+    width: 100%;
+    max-width: 520px;
     height: 50px;
     border-color: transparent;
     background-color: white;
@@ -1352,7 +1379,8 @@ body.dashboard.logged-in {
     color: black;
 }
 .register-modal input.username {
-    width: 520px;
+    max-width: 520px;
+    width: 100%;
     height: 50px;
     border-color: transparent;
     background-color: white;
@@ -1363,8 +1391,9 @@ body.dashboard.logged-in {
     font-family: 'Radio Canada', sans-serif;
     color: black;
 }
-.register-modal input.nationalities {
-    width: 520px;
+.register-modal select.nationalities {
+    max-width: 520px;
+    width: 100%;
     height: 50px;
     border-color: transparent;
     background-color: white;
@@ -1400,7 +1429,8 @@ body.dashboard.logged-in {
     left: 19.82%;
     background-color: transparent;
     position: absolute;
-    width: 250px;
+    max-width: 250px;
+    width: 100%;
     height: 50px;
     margin: 0;
     color: white;
@@ -1417,7 +1447,7 @@ body.dashboard.logged-in {
     bottom: 18.5%;
 }
 .log-in-close:hover, .log-in-in-modal:hover, .register-close:hover, .register-in-modal:hover {
-    scale: 1.03;
+    transform: scale(1.03);
 }
 h1.profile, p.profile {
     color: white;
@@ -1431,18 +1461,78 @@ span.profile {
     top: 40%;
     right: 6.15%;
     height: 250px;
-    width: 1000px;
+    max-width: 1000px;
+    width: 100%;
     margin: 0;
     font-family: 'Radio Canada', sans-serif;
     font-size: 45px;
     background-color: rgba(2, 2, 68, 0.7);
 }
-.streak-container {
-    width: 662px;
+.streak-daily-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    gap: 20px;
+}
+.streak-daily-motiv-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    gap: 20px;
+}
+.personal-inspired-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 20px;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+}
+.main-div-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 20px;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    /* position: absolute;
+    bottom: 2.2%;
+    right: 2.6%; */
+}
+.sc-starts-in {
+    background-image: url("../content/div-backgrounds/chujchujchuj2.png");
+    max-width: 1377px;
+    width: 100%;
     height: 64px;
-    position: absolute;
-    top: 36.9%;
-    left: 24%;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    /* left: 24%;
+    top: 28%; */
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    gap: 25px;
+}
+.streak-container {
+    max-width: 662px;
+    width: 100%;
+    height: 64px;
+    position: relative;
+    /* top: 36.9%;
+    left: 24%; */
     display: none;
     flex-direction: row;
     justify-content: flex-end;
@@ -1452,6 +1542,49 @@ span.profile {
     margin: 0;
 
     animation: streakContainerSlideLeft 1s linear;
+}
+.motiv-quote {
+    min-width: 696px;
+    width: 100%;
+    height: 298px;
+    background-image: url("../content/div-backgrounds/motivational\ quote.png");
+    position: relative;
+    /* top: 36.9%;
+    right: 2.6%; */
+    display: none;
+
+    /* animation: motivQuoteSlideLeft 1.05s linear; */
+}
+.daily-challenge {
+    background-image: url("../content/div-backgrounds/daily\ challenge.png");
+    min-width: 662px;
+    width: 100%;
+    height: 213px;
+    position: relative;
+    /* left: 24%;
+    top: 46.205%; */
+    display: none;
+}
+.get-inspired {
+    /* nikt nie wie czemu to nie dziala */
+    background-image: url("../content/div-backgrounds/get\ inspired.png");
+    min-width: 526px;
+    width: 100%;
+    height: 243px;
+    position: relative;
+    /* right: 2.6%;
+    bottom: 2.2%; */
+    display: none;
+}
+.personal-goals {
+    background-image: url("../content/div-backgrounds/personalized\ goals.png");
+    min-width: 832px;
+    width: 100%;
+    height: 243px;
+    position: relative;
+    /* bottom: 2.2%;
+    left: 24%; */
+    display: none;
 }
 a.streak-lm {
     cursor: pointer;
@@ -1489,7 +1622,8 @@ span.streak-counter {
 }
 .streak-counter-div {
     background-image: url("../content/div-backgrounds/streak1.png");
-    width: 160px;
+    max-width: 160px;
+    width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -1507,17 +1641,6 @@ span.streak-counter {
 }
 #streakButton:active {
     transform: scale(1);
-}
-.motiv-quote {
-    width: 696px;
-    height: 298px;
-    background-image: url("../content/div-backgrounds/motivational\ quote.png");
-    position: absolute;
-    top: 36.9%;
-    right: 2.6%;
-    display: none;
-
-    /* animation: motivQuoteSlideLeft 1.05s linear; */
 }
 /* @keyframes motivQuoteSlideLeft {
     0% {
@@ -1559,7 +1682,8 @@ span.streak-counter {
 }
 #randomQuote {
     position: absolute;
-    width: 380px;
+    max-width: 380px;
+    width: 100%;
     height: 150px;
     bottom: 15%;
     right: 10%;
@@ -1569,7 +1693,7 @@ span.streak-counter {
 #quote {
     color: white;
     font-family: 'Radio Canada', sans-serif;
-    font-size: 25px;
+    font-size: 1.75em;
     position: absolute;
     top: 2%;
     left: 5%;
@@ -1598,7 +1722,7 @@ span.streak-counter {
 #person {
     color: white;
     font-family: 'Radio Canada', sans-serif;
-    font-size: 15px;
+    font-size: 1.2em;
     position: absolute;
     left: 5%;
     bottom: 2%;
@@ -1630,21 +1754,13 @@ span.streak-counter {
         opacity: 1;
     }
 } */
-.daily-challenge {
-    background-image: url("../content/div-backgrounds/daily\ challenge.png");
-    width: 662px;
-    height: 213px;
-    position: absolute;
-    left: 24%;
-    top: 46.205%;
-    display: none;
-}
 #challenge {
     color: white;
     position: absolute;
     right: 6.5%;
     top: 5.6%;
-    width: 350px;
+    max-width: 350px;
+    width: 100%;
     height: 180px;
     display: flex;
     justify-content: center;
@@ -1652,15 +1768,6 @@ span.streak-counter {
     font-family: 'Radio Canada', sans-serif;
     font-size: 1.5em;
     font-weight: 400;
-}
-.get-inspired {
-    background-image: url("../content/div-backgrounds/get\ inspired.png");
-    width: 526px;
-    height: 243px;
-    position: absolute;
-    right: 2.6%;
-    bottom: 2.2%;
-    display: none;
 }
 #inspirChange {
     background-image: url("../content/buttons/change.png");
@@ -1698,49 +1805,27 @@ p#textInGetInspir {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 380px;
+    max-width: 380px;
+    width: 100%;
     height: 170px;
     font-family: 'Radio Canada', sans-serif;
     font-size: 1.4em;
     text-align: center;
     font-weight: 400;
 }
-.personal-goals {
-    background-image: url("../content/div-backgrounds/personalized\ goals.png");
-    width: 832px;
-    height: 243px;
-    position: absolute;
-    bottom: 2.2%;
-    left: 24%;
-    display: none;
-}
 .some-text {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    position: absolute;
-    top: 17%;
-    left: 25.6%;
+    position: relative;
+    /* top: 17%;
+    left: 25.6%; */
 }
 p#someTextP {
     color: white;
     font-family: 'Radio Canada', sans-serif;
     font-size: 1.3em;
     font-weight: 100;
-}
-.sc-starts-in {
-    background-image: url("../content/div-backgrounds/chujchujchuj2.png");
-    width: 1377px;
-    height: 64px;
-    display: none;
-    align-items: center;
-    justify-content: flex-start;
-    position: absolute;
-    left: 24%;
-    top: 28%;
-    color: white;
-    font-family: 'Radio Canada', sans-serif;
-    gap: 25px;
 }
 #scImg {
     margin-left: 20px;
@@ -1759,12 +1844,21 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
     font-size: 2.2em;
     font-weight: 500;
 }
+.dsh-navbar-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1377px;
+    width: 100%;
+    height: auto;
+}
 #navbarDashboardLoggedInTop {
     display: none;
     flex-direction: row;
-    position: absolute;
-    top: 6%;
-    left: 25%;
+    position: relative;
+    /* top: 6%;
+    left: 25%; */
     align-items: center;
     gap: 20px;    
 }
@@ -1773,17 +1867,223 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 223px;
+    max-width: 223px;
+    width: 100%;
     height: 73px;
     gap: 5px;
+    position: relative;
+    /* top: 6%;
+    right: 4%;     */
+}
+.dsh-navbar-txt-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 35px;
+    max-width: 1377px;
+    width: 100%;
+    height: auto;
+}
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 25px;
     position: absolute;
-    top: 6%;
-    right: 4%;    
+    bottom: 2.2%;
+    right: 2.6%;
 }
 
 /*forgot-password*/
 
 /*home*/
+
+/* points */
+body.points {
+    background-image: url('../content/backgrounds/dashboard\ background.jpg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+#navbarPointsLoggedIn {
+    display: flex;
+}
+#navbarPointsTop {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* top: 6%;
+    left: 25%; */
+    align-items: center;
+    gap: 20px;     
+}
+.points-title-div {
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+}
+#pointsTitle {
+    display: flex;
+    max-width: 161px;
+    width: 100%;
+}
+#pPoints {
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: white;
+}
+.nvbr-pts-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.total-pts {
+    background-image: url("../content/div-backgrounds/pts4.png");
+    max-width: 836px;
+    width: 100%;
+    max-height: 137px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.total-balance {
+    background-image: url("../content/div-backgrounds/pts5.png");
+    max-width: 836px;
+    width: 100%;
+    max-height: 486px;
+    height: 100%;
+}
+.total-pts-balance {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 836px;
+    width: 100%;
+    max-height: 647px;
+    height: 100%;
+}
+.get-discounts {
+    background-image: url("../content/div-backgrounds/pts6.png");
+    max-width: 517px;
+    width: 100%;
+    max-height: 647px;
+    height: 100%;
+}
+.second-pts-div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 1373px;
+    width: 100%;
+    max-height: 647px;
+    height: 100%;
+}
+.main-pts-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1373px;
+    width: 100%;
+    max-height: 867px;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    top: 4%;
+    right: 3%;
+}
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    max-width: 754px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+#ptsLvls1, #ptsLvls2 {
+    max-width: 42px;
+    width: 100%;
+    height: 42px;
+    background-image: url("../content/div-backgrounds/pts\ -\ levels.png");
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+#ptsPLvl1, #ptsPLvl2 {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.6em;
+}
+#progressBar {
+    max-width: 660px;
+    width: 100%;
+    border: 3px solid #4AAFFF;
+    max-height: 15px;
+    height: 100%;
+    border-radius: 2em;
+}
+#progressBarInside {
+    max-width: 660px;
+    background: #4AAFFF;
+    height: 100%;
+}
+.total-points {
+    max-width: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+#totalPtsP, #ptsRemaining {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.8em;
+    font-weight: 400;
+}
+.remaining-pts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    max-width: max-content;
+    width: 100%;
+    gap: 10px;
+}
+.total-remaining-pts {
+    display: flex;
+    flex-direction: row;
+    max-width: 686px;
+    width: 100%;
+    justify-content: space-between;
+}
+.total-balance-ins {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: max-content;
+    width: 100%;
+}
+#totalBalancePts {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 2.7em;
+    font-weight: 600;
+}
 
 /* progress */
 body.progress {
@@ -1797,13 +2097,10 @@ body.progress {
 #navbarProgressLoggedIn {
     display: flex;
 }
-.border-bckgrnd {
-    background-image: url("");
-}
 #progressTable {
-    position: absolute;
-    top: 35%;
-    right: 3.4%;
+    position: relative;
+    /* top: 35%;
+    right: 3.4%; */
     color: white;
     width: 1377px;
     font-family: 'Radio Canada', sans-serif;
@@ -1821,7 +2118,8 @@ tbody {
 }
 tbody tr {
     border-collapse: collapse;
-    width: 1377px;
+    max-width: 1377px;
+    width: 100%;
     height: 64px;
     background-image: url("../content/div-backgrounds/gr1.png");
     background-repeat: no-repeat;
@@ -1836,9 +2134,9 @@ tbody tr {
     flex-direction: column;
     width: max-content;
     height: max-content;
-    position: absolute;
-    top: 23.4%;
-    left: 25%;
+    position: relative;
+    /* top: 23.4%;
+    left: 25%; */
     gap: 10px;
 }
 #pProgress {
@@ -1848,8 +2146,206 @@ tbody tr {
     font-weight: 200;
 }
 #progressTitle {
-    width: 224px;
+    max-width: 224px;
+    width: 100%;
     height: 50px;
+}
+.nvbr-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 1377px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#navbarProgressTop {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* top: 6%;
+    left: 25%; */
+    align-items: center;
+    gap: 20px;   
+}
+.nvbr-prgrss-txt-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 90px;
+    max-width: 1377px;
+    width: 100%;
+    height: auto;
+}
+.main-prgrss-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 4%;
+    right: 3%;
+}
+
+/* ranking */
+body.ranking {
+    background-image: url("../content/backgrounds/dashboard\ background.jpg");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+#navbarRankingTop {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* top: 6%;
+    left: 25%; */
+    align-items: center;
+    gap: 20px;
+}
+.ranking-title {
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+}
+#rankingTitle {
+    max-width: 207px;
+    width: 100%;
+}
+#rankingTitleP {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.one-of-main-rank-divs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 1377px;
+    width: 100%;
+    position: absolute;
+    top: 6%;
+    right: 2.7%;
+}
+#rankingTable {
+    background-image: url("../content/div-backgrounds/rank3.png");
+    max-width: 1377px;
+    width: 100%;
+    height: 64px;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.6em;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+}
+.ranking-change {
+    background-image: url('../content/div-backgrounds/1\ of\ graph.png');
+    max-width: 235px;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ranking-title-change {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 1377px;
+    width: 100%;
+}
+#rankChangeLeft, #rankChangeRight {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+#rankChangeLeft:hover, #rankChangeRight:hover {
+    transform: scale(1.13);
+    transform-origin: center;
+}
+#rankChangeLeft:active, #rankChangeRight:active {
+    transform: scale(1);
+    transform-origin: center;
+}
+#xOfSeven {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+#rankingTable1 {
+    display: flex;
+}
+#rankingTable2, #rankingTable3, #rankingTable4, #rankingTable5, #rankingTable6, #rankingTable7 {
+    display: none;
+}
+#rankingTable1, #rankingTable2, #rankingTable3, #rankingTable4, #rankingTable5, #rankingTable6, #rankingTable7 {
+    flex-direction: column;
+    gap: 20px;
+    max-height: 588px;
+    height: 100%;
+    max-width: 1377px;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    right: 2.7%;
+    bottom: 0%;
+}
+#rankingTable1 > div, #rankingTable2 > div, #rankingTable3 > div, #rankingTable4 > div, #rankingTable5 > div, #rankingTable6 > div, #rankingTable7 > div {
+    background-image: url('../content/div-backgrounds/rank2.png');
+    max-width: 1377px;
+    width: 100%;
+    max-height: 64px;
+    height: 100%;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    font-size: 1.6em;
+    font-weight: 500;
+    text-align: center;
+}
+.rank {
+    max-width: 80px;
+    width: 100%;
+    text-align: left;
+}
+.country {
+    max-width: 250px;
+    width: 100%;
+    text-align: left;
+    margin-left: 2em;
+}
+.user {
+    max-width: 350px;
+    width: 100%;
+    text-align: left;
+    margin-left: 2em;
+}
+.total-pts-sc {
+    flex-grow: 1;
+    text-align: right;
 }
 
 /* records */
@@ -1864,9 +2360,9 @@ body.records {
     flex-direction: column;
     justify-content: center;
     gap: 18px;
-    position: absolute;
-    top: 16%;
-    left: 25%;
+    position: relative;
+    /* top: 16%;
+    left: 25%; */
 }
 #recordsTitle {
     width: max-content;
@@ -1879,11 +2375,12 @@ body.records {
 }
 .monitor-path {
     background-image: url("../content/div-backgrounds/rec5.png");
-    width: 665px;
+    max-width: 665px;
+    width: 100%;
     height: 330px;
-    position: absolute;
-    bottom: 3%;
-    left: 24.7%;
+    position: relative;
+    /* bottom: 3%;
+    left: 24.7%; */
 }
 #aProgressRecords {
     width: 262px;
@@ -1901,11 +2398,12 @@ body.records {
 }
 .did-u-knew {
     background-image: url("../content/div-backgrounds/rec6.png");
-    width: 665px;
+    max-width: 665px;
+    width: 100%;
     height: 330px;
-    position: absolute;
-    bottom: 3%;
-    right: 3.3%;
+    position: relative;
+    /* bottom: 3%;
+    right: 3.3%; */
     display: flex;
     justify-content: center;
 }
@@ -1922,16 +2420,20 @@ p#someYkText {
 }
 .records-div {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 72%;
-    position: absolute;
-    left: 24.7%;
-    top: 27.3%;
+    /* width: 72%; */
+    position: relative;
+    max-width: 1377px;
+    width: 100%;
+    /* left: 24.7%;
+    top: 27.3%; */
 }
 .longest-dist {
     background-image: url("../content/div-backgrounds/rec1.png");
-    width: 322px;
+    max-width: 322px;
+    width: 100%;
     height: 291px;
     display: flex;
     justify-content: center;
@@ -1939,7 +2441,8 @@ p#someYkText {
 }
 .most-common {
     background-image: url("../content/div-backgrounds/rec7.png");
-    width: 322px;
+    max-width: 322px;
+    width: 100%;
     height: 291px;
     display: flex;
     justify-content: center;
@@ -1948,7 +2451,8 @@ p#someYkText {
 }
 .longest-activ {
     background-image: url("../content/div-backgrounds/rec3.png");
-    width: 322px;
+    max-width: 322px;
+    width: 100%;
     height: 291px;
     display: flex;
     justify-content: center;
@@ -1956,7 +2460,8 @@ p#someYkText {
 }
 .total-activs {
     background-image: url("../content/div-backgrounds/rec4.png");
-    width: 322px;
+    max-width: 322px;
+    width: 100%;
     height: 291px;
     display: flex;
     justify-content: center;
@@ -1976,7 +2481,53 @@ p#mostCommonP {
     font-weight: 500;
     color: #f1dfbc;
 }
+#navbarRecordsTop {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* top: 6%;
+    left: 25%; */
+    align-items: center;
+    gap: 20px;
+}
+.nvbr-rcrds-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 1377px;
+    width: 100%;
+    gap: 50px;
+}
+.monitor-did-yk-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1377px;
+    width: 100%;
+}
+.records-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1377px;
+    width: 100%;
+}
+.main-rcrds-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 1377px;
+    width: 100%;
+    position: absolute;
+    top: 4%;
+    right: 2.6%;
+}
 
 /*reset-password*/
 
-/*sports*/

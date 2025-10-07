@@ -23,42 +23,7 @@
             <p><a href="contact.html">contact</a></p>
             <p class="troll" id="testPTroll">EN</p>
         </div>
-        <div id="navbarDashboardLoggedInTop">
-            <button id="userBttn" class="user-bttn"></button>
-            <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
-                <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
-                <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
-            </div>
-        </div>
-        <div id="navbarTop">
-            <button id="enBttn" class="en-bttn"></button>
-            <button id="notifBttn" class="notif-bttn"></button>
-            <button id="profileLogOut" class="logout-bttn"></button>
-        </div>
-        <div class="some-text" id="someText">
-            <img src="../content/titles/keep working title dashboard.png" id="keepWorking">
-            <p id="someTextP">Believe in your own abilities and take one step each day on your way to the top</p>
-        </div>
-        <div class="sc-starts-in" id="scStartsIn">
-            <img src="../content/titles/chujchujchuj1.png" id="scImg">
-            <div class="dsh-days" id="dshDays">
-                <p id="dshDaysNumber"></p>
-                <p id="dshDaysP">DAYS</p>
-            </div>
-            <div class="dsh-hours" id="dshHours">
-                <p id="dshHoursNumber"></p>
-                <p id="dshHoursP">HOURS</p>
-            </div>
-            <div class="dsh-minutes" id="dshMinutes">
-                <p id="dshMinutesNumber"></p>
-                <p id="dshMinutesP">MINUTES</p>
-            </div>
-            <div class="dsh-seconds" id="dshSeconds">
-                <p id="dshSecondsNumber"></p>
-                <p id="dshSecondsP">SECONDS</p>
-            </div>
-        </div>
-         <div class="navbar-logged-in" id="navbarDashboardLoggedIn">
+        <div class="navbar-logged-in" id="navbarDashboardLoggedIn">
             <div class="navbar-logged-in-main">
                 <img src="../content/titles/dsh main.png" class="main-dsh">
                 <a href="dashboard.html"><img src="../content/titles/sb dashboard.png" class="dashboard-ico"></a>
@@ -77,29 +42,78 @@
                 <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
-        <div class="streak-container" id="streakContainer">
-            <div class="streak-counter-div">
-                <span id="streak" data-value="0" class="streak-counter"></span>
+        <div class="main-wrapper">
+            <div class="dsh-navbar-txt-wrapper">
+                <div class="dsh-navbar-wrapper">
+                    <div id="navbarDashboardLoggedInTop">
+                        <button id="userBttn" class="user-bttn"></button>
+                        <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
+                            <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
+                            <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
+                        </div>
+                    </div>
+                    <div id="navbarTop" class="navbar-user-email-top-wrapper">
+                        <button id="enBttn" class="en-bttn"></button>
+                        <button id="notifBttn" class="notif-bttn"></button>
+                        <button id="profileLogOut" class="logout-bttn"></button>
+                    </div>
+                </div>
+                <div class="some-text" id="someText">
+                    <img src="../content/titles/keep working title dashboard.png" id="keepWorking">
+                    <p id="someTextP">Believe in your own abilities and take one step each day on your way to the top</p>
+                </div>
             </div>
-            <button id="streakButton"><img src="../content/buttons/streak2.png"></button>
-            <a class="streak-lm" id="streakLearnMore">Learn more</a>
-        </div>
-        <div class="daily-challenge" id="dailyChallenge">
-            <h3 id="challenge"></h3>
-        </div>
-        <div class="motiv-quote" id="motivQuote">
-            <button id="quoteChange"></button>
-            <div id="randomQuote">
-                <h3 id="quote"></h3>
-                <p id="person"></p>
+            <div class="main-div-wrapper">
+                <div class="sc-starts-in" id="scStartsIn">
+                    <img src="../content/titles/chujchujchuj1.png" id="scImg">
+                    <div class="dsh-days" id="dshDays">
+                        <p id="dshDaysNumber"></p>
+                        <p id="dshDaysP">DAYS</p>
+                    </div>
+                    <div class="dsh-hours" id="dshHours">
+                        <p id="dshHoursNumber"></p>
+                        <p id="dshHoursP">HOURS</p>
+                    </div>
+                    <div class="dsh-minutes" id="dshMinutes">
+                        <p id="dshMinutesNumber"></p>
+                        <p id="dshMinutesP">MINUTES</p>
+                    </div>
+                    <div class="dsh-seconds" id="dshSeconds">
+                        <p id="dshSecondsNumber"></p>
+                        <p id="dshSecondsP">SECONDS</p>
+                    </div>
+                </div>
+                <div class="streak-daily-motiv-wrapper">
+                    <div class="streak-daily-wrapper">
+                        <div class="streak-container" id="streakContainer">
+                            <div class="streak-counter-div">
+                                <span id="streak" data-value="0" class="streak-counter"></span>
+                            </div>
+                            <button id="streakButton"><img src="../content/buttons/streak2.png"></button>
+                            <a class="streak-lm" id="streakLearnMore">Learn more</a>
+                        </div>
+                        <div class="daily-challenge" id="dailyChallenge">
+                            <h3 id="challenge"></h3>
+                        </div>
+                    </div>
+                    <div class="motiv-quote" id="motivQuote">
+                        <button id="quoteChange"></button>
+                        <div id="randomQuote">
+                            <h3 id="quote"></h3>
+                            <p id="person"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="personal-inspired-wrapper">
+                    <div class="personal-goals" id="personalGoals">
+                        
+                    </div>
+                    <div class="get-inspired" id="getInspired">
+                        <button id="inspirChange"></button>
+                        <p id="textInGetInspir"></p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="personal-goals" id="personalGoals">
-            
-        </div>
-        <div class="get-inspired" id="getInspired">
-            <button id="inspirChange"></button>
-            <p id="textInGetInspir"></p>
         </div>
          <!-- profileContainer i tak sie nie wyswietla wiec jest tylko do warunku w index.js krotko mowiac nie usuwac tego. dziala to dziala -->
         <div class="profile-container" id="profileContainer" style="display: none;">
@@ -137,11 +151,11 @@
                     <img src="../content/titles/Register6.png" id="registerUsernameText">
                     <img src="../content/titles/Register7.png" id="registerNationalityText">
                     <input type="text" id="username" name="username" class="username" maxlength="20" required>
-                    <input list="nationalities" name="nationality" class="nationalities">
-                    <datalist id="nationalities" class="nationalities">
+                    <select name="nationality" class="nationalities">
+                        <option value=""></option>
                         <option value="Poland">Poland</option>
                         <option value="England">England</option>
-                    </datalist>
+                    </select>
                     <!-- <p class="termsOfServiceText"><input type="checkbox" class="termsOfService" required>I accept terms of service</p> -->
                     <button type="submit" class="register-in-modal"><img src="../content/buttons/RegisterButton.png"></button>
                     <img src="../content/texts/Register2.png" id="registerTextBottom">

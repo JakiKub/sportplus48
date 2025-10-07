@@ -11,7 +11,362 @@
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="ranking">
-
+        <img src="../content/logos/logohuju.png" class="logo-hóju">
+        <div class="navbar-logged-in" id="navbarPointsLoggedIn">
+            <div class="navbar-logged-in-main">
+                <img src="../content/titles/dsh main.png" class="main-dsh">
+                <a href="dashboard.html"><img src="../content/titles/sb dashboard.png" class="dashboard-ico"></a>
+                <a href="home.html"><img src="../content/titles/sb home.png" class="home-ico"></a>
+            </div>
+            <div class="navbar-logged-in-ypttt">
+                <img src="../content/titles/dsh your.png" class="ypttp-dsh">
+                <a href="add-activity.html"><img src="../content/titles/sb register activity.png" class="add-activ-ico"></a>
+                <a href="progress.html"><img src="../content/titles/sb progress.png" class="progress-ico"></a>
+                <a href="records.html"><img src="../content/titles/sb records.png" class="records-ico"></a>
+                <a href="points.html"><img src="../content/titles/sb points.png" class="points-ico"></a>
+            </div>
+            <div class="navbar-logged-in-other">
+                <img src="../content/titles/dsh other.png" class="other-dsh">
+                <a href="ranking.html"><img src="../content/titles/sb ranking.png" class="ranking-ico"></a>
+                <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
+            </div>
+        </div>
+        <div class="one-of-main-rank-divs">
+            <div class="nvbr-wrapper">
+                <div id="navbarRankingTop">
+                    <button id="userBttn" class="user-bttn"></button>
+                    <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
+                        <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
+                        <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
+                    </div>
+                </div>
+                <div id="navbarTop" class="navbar-user-email-top-wrapper">
+                    <button id="enBttn" class="en-bttn"></button>
+                    <button id="notifBttn" class="notif-bttn"></button>
+                    <button id="profileLogOut" class="logout-bttn"></button>
+                </div>
+            </div>
+            <div class="ranking-title-change">
+                <div class="ranking-title">
+                    <img src="../content/titles/title ranking.png" id="rankingTitle">
+                    <p id="rankingTitleP">Always aim high and strive for victory</p>
+                </div>
+                <div class="ranking-change">
+                    <button id="rankChangeLeft"><img src="../content/buttons/gr4.png"></button>
+                    <p id="xOfSeven">1 of 7</p>
+                    <button id="rankChangeRight"><img src="../content/buttons/gr5.png"></button>
+                </div>
+            </div>
+            <div id="rankingTable">
+                <p class="rank">Rank</p>
+                <p class="country">Country</p>
+                <p class="user">User</p>
+                <p class="total-pts-sc">Total points scored</p>
+            </div>
+            <!-- <img src="../content/div-backgrounds/rank3.png" id="rankingTable"> -->
+        </div>
+        <div id="rankingTable1">
+            <div id="top1">
+                <p id="top1P" class="rank">1</p>
+                <p id="top1country" class="country"></p>
+                <p id="top1User" class="user"></p>
+                <p id="top1Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top2">
+                <p id="top2P" class="rank">2</p>
+                <p id="top2country" class="country"></p>
+                <p id="top2User" class="user"></p>
+                <p id="top2Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top3">
+                <p id="top3P" class="rank">3</p>
+                <p id="top3country" class="country"></p>
+                <p id="top3User" class="user"></p>
+                <p id="top3Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top4">
+                <p id="top4P" class="rank">4</p>
+                <p id="top4country" class="country"></p>
+                <p id="top4User" class="user"></p>
+                <p id="top4Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top5">
+                <p id="top5P" class="rank">5</p>
+                <p id="top5country" class="country"></p>
+                <p id="top5User" class="user"></p>
+                <p id="top5Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top6">
+                <p id="top6P" class="rank">6</p>
+                <p id="top6country" class="country"></p>
+                <p id="top6User" class="user"></p>
+                <p id="top6Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top7">
+                <p id="top7P" class="rank">7</p>
+                <p id="top7country" class="country"></p>
+                <p id="top7User" class="user"></p>
+                <p id="top7Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
+        <div id="rankingTable2">
+            <div id="top8">
+                <p id="top8P" class="rank">8</p>
+                <p id="top8country" class="country"></p>
+                <p id="top8User" class="user"></p>
+                <p id="top8Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top9">
+                <p id="top9P" class="rank">9</p>
+                <p id="top9country" class="country"></p>
+                <p id="top9User" class="user"></p>
+                <p id="top9Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top10">
+                <p id="top10P" class="rank">10</p>
+                <p id="top10country" class="country"></p>
+                <p id="top10User" class="user"></p>
+                <p id="top1Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top11">
+                <p id="top11P" class="rank">11</p>
+                <p id="top11country" class="country"></p>
+                <p id="top11User" class="user"></p>
+                <p id="top11Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top12">
+                <p id="top12P" class="rank">12</p>
+                <p id="top12country" class="country"></p>
+                <p id="top12User" class="user"></p>
+                <p id="top12Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top13">
+                <p id="top13P" class="rank">13</p>
+                <p id="top13country" class="country"></p>
+                <p id="top13User" class="user"></p>
+                <p id="top13Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top14">
+                <p id="top14P" class="rank">14</p>
+                <p id="top14country" class="country"></p>
+                <p id="top14User" class="user"></p>
+                <p id="top14Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
+        <div id="rankingTable3">
+            <div id="top15">
+                <p id="top15P" class="rank">15</p>
+                <p id="top15country" class="country"></p>
+                <p id="top15User" class="user"></p>
+                <p id="top15Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top16">
+                <p id="top16P" class="rank">16</p>
+                <p id="top16country" class="country"></p>
+                <p id="top16User" class="user"></p>
+                <p id="top16Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top17">
+                <p id="top17P" class="rank">17</p>
+                <p id="top17country" class="country"></p>
+                <p id="top17User" class="user"></p>
+                <p id="top17Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top18">
+                <p id="top18P" class="rank">18</p>
+                <p id="top18country" class="country"></p>
+                <p id="top18User" class="user"></p>
+                <p id="top18Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top19">
+                <p id="top19P" class="rank">19</p>
+                <p id="top19country" class="country"></p>
+                <p id="top19User" class="user"></p>
+                <p id="top19Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top20">
+                <p id="top20P" class="rank">20</p>
+                <p id="top20country" class="country"></p>
+                <p id="top20User" class="user"></p>
+                <p id="top20Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top21">
+                <p id="top21P" class="rank">21</p>
+                <p id="top21country" class="country"></p>
+                <p id="top21User" class="user"></p>
+                <p id="top21Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
+        <div id="rankingTable4">
+            <div id="top22">
+                <p id="top22P" class="rank">22</p>
+                <p id="top22country" class="country"></p>
+                <p id="top22User" class="user"></p>
+                <p id="top22Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top23">
+                <p id="top23P" class="rank">23</p>
+                <p id="top23country" class="country"></p>
+                <p id="top23User" class="user"></p>
+                <p id="top23Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top24">
+                <p id="top24P" class="rank">24</p>
+                <p id="top24country" class="country"></p>
+                <p id="top24User" class="user"></p>
+                <p id="top24Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top25">
+                <p id="top25P" class="rank">25</p>
+                <p id="top25country" class="country"></p>
+                <p id="top25User" class="user"></p>
+                <p id="top25Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top26">
+                <p id="top26P" class="rank">26</p>
+                <p id="top26country" class="country"></p>
+                <p id="top26User" class="user"></p>
+                <p id="top26Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top27">
+                <p id="top27P" class="rank">27</p>
+                <p id="top27country" class="country"></p>
+                <p id="top27User" class="user"></p>
+                <p id="top27Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top28">
+                <p id="top28P" class="rank">28</p>
+                <p id="top28country" class="country"></p>
+                <p id="top28User" class="user"></p>
+                <p id="top28Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
+        <div id="rankingTable5">
+            <div id="top29">
+                <p id="top29P" class="rank">29</p>
+                <p id="top29country" class="country"></p>
+                <p id="top29User" class="user"></p>
+                <p id="top29Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top30">
+                <p id="top30P" class="rank">30</p>
+                <p id="top30country" class="country"></p>
+                <p id="top30User" class="user"></p>
+                <p id="top30Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top31">
+                <p id="top31P" class="rank">31</p>
+                <p id="top31country" class="country"></p>
+                <p id="top31User" class="user"></p>
+                <p id="top31Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top32">
+                <p id="top32P" class="rank">32</p>
+                <p id="top32country" class="country"></p>
+                <p id="top32User" class="user"></p>
+                <p id="top32Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top33">
+                <p id="top33P" class="rank">33</p>
+                <p id="top33country" class="country"></p>
+                <p id="top33User" class="user"></p>
+                <p id="top33Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top34">
+                <p id="top34P" class="rank">34</p>
+                <p id="top34country" class="country"></p>
+                <p id="top34User" class="user"></p>
+                <p id="top34Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top35">
+                <p id="top35P" class="rank">35</p>
+                <p id="top35country" class="country"></p>
+                <p id="top35User" class="user"></p>
+                <p id="top35Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
+        <div id="rankingTable6">
+            <div id="top36">
+                <p id="top36P" class="rank">36</p>
+                <p id="top36country" class="country"></p>
+                <p id="top36User" class="user"></p>
+                <p id="top36Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top37">
+                <p id="top37P" class="rank">37</p>
+                <p id="top37country" class="country"></p>
+                <p id="top37User" class="user"></p>
+                <p id="top37Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top38">
+                <p id="top38P" class="rank">38</p>
+                <p id="top38country" class="country"></p>
+                <p id="top38User" class="user"></p>
+                <p id="top38Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top39">
+                <p id="top39P" class="rank">39</p>
+                <p id="top39country" class="country"></p>
+                <p id="top39User" class="user"></p>
+                <p id="top39Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top40">
+                <p id="top40P" class="rank">40</p>
+                <p id="top40country" class="country"></p>
+                <p id="top40User" class="user"></p>
+                <p id="top40Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top41">
+                <p id="top41P" class="rank">41</p>
+                <p id="top41country" class="country"></p>
+                <p id="top41User" class="user"></p>
+                <p id="top41Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top42">
+                <p id="top42P" class="rank">42</p>
+                <p id="top42country" class="country"></p>
+                <p id="top42User" class="user"></p>
+                <p id="top42Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
+        <div id="rankingTable7">
+            <div id="top43">
+                <p id="top43P" class="rank">43</p>
+                <p id="top43country" class="country"></p>
+                <p id="top43User" class="user"></p>
+                <p id="top43Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top44">
+                <p id="top44P" class="rank">44</p>
+                <p id="top44country" class="country"></p>
+                <p id="top44User" class="user"></p>
+                <p id="top44Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top45">
+                <p id="top45P" class="rank">45</p>
+                <p id="top45country" class="country"></p>
+                <p id="top45User" class="user"></p>
+                <p id="top45Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top46">
+                <p id="top46P" class="rank">46</p>
+                <p id="top46country" class="country"></p>
+                <p id="top46User" class="user"></p>
+                <p id="top146Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top47">
+                <p id="top47P" class="rank">47</p>
+                <p id="top47country" class="country"></p>
+                <p id="top47User" class="user"></p>
+                <p id="top47Pts" class="total-pts-sc"></p>
+            </div>
+            <div id="top48">
+                <p id="top48P" class="rank">48</p>
+                <p id="top48country" class="country"></p>
+                <p id="top48User" class="user"></p>
+                <p id="top48Pts" class="total-pts-sc"></p>
+            </div>
+        </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +380,114 @@
                     document.querySelector('html').style.zoom = ".5";
                 };
             });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const user = JSON.parse(localStorage.getItem("user"));
+
+                const navbarUserEmailTopWrapper = document.getElementById("navbarUserEmailTopWrapper");
+
+                if (user && navbarUserEmailTopWrapper) {
+                    document.getElementById("usernameDashboardTop").textContent = user.username;
+                    document.getElementById("emailDashboardTop").textContent = user.email;
+                    document.getElementById("navbarTop").style.display = "flex";
+                    //document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
+                }
+
+                const profileLogOut = document.getElementById("profileLogOut");
+                if (profileLogOut) {
+                    profileLogOut.addEventListener("click", () => {
+                    localStorage.removeItem("user");
+                    location.href = "dashboard.html";
+                    //location.reload();
+                    });
+                };
+            })
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const bttnLeft = document.getElementById("rankChangeLeft");
+                const bttnRight = document.getElementById("rankChangeRight");
+
+                const t1 = document.getElementById("rankingTable1");
+                const t2 = document.getElementById("rankingTable2");
+                const t3 = document.getElementById("rankingTable3");
+                const t4 = document.getElementById("rankingTable4");
+                const t5 = document.getElementById("rankingTable5");
+                const t6 = document.getElementById("rankingTable6");
+                const t7 = document.getElementById("rankingTable7");
+
+                bttnLeft.onclick = function() {
+                    if (window.getComputedStyle(t1).display === "flex") {
+                        t1.style.display = "none";
+                        t7.style.display = "flex";
+                    } else if (window.getComputedStyle(t2).display === "flex") {
+                        t2.style.display = "none";
+                        t1.style.display = "flex"
+                    } else if (window.getComputedStyle(t3).display === "flex") {
+                        t3.style.display = "none";
+                        t2.style.display = "flex";
+                    } else if (window.getComputedStyle(t4).display === "flex") {
+                        t4.style.display = "none";
+                        t3.style.display = "flex";
+                    } else if (window.getComputedStyle(t5).display === "flex") {
+                        t5.style.display = "none";
+                        t4.style.display = "flex";
+                    } else if (window.getComputedStyle(t6).display === "flex") {
+                        t6.style.display = "none";
+                        t5.style.display = "flex";
+                    } else if (window.getComputedStyle(t7).display === "flex") {
+                        t7.style.display = "none";
+                        t6.style.display = "flex";
+                    }
+                };
+
+                bttnRight.onclick = function() {
+                    if (window.getComputedStyle(t1).display === "flex") {
+                        t1.style.display = "none";
+                        t2.style.display = "flex";
+                    } else if (window.getComputedStyle(t2).display === "flex") {
+                        t2.style.display = "none";
+                        t3.style.display = "flex"
+                    } else if (window.getComputedStyle(t3).display === "flex") {
+                        t3.style.display = "none";
+                        t4.style.display = "flex";
+                    } else if (window.getComputedStyle(t4).display === "flex") {
+                        t4.style.display = "none";
+                        t5.style.display = "flex";
+                    } else if (window.getComputedStyle(t5).display === "flex") {
+                        t5.style.display = "none";
+                        t6.style.display = "flex";
+                    } else if (window.getComputedStyle(t6).display === "flex") {
+                        t6.style.display = "none";
+                        t7.style.display = "flex";
+                    } else if (window.getComputedStyle(t7).display === "flex") {
+                        t7.style.display = "none";
+                        t1.style.display = "flex";
+                    }
+                };
+            })
+
+            async function loadRanks() {
+                const res = await fetch('/api/ranking');
+                const rankData = await res.json();
+                /*const top1 = rankData.mostPoints[0];
+                const top2 = rankData.mostPoints[1];
+                const top3 = rankData.mostPoints[2];
+
+                document.getElementById("top1country").innerText = top1.nationality;
+                document.getElementById("top1User").innerText = top1.username;
+                document.getElementById("top1Pts").innerText = top1.pointsAll.toFixed(3);*/
+
+                rankData.mostPoints.forEach((user, index) => {
+                    const rank = index + 1;
+                    if (rank > 48) return;
+
+                    document.getElementById(`top${rank}country`).innerText = user.nationality || "-";
+                    document.getElementById(`top${rank}User`).innerText = user.username || "-";
+                    document.getElementById(`top${rank}Pts`).innerText = user.pointsAll.toFixed(3);
+                })
+            }
+
+            loadRanks();
         </script>
     </body>
 </html>

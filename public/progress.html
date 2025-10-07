@@ -12,18 +12,6 @@
     </head>
     <body class="progress">
         <img src="../content/logos/logohuju.png" class="logo-hóju">
-        <div id="navbarProgressTop" class="navbar-top-wrapper">
-            <button id="userBttn" class="user-bttn"></button>
-            <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
-                <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
-                <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
-            </div>
-        </div>
-        <div id="navbarTop" class="navbar-user-email-top-wrapper">
-            <button id="enBttn" class="en-bttn"></button>
-            <button id="notifBttn" class="notif-bttn"></button>
-            <button id="profileLogOut" class="logout-bttn"></button>
-        </div>
         <div class="navbar-logged-in" id="navbarProgressLoggedIn">
             <div class="navbar-logged-in-main">
                 <img src="../content/titles/dsh main.png" class="main-dsh">
@@ -43,25 +31,44 @@
                 <a href="actions.html"><img src="../content/titles/sb 48sc.png" class="challenge-ico"></a>
             </div>
         </div>
-        <div class="progress-text">
-            <img src="../content/titles/progress title.png" id="progressTitle">
-            <p id="pProgress">Check your progress every day via our website</p>
-        </div>
-        <table id="progressTable">
-            <thead>
-                <tr class="tr-head">
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Activity</th>
-                    <th>Distance</th>
-                    <th>Time</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
+        <!--flex moment-->
+        <div class="main-prgrss-wrapper">
+            <div class="nvbr-prgrss-txt-wrapper">
+                <div class="nvbr-wrapper">
+                    <div id="navbarProgressTop">
+                        <button id="userBttn" class="user-bttn"></button>
+                        <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
+                            <h3 class="navbar-logged-in-top-username"><span id="usernameDashboardTop"></span></h3>
+                            <p class="navbar-logged-in-top-email"><span id="emailDashboardTop"></span></p>
+                        </div>
+                    </div>
+                    <div id="navbarTop" class="navbar-user-email-top-wrapper">
+                        <button id="enBttn" class="en-bttn"></button>
+                        <button id="notifBttn" class="notif-bttn"></button>
+                        <button id="profileLogOut" class="logout-bttn"></button>
+                    </div>
+                </div>
+                <div class="progress-text">
+                    <img src="../content/titles/progress title.png" id="progressTitle">
+                    <p id="pProgress">Check your progress every day via our website</p>
+                </div>
+            </div>
+            <table id="progressTable">
+                <thead>
+                    <tr class="tr-head">
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Activity</th>
+                        <th>Distance</th>
+                        <th>Time</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -92,7 +99,8 @@
                 if (profileLogOut) {
                     profileLogOut.addEventListener("click", () => {
                     localStorage.removeItem("user");
-                    location.reload();
+                    location.href = "dashboard.html";
+                    //location.reload();
                     });
                 };
             })
