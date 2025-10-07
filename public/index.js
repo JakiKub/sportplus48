@@ -124,42 +124,67 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // "logika" streaku
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   //logika tego nie jest do konca logiczna
 
   const streakButton = document.getElementById("streakButton");
-  const streak = document.getElementById("streak");
-  streak.textContent = streak.dataset.value;
-  let streakCounter = Number(localStorage.getItem("streak") || 0);
-  let lastClick = localStorage.getItem("lastClickDate");
-  streak.dataset.value = streakCounter;
-  streak.textContent = streakCounter;
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  const yesterdaysDate = yesterday.toISOString().split("T")[0];
+  const streakSpan = document.getElementById("streakSpan");
+  // streak.textContent = streak.dataset.value;
+  // let streakCounter = Number(localStorage.getItem("streak") || 0);
+  // let lastClick = localStorage.getItem("lastClickDate");
+  // streak.dataset.value = streakCounter;
+  // streak.textContent = streakCounter;
+  // const yesterday = new Date();
+  // yesterday.setDate(yesterday.getDate() - 1);
+  // const yesterdaysDate = yesterday.toISOString().split("T")[0];
 
-  streakButton.addEventListener("click", () => {
-    const todaysDate = new Date().toISOString().split("T")[0];
+  try {
+      const res = await fetch("/api/streak");
+      if (!res.ok) throw new Error("cannot load streak");
 
-    if (lastClick === todaysDate) {
-      alert("juz kliknales dzisiaj");
-      return;
-    };
+      const streakDataTwo = await res.json();
+      streakSpan.textContent = streakDataTwo.streak;
 
-    if (lastClick === yesterdaysDate) {
-      streakCounter++;
-    } else {
-      streakCounter = 1;
+    } catch (err) {
+      console.log(err);
+      streak.textContent = "0";
     }
 
-    localStorage.setItem("streak", streakCounter);
-    localStorage.setItem("lastClickDate", todaysDate)
+  streakButton.addEventListener("click", async () => {
+  //   const todaysDate = new Date().toISOString().split("T")[0];
 
-    streak.dataset.value = streakCounter;
-    streak.textContent = streakCounter;
+  //   if (lastClick === todaysDate) {
+  //     alert("juz kliknales dzisiaj");
+  //     return;
+  //   };
 
-    lastClick = todaysDate;
+  //   if (lastClick === yesterdaysDate) {
+  //     streakCounter++;
+  //   } else {
+  //     streakCounter = 1;
+  //   }
 
+  //   localStorage.setItem("streak", streakCounter);
+  //   localStorage.setItem("lastClickDate", todaysDate)
+
+  //   streak.dataset.value = streakCounter;
+  //   streak.textContent = streakCounter;
+
+  //   lastClick = todaysDate;
+  // });
+
+    const res = await fetch("/api/streak/click", { method: "POST" });
+    const streakData = await res.json();  
+
+    if (!res.ok) {
+      if (streakData.error === "already_clicked") {
+        alert("dzisiaj zostalo klikniete otoz");
+        streakSpan.textContent = streakData.streak;
+      }
+      return
+    }
+
+    streakSpan.textContent = streakData.streak;
   });
 });
 

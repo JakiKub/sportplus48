@@ -1,18 +1,5 @@
 //cholera wie jak to dziala
 
-/* funkcja na punkty: 
-  const pointsCalc = () => {
-    if (activity === "{nazwa aktywnosci z formularza}") {
-      przelicznik pkt dla tej aktywnosci
-    }
-    itd itd
-  }
-  ogolnie to musze miec w userModel (czy jakkowliek to jest nazwane) points: 0 (number); funkcje licznika moze byc chyba gdziekolwiek i potem w formularzu 
-  rejestracji aktywnosci musze dac points: pointsCalc(activity)
-  punkty trafiaja do points w userModel (?) oraz na progress.html
-  no i jednak pointsNow i pointsAll (kys korcala)
-*/
-
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -79,6 +66,8 @@ const logInSchema = new mongoose.Schema({
   resetTokenExpiry: Date,
   pointsNow: { type: Number, default: 4.800 },
   pointsAll: { type: Number, default: 4.800 },
+  streak: { type: Number, default: 0 },
+  streakLast: { type: String, default: null }
 })
 
 const collection = new mongoose.model("users", logInSchema);
@@ -530,5 +519,63 @@ app.get('/api/ranking', async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "some error that i dont even know" });
+  }
+});
+
+app.get("/api/streak", async (req, res) => {
+  try {
+    const userId = req.session.userId;
+    const user = await collection.findById(userId);
+
+    if (!user) return res.status(404).json({ error: "usernotfound" });
+
+    res.json({
+      streak: user.streak,
+      lastClick: user.streakLast
+    });
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+app.post("/api/streak/click", async (req, res) => {
+  try {
+    const userId = req.session.userId;
+    const user = await collection.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "user not found" });
+    }
+
+    const getDate = (d = new Date()) => {
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+
+      return `${year}-${month}-${day}`;
+    }
+
+    const today = getDate();
+    const yesterday = getDate(new Date(Date.now() - 86400000));
+
+    if (user.streakLast === today) {
+      return res.status(400).json({ error: "already_clicked", streak: user.streak });
+    }
+
+    if (user.streakLast === yesterday) {
+      user.streak++;
+    } else {
+      user.streak = 1;
+    }
+
+    user.streakLast = today;
+    await user.save();
+
+    res.json({
+      streak: user.streak,
+      lastClick: today
+    })
+  } catch (err) {
+    console.log(err);
   }
 })
