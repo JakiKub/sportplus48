@@ -2201,6 +2201,8 @@ body.ranking {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    padding: 0;
+    overflow-y: hidden;
 }
 #navbarRankingTop {
     display: flex;
@@ -2309,7 +2311,7 @@ body.ranking {
     margin: 0;
     position: absolute;
     right: 2.7%;
-    bottom: 0%;
+    top: 36.4%;
 }
 #rankingTable1 > div, #rankingTable2 > div, #rankingTable3 > div, #rankingTable4 > div, #rankingTable5 > div, #rankingTable6 > div, #rankingTable7 > div {
     background-image: url('../content/div-backgrounds/rank2.png');
