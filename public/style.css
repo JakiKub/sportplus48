@@ -2295,6 +2295,17 @@ body.ranking {
     font-size: 1.3em;
     font-weight: 400;
 }
+@keyframes xOfSevenFadeAway {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#xOfSeven.fadeaway {
+    animation: xOfSevenFadeAway .3s linear forwards running;
+}
 #rankingTable1 {
     display: flex;
 }
@@ -2330,6 +2341,17 @@ body.ranking {
     font-size: 1.6em;
     font-weight: 500;
     text-align: center;
+}
+@keyframes tableFadeAway {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#rankingTable1.fadeout, #rankingTable2.fadeout, #rankingTable3.fadeout, #rankingTable4.fadeout, #rankingTable5.fadeout, #rankingTable6.fadeout, #rankingTable7.fadeout {
+    animation: tableFadeAway .3s linear forwards running;
 }
 .rank {
     max-width: 80px;

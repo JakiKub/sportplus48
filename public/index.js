@@ -129,14 +129,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const streakButton = document.getElementById("streakButton");
   const streakSpan = document.getElementById("streakSpan");
-  // streak.textContent = streak.dataset.value;
-  // let streakCounter = Number(localStorage.getItem("streak") || 0);
-  // let lastClick = localStorage.getItem("lastClickDate");
-  // streak.dataset.value = streakCounter;
-  // streak.textContent = streakCounter;
-  // const yesterday = new Date();
-  // yesterday.setDate(yesterday.getDate() - 1);
-  // const yesterdaysDate = yesterday.toISOString().split("T")[0];
 
   try {
       const res = await fetch("/api/streak");
@@ -151,27 +143,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
   streakButton.addEventListener("click", async () => {
-  //   const todaysDate = new Date().toISOString().split("T")[0];
-
-  //   if (lastClick === todaysDate) {
-  //     alert("juz kliknales dzisiaj");
-  //     return;
-  //   };
-
-  //   if (lastClick === yesterdaysDate) {
-  //     streakCounter++;
-  //   } else {
-  //     streakCounter = 1;
-  //   }
-
-  //   localStorage.setItem("streak", streakCounter);
-  //   localStorage.setItem("lastClickDate", todaysDate)
-
-  //   streak.dataset.value = streakCounter;
-  //   streak.textContent = streakCounter;
-
-  //   lastClick = todaysDate;
-  // });
 
     const res = await fetch("/api/streak/click", { method: "POST" });
     const streakData = await res.json();  

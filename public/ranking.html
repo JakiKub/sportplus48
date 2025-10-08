@@ -406,6 +406,7 @@
             document.addEventListener("DOMContentLoaded", () => {
                 const bttnLeft = document.getElementById("rankChangeLeft");
                 const bttnRight = document.getElementById("rankChangeRight");
+                const xOf7 = document.getElementById("xOfSeven");
 
                 const t1 = document.getElementById("rankingTable1");
                 const t2 = document.getElementById("rankingTable2");
@@ -415,28 +416,99 @@
                 const t6 = document.getElementById("rankingTable6");
                 const t7 = document.getElementById("rankingTable7");
 
+                const animateText = () => {
+                    xOf7.classList.remove("fadeaway");
+                    setTimeout(()=> {
+                        xOf7.classList.add("fadeaway");
+                    }, 10);
+                };
+
+                const animateT1 = () => {
+                    t1.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t1.classList.add("fadeout");
+                    }, 10);
+                };
+                const animateT2 = () => {
+                    t2.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t2.classList.add("fadeout");
+                    }, 10);
+                };
+                const animateT3 = () => {
+                    t3.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t3.classList.add("fadeout");
+                    }, 10);
+                };
+                const animateT4 = () => {
+                    t4.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t4.classList.add("fadeout");
+                    }, 10);
+                };
+                const animateT5 = () => {
+                    t5.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t5.classList.add("fadeout");
+                    }, 10);
+                };
+                const animateT6 = () => {
+                    t6.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t6.classList.add("fadeout");
+                    }, 10);
+                };
+                const animateT7 = () => {
+                    t7.classList.remove("fadeout");
+                    setTimeout(() => {
+                        t7.classList.add("fadeout");
+                    }, 10);
+                };
+
                 bttnLeft.onclick = function() {
                     if (window.getComputedStyle(t1).display === "flex") {
                         t1.style.display = "none";
                         t7.style.display = "flex";
+                        xOf7.innerText = "7 of 7";
+                        animateText();
+                        animateT7();
                     } else if (window.getComputedStyle(t2).display === "flex") {
                         t2.style.display = "none";
                         t1.style.display = "flex"
+                        xOf7.innerText = "1 of 7";
+                        animateText();
+                        animateT1();
                     } else if (window.getComputedStyle(t3).display === "flex") {
                         t3.style.display = "none";
                         t2.style.display = "flex";
+                        xOf7.innerText = "2 of 7";
+                        animateText();
+                        animateT2();
                     } else if (window.getComputedStyle(t4).display === "flex") {
                         t4.style.display = "none";
                         t3.style.display = "flex";
+                        xOf7.innerText = "3 of 7";
+                        animateText();
+                        animateT3();
                     } else if (window.getComputedStyle(t5).display === "flex") {
                         t5.style.display = "none";
                         t4.style.display = "flex";
+                        xOf7.innerText = "4 of 7";
+                        animateText();
+                        animateT4();
                     } else if (window.getComputedStyle(t6).display === "flex") {
                         t6.style.display = "none";
                         t5.style.display = "flex";
+                        xOf7.innerText = "5 of 7";
+                        animateText();
+                        animateT5();
                     } else if (window.getComputedStyle(t7).display === "flex") {
                         t7.style.display = "none";
                         t6.style.display = "flex";
+                        xOf7.innerText = "6 of 7";
+                        animateText();
+                        animateT6();
                     }
                 };
 
@@ -444,24 +516,45 @@
                     if (window.getComputedStyle(t1).display === "flex") {
                         t1.style.display = "none";
                         t2.style.display = "flex";
+                        xOf7.innerText = "2 of 7";
+                        animateText();
+                        animateT2();
                     } else if (window.getComputedStyle(t2).display === "flex") {
                         t2.style.display = "none";
-                        t3.style.display = "flex"
+                        t3.style.display = "flex";
+                        xOf7.innerText = "3 of 7";
+                        animateText();
+                        animateT3();
                     } else if (window.getComputedStyle(t3).display === "flex") {
                         t3.style.display = "none";
                         t4.style.display = "flex";
+                        xOf7.innerText = "4 of 7";
+                        animateText();
+                        animateT4();
                     } else if (window.getComputedStyle(t4).display === "flex") {
                         t4.style.display = "none";
                         t5.style.display = "flex";
+                        xOf7.innerText = "5 of 7";
+                        animateText();
+                        animateT5();
                     } else if (window.getComputedStyle(t5).display === "flex") {
                         t5.style.display = "none";
                         t6.style.display = "flex";
+                        xOf7.innerText = "6 of 7";
+                        animateText();
+                        animateT6();
                     } else if (window.getComputedStyle(t6).display === "flex") {
                         t6.style.display = "none";
                         t7.style.display = "flex";
+                        xOf7.innerText = "7 of 7";
+                        animateText();
+                        animateT7();
                     } else if (window.getComputedStyle(t7).display === "flex") {
                         t7.style.display = "none";
                         t1.style.display = "flex";
+                        xOf7.innerText = "1 of 7";
+                        animateText();
+                        animateT1();
                     }
                 };
             })
