@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cycleConfig = [
       { element: peopleParticipated, counter: PP, increment: addPP, limit: 800, delay: 5 },
-      { element: peopleHeard, counter: PH, increment: addPH, limit: 40000, delay: .2 },
+      { element: peopleHeard, counter: PH, increment: addPH, limit: 40000, delay: .000002 },
       { element: awardsWon, counter: AW, increment: addAW, limit: 2, delay: 100 },
       { element: athlCollabs, counter: AC, increment: addAC, limit: 10, delay: 100 }
   ];
