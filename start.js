@@ -284,8 +284,9 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
     points,
   });
 
-  const approveLink = `http://localhost:${PORT}/api/approve/${newActiv._id}`;
-  const denyLink = `http://localhost:${PORT}/api/deny/${newActiv._id}`;
+  const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`
+  const approveLink = `${baseUrl}/api/approve/${newActiv._id}`;
+  const denyLink = `${baseUrl}/api/deny/${newActiv._id}`;
 
   let mailOpts = {
     from: process.env.SMTP_USER,

@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("nationality").textContent = user.nationality || "none";
     document.getElementById("logInButton").style.display = "none";
     document.getElementById("registerButton").style.display = "none";
-    document.getElementById("logoDashboard").style.display = "none";
+    //document.getElementById("logoDashboard").style.display = "none";
     document.getElementById("navbarDashboardLoggedOut").style.display = "none";
     document.getElementById("navbarDashboardLoggedIn").style.display = "flex";
     document.getElementById("profileLogOut").style.display = "flex";
@@ -110,6 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("navbarDashboardLoggedInTop").style.display = "flex";
     document.getElementById("navbarTop").style.display = "flex";
     document.getElementById("logoHóju").style.display = "block";
+    document.getElementById("dshMainWrapper").style.display = "none";
+    document.getElementById("didYouKnow").style.display = "none";
+    document.getElementById("iHateThisDiv").style.display = "none";
+    document.getElementById("discl").style.display = "none";
     //profileContainer.style.display = "block";
     document.body.classList.add("logged-in");
   }
@@ -122,6 +126,86 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 });
+
+//latajace liczby igora "kurczaka" korcali aka funckja palaca przegladarke
+document.addEventListener("DOMContentLoaded", () => {
+  const PP = document.getElementById("numberPP");
+  const PH = document.getElementById("numberPH");
+  const AW = document.getElementById("numberAW");
+  const AC = document.getElementById("numberAC");
+  const peopleParticipated = document.getElementById("peopleParticipated");
+  const peopleHeard = document.getElementById("peopleHeard");
+  const awardsWon = document.getElementById("awardsWon");
+  const athlCollabs = document.getElementById("athlCollabs");
+
+  let currentInterval = null;
+
+  const addPP = () => PP.innerText++;
+  const addPH = () => PH.innerText++;
+  const addAW = () => AW.innerText++;
+  const addAC = () => AC.innerText++;
+
+  const cycleConfig = [
+      { element: peopleParticipated, counter: PP, increment: addPP, limit: 800, delay: 5 },
+      { element: peopleHeard, counter: PH, increment: addPH, limit: 40000, delay: .2 },
+      { element: awardsWon, counter: AW, increment: addAW, limit: 2, delay: 100 },
+      { element: athlCollabs, counter: AC, increment: addAC, limit: 10, delay: 100 }
+  ];
+
+  let currentIndex = 0;
+
+  const clearAndStartInterval = (config) => {
+      if (currentInterval !== null) {
+          clearInterval(currentInterval);
+      }
+
+      cycleConfig.forEach(item => {
+          item.element.style.display = (item === config) ? "flex" : "none";
+      });
+
+      currentInterval = setInterval(() => {
+          config.increment(); // Zwiększ wartość licznika
+
+          const currentValue = parseInt(config.counter.innerText);
+
+          if (currentValue >= config.limit) {
+              clearInterval(currentInterval);
+              currentInterval = null;
+
+              config.counter.innerText = '0';
+
+              currentIndex = (currentIndex + 1) % cycleConfig.length;
+              
+              startCycle();
+          }
+      }, config.delay);
+  };
+
+  const startCycle = () => {
+      const currentConfig = cycleConfig[currentIndex];
+      clearAndStartInterval(currentConfig);
+  }
+
+  startCycle();
+});
+
+//linki do mediow
+document.addEventListener("DOMContentLoaded", () => {
+  const fbBttn = document.getElementById("fbBttn");
+  const igBttn = document.getElementById("igBttn");
+  const ttBttn = document.getElementById("ttBttn");
+  const ytBttn = document.getElementById("ytBttn");
+
+  igBttn.onclick = function() {
+    window.open("https://www.instagram.com/sportplus.48/")
+  };
+  ttBttn.onclick = function() {
+    window.open("https://www.tiktok.com/@sport.plus.48/")
+  }
+  ytBttn.onclick = function() {
+    window.open("https://www.youtube.com/@SportPlus48")
+  }
+})
 
 // "logika" streaku
 document.addEventListener("DOMContentLoaded", async () => {
@@ -162,21 +246,41 @@ document.addEventListener("DOMContentLoaded", async () => {
 //rowniez animacje do dashboardu
 document.addEventListener("DOMContentLoaded", () => {
   const challengeList = [
-    { challenge: "Kill yourself" },
-    { challenge: "Don't kill yourself" },
-    { challenge: "Go insane" },
-    { challenge: "Try to stay sane" },
+    { challenge: "Run 2 kilometers" },
+    { challenge: "Run 3 kilometers" },
+    { challenge: "Swim 50 meters" },
+    { challenge: "Walk 7500 steps" },
+    { challenge: "One minute of plank" },
+    { challenge: "Walk for 20 minutes" },
+    { challenge: "Do 20 push-ups" },
+    { challenge: "Do 5 pull-ups" },
+    { challenge: "Do 30 squats" },
+    { challenge: "Go up 15 floors" }, //xd
+    { challenge: "Run 100 meters in under 15 seconds" },
   ]
 
-  const randomChallenge = challengeList[Math.floor(Math.random() * challengeList.length)];
+  const getDate = (d = new Date()) => {
+    return d.toISOString().split("T")[0];
+  }
 
-  document.getElementById("challenge").textContent = randomChallenge.challenge;
+  const TODAY = getDate();
+  let saved = JSON.parse(localStorage.getItem("dailyChallenge"));
+
+  if (!saved || saved.date !== TODAY) {
+    const randomChallenge = challengeList[Math.floor(Math.random() * challengeList.length)];
+    saved = { date: TODAY, challenge: randomChallenge.challenge };
+    localStorage.setItem("dailyChallenge", JSON.stringify(saved));
+  }
+
+  document.getElementById("challenge").textContent = saved.challenge;
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const inspirList = [
-    { inspirtext: "fgdstfggjsfgsgfjtsgfgstyfvstvf gdfysgftsjygfvsjgfuysd bfgsdfhf hdfvghsdf" },
-    { inspirtext: "ftysdgjfydsg hjfgtjsgfjty kyfsdthdfgy  fvsghfvstf" },
+    { inspirtext: "Lionel Messi had a growth hormone deficiency in his youth, but Barcelona covered the costs of his treatment" },
+    { inspirtext: "Ronaldinho played barefoot because his dad told him it was better to control the ball that way, but the truth was he didn't have money for shoes" },
+    { inspirtext: "Abebe Bikila won the marathon at the 1960 Rome Olympics running barefoot because the shoes he was given were uncomfortable and caused blisters" },
+    { inspirtext: "Muhammad Ali had his bike stolen at the age of 12, so he asked a policeman to teach him how to fight to find out who did it" },
   ]
 
   const inspirChange = document.getElementById("inspirChange");
@@ -203,10 +307,36 @@ document.addEventListener("DOMContentLoaded", () => {
 //aniamcje do dashboardu ktore i tak w wiekszosci nie istnieja
 document.addEventListener("DOMContentLoaded", () => {
   const quoteList = [
-    { quote: "jakis cytat 1", person: "osoba 1" },
-    { quote: "jakis cytat 2", person: "osoba 2" },
-    { quote: "jakis cytat 3", person: "osoba 3" },
-    { quote: "jakis cytat 4", person: "osoba 4" },
+    { quote: "You miss 100% of the shots you don't take", person: "Wayne Gretzky" },
+    { quote: "Champions aren't made in the gyms. Champions are made from something they have deep inside them - a desire, a dream, a vision", person: "Muhammad Ali" },
+    { quote: "Hard work beats talent when talent doesn't work hard", person: "Kevin Durant" },
+    { quote: "It's not whether you get knocked down, it's wether you get up", person: "Vince Lombardi" },
+    { quote: "The pain you feel today will be the strength you feel tomorrow", person: "Kobe Bryant" },
+    { quote: "If you're afraid of failure, you don't deserve to be succesful", person: "Charles Barkley" },
+    { quote: "A champion is afraid of losing. Everyone else is afraid of winning", person: "Billie Jean King" },
+    { quote: "I've failed over and over and over again in my life. And that is why I succeed", person: "Michael Jordan" },
+    { quote: "You have to expect things of yourself before you can do them", person: "Michael Jordan" },
+    { quote: "Dreams don't work unless you do", person: "John C. Maxwell" },
+    { quote: "Success is no accident. It's hard work, preserverance, learning and sacrifice", person: "Pelé" },
+    { quote: "What makes something special is not just what you have to gain, but what you felel there is to lose", person: "Andre Agassi" },
+    { quote: "I never looked at the consequences of missing a big shot... when you think about the consequences, you always think of a negative result", person: "Michael Jordan" },
+    { quote: "It's about doing it in a way that it can't be done any better. That is the goal every day", person: "Geno Auriemma" },
+    { quote: "You have a dream and reach for the stars, and if you miss a star then I grab a handful of clouds", person: "Mike Tyson" },
+    { quote: "The only person who can really motivate you is you", person: "Shaquille O'Neal" },
+    { quote: "If you don't fall how are you going to know what getting up is like", person: "Stephen Curry" },
+    { quote: "Winning means you'rew willing to go longer, work harder, and give more than anyone else", person: "Vince Lombardi" },
+    { quote: "Set your goals high, and don't stop till you get there", person: "Bo Jackson" },
+    { quote: "Show me a guy who's afraid to look bad, and I'll show you a guy you can beat every time", person: "Lou Brock" },
+    { quote: "It ain't over till it's over", person: "Yogi Berra" },
+    { quote: "It's hard to beat a person who never gives up", person: "Babe Ruth" },
+    { quote: "If you don’t have time to do it right, when will you have time to do it over?", person: "John Wooden" },
+    { quote: "Make each day your masterpiece", person: "John Wooden" },
+    { quote: "Nothing will work unless you do", person: "John Wooden" },
+    { quote: "Whatever you do in life, surround yourself with smart people who’ll argue with you", person: "John Wooden" },
+    { quote: "The best competition I have is against myself to become better", person: "John Wooden" },
+    { quote: "Don’t let yesterday take up too much of today", person: "John Wooden" },
+    { quote: "Discipline yourself, and others won’t need to", person: "John Wooden" },
+    { quote: "Happiness begins where selfishness ends", person: "John Wooden" },
   ];
 
   const quoteChange = document.getElementById("quoteChange");

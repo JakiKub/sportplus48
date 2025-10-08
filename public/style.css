@@ -1111,7 +1111,7 @@ body.countries {
 
 /*dashboard*/
 body.dashboard {
-    background-image: url("../content/backgrounds/home-page.jpg");
+    background-image: url("../content/backgrounds/background\ landing.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1126,7 +1126,7 @@ body.dashboard.logged-in {
     background-color: #0B0C20;
 }
 #logoHóju {
-    display: none;
+    display: block;
 }
 .navbar-dashboard-logged-out {
     color: aliceblue;
@@ -1157,38 +1157,85 @@ body.dashboard.logged-in {
 .navbar-dashboard-logged-out p.troll {
     cursor: pointer;
 }
-.log-in-register {
-    color: #CAB99F;
+#dshMainWrapper {
+    max-width: 658px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
     position: absolute;
-    max-width: 700px;
+    left: 10%;
+    top: 25%;
+}
+#logoWrapper {
+    display: flex;
+    flex-direction: row;
+    max-height: max-content;
+    height: 100%;
+    width: max-content;
+    gap: 20px;
+    align-items: center;
+}
+#dshLoggedOutP {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.55em;
+}
+#fbBttn, #igBttn, #ttBttn, #ytBttn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+#fbBttn:hover, #igBttn:hover, #ttBttn:hover, #ytBttn:hover {
+    transform: scale(1.05);
+}
+#discl {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 8%;
+    left: 12%;
+}
+.log-in-register {
+    color: white;
+    position: relative;
+    max-width: max-content;
     width: 100%;
     margin: 0;
     text-align: center;
-    top: 77%;
-    left: 12%;
+    /* top: 77%;
+    left: 12%; */
     padding-bottom: 10px;
     cursor: pointer;
+    display: flex;
+    gap: 20px;
 }
 .log-in, .register {
-    font-size: 1.9em;
+    font-size: 1.5em;
+    font-weight: 500;
     font-family: 'Radio Canada', sans-serif;
-    color: #CAB99F;
+    color: white;
     border-radius: 1.5em;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px 40px;
     border-color: transparent;
     transition-duration: 0.7s;
     background-color: transparent;
-    color: #CAB99F;
     margin-top: 10px;
-    z-index: 2;
-    margin-left: 20px;
-    margin-right: 10px;
     cursor: pointer;
+    border-color: white;
+    box-shadow: .03em .065em .6em rgb(28, 28, 230);
 }
 .log-in:hover, .register:hover {
     transform: scale(1.1);
-    border-color: #CAB99F;
+ 
+}
+#didYouKnow {
+    position: absolute;
+    bottom: 3%;
+    left: 6%;
 }
 .log-in-modal-container {
     display: flex;
@@ -1696,7 +1743,7 @@ span.streak-counter {
 #quote {
     color: white;
     font-family: 'Radio Canada', sans-serif;
-    font-size: 1.75em;
+    font-size: 1.3em;
     position: absolute;
     top: 2%;
     left: 5%;
@@ -1897,6 +1944,38 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
     position: absolute;
     bottom: 2.2%;
     right: 2.6%;
+}
+#iHateThisDiv {
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+    width: 100%;
+    gap: 60px;
+    position: absolute;
+    right: 10%;
+    top: 37%;
+}
+#peopleParticipated {
+    display: flex;
+}
+#peopleHeard, #awardsWon, #athlCollabs {
+    display: none;
+}
+#peopleParticipated, #peopleHeard, #awardsWon, #athlCollabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px
+}
+#peopleParticipated > p, #peopleHeard > p, #awardsWon > p, #athlCollabs > p {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+}
+#numberPP, #numberPH, #numberAW, #numberAC {
+    font-size: 10em;
+    font-weight: 600;
+}
+#textPP, #textPH, #textAW, #textAC {
+    font-size: 1.5em;
 }
 
 /*forgot-password*/
@@ -2557,4 +2636,3 @@ p#mostCommonP {
 }
 
 /*reset-password*/
-
