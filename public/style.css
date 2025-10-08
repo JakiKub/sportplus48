@@ -1113,7 +1113,7 @@ body.countries {
 body.dashboard {
     background-image: url("../content/backgrounds/background\ landing.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: top left;
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
