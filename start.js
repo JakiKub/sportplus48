@@ -14,6 +14,8 @@ const connect = mongoose.connect(process.env.MONGO_URI);
 const upload = multer({ storage: multer.memoryStorage() });
 const fetch = require("node-fetch");
 const cloudinary = require("cloudinary").v2;
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
 
 const app = express();
 app.use(express.json());
