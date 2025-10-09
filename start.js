@@ -12,6 +12,8 @@ const session = require('express-session');
 const mongoStore = require('connect-mongo');
 const connect = mongoose.connect(process.env.MONGO_URI);
 const upload = multer({ storage: multer.memoryStorage() });
+import fetch from "node-fetch";
+import { v2 as cloudinary } from "cloudinary";
 
 const app = express();
 app.use(express.json());
@@ -29,6 +31,12 @@ app.use(session({
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   cookie: { maxAge: 1000 * 60 * 60 * 24 },
 }))
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -288,27 +296,58 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
   const approveLink = `${baseUrl}/api/approve/${newActiv._id}`;
   const denyLink = `${baseUrl}/api/deny/${newActiv._id}`;
 
+  let uploadedFileUrl = null;
+
+  if (req.file) {
+    try {
+      const result = await cloudinary.uploader.upload_stream(
+        { folder: "activities" },
+        async (error, result) => {
+          if (error) {
+            console.error("blad przy uploadzie", error);
+          } else {
+            uploadedFileUrl = result.secure_url;
+          }
+        }
+      );
+
+      result.end(req.file.buffer);
+    } catch (err) {
+      console.error("cloudinary ma wylew", err);
+    }
+  }
+
   let mailOpts = {
-    from: process.env.SMTP_USER,
+    from: "ActivityTracker <noreply@resend.dev>",
     to: process.env.SMTP_USER,
     subject: "nowa aktywnosc",
     html: `
       <p><b>${activity}</b> - ${distance}km, ${time}</p>
+      ${uploadedFileUrl ? `<p><a href="${uploadedFileUrl}">zdjecie pod linkienm do cloudinary</a></p>` : ""}
       <a href="${approveLink}">accpet</a> | 
       <a href="${denyLink}">deyn</a>
     `
   };
 
-  if (req.file) {
-    mailOpts.attachments = [
-      {
-        filename: req.file.originalname,
-        content: req.file.buffer,
-      },
-    ];
-  }
+  // if (req.file) {
+  //   mailOpts.attachments = [
+  //     {
+  //       filename: req.file.originalname,
+  //       content: req.file.buffer,
+  //     },
+  //   ];
+  // }
 
-  await transporter.sendMail(mailOpts);
+  //await transporter.sendMail(mailOpts);
+
+  await fetch("https://api.resend.com/emails", {
+    method: POST,
+    headers: {
+      "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(mailOpts)
+  })
 
   res.send("tera czekaj sb");
 });
