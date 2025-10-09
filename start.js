@@ -319,7 +319,7 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
 
   let mailOpts = {
     from: "ActivityTracker <noreply@resend.dev>",
-    to: process.env.SMTP_USER,
+    to: process.env.MY_EMAIL,
     subject: "nowa aktywnosc",
     html: `
       <p><b>${activity}</b> - ${distance}km, ${time}</p>
