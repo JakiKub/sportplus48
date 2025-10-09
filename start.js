@@ -341,7 +341,7 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
   //await transporter.sendMail(mailOpts);
 
   await fetch("https://api.resend.com/emails", {
-    method: POST,
+    method: "POST",
     headers: {
       "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
       "Content-Type": "application/json"
