@@ -8,7 +8,6 @@
   "engines": {
     "node": ">=18"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,7 +25,6 @@
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.4",
     "multer": "^2.0.2",
-    "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.5",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
