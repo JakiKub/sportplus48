@@ -6,12 +6,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (window.devicePixelRatio === 1.25) {
     document.querySelector("html").style.zoom = ".8";
+    document.getElementById("logInModalContainer").style.zoom = "1";
+    document.getElementById("registerModalContainer").style.zoom = "1";
   };
   if (window.devicePixelRatio === 1.5) {
     document.querySelector('html').style.zoom = ".67";
+    document.getElementById("logInModalContainer").style.zoom = "1";
+    document.getElementById("registerModalContainer").style.zoom = "1";
   };
   if (window.devicePixelRatio === 1.75) {
     document.querySelector('html').style.zoom = ".5";
+    document.getElementById("logInModalContainer").style.zoom = "1";
+    document.getElementById("registerModalContainer").style.zoom = "1";
   };
 });
 
