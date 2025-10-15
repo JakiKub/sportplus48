@@ -16,7 +16,6 @@
 // });
 document.addEventListener('DOMContentLoaded', () => {
   const scale = 1 / window.devicePixelRatio;
-  const mainLoginWrapper = document.getElementById("mainLoginWrapper");
   document.body.style.transform = `scale(${scale})`;
   document.body.style.transformOrigin = 'top left';
   document.body.style.width = `${100 * window.devicePixelRatio}%`;
@@ -24,9 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.style.position = 'absolute';
   document.body.style.top = 0;
   document.body.style.left = 0;
-
-  // mainLoginWrapper.style.transform = `scale(${scale})`;
-  // mainLoginWrapper.style.transformOrigin = 'top left';
 });
 document.addEventListener('DOMContentLoaded', () => {
   const modalContainer = document.getElementById('logInModalContainer');

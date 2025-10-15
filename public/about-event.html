@@ -35,16 +35,15 @@
             </p>
         </div>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                if (window.devicePixelRatio === 1.25) {
-                    document.querySelector("html").style.zoom = ".8";
-                };
-                if (window.devicePixelRatio === 1.5) {
-                    document.querySelector('html').style.zoom = ".67";
-                };
-                if (window.devicePixelRatio === 1.75) {
-                    document.querySelector('html').style.zoom = ".5";
-                };
+            document.addEventListener('DOMContentLoaded', () => {
+                const scale = 1 / window.devicePixelRatio;
+                document.body.style.transform = `scale(${scale})`;
+                document.body.style.transformOrigin = 'top left';
+                document.body.style.width = `${100 * window.devicePixelRatio}%`;
+                document.body.style.height = `${100 * window.devicePixelRatio}%`;
+                document.body.style.position = 'absolute';
+                document.body.style.top = 0;
+                document.body.style.left = 0;
             });
         </script>
     </body>
