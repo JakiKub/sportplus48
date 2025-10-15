@@ -3,22 +3,41 @@
 // zakladam ze jedna drobna zmiana i wszystko wybuchnie wiec lepiej tu nie eksperymentowac
 
 //skalowanie bo czm nie (ustawcie sb wszyscy na 100% a nie jakies dziwne rzeczy)
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.devicePixelRatio === 1.25) {
-    document.querySelector("html").style.zoom = ".8";
-    document.getElementById("logInModalContainer").style.zoom = "1";
-    document.getElementById("registerModalContainer").style.zoom = "1";
-  };
-  if (window.devicePixelRatio === 1.5) {
-    document.querySelector('html').style.zoom = ".67";
-    document.getElementById("logInModalContainer").style.zoom = "1";
-    document.getElementById("registerModalContainer").style.zoom = "1";
-  };
-  if (window.devicePixelRatio === 1.75) {
-    document.querySelector('html').style.zoom = ".5";
-    document.getElementById("logInModalContainer").style.zoom = "1";
-    document.getElementById("registerModalContainer").style.zoom = "1";
-  };
+// document.addEventListener("DOMContentLoaded", () => {
+//   if (window.devicePixelRatio === 1.25) {
+//     document.querySelector("html").style.zoom = ".8";
+//   };
+//   if (window.devicePixelRatio === 1.5) {
+//     document.querySelector('html').style.zoom = ".67";
+//   };
+//   if (window.devicePixelRatio === 1.75) {
+//     document.querySelector('html').style.zoom = ".5";
+//   };
+// });
+document.addEventListener('DOMContentLoaded', () => {
+  const scale = 1 / window.devicePixelRatio;
+  const mainLoginWrapper = document.getElementById("mainLoginWrapper");
+  document.body.style.transform = `scale(${scale})`;
+  document.body.style.transformOrigin = 'top left';
+  document.body.style.width = `${100 * window.devicePixelRatio}%`;
+  document.body.style.height = `${100 * window.devicePixelRatio}%`;
+  document.body.style.position = 'absolute';
+  document.body.style.top = 0;
+  document.body.style.left = 0;
+
+  // mainLoginWrapper.style.transform = `scale(${scale})`;
+  // mainLoginWrapper.style.transformOrigin = 'top left';
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const modalContainer = document.getElementById('logInModalContainer');
+
+  if (modalContainer) {
+    const handleResize = () => {
+      modalContainer.scrollTop = 0;
+    };
+
+    window.addEventListener('resize', handleResize);
+  }
 });
 
 // tez jakies funkcje w login tym razem
@@ -29,10 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     logInButton.addEventListener("click", () => {
         logInModalContainer.classList.add("show");
+        //document.getElementById("kolorkiBlya").style.backgroundColor = "rgba(0, 0, 0, 0.84)";
     });
 
     logInClose.addEventListener("click", () => {
         logInModalContainer.classList.remove("show");
+        document.getElementById("kolorkiBlya").style.backgroundColor = "transparent";
     });
 });
 

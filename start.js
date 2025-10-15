@@ -292,34 +292,37 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
     points,
   });
 
-  const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`
-  const approveLink = `${baseUrl}/api/approve/${newActiv._id}`;
-  const denyLink = `${baseUrl}/api/deny/${newActiv._id}`;
+  const streamUpload = (buffer) => {
+    return new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "activities" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      stream.end(buffer);
+    });
+  };
 
   let uploadedFileUrl = null;
 
   if (req.file) {
     try {
-      const result = await cloudinary.uploader.upload_stream(
-        { folder: "activities" },
-        async (error, result) => {
-          if (error) {
-            console.error("blad przy uploadzie", error);
-          } else {
-            uploadedFileUrl = result.secure_url;
-          }
-        }
-      );
-
-      result.end(req.file.buffer);
+      const result = await streamUpload(req.file.buffer);
+      uploadedFileUrl = result.secure_url;
     } catch (err) {
       console.error("cloudinary ma wylew", err);
     }
   }
 
+  const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`
+  const approveLink = `${baseUrl}/api/approve/${newActiv._id}`;
+  const denyLink = `${baseUrl}/api/deny/${newActiv._id}`;
+
   let mailOpts = {
     from: "ActivityTracker <noreply@resend.dev>",
-    to: process.env.MY_EMAIL,
+    to: process.env.SMTP_USER,
     subject: "nowa aktywnosc",
     html: `
       <p><b>${activity}</b> - ${distance}km, ${time}</p>
@@ -327,18 +330,7 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
       <a href="${approveLink}">accpet</a> | 
       <a href="${denyLink}">deyn</a>
     `
-  };
-
-  // if (req.file) {
-  //   mailOpts.attachments = [
-  //     {
-  //       filename: req.file.originalname,
-  //       content: req.file.buffer,
-  //     },
-  //   ];
-  // }
-
-  //await transporter.sendMail(mailOpts);
+  };  
 
   await fetch("https://api.resend.com/emails", {
     method: "POST",

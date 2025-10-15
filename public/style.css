@@ -1237,33 +1237,95 @@ body.dashboard.logged-in {
     bottom: 3%;
     left: 6%;
 }
+/* jest pare zmian tutaj i w index.js */
+.pass-wrapper-two {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    height: auto;
+    max-width: 1400px;
+    width: 100%;
+}
+.pass-wrapper-one {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+}
+.email-wrapper-one {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 550px;
+    width: 100%;
+    max-height: max-content;
+    height: 100%;
+}
+.email-pass-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-end;
+    max-width: 90%;
+    gap: 2rem;
+    width: 100%;
+    max-height: max-content;
+    height: 100%;
+}
+.main-login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5.5rem;
+    /* position: absolute;
+    top: 13%;
+    left: 8%; */
+    position: relative;
+    top: 10%;
+    left: 0%;
+}
 .log-in-modal-container {
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.84);
     border: none;
-    width: 100vw;
+    /* width: 100vw;
     height: 100vh;
     top: 0;
-    left: 0;
+    left: 0; */
+    inset: 0;
     opacity: 0;
     pointer-events: none;
+    z-index: 100;
+    overflow: auto;
+    transition: opacity 0.3s ease;
+    padding: 2rem;
 }
 .log-in-modal-container.show {
     pointer-events: auto;
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.85);
 }
 .log-in-modal {
     background-color: transparent;
     background-image: url("../content/div-backgrounds/Login1.png");
+    background-size: contain;
     display: flex;
-    width: 1335px;
-    max-width: 100%;
-    height: 760px;
-    max-height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    width: min(90vw, 1335px);
+    height: auto;
+    aspect-ratio: 1335 / 760;
+    position: relative;
+    inset: 0;
 }
 .log-in-close {
     position: absolute;
@@ -1271,8 +1333,8 @@ body.dashboard.logged-in {
     border: transparent;
     width: 30px;
     height: 30px;
-    top: 12.5%;
-    right: 17%;
+    top: 5%;
+    right: 4%;
     cursor: pointer;
     transition-duration: 0.7s;
 }
@@ -1283,18 +1345,15 @@ body.dashboard.logged-in {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    position: absolute;
+    /* position: absolute;
     top: 50%;
-    left: 36%;
+    left: 36%; */
     transition-duration: 0.7s;
 }
 .log-in-modal p{
     color: white;
     font-family: 'Radio Canada', sans-serif;
-    position: absolute;
     font-size: 1.3em;
-    bottom: 50%;
-    right: 20.2%;
 }
 .log-in-modal a {
     color: white;
@@ -1307,50 +1366,28 @@ body.dashboard.logged-in {
     text-decoration-color: #CAB99F;
     transform: scale(1.2);
 }
-.log-in-modal input.email {
+.log-in-modal input.email, .log-in-modal input.password {
+    width: 40vw;
     max-width: 550px;
-    width: 100%;
+    min-width: 300px;
     height: 50px;
     border-color: transparent;
     background-color: white;
-    position: absolute;
-    top: 38%;
-    left: 20.5%;
-    font-size: 1.6em;
-    font-family: 'Radio Canada', sans-serif;
-    color: black;
-}
-.log-in-modal input.password {
-    max-width: 550px;
-    width: 100%;
-    height: 50px;
-    border-color: transparent;
-    background-color: white;
-    position: absolute;
-    top: 38%;
-    right: 20%;
     font-size: 1.6em;
     font-family: 'Radio Canada', sans-serif;
     color: black;
 }
 #loginText {
-    position: absolute;
     max-width: 602px;
     width: 100%;
     height: 50px;
-    top: 19%;
-    left: 35%;
 }
-#loginEmailText {
-    position: absolute;
-    left: 20.5%;
-    top: 35%;
-}
-#loginPasswordText {
-    position: absolute;
-    top: 34.2%;
-    left: 50.28%;
-}
+/* #kolorkiBlya {
+    z-index: 1000;
+    background-color: transparent;
+    width: 100%;
+    height: 125%;
+} */
 .register-modal-container {
     display: flex;
     align-items: center;
@@ -1364,20 +1401,23 @@ body.dashboard.logged-in {
     left: 0;
     opacity: 0;
     pointer-events: none;
+    zoom: 1;
 }
 .register-modal-container.show {
     pointer-events: auto;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.85);
+    zoom: 1;
 }
 .register-modal {
     background-color: transparent;
     background-image: url("../content/div-backgrounds/Register1.png");
     display: flex;
-    width: 1335px;
-    max-width: 100%;
-    height: 760px;
-    max-height: 100%;
+    width: 100%;
+    max-width: 1335px;
+    height: 100%;
+    max-height: 760px;
+    aspect-ratio: 1335 / 760;
 }
 .register-close {
     position: absolute;
@@ -2636,3 +2676,16 @@ p#mostCommonP {
 }
 
 /*reset-password*/
+
+
+/* @media (min-resolution: 120dpi) and (max-resolution: 140dpi) {
+  html { transform: scale(0.8); transform-origin: top left; }
+}
+
+@media (min-resolution: 140dpi) and (max-resolution: 160dpi) {
+  html { transform: scale(0.67); transform-origin: top left; }
+}
+
+@media (min-resolution: 160dpi) and (max-resolution: 180dpi) {
+  html { transform: scale(0.55); transform-origin: top left; }
+} */
