@@ -2029,6 +2029,9 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
 #textPP, #textPH, #textAW, #textAC {
     font-size: 1.5em;
 }
+#wersjaNaTel {
+    display: none;
+}
 
 /*forgot-password*/
 
@@ -2690,14 +2693,289 @@ p#mostCommonP {
 /*reset-password*/
 
 
-/* @media (min-resolution: 120dpi) and (max-resolution: 140dpi) {
-  html { transform: scale(0.8); transform-origin: top left; }
+@media only screen and (max-width: 600px) {
+    body.dashboard.logged-in {
+        background-image: url("../content/mobile-version/tlo.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 100vh;
+    }
+    #wersjaNaTel {
+        z-index: 999999;
+        height: max-content;
+    }
+    .navbar-logged-in {
+        display: none !important;
+    }
+    .main-wrapper {
+        display: none !important;
+    }
+    #logoHóju {
+        display: none !important;
+    }
+    .logo-logout-bttns {
+        display: flex;
+        flex-direction: row;
+        gap: 5rem;
+        max-width: max-content;
+        transform: scale(1.7);
+        transform-origin: top left;
+        position: absolute;
+        top: 2%;
+        left: 3%;
+    }
+    .bttns-one-wrapper > button {
+        background-color: transparent;
+        border: none;
+        width: 71px;
+        height: 71px;
+    }
+    #enBttnMobile {
+        background-image: url("../content/buttons/dashboard\ en\ button.png");
+    }
+    #notifBttnMobile {
+        background-image: url("../content/buttons/dashboard\ notification\ button.png");
+    }
+    #logoutBttnMobile {
+        background-image: url("../content/buttons/dashboard\ logout\ button.png");
+    }
+    #usernameDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        transform: scale(1.3);
+        transform-origin: top left;
+    }
+    #userBttnMobile {
+        background-image: url("../content/buttons/dashboard\ user.png");
+        background-color: transparent;
+        border: none;
+        width: 78px;
+        height: 78px;
+    }
+    .username-list {
+        position: absolute;
+        top: 12%;
+        left: 7%;
+        width: max-content;
+        transform: scale(1);
+        transform-origin: top left;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 8rem;
+    }
+    .list-element {
+        max-width: 516px;
+        width: 100%;
+        height: 73px;
+        background-image: url("../content/mobile-version/menu.png");
+        color: #ffffff;
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 1.7em;
+        font-weight: 500;
+        text-decoration: none;
+        text-align: center;
+        padding-top: .8em;
+    }
+    #menuList {
+        background-color: transparent;
+        border: none;
+    }
+    .menu-list {
+        transform: scale(1);
+        transform-origin: top left;
+        margin-top: .9rem;
+    }
+    #listOfElements {
+        display: none;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    #someTextPMobile {
+        font-family: 'Radio Canada', sans-serif;
+        color: #ffffff;
+        font-size: 1.2em;
+        font-weight: 300;
+    }
+    .the-rest {
+        position: absolute;
+        left: 4%;
+        top: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        transform: scale(1.05);
+        transform-origin: top left;
+    }
+    .some-text-div {
+        z-index: 2;
+    }
+    .odliczanie-div {
+        background-image: url("../content/mobile-version/pudlo1.png");
+        background-size: 100% 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        max-width: 940px;
+        width: 940px;
+        height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        /* left: 24%;
+        top: 28%; */
+        color: white;
+        font-family: 'Radio Canada', sans-serif;
+        gap: 2rem;
+    }
+    .dsh-mobile {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    p.dwukropek {
+        font-size: 2.2em;
+    }
+    p#dshDaysNumberMobile, p#dshHoursNumberMobile, p#dshMinutesNumberMobile, p#dshSecondsNumberMobile {
+        font-size: 2.2em;
+        font-weight: 500;
+    }
+    #scImgMobile {
+        margin-left: .7em;
+    }
+    .streak-div {
+        background-image: url("../content/mobile-version/pudlo1.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: top left;
+        max-width: 940px;
+        width: 940px;
+        height: 84px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #streakButtonMobile {
+        background-color: transparent;
+        border: none;
+    }
+    #trainingStreakMobile {
+        display: block;
+    }
+    .daily-challenge-div {
+        background-image: url("../content/mobile-version/pudlo2.png");
+        max-width: 940px;
+        width: 940px;
+        height: 252px;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+    #challengeMobile {
+        color: white;
+        position: absolute;
+        right: 20%;
+        top: 17%;
+        max-width: 350px;
+        width: 100%;
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 1.5em;
+        font-weight: 400;
+    }
+    .motiv-div {
+        background-image: url("../content/mobile-version/pudlo3.png");
+        background-size: 100% 100%;
+        max-width: 940px;
+        width: 940px;
+        height: 310px;
+        position: relative;
+    }
+    #quoteChangeMobile {
+        background-image: url("../content/buttons/change.png");
+        width: 56px;
+        height: 56px;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 4%;
+        top: 6.5%;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    #quoteChangeMobile.quote-change-rotate {
+        animation: quoteChangeRotate 1s ease running forwards;
+    }
+    #quoteChangeMobile:hover {
+        transform: scale(1.05);
+    }
+    #quoteChangeMobile:active {
+        transform: scale(1);
+    }
+    @keyframes quoteChangeRotate {
+        0% {
+        }
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+    #quoteMobile {
+        color: white;
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 1.3em;
+        position: absolute;
+        top: 30%;
+        right: 15%;
+        width: 50%;
+    }
+    #personMobile {
+        color: white;
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 1.2em;
+        position: absolute;
+        left: 35%;
+        bottom: 10%;
+    }
+    .short-term {
+        background-image: url("../content/mobile-version/shortterm.png");
+        background-size: 100% 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        max-width: 940px;
+        width: 940px;
+        height: 84px;
+    }
+    .long-term {
+        background-image: url("../content/mobile-version/longterm.png");
+        background-size: 100% 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        max-width: 940px;
+        width: 940px;
+        height: 84px;
+    }
+    .main-term {
+        background-image: url("../content/mobile-version/maingoal.png");
+        background-size: 100% 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        max-width: 940px;
+        width: 940px;
+        height: 84px;
+    }
+    .personal-div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
-
-@media (min-resolution: 140dpi) and (max-resolution: 160dpi) {
-  html { transform: scale(0.67); transform-origin: top left; }
-}
-
-@media (min-resolution: 160dpi) and (max-resolution: 180dpi) {
-  html { transform: scale(0.55); transform-origin: top left; }
-} */

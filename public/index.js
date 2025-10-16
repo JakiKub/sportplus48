@@ -139,16 +139,43 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("discl").style.display = "none";
     //profileContainer.style.display = "block";
     document.body.classList.add("logged-in");
+
+    if (window.innerWidth <= 600) {
+      document.getElementById("wersjaNaTel").style.display = "block";
+      document.getElementById("usernameDashboardTopMobile").textContent = user.username;
+      document.getElementById("emailDashboardTopMobile").textContent = user.email;
+    }
   }
 
   const profileLogOut = document.getElementById("profileLogOut");
-  if (profileLogOut) {
-    profileLogOut.addEventListener("click", () => {
+    if (profileLogOut) {
+      profileLogOut.addEventListener("click", () => {
+      localStorage.removeItem("user");
+      location.reload();
+    });
+  };
+
+  const logoutBttnMobile = document.getElementById("logoutBttnMobile");
+    if (logoutBttnMobile) {
+      logoutBttnMobile.addEventListener("click", () => {
       localStorage.removeItem("user");
       location.reload();
     });
   };
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuList = document.getElementById("menuList");
+  const listOfElements = document.getElementById("listOfElements");
+
+  menuList.addEventListener("click", () => {
+    if (listOfElements.style.display === "flex") {
+      listOfElements.style.display = "none";
+    } else {
+      listOfElements.style.display = "flex";
+    }
+  })
+})
 
 //latajace liczby igora "kurczaka" korcali aka funckja palaca przegladarke
 document.addEventListener("DOMContentLoaded", () => {
@@ -236,6 +263,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const streakButton = document.getElementById("streakButton");
   const streakSpan = document.getElementById("streakSpan");
+  const streakButtonMobile = document.getElementById("streakButtonMobile");
+  const streakSpanMobile = document.getElementById("streakSpanMobile");
 
   try {
       const res = await fetch("/api/streak");
@@ -243,14 +272,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const streakDataTwo = await res.json();
       streakSpan.textContent = streakDataTwo.streak;
+      streakSpanMobile.textContent = streakDataTwo.streak;
 
     } catch (err) {
       console.log(err);
-      streak.textContent = "0";
+      streakSpan.textContent = "0";
+      streakSpanMobile.textContent = "0";
     }
 
-  streakButton.addEventListener("click", async () => {
-
+  const handleStreakBttn = async () => {
     const res = await fetch("/api/streak/click", { method: "POST" });
     const streakData = await res.json();  
 
@@ -263,7 +293,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     streakSpan.textContent = streakData.streak;
-  });
+    streakSpanMobile.textContent = streakData.streak;
+  }
+
+  if (streakButton) {
+    streakButton.addEventListener("click", handleStreakBttn);
+  }
+
+  if (streakButtonMobile) {
+    streakButtonMobile.addEventListener("click", handleStreakBttn);
+  }
+
+  //   streakButton.addEventListener("click", async () => {
+
+  //   const res = await fetch("/api/streak/click", { method: "POST" });
+  //   const streakData = await res.json();  
+
+  //   if (!res.ok) {
+  //     if (streakData.error === "already_clicked") {
+  //       alert("dzisiaj zostalo klikniete otoz");
+  //       streakSpan.textContent = streakData.streak;
+  //     }
+  //     return
+  //   }
+
+  //   streakSpan.textContent = streakData.streak;
+  //   streakSpanMobile.textContent = streakData.streak;
+  // });
 });
 
 //rowniez animacje do dashboardu
@@ -296,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.getElementById("challenge").textContent = saved.challenge;
+  document.getElementById("challengeMobile").textContent = saved.challenge;
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -365,11 +422,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const quoteChange = document.getElementById("quoteChange");
   const quote = document.getElementById("quote");
   const person = document.getElementById("person");
+  const quoteChangeMobile = document.getElementById("quoteChangeMobile");
+  const quoteMobile = document.getElementById("quoteMobile");
+  const personMobile = document.getElementById("personMobile")
 
   function getRandomQuote() {
     const randomQuote = quoteList[Math.floor(Math.random() * quoteList.length)];
     quote.textContent = randomQuote.quote;
     person.textContent = randomQuote.person;
+    quoteMobile.textContent = randomQuote.quote;
+    personMobile.textContent = randomQuote.person;
   }
 
   function resetAnims() {
@@ -381,6 +443,8 @@ document.addEventListener("DOMContentLoaded", () => {
       person.classList.add("person-slide-up");
     }, 10)
   }
+
+  
 
   getRandomQuote();
   resetAnims();
@@ -395,6 +459,16 @@ document.addEventListener("DOMContentLoaded", () => {
       quoteChange.classList.add("quote-change-rotate");
     }, 10)
   };
+
+  quoteChangeMobile.onclick = function() {
+    getRandomQuote();
+
+    quoteChangeMobile.classList.remove("quote-change-rotate");
+
+    setTimeout(() => {
+      quoteChangeMobile.classList.add("quote-change-rotate");
+    }, 10)
+  }
 });
 
 //dashboard time
@@ -414,6 +488,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dshHoursNumber").innerText = hours;
     document.getElementById("dshMinutesNumber").innerText = minutes;
     document.getElementById("dshSecondsNumber").innerText = seconds;
+  }
+
+  updateDate();
+  setInterval(updateDate, 1000);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const date = new Date(2025, 9, 10, 12, 0, 0);
+
+  const updateDate = () => {
+    const now = new Date();
+    const difference = date.getTime() - now.getTime();
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);   
+    
+    document.getElementById("dshDaysNumberMobile").innerText = days;
+    document.getElementById("dshHoursNumberMobile").innerText = hours;
+    document.getElementById("dshMinutesNumberMobile").innerText = minutes;
+    document.getElementById("dshSecondsNumberMobile").innerText = seconds;
   }
 
   updateDate();
