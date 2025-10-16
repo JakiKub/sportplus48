@@ -220,6 +220,7 @@ a.troll:hover {
 }
 .user-bttn {
     background-image: url("../content/buttons/dashboard\ user.png");
+    background-repeat: no-repeat;
     min-width: 78px;
     width: 100%;
     height: 78px;
