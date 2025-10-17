@@ -169,13 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const listOfElements = document.getElementById("listOfElements");
 
   menuList.addEventListener("click", () => {
-    if (listOfElements.style.display === "flex") {
-      listOfElements.style.display = "none";
-      listOfElements.style.zIndex = "0";
-    } else {
-      listOfElements.style.display = "flex";
-      listOfElements.style.zIndex = "1000000000000000000";
-    }
+    listOfElements.classList.toggle("is-active");
   })
 })
 

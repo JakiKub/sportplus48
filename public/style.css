@@ -2703,7 +2703,7 @@ p#mostCommonP {
         height: 100vh;
     }
     #wersjaNaTel {
-        z-index: 999999;
+        z-index: 9999;
         height: max-content;
     }
     .navbar-logged-in {
@@ -2789,12 +2789,23 @@ p#mostCommonP {
         transform: scale(1);
         transform-origin: top left;
         margin-top: .9rem;
+        position: relative;
+        z-index: 10000;
     }
     #listOfElements {
         display: none;
         flex-direction: column;
         gap: .5rem;
-        z-index: -1000000000;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+    #listOfElements.is-active {
+        pointer-events: auto;
+        display: flex;
+        z-index: 999999;
     }
     #someTextPMobile {
         font-family: 'Radio Canada', sans-serif;
