@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listOfElements.style.zIndex = "0";
     } else {
       listOfElements.style.display = "flex";
-      listOfElements.style.zIndex = "4";
+      listOfElements.style.zIndex = "1000000000000000000";
     }
   })
 })
