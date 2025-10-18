@@ -94,7 +94,7 @@ const Activity = mongoose.models.Activity || mongoose.model("Activity", activSch
 
 const requireLogin = (req, res, next) => {
   if (!req.session.userId) {
-    return res.status(401).send("must be logged in");
+    return res.status(401).send("must be logged in//musisz byc zalogowany");
   }
   next();
 }
@@ -312,7 +312,7 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
       const result = await streamUpload(req.file.buffer);
       uploadedFileUrl = result.secure_url;
     } catch (err) {
-      console.error("cloudinary ma wylew", err);
+      console.error("cloudinary error", err);
     }
   }
 
@@ -341,7 +341,7 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
     body: JSON.stringify(mailOpts)
   })
 
-  res.send("tera czekaj sb");
+  res.send("we've received your activity, please wait");
 });
 
 app.get("/api/approve/:id", async (req, res) => {
@@ -380,7 +380,7 @@ app.get("/api/user/points", requireLogin, async(req, res) => {
     const user = await collection.findById(req.session.userId, "pointsNow pointsAll");
 
     if (!user) {
-      return res.status(404).json({ error: "znajdz user to ci wyswietle" });
+      return res.status(404).json({ error: "user not found// nie znaleziono uzytkownika" });
     }
 
     res.json({
@@ -409,7 +409,7 @@ app.post('/register', async (req, res) => {
   const existingEmail = await collection.findOne({ email: data.email });
 
   if (existingUser || existingEmail) {
-    res.send("Użytkownik już istnieje");
+    res.send("user already existing//uzytkownik juz istnieje");
   } else {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(data.password, saltRounds);
@@ -427,12 +427,12 @@ app.post("/login", async (req, res) => {
     const user = await collection.findOne({ email: req.body.email });
 
     if (!user) {
-      return res.status(400).send("nie ma takiego uzytkownika");
+      return res.status(400).send("no such user in existence//nie ma takiego uzytkownika");
     }
 
     const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
     if (!isPasswordMatch) {
-      return res.status(400).send("zel haslo");
+      return res.status(400).send("wrong password//zle haslo");
     }
 
     req.session.userId = user._id;
@@ -443,7 +443,7 @@ app.post("/login", async (req, res) => {
       nationality: user.nationality
     });
   } catch (err) {
-    res.status(500).send("blad logowania");
+    res.status(500).send("login error//blad logowania");
   }
 });
 
@@ -452,7 +452,7 @@ app.post("/forgot-password", async (req, res) => {
   const user = await collection.findOne({ email });
 
   if (!user) {
-    return res.status(400).send("nie znaleziono uzytkownika");
+    return res.status(400).send("user not found//nie znaleziono uzytkownika");
   }
 
   const token = crypto.randomBytes(32).toString('hex');
@@ -473,7 +473,7 @@ app.post("/forgot-password", async (req, res) => {
           <a href="${resetLink}">${resetLink}</a>`
   });
 
-  res.send("link do resetu hasla zostal wyslany na email");
+  res.send("Password reset link was sent to you email");
 });
 
 app.get('/reset-password/:token', (req, res) => {
@@ -491,7 +491,7 @@ app.post('/reset-password/:token', async (req, res) => {
     });
 
     if (!user) {
-      return res.status(400).send("token nieprawidlowy lub wygasl");
+      return res.status(400).send("invalid or old token");
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -503,7 +503,7 @@ app.post('/reset-password/:token', async (req, res) => {
     res.send("haslo zostalo zresetowane");
   } catch (err) {
     console.error(err);
-    res.status(500).send("blad ale nwm jaki");
+    res.status(500).send("server error");
   }
 });
 
@@ -512,7 +512,7 @@ app.get('/api/records', async (req, res) => {
     const userId = req.session.userId;
     
     if (!userId) {
-      return res.status(401).json({ error: "未登入" });
+      return res.status(401).json({ error: "must be logged in//musisz byc zalogowany" });
     }
 
     const longestDistance = await Activity.findOne({ userId, status: "approved" }).sort({ distance: -1 }).select("distance");
@@ -539,7 +539,7 @@ app.get('/api/records', async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: "some error that i dont even know" });
+    res.status(500).json({ error: "server error" });
   }
 });
 
@@ -559,7 +559,7 @@ app.get("/api/streak", async (req, res) => {
     const userId = req.session.userId;
     const user = await collection.findById(userId);
 
-    if (!user) return res.status(404).json({ error: "usernotfound" });
+    if (!user) return res.status(404).json({ error: "streak error" });
 
     res.json({
       streak: user.streak || 0,
@@ -576,7 +576,7 @@ app.post("/api/streak/click", async (req, res) => {
     const user = await collection.findById(userId);
 
     if (!user) {
-      return res.status(404).json({ error: "user not found" });
+      return res.status(404).json({ error: "streak error" });
     }
 
     const getDate = (d = new Date()) => {
