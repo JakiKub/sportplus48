@@ -561,6 +561,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dshHoursNumber").innerText = hours;
     document.getElementById("dshMinutesNumber").innerText = minutes;
     document.getElementById("dshSecondsNumber").innerText = seconds;
+
+    if (difference <= 0) {
+      document.getElementById("dshDaysNumber").innerText = 0;
+      document.getElementById("dshHoursNumber").innerText = 0;
+      document.getElementById("dshMinutesNumber").innerText = 0;
+      document.getElementById("dshSecondsNumber").innerText = 0;
+    }
   }
 
   updateDate();
@@ -583,6 +590,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dshHoursNumberMobile").innerText = hours;
     document.getElementById("dshMinutesNumberMobile").innerText = minutes;
     document.getElementById("dshSecondsNumberMobile").innerText = seconds;
+
+    if (difference <= 0) {
+      document.getElementById("dshDaysNumberMobile").innerText = 0;
+      document.getElementById("dshMinutesNumberMobile").innerText = 0;
+      document.getElementById("dshHoursNumberMobile").innerText = 0;
+      document.getElementById("dshSecondsNumberMobile").innerText = 0;
+    }
   }
 
   updateDate();

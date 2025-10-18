@@ -81,6 +81,13 @@
                     document.getElementById("hoursId").innerText = hours;
                     document.getElementById("minutesId").innerText = minutes;
                     document.getElementById("secondsId").innerText = seconds;
+
+                    if (difference <= 0) {
+                        document.getElementById("daysId").innerText = 0;
+                        document.getElementById("hoursId").innerText = 0;
+                        document.getElementById("minutesId").innerText = 0;
+                        document.getElementById("secondsId").innerText = 0;
+                    }
                 }
 
                 updateCountdown();
