@@ -75,7 +75,9 @@ const logInSchema = new mongoose.Schema({
   pointsNow: { type: Number, default: 4.800 },
   pointsAll: { type: Number, default: 4.800 },
   streak: { type: Number, default: 0 },
-  streakLast: { type: String, default: null }
+  streakLast: { type: String, default: null },
+  maxActiv: { type: String, default: 0 },
+  lastActivDate: { type: String, default: null }
 })
 
 const collection = new mongoose.model("users", logInSchema);
@@ -274,6 +276,24 @@ app.get("/api/activity", async (req, res) => {
 
 app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, res) => {
   const { activity, distance, time, userId } = req.body;
+  const user = await collection.findById(req.session.userId);
+
+  if (!user) {
+    return res.status(404).send("user not found");
+  }
+
+  const today = new Date().toISOString().split("T")[0];
+
+  if (user.lastActivDate !== today) {
+    user.maxActiv = 0;
+    user.lastActivDate = today;
+  }
+
+  if (user.maxActiv >= 2) {
+    return res.status(400).send("cannot send more than 2 activities");
+  }
+
+  user.maxActiv++;
 
   const [hours, minutes] = time.split(":").map(Number);
   const timeInMins = hours * 60 + minutes;
@@ -283,6 +303,8 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
 
   const points = pointsCalc(activity, parsedDist, parsedTime);
 
+
+
   const newActiv = await Activity.create({
     userId: req.session.userId,
     activity,
@@ -291,6 +313,8 @@ app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, r
     status: "pending",
     points,
   });
+
+  await user.save();
 
   const streamUpload = (buffer) => {
     return new Promise((resolve, reject) => {
