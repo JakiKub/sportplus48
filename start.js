@@ -610,4 +610,4 @@ app.post("/api/streak/click", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-})
+});
