@@ -181,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("wersjaNaTel").style.display = "block";
       document.getElementById("usernameDashboardTopMobile").textContent = user.username;
       document.getElementById("emailDashboardTopMobile").textContent = user.email;
+      document.getElementById("listBttn").style.display = "none";
     }
   }
 
@@ -204,10 +205,49 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const menuList = document.getElementById("menuList");
   const listOfElements = document.getElementById("listOfElements");
+  const homeBttnTwo = document.getElementById("homeBttnTwo");
+  const activBttnTwo = document.getElementById("activBttnTwo");
+  const progressBttnTwo = document.getElementById("progressBttnTwo");
+  const recordsBttnTwo = document.getElementById("recordsBttnTwo");
+  const pointsBttnTwo = document.getElementById("pointsBttnTwo");
+  const rankingBttnTwo = document.getElementById("rankingBttnTwo");
+  const actionsBttnTwo = document.getElementById("actionsBttnTwo");
+  
 
   menuList.addEventListener("click", () => {
     listOfElements.classList.toggle("is-active");
-  })
+    document.getElementById("usernameDiv").classList.toggle("darken");
+    document.getElementById("theRest").classList.toggle("darken");
+    document.getElementById("logoLogoutBttns").classList.toggle("darken");
+  });
+
+  homeBttnTwo.addEventListener("click", () => {
+    window.location.href = "home.html";
+  });
+
+  activBttnTwo.addEventListener("click", () => {
+    window.location.href = "add-activity.html";
+  });
+
+  progressBttnTwo.addEventListener("click", () => {
+    window.location.href = "progress.html";
+  });
+
+  recordsBttnTwo.addEventListener("click", () => {
+    window.location.href = "records.html";
+  });
+
+  pointsBttnTwo.addEventListener("click", () => {
+    window.location.href = "points.html";
+  });
+
+  rankingBttnTwo.addEventListener("click", () => {
+    window.location.href = "ranking.html";
+  });
+
+  actionsBttnTwo.addEventListener("click", () => {
+    window.location.href = "actions.html";
+  });
 })
 
 //latajace liczby igora "kurczaka" korcali aka funckja palaca przegladarke
