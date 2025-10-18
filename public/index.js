@@ -53,6 +53,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const listBttn = document.getElementById("listBttn");
+  const dshListRozw = document.getElementById("dshListRozw");
+  const homeBttn = document.getElementById("homeBttn");
+  const abtUsBttn = document.getElementById("abtUsBttn");
+  const actionsBttn = document.getElementById("actionsBttn");
+  const contactBttn = document.getElementById("contactBttn");
+  const articlesBttn = document.getElementById("articlesBttn");
+  const countriesBttn = document.getElementById("countriesBttn");
+
+  listBttn.addEventListener("click", () => {
+    dshListRozw.classList.toggle("active-is");
+    document.getElementById("dshMainWrapper").classList.toggle("is-active-is");
+  })
+
+  abtUsBttn.addEventListener("click", () => {
+    window.location.href = "about-us.html";
+  });
+
+  actionsBttn.addEventListener("click", () => {
+    window.location.href = "actions.html";
+  });
+  
+  contactBttn.addEventListener("click", () => {
+    window.location.href = "contact.html";
+  });
+
+  articlesBttn.addEventListener("click", () => {
+    window.location.href = "articles.html";
+  });
+
+  countriesBttn.addEventListener("click", () => {
+    window.location.href = "countries.html";
+  });
+
+})
+
 //probably jakies funckje w register idk
 document.addEventListener("DOMContentLoaded", () => {
     const registerButton = document.getElementById("registerButton");

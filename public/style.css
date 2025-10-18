@@ -1118,6 +1118,7 @@ body.dashboard {
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
+    background-color: #030416;
 }
 body.dashboard.logged-in {
     background: /*linear-gradient(to right, rgb(2, 2, 68) 25%, transparent 26%),*/ url("../content/backgrounds/dashboard\ background.jpg");
@@ -1168,6 +1169,7 @@ body.dashboard.logged-in {
     position: absolute;
     left: 10%;
     top: 25%;
+    opacity: 1;
 }
 #logoWrapper {
     display: flex;
@@ -1223,7 +1225,7 @@ body.dashboard.logged-in {
     padding: 10px 40px;
     border-color: transparent;
     transition-duration: 0.7s;
-    background-color: transparent;
+    background: rgba(13, 13, 131, 0.7);
     margin-top: 10px;
     cursor: pointer;
     border-color: white;
@@ -2033,6 +2035,9 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
 #wersjaNaTel {
     display: none;
 }
+#dshList {
+    display: none;
+}
 
 /*forgot-password*/
 
@@ -2695,6 +2700,13 @@ p#mostCommonP {
 
 
 @media only screen and (max-width: 600px) {
+    body.dashboard {
+        background-image: url("../content/mobile-version/tlo-loggeout-v2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 100vh;
+    }
     body.dashboard.logged-in {
         background-image: url("../content/mobile-version/tlo.jpg");
         background-size: cover;
@@ -2990,5 +3002,84 @@ p#mostCommonP {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+    }
+    #discl {
+        left: 7%;
+    }
+    #didYouKnow {
+        display: none;
+    }
+    .navbar-dashboard-logged-out {
+        display: none;
+    }
+    #iHateThisDiv {
+        transform: scale(1.15);
+        transform-origin: top left;
+        position: absolute;
+        top: 68%;
+        left: 26%;
+    }
+    #dshMainWrapper {
+        transform: scale(1.15);
+        transform-origin: top left;
+        top: 35%;
+    }
+    #logoLoggedOut {
+        display: block;
+    }
+    #dshList {
+        max-width: max-content;
+        height: auto;
+        position: absolute;
+        left: 30%;
+        top: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    #listBttn {
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 2em;
+        color: #ffffff;
+        z-index: 9999;
+        display: flex;
+        background-color: transparent;
+        border: 2px solid #bda080;
+        width: 350px;
+        height: 50px;
+        border-radius: 2em;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        transform: scale(1.23);
+        transform-origin: top left;
+    }
+    #dshListRozw > button {
+        font-family: 'Radio Canada', sans-serif;
+        font-size: 2em;
+        color: #ffffff;
+        z-index: 99999;
+        display: flex;
+        background-color: transparent;
+        border: 2px solid #bda080;
+        width: 350px;
+        height: 50px;
+        border-radius: 2em;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        transform: scale(1.23);
+        transform-origin: top left;
+    }
+    #dshListRozw {
+        display: none;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    #dshListRozw.active-is {
+        display: flex;
+    }
+    #dshMainWrapper.is-active-is {
+        opacity: .15;
     }
 }

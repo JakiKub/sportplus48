@@ -562,8 +562,8 @@ app.get("/api/streak", async (req, res) => {
     if (!user) return res.status(404).json({ error: "usernotfound" });
 
     res.json({
-      streak: user.streak,
-      lastClick: user.streakLast
+      streak: user.streak || 0,
+      lastClick: user.streakLast || null
     });
   } catch (err) {
     console.log(err);
