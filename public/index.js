@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const listBttn = document.getElementById("listBttn");
   const dshListRozw = document.getElementById("dshListRozw");
-  const homeBttn = document.getElementById("homeBttn");
   const abtUsBttn = document.getElementById("abtUsBttn");
   const actionsBttn = document.getElementById("actionsBttn");
   const contactBttn = document.getElementById("contactBttn");
@@ -88,6 +87,52 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "countries.html";
   });
 
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+  const listBttnContact = document.getElementById("listBttnContact");
+  const contactListRozw = document.getElementById("contactListRozw");
+  const abtUsBttnContact = document.getElementById("abtUsBttnContact");
+  const dshBttnContact = document.getElementById("dshBttnContact");
+  const actionsBttnContact = document.getElementById("actionsBttnContact");
+  const contactBttnContact = document.getElementById("contactBttnContact");
+  const articlesBttnContact = document.getElementById("articlesBttnContact");
+  const countriesBttnContact = document.getElementById("countriesBttnContact");
+  const leaveAMessage = document.getElementById("leaveAMessage");
+  const contactData = document.getElementById("contactData");
+  const contactTitle = document.getElementById("contactTitle");
+
+  listBttnContact.addEventListener("click", () => {
+    contactListRozw.classList.toggle("active-is-contact");
+    //document.getElementById("dshMainWrapper").classList.toggle("is-active-is");
+    leaveAMessage.classList.toggle("is-active-con");
+    contactData.classList.toggle("is-active-con-2");
+    contactTitle.classList.toggle("is-active-con-3");
+  })
+
+  abtUsBttnContact.addEventListener("click", () => {
+    window.location.href = "about-us.html";
+  });
+
+  actionsBttnContact.addEventListener("click", () => {
+    window.location.href = "actions.html";
+  });
+  
+  contactBttnContact.addEventListener("click", () => {
+    window.location.href = "contact.html";
+  });
+
+  articlesBttnContact.addEventListener("click", () => {
+    window.location.href = "articles.html";
+  });
+
+  countriesBttnContact.addEventListener("click", () => {
+    window.location.href = "countries.html";
+  });
+
+  dshBttnContact.addEventListener("click", () => {
+    window.location.href = "dashboard.html";
+  });
 })
 
 //probably jakies funckje w register idk
@@ -205,7 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const menuList = document.getElementById("menuList");
   const listOfElements = document.getElementById("listOfElements");
-  const homeBttnTwo = document.getElementById("homeBttnTwo");
   const activBttnTwo = document.getElementById("activBttnTwo");
   const progressBttnTwo = document.getElementById("progressBttnTwo");
   const recordsBttnTwo = document.getElementById("recordsBttnTwo");
@@ -221,9 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("logoLogoutBttns").classList.toggle("darken");
   });
 
-  homeBttnTwo.addEventListener("click", () => {
-    window.location.href = "home.html";
-  });
 
   activBttnTwo.addEventListener("click", () => {
     window.location.href = "add-activity.html";
