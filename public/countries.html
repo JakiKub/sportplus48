@@ -30,7 +30,18 @@
             <a href="contact.html">contact</a>
             <a class="troll"><img src="../content/buttons/en-bttn.png"></a>
         </div>
-        <div class="jakies-napisy">
+        <div class="list-main" id="countriesList">
+            <button class="list-bttn-one" id="listBttnCountries">COUNTRIES</button>
+            <div class="list-rozw" id="countriesListRozw">
+                <button class="list-bttn-two" id="dshBttnCountries">DASHBOARD</button>
+                <button class="list-bttn-two" id="abtUsBttnCountries">ABOUT US</button>
+                <button class="list-bttn-two" id="actionsBttnCountries">ACTIONS</button>
+                <button class="list-bttn-two" id="contactBttnCountries">CONTACT</button>
+                <button class="list-bttn-two" id="articlesBttnCountries">ARTICLES</button>
+                <button class="list-bttn-two" id="countriesBttnCountries">COUNTRIES</button>
+            </div>
+        </div>
+        <div class="jakies-napisy" id="jakiesNapisy">
             <img src="../content/titles/Countries Title.png" id="countriesTitle">
             <img src="../content/texts/Napis1.png" id="napisJeden">
         </div>
@@ -109,6 +120,47 @@
                     const currentBackground = countries[currentIndex];
                     currentCountry.style.backgroundImage = `url('../content/icons/${currentBackground}-countries.png')`;
                 }
+            })
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const listBttnCountries = document.getElementById("listBttnCountries");
+                const countriesListRozw = document.getElementById("countriesListRozw");
+                const abtUsBttnCountries = document.getElementById("abtUsBttnCountries");
+                const dshBttnCountries = document.getElementById("dshBttnCountries");
+                const actionsBttnCountries = document.getElementById("actionsBttnCountries");
+                const contactBttnCountries = document.getElementById("contactBttnCountries");
+                const articlesBttnCountries = document.getElementById("articlesBttnCountries");
+                const countriesBttnCountries = document.getElementById("countriesBttnCountries");
+                const jakiesNapisy = document.getElementById("jakiesNapisy");
+
+                listBttnCountries.addEventListener("click", () => {
+                    countriesListRozw.classList.toggle("is-active-countries");
+                    jakiesNapisy.classList.toggle("is-activ-count");
+                })
+
+                abtUsBttnCountries.addEventListener("click", () => {
+                    window.location.href = "about-us.html";
+                });
+
+                actionsBttnCountries.addEventListener("click", () => {
+                    window.location.href = "actions.html";
+                });
+                
+                contactBttnCountries.addEventListener("click", () => {
+                    window.location.href = "contact.html";
+                });
+
+                articlesBttnCountries.addEventListener("click", () => {
+                    window.location.href = "articles.html";
+                });
+
+                countriesBttnCountries.addEventListener("click", () => {
+                    window.location.href = "countries.html";
+                });
+
+                dshBttnCountries.addEventListener("click", () => {
+                    window.location.href = "dashboard.html";
+                });
             })
         </script>
     </body>

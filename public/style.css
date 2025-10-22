@@ -3122,6 +3122,9 @@ p#mostCommonP {
         opacity: .15;
         transition: opacity .5s;
     }
+    #countriesListRozw.is-active-countries {
+        display: flex;
+    }
     .log-in-modal {
         background-image: url("../content/mobile-version/tlo_v2.png");
         background-size: contain;
@@ -3216,5 +3219,30 @@ p#mostCommonP {
     #contactTitle {
         top: 35%;
         left: 16%;
+    }
+    body.countries {
+        background-image: url("../content/mobile-version/countries_tlo_2.jpg");
+        background-color: #100c49;
+    }
+    #earthCountries {
+        transform: scale(1.1);
+        transform-origin: bottom right;
+    }
+    body.countries > div.navbar, body.countries > div.logo {
+        display: none;
+    }
+    .jakies-napisy {
+        left: 14%;
+        top: 27%;
+        transform: scale(1.15);
+    }
+    .countries-counter {
+        left: 20%;
+        top: 50%;
+        transform: scale(1.1);
+    }
+    #jakiesNapisy.is-activ-count {
+        opacity: .15;
+        transition: opacity .3s;
     }
 }

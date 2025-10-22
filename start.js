@@ -76,7 +76,7 @@ const logInSchema = new mongoose.Schema({
   pointsAll: { type: Number, default: 4.800 },
   streak: { type: Number, default: 0 },
   streakLast: { type: String, default: null },
-  maxActiv: { type: String, default: 0 },
+  maxActiv: { type: Number, default: 0 },
   lastActivDate: { type: String, default: null }
 })
 
@@ -275,97 +275,107 @@ app.get("/api/activity", async (req, res) => {
 })
 
 app.post("/api/activity", requireLogin, upload.single("evidence"), async (req, res) => {
-  const { activity, distance, time, userId } = req.body;
-  const user = await collection.findById(req.session.userId);
+  try {
+    const { activity, distance, time, userId } = req.body;
+    const user = await collection.findById(req.session.userId);
 
-  if (!user) {
-    return res.status(404).send("user not found");
-  }
-
-  const today = new Date().toISOString().split("T")[0];
-
-  if (user.lastActivDate !== today) {
-    user.maxActiv = 0;
-    user.lastActivDate = today;
-  }
-
-  if (user.maxActiv >= 2) {
-    return res.status(400).send("cannot send more than 2 activities");
-  }
-
-  user.maxActiv++;
-
-  const [hours, minutes] = time.split(":").map(Number);
-  const timeInMins = hours * 60 + minutes;
-
-  const parsedDist = parseFloat(distance) || 0;
-  const parsedTime = parseFloat(timeInMins, 10) || 0;
-
-  const points = pointsCalc(activity, parsedDist, parsedTime);
-
-
-
-  const newActiv = await Activity.create({
-    userId: req.session.userId,
-    activity,
-    distance: parsedDist,
-    timeInMins: parsedTime,
-    status: "pending",
-    points,
-  });
-
-  await user.save();
-
-  const streamUpload = (buffer) => {
-    return new Promise((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        { folder: "activities" },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        }
-      );
-      stream.end(buffer);
-    });
-  };
-
-  let uploadedFileUrl = null;
-
-  if (req.file) {
-    try {
-      const result = await streamUpload(req.file.buffer);
-      uploadedFileUrl = result.secure_url;
-    } catch (err) {
-      console.error("cloudinary error", err);
+    if (!user) {
+      return res.status(404).send("user not found");
     }
-  }
 
-  const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`
-  const approveLink = `${baseUrl}/api/approve/${newActiv._id}`;
-  const denyLink = `${baseUrl}/api/deny/${newActiv._id}`;
+    const today = new Date().toISOString().split("T")[0];
 
-  let mailOpts = {
-    from: "ActivityTracker <noreply@resend.dev>",
-    to: process.env.SMTP_USER,
-    subject: "nowa aktywnosc",
-    html: `
-      <p><b>${activity}</b> - ${distance}km, ${time}</p>
-      ${uploadedFileUrl ? `<p><a href="${uploadedFileUrl}">zdjecie pod linkienm do cloudinary</a></p>` : ""}
-      <a href="${approveLink}">accpet</a> | 
-      <a href="${denyLink}">deyn</a>
-    `
-  };  
+    if (user.lastActivDate !== today) {
+      user.maxActiv = 0;
+      user.lastActivDate = today;
+    }
 
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(mailOpts)
-  })
+    if (user.maxActiv >= 2) {
+      return res.status(400).send("cannot send more than 2 activities");
+    }
 
-  res.send("we've received your activity, please wait");
+    user.maxActiv++;
+    await user.save();
+
+    const [hours, minutes] = time.split(":").map(Number);
+    const timeInMins = hours * 60 + minutes;
+
+    const parsedDist = parseFloat(distance) || 0;
+    const parsedTime = parseFloat(timeInMins, 10) || 0;
+
+    const points = pointsCalc(activity, parsedDist, parsedTime);
+
+    const newActiv = await Activity.create({
+      userId: req.session.userId,
+      activity,
+      distance: parsedDist,
+      timeInMins: parsedTime,
+      status: "pending",
+      points,
+    });
+
+    const streamUpload = (buffer) => {
+      return new Promise((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "activities" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        stream.end(buffer);
+      });
+    };
+
+    let uploadedFileUrl = null;
+
+    if (req.file) {
+      try {
+        const result = await streamUpload(req.file.buffer);
+        uploadedFileUrl = result.secure_url;
+      } catch (err) {
+        console.error("cloudinary error", err);
+      }
+    }
+
+    const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`
+    const approveLink = `${baseUrl}/api/approve/${newActiv._id}`;
+    const denyLink = `${baseUrl}/api/deny/${newActiv._id}`;
+
+    let mailOpts = {
+      from: "ActivityTracker <noreply@resend.dev>",
+      to: process.env.SMTP_USER, //tu zmiana
+      subject: "nowa aktywnosc",
+      html: `
+        <p><b>${activity}</b> - ${distance}km, ${time}</p>
+        ${uploadedFileUrl ? `<p><a href="${uploadedFileUrl}">zdjecie pod linkienm do cloudinary</a></p>` : ""}
+        <a href="${approveLink}">accpet</a> | 
+        <a href="${denyLink}">deyn</a>
+      `
+    }; 
+  
+    console.log(`${mailOpts}`);
+    console.log("apikey:", process.env.RESEND_API_KEY ? "exists" : "missing");
+    console.log(`mail to ${process.env.SMTP_USER}`);
+
+    const resendResp =  await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(mailOpts)
+    });
+
+    const resendJSON = await resendResp.json();
+    console.log(`rsend sattus: ${resendResp.status}`);
+    console.log(`resend resposne: ${resendJSON}`);
+
+    res.send("we've received your activity, please wait");
+  } catch (err) {
+    console.log(`error in /api/activity ${err}`);
+    res.status(500).send('server error');
+  } 
 });
 
 app.get("/api/approve/:id", async (req, res) => {
