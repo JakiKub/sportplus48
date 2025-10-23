@@ -30,6 +30,17 @@
             <a href="contact.html">contact</a>
             <a class="troll"><img src="../content/buttons/en-bttn.png"></a>
         </div>
+        <div class="list-main" id="articlesList">
+            <button class="list-bttn-one" id="listBttnArticles">ARTICLES</button>
+            <div class="list-rozw" id="articlesListRozw">
+                <button class="list-bttn-two" id="dshBttnArticles">DASHBOARD</button>
+                <button class="list-bttn-two" id="abtUsBttnArticles">ABOUT US</button>
+                <button class="list-bttn-two" id="actionsBttnArticles">ACTIONS</button>
+                <button class="list-bttn-two" id="contactBttnArticles">CONTACT</button>
+                <button class="list-bttn-two" id="articlesBttnArticles">ARTICLES</button>
+                <button class="list-bttn-two" id="countriesBttnArticles">COUNTRIES</button>
+            </div>
+        </div>
         <div class="article-category">
             <button class="article-button" id="sportNews"><img src="../content/buttons/Sport News.png"></button>
             <button class="article-button" id="workoutAdvice"><img src="../content/buttons/Workout Advice.png"></button>
@@ -160,6 +171,46 @@
 
                     sportExplainedSlide.play();
                 }
+            })
+        
+            document.addEventListener("DOMContentLoaded", () => {
+                const listBttnArticles = document.getElementById("listBttnArticles");
+                const articlesListRozw = document.getElementById("articlesListRozw");
+                const abtUsBttnArticles = document.getElementById("abtUsBttnArticles");
+                const dshBttnArticles = document.getElementById("dshBttnArticles");
+                const actionsBttnArticles = document.getElementById("actionsBttnArticles");
+                const contactBttnArticles = document.getElementById("contactBttnArticles");
+                const articlesBttnArticles = document.getElementById("articlesBttnArticles");
+                const countriesBttnArticles = document.getElementById("countriesBttnArticles");
+                const jakiesNapisy = document.getElementById("jakiesNapisy");
+
+                listBttnArticles.addEventListener("click", () => {
+                    articlesListRozw.classList.toggle("is-active-articles");
+                })
+
+                abtUsBttnArticles.addEventListener("click", () => {
+                    window.location.href = "about-us.html";
+                });
+
+                actionsBttnArticles.addEventListener("click", () => {
+                    window.location.href = "actions.html";
+                });
+                
+                contactBttnArticles.addEventListener("click", () => {
+                    window.location.href = "contact.html";
+                });
+
+                articlesBttnArticles.addEventListener("click", () => {
+                    window.location.href = "articles.html";
+                });
+
+                countriesBttnArticles.addEventListener("click", () => {
+                    window.location.href = "countries.html";
+                });
+
+                dshBttnArticles.addEventListener("click", () => {
+                    window.location.href = "dashboard.html";
+                });
             })
         </script>
     </body>

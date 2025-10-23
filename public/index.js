@@ -587,7 +587,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //dashboard time
 document.addEventListener("DOMContentLoaded", () => {
-  const date = new Date(2025, 9, 10, 12, 0, 0);
+  const date = new Date(2025, 11, 4, 0, 48, 0);
 
   const updateDate = () => {
     const now = new Date();
@@ -616,7 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const date = new Date(2025, 9, 10, 12, 0, 0);
+  const date = new Date(2025, 11, 4, 0, 48, 0);
 
   const updateDate = () => {
     const now = new Date();

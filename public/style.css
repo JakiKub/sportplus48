@@ -302,8 +302,8 @@ body.actions {
     gap: 20px;
     width: 30%;
     height: 8%;
-    bottom: 10%;
-    right: 20%;
+    bottom: 8.7%;
+    right: 30%;
 }
 .days-div, .hours-div, .minutes-div, .seconds-div {
     display: flex;
@@ -2880,6 +2880,10 @@ p#mostCommonP {
         color: white;
         font-family: 'Radio Canada', sans-serif;
         gap: 2rem;
+        padding-right: 1rem;
+    }
+    .dwukropek-2 {
+        font-size: 1.3em;
     }
     .dsh-mobile {
         display: flex;
@@ -3244,5 +3248,22 @@ p#mostCommonP {
     #jakiesNapisy.is-activ-count {
         opacity: .15;
         transition: opacity .3s;
+    }
+    body.articles {
+        background-image: url("../content/mobile-version/tlo_articles_v2.jpg");
+        background-color: rgb(18, 12, 94);
+        overflow: visible;
+    }
+    body.articles > div.navbar {
+        display: none;
+    }
+    body.articles > div.article-category {
+        display: none;
+    }
+    .sport-news {
+        display: none;
+    }
+    #articlesListRozw.is-active-articles {
+        display: flex;
     }
 }
