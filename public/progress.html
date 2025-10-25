@@ -19,6 +19,19 @@
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     </head>
     <body class="progress">
+        <div id="menuListPrgrss">
+            <button id="menuListProgress"><img src="../content/mobile-version/menu-progress.png"></button>
+            <div id="listOfElementsProgress">
+                <button id="homeBttnProgress">HOME</button>
+                <button id="dshBttnProgress">DASHBOARD</button>
+                <button id="activBttnProgress">REGISTER ACTIVITY</button>
+                <button id="progressBttnProgress">PROGRESS</button>
+                <button id="recordsBttnProgress">RECORDS</button>
+                <button id="pointsBttnProgress">POINTS</button>
+                <button id="rankingBttnProgress">RANKING</button>
+                <button id="actionsBttnProgress">48 SPORT CHALLENGE</button>
+            </div>
+        </div>
         <img src="../content/logos/logohuju.png" class="logo-hóju">
         <div class="navbar-logged-in" id="navbarProgressLoggedIn">
             <div class="navbar-logged-in-main">
@@ -40,7 +53,7 @@
             </div>
         </div>
         <!--flex moment-->
-        <div class="main-prgrss-wrapper">
+        <div class="main-prgrss-wrapper" id="mainPrgrssWrapper">
             <div class="nvbr-prgrss-txt-wrapper">
                 <div class="nvbr-wrapper">
                     <div id="navbarProgressTop">
@@ -110,6 +123,53 @@
                     //location.reload();
                     });
                 };
+            });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const menuListProgress = document.getElementById("menuListProgress");
+                const listOfElementsProgress = document.getElementById("listOfElementsProgress");
+                const activBttnProgress = document.getElementById("activBttnProgress");
+                const progressBttnProgress = document.getElementById("progressBttnProgress");
+                const recordsBttnProgress = document.getElementById("recordsBttnProgress");
+                const pointsBttnProgress = document.getElementById("pointsBttnProgress");
+                const rankingBttnProgress = document.getElementById("rankingBttnProgress");
+                const actionsBttnProgress = document.getElementById("actionsBttnProgress");
+                const dshBttnProgress = document.getElementById("dshBttnProgress");
+                
+
+                menuListProgress.addEventListener("click", () => {
+                    listOfElementsProgress.classList.toggle("is-active-progress");
+                    document.getElementById("progressTable").classList.toggle("darken-progress");
+                    //document.querySelector(".main-prgrss-wrapper").classList.toggle("darken-progress");
+                });
+
+                dshBttnProgress.addEventListener("click", () => {
+                    window.location.href = "dashboard.html";
+                });
+
+                activBttnProgress.addEventListener("click", () => {
+                    window.location.href = "add-activity.html";
+                });
+
+                progressBttnProgress.addEventListener("click", () => {
+                    window.location.href = "progress.html";
+                });
+
+                recordsBttnProgress.addEventListener("click", () => {
+                    window.location.href = "records.html";
+                });
+
+                pointsBttnProgress.addEventListener("click", () => {
+                    window.location.href = "points.html";
+                });
+
+                rankingBttnProgress.addEventListener("click", () => {
+                    window.location.href = "ranking.html";
+                });
+
+                actionsBttnProgress.addEventListener("click", () => {
+                    window.location.href = "actions.html";
+                });
             })
 
             let page = 1;
