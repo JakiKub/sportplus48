@@ -21,6 +21,19 @@
     </head>
     <body class="add-activity">
         <img src="../content/logos/logohuju.png" class="logo-hóju">
+        <div id="menuListAddActiv">
+            <button id="menuListActiv"><img src="../content/mobile-version/menu-add-activ.png"></button>
+            <div id="listOfElementsActiv">
+                <button id="homeBttnActiv">HOME</button>
+                <button id="dshBttnActiv">DASHBOARD</button>
+                <button id="activBttnActiv">REGISTER ACTIVITY</button>
+                <button id="progressBttnActiv">PROGRESS</button>
+                <button id="recordsBttnActiv">RECORDS</button>
+                <button id="pointsBttnActiv">POINTS</button>
+                <button id="rankingBttnActiv">RANKING</button>
+                <button id="actionsBttnActiv">48 SPORT CHALLENGE</button>
+            </div>
+        </div>
         <div class="navbar-top-wrapper" id="navbarTopWrapper">
             <button id="userBttn" class="user-bttn"></button>
             <div id="navbarUserEmailTopWrapper" class="navbar-user-email-top-wrapper">
@@ -125,6 +138,54 @@
                 document.body.style.top = 0;
                 document.body.style.left = 0;
             });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const menuListActiv = document.getElementById("menuListActiv");
+                const listOfElementsActiv = document.getElementById("listOfElementsActiv");
+                const activBttnActiv = document.getElementById("activBttnActiv");
+                const progressBttnActiv = document.getElementById("progressBttnActiv");
+                const recordsBttnActiv = document.getElementById("recordsBttnActiv");
+                const pointsBttnActiv = document.getElementById("pointsBttnActiv");
+                const rankingBttnActiv = document.getElementById("rankingBttnActiv");
+                const actionsBttnActiv = document.getElementById("actionsBttnActiv");
+                const dshBttnActiv = document.getElementById("dshBttnActiv");
+                
+
+                menuListActiv.addEventListener("click", () => {
+                    listOfElementsActiv.classList.toggle("is-active-activ");
+                    document.getElementById("addActivForm").classList.toggle("darken-activ");
+                    document.getElementById("titleRegisterActiv").classList.toggle("darken-activ");
+                });
+
+                dshBttnActiv.addEventListener("click", () => {
+                    window.location.href = "dashboard.html";
+                });
+
+                activBttnActiv.addEventListener("click", () => {
+                    window.location.href = "add-activity.html";
+                });
+
+                progressBttnActiv.addEventListener("click", () => {
+                    window.location.href = "progress.html";
+                });
+
+                recordsBttnActiv.addEventListener("click", () => {
+                    window.location.href = "records.html";
+                });
+
+                pointsBttnActiv.addEventListener("click", () => {
+                    window.location.href = "points.html";
+                });
+
+                rankingBttnActiv.addEventListener("click", () => {
+                    window.location.href = "ranking.html";
+                });
+
+                actionsBttnActiv.addEventListener("click", () => {
+                    window.location.href = "actions.html";
+                });
+            });
+
             document.addEventListener("DOMContentLoaded", () => {
                 const user = JSON.parse(localStorage.getItem("user"));
 
