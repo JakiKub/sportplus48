@@ -19,7 +19,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     box-sizing: border-box;
 }
 /*main*/
-body.about-us, body.sports, body.profile, body.forgot-password, body.reset-password, body.home {
+body.profile, body.forgot-password, body.reset-password, body.home {
     background-color: black;
 }
 .navbar {
@@ -250,6 +250,159 @@ a.troll:hover {
 }
 
 /*about-us*/
+body.about-us {
+    background-image: url("../content/backgrounds/tlo_abtus.jpg");
+    background-color: #0C0F30;
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: visible;
+    overflow-y: scroll;
+    min-height: 2095px;
+    -ms-overflow-style: none; 
+}
+body.about-us::-webkit-scrollbar {
+    display: none;
+}
+#logoAbtUs {
+    display: block;
+    transform: scale(.5);
+    transform-origin: top left;
+    position: absolute;
+    left: 5%;
+    top: 0;
+}
+body.about-us > div.navbar {
+    top: 6.65%;
+    left: 65%;
+    position: sticky;
+}
+.text-box-1 {
+    display: flex;
+    flex-direction: column;
+    max-width: 35%;
+    gap: 2.3rem;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 16%;
+    right: 10%;
+}
+.text-box-1 > img {
+    display: block;
+}
+.text-box-1 > p {
+    color: #ffffff;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+#sectionScrollBttn {
+    background-image: url("../content/buttons/strzalka_w_dol.png");
+    background-color: transparent;
+    border: none;
+    background-position: center center;
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    top: 37%;
+    left: 70%;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+#sectionScrollBttn:hover {
+    transform: scale(1.1);
+}
+#sectionScrollBttn:active {
+    transform: scale(1);
+}
+#sectionTwo {
+    position: absolute;
+    top: 61.5%;
+    left: 10%;
+    width: 90%;
+}
+#aboutText, #favSport, #favClub, #nationalityP, #rootsP {
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+#secTwoImie {
+    color: #CAB99F;
+    font-family: "Playfair Display" serif;
+    font-size: 10em;
+    font-weight: 600;
+    margin-bottom: -50px;
+}
+#secTwoTitles {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+#secTwoMain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    position: absolute;
+    opacity: 1;
+    /* transition: opacity .3s; */
+}
+@keyframes changeOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#secTwoMainText {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 2.4rem;
+}
+#histDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+#divNationality, #divRoots {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+}
+#nationalityDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+#userSlideBttn {
+    background-image: url("../content/buttons/strzalka_w_bok.png");
+    background-color: transparent;
+    border: none;
+    width: 74px;
+    height: 74px;
+    position: relative;
+    top: 74%;
+    left: 3.2%;
+    z-index: 1000;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+#userSlideBttn:hover {
+    transform: scale(1.1);
+}
+#userSlideBttn:active {
+    transform: scale(1);
+}
+#secTwoMain.opacity-change {
+    /* opacity: 0; */
+    animation: changeOpacity .4s forwards running;
+}
 
 
 /*actions*/
