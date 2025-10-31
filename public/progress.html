@@ -135,6 +135,7 @@
                 const rankingBttnProgress = document.getElementById("rankingBttnProgress");
                 const actionsBttnProgress = document.getElementById("actionsBttnProgress");
                 const dshBttnProgress = document.getElementById("dshBttnProgress");
+                const homeBttnProgress = document.getElementById("homeBttnProgress");
                 
 
                 menuListProgress.addEventListener("click", () => {
@@ -170,6 +171,10 @@
                 actionsBttnProgress.addEventListener("click", () => {
                     window.location.href = "actions.html";
                 });
+
+                homeBttnProgress.addEventListener("click", () => {
+                    window.location.href = "home.html";
+                })
             })
 
             let page = 1;

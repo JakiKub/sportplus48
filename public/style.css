@@ -19,7 +19,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     box-sizing: border-box;
 }
 /*main*/
-body.profile, body.forgot-password, body.reset-password, body.home {
+body.profile, body.forgot-password, body.reset-password {
     background-color: black;
 }
 .navbar {
@@ -2212,6 +2212,66 @@ p#dshDaysNumber, p#dshHoursNumber, p#dshMinutesNumber, p#dshSecondsNumber {
 /*forgot-password*/
 
 /*home*/
+body.home {
+    background-image: url("../content/backgrounds/tlo_home.jpg");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#titleHome {
+    display: block;
+    width: max-content;
+    position: absolute;
+    top: 34%;
+    left: 9%;
+}
+#homeText {
+    display: block;
+    width: max-content;
+    position: absolute;
+    top: 63%;
+    left: 9%;
+}
+.bttns-div-home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 83%;
+    left: 8%;
+}
+.bttns-div-home > button {
+    cursor: pointer;
+    transition-duration: .4s;
+}
+#dshBttnHome {
+    background-image: url("../content/buttons/dashboard.png");
+    background-color: transparent;
+    border: none;
+    width: 230px;
+    height: 62px;
+}
+#abtUsBttnHome {
+    background-image: url("../content/buttons/aboutus.png");
+    background-color: transparent;
+    border: none;
+    width: 190px;
+    height: 62px;
+}
+#scBttnHome {
+    background-image: url("../content/buttons/48sc.png");
+    background-color: transparent;
+    border: none;
+    width: 341px;
+    height: 62px;
+}
+#dshBttnHome:hover, #abtUsBttnHome:hover, #scBttnHome:hover {
+    transform: scale(1.1);
+}
+#dshBttnHome:active, #abtUsBttnHome:active, #scBttnHome:active {
+    transform: scale(1);
+}
 
 /* points */
 body.points {

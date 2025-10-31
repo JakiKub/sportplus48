@@ -34,6 +34,7 @@
             <button class="list-bttn-one" id="listBttnArticles">ARTICLES</button>
             <div class="list-rozw" id="articlesListRozw">
                 <button class="list-bttn-two" id="dshBttnArticles">DASHBOARD</button>
+                <button class="list-bttn-two" id="homeBttnArticles">HOME</button>
                 <button class="list-bttn-two" id="abtUsBttnArticles">ABOUT US</button>
                 <button class="list-bttn-two" id="actionsBttnArticles">ACTIONS</button>
                 <button class="list-bttn-two" id="contactBttnArticles">CONTACT</button>
@@ -183,6 +184,7 @@
                 const articlesBttnArticles = document.getElementById("articlesBttnArticles");
                 const countriesBttnArticles = document.getElementById("countriesBttnArticles");
                 const jakiesNapisy = document.getElementById("jakiesNapisy");
+                const homeBttnArticles = document.getElementById("homeBttnArticles");
 
                 listBttnArticles.addEventListener("click", () => {
                     articlesListRozw.classList.toggle("is-active-articles");
@@ -211,6 +213,10 @@
                 dshBttnArticles.addEventListener("click", () => {
                     window.location.href = "dashboard.html";
                 });
+
+                homeBttnArticles.addEventListener("click", () => {
+                    window.location.href = "home.html";
+                })
             })
         </script>
     </body>

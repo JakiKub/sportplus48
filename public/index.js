@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const leaveAMessage = document.getElementById("leaveAMessage");
   const contactData = document.getElementById("contactData");
   const contactTitle = document.getElementById("contactTitle");
+  const homeBttnContact = document.getElementById("homeBttnContact");
 
   listBttnContact.addEventListener("click", () => {
     contactListRozw.classList.toggle("active-is-contact");
@@ -133,6 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
   dshBttnContact.addEventListener("click", () => {
     window.location.href = "dashboard.html";
   });
+
+  homeBttnContact.addEventListener("click", () => {
+    window.location.href = "home.html";
+  })
 })
 
 //probably jakies funckje w register idk
@@ -256,6 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pointsBttnTwo = document.getElementById("pointsBttnTwo");
   const rankingBttnTwo = document.getElementById("rankingBttnTwo");
   const actionsBttnTwo = document.getElementById("actionsBttnTwo");
+  const homeBttnTwo = document.getElementById("homeBttnTwo");
   
 
   menuList.addEventListener("click", () => {
@@ -289,6 +295,10 @@ document.addEventListener("DOMContentLoaded", () => {
   actionsBttnTwo.addEventListener("click", () => {
     window.location.href = "actions.html";
   });
+
+  homeBttnTwo.addEventListener("click", () => {
+    window.location.href = "home.html";
+  })
 })
 
 //latajace liczby igora "kurczaka" korcali aka funckja palaca przegladarke

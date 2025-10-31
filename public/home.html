@@ -17,7 +17,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-        <script src="index.js" defer></script>
     </head>
     <body class="home">
         <div class="navbar">
@@ -30,13 +29,40 @@
             <a href="contact.html">contact</a>
             <a class="troll"><img src="../content/buttons/en-bttn.png"></a>
         </div>
-        <div class="logo">
+        <img src="../content/titles/title_welcome.png" id="titleHome">
+        <img src="../content/texts/opis.png" id="homeText">
+        <div class="bttns-div-home">
+            <button id="dshBttnHome"></button>
+            <button id="abtUsBttnHome"></button>
+            <button id="scBttnHome"></button>
+        </div>
+        <!-- <div class="logo">
             <div class="tiktok-logo">
                 <a href="https://www.tiktok.com/@sportplus_48?_t=ZN-8y3YHZlLIAw&_r=1"><img src="../content/logos/tiktok-png.png"></a>
             </div>
             <div class="instagram-logo">
                 <a href="https://www.instagram.com/sportplus.48?igsh=MXFweHYyd204aTViMg=="><img src="../content/logos/instagram-png.png"></a>
             </div>
-        </div>
+        </div> -->
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const dshBttnHome = document.getElementById("dshBttnHome");
+                const abtUsBttnHome = document.getElementById("abtUsBttnHome");
+                const scBttnHome = document.getElementById("scBttnHome");
+
+                dshBttnHome.addEventListener("click", () => {
+                    window.location.href = "dashboard.html";
+                });
+
+                abtUsBttnHome.addEventListener("click", () => {
+                    window.location.href = "about-us.html";
+                });
+
+                scBttnHome.addEventListener("click", () => {
+                    window.location.href = "actions.html";
+                });
+            })
+        </script>
     </body>
 </html>
