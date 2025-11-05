@@ -29,7 +29,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24 },
+  cookie: { maxAge: 1000 *  60 * 60 * 24 * 30}, //60x60x24
 }))
 
 cloudinary.config({
@@ -480,6 +480,27 @@ app.post("/login", async (req, res) => {
     res.status(500).send("login error//blad logowania");
   }
 });
+
+//nie dziala xd (jak zawsze)
+/*app.get("/api/check-session", (req, res) => {
+  if (req.session.userId) {
+    return res.json({ logged: true });
+  } else {
+    res.json({ logged: false });
+  }
+});
+
+app.post("/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error("error deleting session:", err);
+      return res.status(500).send("could not log out");
+    }
+
+    res.clearCookie("connect.sid");
+    res.send("logged out");
+  });
+}); */
 
 app.post("/forgot-password", async (req, res) => {
   const email = req.body.email?.trim().toLowerCase();

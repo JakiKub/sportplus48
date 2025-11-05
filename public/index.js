@@ -36,6 +36,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+/*document.addEventListener("DOMContentLoaded", async () => { 
+  try {
+    const res = await fetch("/api/check-session");
+    const data = await res.json();
+
+    const body = document.body;
+
+    if (data.logged === true) {
+        // jeśli zalogowany → dodaj klasę
+      body.classList.add("logged-in");
+    } else {
+      // jeśli NIE zalogowany → usuń klasę
+      body.classList.remove("logged-in");
+    }
+  } catch (err) {
+    console.error("session check failed:", err);
+    document.body.classList.remove("logged-in");
+  }
+}); */
+
 // tez jakies funkcje w login tym razem
 document.addEventListener("DOMContentLoaded", () => {
     const logInButton = document.getElementById("logInButton");
@@ -250,6 +270,36 @@ document.addEventListener("DOMContentLoaded", () => {
       location.reload();
     });
   };
+
+  /*async function checkSession() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) return;
+
+    try {
+      const res = await fetch("/api/check-session", {
+        credentials: "include"
+      });
+      if (!res.ok) throw new Error(`Server responded ${res.status}`);
+      const data = await res.json();
+
+      if (!data.loggedIn) {
+        console.warn("Session expired – logging out user");
+        localStorage.removeItem("user");
+        document.body.classList.remove("logged-in");
+
+        setTimeout(() => location.reload(), 300);
+      }
+    } catch (err) {
+      console.error("Session check error:", err);
+    }
+  }
+
+  if (localStorage.getItem("user")) {
+    setInterval(checkSession, 60000); // co minutę
+    checkSession(); // pierwsze sprawdzenie po załadowaniu
+  }*/
+
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -597,7 +647,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //dashboard time
 document.addEventListener("DOMContentLoaded", () => {
-  const date = new Date(2025, 11, 4, 0, 48, 0);
+  const date = new Date(2025, 11, 18, 0, 48, 0);
 
   const updateDate = () => {
     const now = new Date();
@@ -626,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const date = new Date(2025, 11, 4, 0, 48, 0);
+  const date = new Date(2025, 11, 18, 0, 48, 0);
 
   const updateDate = () => {
     const now = new Date();
