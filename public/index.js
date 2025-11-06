@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const profileContainer = document.getElementById("profileContainer");
 
   try {
-    const res = await fetch("/api/check-session");
+    const res = await fetch("/api/check-session", { credentials: include });
     const data = await res.json();
 
     if (!data.isLogged) {

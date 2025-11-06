@@ -13,7 +13,7 @@ const mongoStore = require('connect-mongo');
 const connect = mongoose.connect(process.env.MONGO_URI);
 const upload = multer({ storage: multer.memoryStorage() });
 const cloudinary = require("cloudinary").v2;
-
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
@@ -23,13 +23,14 @@ app.use('/content', express.static(path.join(__dirname, 'content')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
+app.use(cors({ origin: "https://sportplus48.onrender.com", credentials: true }));
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: "lax", secure: process.env.NODE_ENV === "production"}, //60x60x24
+  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: "none", secure: true}, //60x60x24
 }))
 
 cloudinary.config({
