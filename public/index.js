@@ -14,6 +14,70 @@
 //     document.querySelector('html').style.zoom = ".5";
 //   };
 // });
+
+const logInState = (user) => {
+  document.getElementById("username").textContent = user.username;
+  document.getElementById("nationality").textContent = user.nationality || "none";
+  document.getElementById("logInButton").style.display = "none"; //n
+  document.getElementById("registerButton").style.display = "none"; //n
+  document.getElementById("navbarDashboardLoggedOut").style.display = "none"; //n
+  document.getElementById("navbarDashboardLoggedIn").style.display = "flex"; //z
+  document.getElementById("profileLogOut").style.display = "flex"; //z
+  document.getElementById("navbarDashboardLoggedInTop").style.display = "flex"; //z
+  document.getElementById("streakContainer").style.display = "flex"; //z
+  document.getElementById("motivQuote").style.display = "flex"; //z
+  document.getElementById("personalGoals").style.display = "flex"; //z
+  document.getElementById("usernameDashboardTop").textContent = user.username; //z
+  document.getElementById("emailDashboardTop").textContent = user.email; //z
+  document.getElementById("dailyChallenge").style.display = "block"; //z
+  document.getElementById("getInspired").style.display = "block"; //z
+  document.getElementById("personalGoals").style.display = "flex"; //z
+  document.getElementById("someText").style.display = "flex"; //z
+  document.getElementById("scStartsIn").style.display = "flex"; //z
+  document.getElementById("navbarDashboardLoggedInTop").style.display = "flex"; //z
+  document.getElementById("navbarTop").style.display = "flex"; //z
+  document.getElementById("logoHóju").style.display = "block"; //b
+  document.getElementById("dshMainWrapper").style.display = "none"; //n
+  document.getElementById("didYouKnow").style.display = "none"; //n
+  document.getElementById("iHateThisDiv").style.display = "none"; //n
+  document.getElementById("discl").style.display = "none"; //n
+  document.body.classList.add("logged-in");
+}
+
+const logOutState = () => {
+  document.body.classList.remove("logged-in");
+  document.getElementById("logInButton").style.display = "block"; //n
+  document.getElementById("registerButton").style.display = "block"; //n
+  document.getElementById("navbarDashboardLoggedOut").style.display = "flex"; //n
+  document.getElementById("navbarDashboardLoggedIn").style.display = "none"; //z
+  document.getElementById("profileLogOut").style.display = "none"; //z
+  document.getElementById("navbarDashboardLoggedInTop").style.display = "none"; //z
+  document.getElementById("streakContainer").style.display = "none"; //z
+  document.getElementById("motivQuote").style.display = "none"; //z
+  document.getElementById("personalGoals").style.display = "none"; //z
+  //document.getElementById("usernameDashboardTop").textContent = user.username; //z
+  //document.getElementById("emailDashboardTop").textContent = user.email; //z
+  document.getElementById("dailyChallenge").style.display = "none"; //z
+  document.getElementById("getInspired").style.display = "none"; //z
+  document.getElementById("personalGoals").style.display = "none"; //z
+  document.getElementById("someText").style.display = "none"; //z
+  document.getElementById("scStartsIn").style.display = "none"; //z
+  document.getElementById("navbarDashboardLoggedInTop").style.display = "none"; //z
+  document.getElementById("navbarTop").style.display = "none"; //z
+  document.getElementById("logoHóju").style.display = "block"; //b
+  document.getElementById("dshMainWrapper").style.display = "flex"; //n
+  document.getElementById("didYouKnow").style.display = "block"; //n
+  document.getElementById("iHateThisDiv").style.display = "flex"; //n
+  document.getElementById("discl").style.display = "block"; //n
+}
+
+const logOutFunc = () => {
+  localStorage.removeItem("user");
+  logOutState();
+  fetch("/api/logout", { method: "POST" }).then(() => { console.log("session destr"); location.reload(); }).catch(err => console.error(`error logging out: ${err}`));
+  //location.reload();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const scale = 1 / window.devicePixelRatio;
   document.body.style.transform = `scale(${scale})`;
@@ -24,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.style.top = 0;
   document.body.style.left = 0;
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   const modalContainer = document.getElementById('logInModalContainer');
 
@@ -35,26 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', handleResize);
   }
 });
-
-/*document.addEventListener("DOMContentLoaded", async () => { 
-  try {
-    const res = await fetch("/api/check-session");
-    const data = await res.json();
-
-    const body = document.body;
-
-    if (data.logged === true) {
-        // jeśli zalogowany → dodaj klasę
-      body.classList.add("logged-in");
-    } else {
-      // jeśli NIE zalogowany → usuń klasę
-      body.classList.remove("logged-in");
-    }
-  } catch (err) {
-    console.error("session check failed:", err);
-    document.body.classList.remove("logged-in");
-  }
-}); */
 
 // tez jakies funkcje w login tym razem
 document.addEventListener("DOMContentLoaded", () => {
@@ -212,63 +257,47 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // logout w dashboardzie
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const profileContainer = document.getElementById("profileContainer");
 
-  if (user && profileContainer) {
-    document.getElementById("username").textContent = user.username;
-    document.getElementById("nationality").textContent = user.nationality || "none";
-    document.getElementById("logInButton").style.display = "none";
-    document.getElementById("registerButton").style.display = "none";
-    //document.getElementById("logoDashboard").style.display = "none";
-    document.getElementById("navbarDashboardLoggedOut").style.display = "none";
-    document.getElementById("navbarDashboardLoggedIn").style.display = "flex";
-    document.getElementById("profileLogOut").style.display = "flex";
-    document.getElementById("navbarDashboardLoggedInTop").style.display = "flex";
-    document.getElementById("streakContainer").style.display = "flex";
-    document.getElementById("motivQuote").style.display = "flex";
-    document.getElementById("personalGoals").style.display = "flex";
-    document.getElementById("usernameDashboardTop").textContent = user.username;
-    document.getElementById("emailDashboardTop").textContent = user.email;
-    document.getElementById("dailyChallenge").style.display = "block";
-    document.getElementById("getInspired").style.display = "block";
-    document.getElementById("personalGoals").style.display = "flex";
-    document.getElementById("someText").style.display = "flex";
-    document.getElementById("scStartsIn").style.display = "flex";
-    document.getElementById("navbarDashboardLoggedInTop").style.display = "flex";
-    document.getElementById("navbarTop").style.display = "flex";
-    document.getElementById("logoHóju").style.display = "block";
-    document.getElementById("dshMainWrapper").style.display = "none";
-    document.getElementById("didYouKnow").style.display = "none";
-    document.getElementById("iHateThisDiv").style.display = "none";
-    document.getElementById("discl").style.display = "none";
-    //profileContainer.style.display = "block";
-    document.body.classList.add("logged-in");
+  try {
+    const res = await fetch("/api/check-session");
+    const data = await res.json();
 
-    if (window.innerWidth <= 600) {
-      document.getElementById("wersjaNaTel").style.display = "block";
-      document.getElementById("usernameDashboardTopMobile").textContent = user.username;
-      document.getElementById("emailDashboardTopMobile").textContent = user.email;
-      document.getElementById("listBttn").style.display = "none";
+    if (!data.isLogged) {
+      localStorage.removeItem("user");
+      logOutState();
+      return
     }
+  } catch (error) {
+    console.error(`blad przy sprawdzaniu sesji: ${error}`);
+    logOutState();
   }
+
+  if (user && profileContainer) {
+    logInState(user);
+  } else {
+    logOutState();
+  }
+    
+  if (window.innerWidth <= 600) {
+    document.getElementById("wersjaNaTel").style.display = "block";
+    document.getElementById("usernameDashboardTopMobile").textContent = user.username;
+    document.getElementById("emailDashboardTopMobile").textContent = user.email;
+    document.getElementById("listBttn").style.display = "none";
+  }
+  
 
   const profileLogOut = document.getElementById("profileLogOut");
     if (profileLogOut) {
-      profileLogOut.addEventListener("click", () => {
-      localStorage.removeItem("user");
-      location.reload();
-    });
+      profileLogOut.addEventListener("click", logOutFunc);
   };
 
   const logoutBttnMobile = document.getElementById("logoutBttnMobile");
     if (logoutBttnMobile) {
-      logoutBttnMobile.addEventListener("click", () => {
-      localStorage.removeItem("user");
-      location.reload();
-    });
+      logoutBttnMobile.addEventListener("click", logOutFunc);
   };
 
   /*async function checkSession() {

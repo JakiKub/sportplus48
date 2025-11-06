@@ -29,7 +29,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 *  60 * 60 * 24 * 30}, //60x60x24
+  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: "lax", secure: process.env.NODE_ENV === "production"}, //60x60x24
 }))
 
 cloudinary.config({
@@ -480,6 +480,24 @@ app.post("/login", async (req, res) => {
     res.status(500).send("login error//blad logowania");
   }
 });
+
+app.get("/api/check-session", (req, res) => {
+  if (req.session.userId) {
+    res.json({ isLogged: true });
+  } else {
+    res.json({ isLogged: false });
+  }
+});
+
+app.post("/api/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("error while destroying session");
+    }
+    res.clearCookie("connect.sid");
+    res.sendStatus(200);
+  })
+})
 
 //nie dziala xd (jak zawsze)
 /*app.get("/api/check-session", (req, res) => {

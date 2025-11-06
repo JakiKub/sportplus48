@@ -2954,6 +2954,12 @@ p#mostCommonP {
     .navbar-logged-in {
         display: none !important;
     }
+    .navbar-dashboard-logged-out {
+        display: none !important;
+    }
+    #didYouKnow {
+        display: none !important;
+    }
     .main-wrapper {
         display: none !important;
     }
