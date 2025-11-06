@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/content', express.static(path.join(__dirname, 'content')));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
 app.use(session({

@@ -2245,21 +2245,21 @@ body.home {
     cursor: pointer;
     transition-duration: .4s;
 }
-#dshBttnHome {
+#dshBttnHomeV2 {
     background-image: url("../content/buttons/dashboard.png");
     background-color: transparent;
     border: none;
     width: 230px;
     height: 62px;
 }
-#abtUsBttnHome {
+#abtUsBttnHomeV2 {
     background-image: url("../content/buttons/aboutus.png");
     background-color: transparent;
     border: none;
     width: 190px;
     height: 62px;
 }
-#scBttnHome {
+#scBttnHomeV2 {
     background-image: url("../content/buttons/48sc.png");
     background-color: transparent;
     border: none;
@@ -3715,6 +3715,35 @@ p#mostCommonP {
     }
     #addActivForm.darken-activ, #titleRegisterActiv.darken-activ {
         opacity: .15;
+        transition: opacity .5s ease;
+        pointer-events: none;
+    }
+    body.home {
+        background-image: url("../content/backgrounds/tlo_home_v2.jpg");
+        background-color: #0e053f;
+    }
+    body.home > div.navbar {
+        display: none;
+    }
+    #homeText {
+        top: 50%;
+        left: 7%;
+    }
+    #titleHome {
+        left: 11%;
+    }
+    .bttns-div-home {
+        flex-direction: column;
+        top: 64%;
+        left: 21%;
+        transform: scale(1.8);
+        transform-origin: top left;
+    }
+    #homeListRozw.is-active-home {
+        display: flex;
+    }
+    #homeText.is-darken-home-2, #titleHome.is-darken-home {
+        opacity: .12;
         transition: opacity .5s ease;
         pointer-events: none;
     }
