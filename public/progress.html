@@ -187,7 +187,7 @@
                 }
                 loading = true;
 
-                const res = await fetch(`/api/activity?page=${page}&limit=${limit}`);
+                const res = await fetch(`/api/activity?page=${page}&limit=${limit}`, { credentials: "include" });
                 const data = await res.json();
 
                 const tableBody = document.querySelector("#progressTable tbody");

@@ -236,7 +236,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
+        credentials: "include"
       });
 
       if (!response.ok) {
@@ -470,7 +471,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const streakSpanMobile = document.getElementById("streakSpanMobile");
 
   try {
-      const res = await fetch("/api/streak");
+      const res = await fetch("/api/streak", { credentials: "include" });
       if (!res.ok) throw new Error("cannot load streak");
 
       const streakDataTwo = await res.json();
@@ -484,7 +485,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
   const handleStreakBttn = async () => {
-    const res = await fetch("/api/streak/click", { method: "POST" });
+    const res = await fetch("/api/streak/click", { method: "POST", credentials: "include" });
     const streakData = await res.json();  
 
     if (!res.ok) {

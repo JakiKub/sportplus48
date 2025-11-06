@@ -129,7 +129,7 @@
             })
 
             async function loadPts() {
-                const res = await fetch("/api/user/points");
+                const res = await fetch("/api/user/points", { credentials: "include" });
                 const data = await res.json();
                 let second_lvl = 48;
                 let third_lvl = 148;

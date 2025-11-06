@@ -566,7 +566,7 @@
             })
 
             async function loadRanks() {
-                const res = await fetch('/api/ranking');
+                const res = await fetch('/api/ranking', { credentials: "include" });
                 const rankData = await res.json();
                 /*const top1 = rankData.mostPoints[0];
                 const top2 = rankData.mostPoints[1];

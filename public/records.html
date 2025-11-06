@@ -123,7 +123,7 @@
             })
 
             async function loadRecs() {
-                const res = await fetch('/api/records/');
+                const res = await fetch('/api/records/', { credentials: "include" });
                 const recs = await res.json();
 
                 document.getElementById("longestDist").innerText = recs.longestDistance.toFixed(2);
