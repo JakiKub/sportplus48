@@ -30,13 +30,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 app.use(cors({ origin: "https://sportplus48.onrender.com", credentials: true }));
+app.set("trust proxy", 1);
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", secure: process.env.NODE_ENV === "production"}, //60x60x24
+  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", secure: process.env.NODE_ENV === "production", httpOnly: true}, //60x60x24
 }))
 
 cloudinary.config({
