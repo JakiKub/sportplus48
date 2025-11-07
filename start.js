@@ -17,6 +17,12 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, private");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+  next();
+});
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/content', express.static(path.join(__dirname, 'content')));
@@ -30,7 +36,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: "none", secure: true}, //60x60x24
+  cookie: { maxAge: 1000 * 60 * 60 * 24, sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", secure: process.env.NODE_ENV === "production"}, //60x60x24
 }))
 
 cloudinary.config({
