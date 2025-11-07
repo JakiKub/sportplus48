@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const userData = await response.json();
       localStorage.setItem("user", JSON.stringify(userData));
 
-      window.location.href = "/dashboard.html";
+      window.location.replace("/dashboard.html?ts=" + Date.now());
     } catch (err) {
       alert("blad polaczenia");
       console.error(err);
@@ -266,6 +266,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const res = await fetch("/api/check-session", { method: "GET", credentials: "include" });
     const data = await res.json();
+
+    const contentType = res.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("invalid session response");
+    }
+
 
     if (!data.isLogged) {
       localStorage.removeItem("user");
@@ -300,36 +306,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (logoutBttnMobile) {
       logoutBttnMobile.addEventListener("click", logOutFunc);
   };
-
-  /*async function checkSession() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) return;
-
-    try {
-      const res = await fetch("/api/check-session", {
-        credentials: "include"
-      });
-      if (!res.ok) throw new Error(`Server responded ${res.status}`);
-      const data = await res.json();
-
-      if (!data.loggedIn) {
-        console.warn("Session expired – logging out user");
-        localStorage.removeItem("user");
-        document.body.classList.remove("logged-in");
-
-        setTimeout(() => location.reload(), 300);
-      }
-    } catch (err) {
-      console.error("Session check error:", err);
-    }
-  }
-
-  if (localStorage.getItem("user")) {
-    setInterval(checkSession, 60000); // co minutę
-    checkSession(); // pierwsze sprawdzenie po załadowaniu
-  }*/
-
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {
