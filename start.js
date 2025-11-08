@@ -460,7 +460,7 @@ app.post('/register', async (req, res) => {
 
     const userdata = await collection.create(data);
     console.log(userdata);
-    res.redirect('/');
+    res.redirect('dashboard.html');
   }
 })
 
