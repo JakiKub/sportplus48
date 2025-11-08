@@ -95,6 +95,13 @@
         </div>
 
         <script>
+            const logOutFunc = () => {
+                localStorage.removeItem("user");
+                //logOutState();
+                fetch("/api/logout", { method: "POST" }).then(() => { console.log("session destr"); location.reload(); }).catch(err => console.error(`error logging out: ${err}`));
+                window.location.href = "dashboard.html";
+            }
+
             document.addEventListener('DOMContentLoaded', () => {
                 const scale = 1 / window.devicePixelRatio;
                 document.body.style.transform = `scale(${scale})`;
@@ -120,11 +127,7 @@
 
                 const profileLogOut = document.getElementById("profileLogOut");
                 if (profileLogOut) {
-                    profileLogOut.addEventListener("click", () => {
-                    localStorage.removeItem("user");
-                    location.href = "dashboard.html";
-                    //location.reload();
-                    });
+                    profileLogOut.addEventListener("click", logOutFunc);
                 };
             })
 

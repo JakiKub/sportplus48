@@ -75,7 +75,6 @@ const logOutFunc = () => {
   localStorage.removeItem("user");
   logOutState();
   fetch("/api/logout", { method: "POST" }).then(() => { console.log("session destr"); location.reload(); }).catch(err => console.error(`error logging out: ${err}`));
-  //location.reload();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

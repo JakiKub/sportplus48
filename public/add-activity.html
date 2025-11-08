@@ -128,6 +128,13 @@
         <img src="../content/texts/discl.png" id="disclaimerIAmNotPlayingByTheRules">
 
         <script>
+            const logOutFunc = () => {
+                localStorage.removeItem("user");
+                //logOutState();
+                fetch("/api/logout", { method: "POST" }).then(() => { console.log("session destr"); location.reload(); }).catch(err => console.error(`error logging out: ${err}`));
+                window.location.href = "dashboard.html";
+            }
+
             document.addEventListener('DOMContentLoaded', () => {
                 const scale = 1 / window.devicePixelRatio;
                 document.body.style.transform = `scale(${scale})`;
@@ -199,18 +206,13 @@
                 if (user && navbarUserEmailTopWrapper) {
                     document.getElementById("usernameTop").textContent = user.username;
                     document.getElementById("emailTop").textContent = user.email;
-                    //document.getElementById("navbarAddActivLoggedInTop").style.display = "flex";
                     document.getElementById("navbarAddActiv").style.display = "flex";
                 }
             });
 
             const profileLogOutAddActiv = document.getElementById("profileLogOutAddActiv");
             if (profileLogOutAddActiv) {
-                profileLogOutAddActiv.addEventListener("click", () => {
-                localStorage.removeItem("user");
-                location.href = "dashboard.html";
-                //location.reload();
-                });
+                profileLogOutAddActiv.addEventListener("click", logOutFunc);
             }
 
             document.addEventListener("DOMContentLoaded", () => {
