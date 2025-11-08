@@ -435,8 +435,6 @@ app.get("/api/user/points", requireLogin, async(req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-  //console.log("req.body:", req.body);
-  
   const data = {
     email: req.body.email,
     password: req.body.password,
@@ -506,27 +504,6 @@ app.post("/api/logout", (req, res) => {
     res.sendStatus(200);
   })
 })
-
-//nie dziala xd (jak zawsze)
-/*app.get("/api/check-session", (req, res) => {
-  if (req.session.userId) {
-    return res.json({ logged: true });
-  } else {
-    res.json({ logged: false });
-  }
-});
-
-app.post("/logout", (req, res) => {
-  req.session.destroy(err => {
-    if (err) {
-      console.error("error deleting session:", err);
-      return res.status(500).send("could not log out");
-    }
-
-    res.clearCookie("connect.sid");
-    res.send("logged out");
-  });
-}); */
 
 app.post("/forgot-password", async (req, res) => {
   const email = req.body.email?.trim().toLowerCase();

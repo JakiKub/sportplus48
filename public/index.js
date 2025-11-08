@@ -2,19 +2,6 @@
 // sam autor nie do konca wie jak i dlaczego to dziala, po prostu dziala
 // zakladam ze jedna drobna zmiana i wszystko wybuchnie wiec lepiej tu nie eksperymentowac
 
-//skalowanie bo czm nie (ustawcie sb wszyscy na 100% a nie jakies dziwne rzeczy)
-// document.addEventListener("DOMContentLoaded", () => {
-//   if (window.devicePixelRatio === 1.25) {
-//     document.querySelector("html").style.zoom = ".8";
-//   };
-//   if (window.devicePixelRatio === 1.5) {
-//     document.querySelector('html').style.zoom = ".67";
-//   };
-//   if (window.devicePixelRatio === 1.75) {
-//     document.querySelector('html').style.zoom = ".5";
-//   };
-// });
-
 const logInState = (user) => {
   document.getElementById("username").textContent = user.username;
   document.getElementById("nationality").textContent = user.nationality || "none";
@@ -169,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   listBttnContact.addEventListener("click", () => {
     contactListRozw.classList.toggle("active-is-contact");
-    //document.getElementById("dshMainWrapper").classList.toggle("is-active-is");
     leaveAMessage.classList.toggle("is-active-con");
     contactData.classList.toggle("is-active-con-2");
     contactTitle.classList.toggle("is-active-con-3");
@@ -482,23 +468,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (streakButtonMobile) {
     streakButtonMobile.addEventListener("click", handleStreakBttn);
   }
-
-  //   streakButton.addEventListener("click", async () => {
-
-  //   const res = await fetch("/api/streak/click", { method: "POST" });
-  //   const streakData = await res.json();  
-
-  //   if (!res.ok) {
-  //     if (streakData.error === "already_clicked") {
-  //       alert("dzisiaj zostalo klikniete otoz");
-  //       streakSpan.textContent = streakData.streak;
-  //     }
-  //     return
-  //   }
-
-  //   streakSpan.textContent = streakData.streak;
-  //   streakSpanMobile.textContent = streakData.streak;
-  // });
 });
 
 //rowniez animacje do dashboardu
