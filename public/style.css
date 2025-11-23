@@ -393,15 +393,32 @@ body.about-us > div.navbar {
     transition-duration: .5s;
     cursor: pointer;
 }
-#userSlideBttn:hover {
+#userSlideBttn:hover, #userSlideBttnTwo:hover {
     transform: scale(1.1);
 }
-#userSlideBttn:active {
+#userSlideBttn:active, #userSlideBttnTwo:active {
     transform: scale(1);
 }
 #secTwoMain.opacity-change {
     /* opacity: 0; */
     animation: changeOpacity .4s forwards running;
+}
+#userSlideBttnTwo {
+    background-image: url("../content/buttons/strzalka_w_bok.png");
+    transform: rotate(180deg);
+    background-color: transparent;
+    border: none;
+    width: 74px;
+    height: 74px;
+    position: relative;
+    top: 74%;
+    left: 88%;
+    z-index: 1000;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+#userSlideBttnTwo:hover {
+    transform: scale(1.1) rotate(180deg);
 }
 
 

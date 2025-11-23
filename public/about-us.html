@@ -73,6 +73,7 @@
                 </div>
             </div>
         </section>
+        <button id="userSlideBttnTwo"></button>
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
@@ -102,6 +103,7 @@
                 const favSport = document.getElementById("favSport");
                 const favClub = document.getElementById("favClub");
                 const userSlideBttn = document.getElementById("userSlideBttn");
+                const userSlideBttnTwo = document.getElementById("userSlideBttnTwo");
 
                 const lista_uczestnikow = [
                     { userImage: "../content/misc/Igor.jpg", imie: "IGOR", roles: "Project Manager, Brand & Marketing Manager",  roots: "../content/misc/croatia.png", favorSports: "Favourite sports: volleyball, running", favorClub: "Favourite club: GNK Dinamo Zagreb", historia: "The co-founder of Sport +48. Sport taught him that boundaries exist only to be broken. He is not a coach or an Olympic athlete - just someone who believes that determination can ignite a revolution. At only 16, he completed a half marathon. Beyond his projects, he is deeply interested in sports, branding, marketing, and geopolitics. For years he has been involved in everything he can. His motto? \"If you have free time, it means you forgot to do something...\""},
@@ -219,9 +221,99 @@
                     }
                 }
 
+                const mainFuncTwo = () => {
+                    changeOpacity();
+                    if (secTwoImie.textContent === lista_uczestnikow[0].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[9].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[9].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[9].roles;
+                        rootsImg.src = lista_uczestnikow[9].roots;
+                        aboutText.textContent = lista_uczestnikow[9].historia;
+                        favSport.textContent = lista_uczestnikow[9].favorSports;
+                        favClub.textContent = lista_uczestnikow[9].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[1].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[0].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[0].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[0].roles;
+                        rootsImg.src = lista_uczestnikow[0].roots;
+                        aboutText.textContent = lista_uczestnikow[0].historia;
+                        favSport.textContent = lista_uczestnikow[0].favorSports;
+                        favClub.textContent = lista_uczestnikow[0].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[2].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[1].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[1].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[1].roles;
+                        rootsImg.src = lista_uczestnikow[1].roots;
+                        aboutText.textContent = lista_uczestnikow[1].historia;
+                        favSport.textContent = lista_uczestnikow[1].favorSports;
+                        favClub.textContent = lista_uczestnikow[1].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[3].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[2].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[2].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[2].roles;
+                        rootsImg.src = lista_uczestnikow[2].roots;
+                        aboutText.textContent = lista_uczestnikow[2].historia;
+                        favSport.textContent = lista_uczestnikow[2].favorSports;
+                        favClub.textContent = lista_uczestnikow[2].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[4].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[3].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[3].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[3].roles;
+                        rootsImg.src = lista_uczestnikow[3].roots;
+                        aboutText.textContent = lista_uczestnikow[3].historia;
+                        favSport.textContent = lista_uczestnikow[3].favorSports;
+                        favClub.textContent = lista_uczestnikow[3].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[5].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[4].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[4].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[4].roles;
+                        rootsImg.src = lista_uczestnikow[4].roots;
+                        aboutText.textContent = lista_uczestnikow[4].historia;
+                        favSport.textContent = lista_uczestnikow[4].favorSports;
+                        favClub.textContent = lista_uczestnikow[4].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[6].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[5].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[5].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[5].roles;
+                        rootsImg.src = lista_uczestnikow[5].roots;
+                        aboutText.textContent = lista_uczestnikow[5].historia;
+                        favSport.textContent = lista_uczestnikow[5].favorSports;
+                        favClub.textContent = lista_uczestnikow[5].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[7].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[6].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[6].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[6].roles;
+                        rootsImg.src = lista_uczestnikow[6].roots;
+                        aboutText.textContent = lista_uczestnikow[6].historia;
+                        favSport.textContent = lista_uczestnikow[6].favorSports;
+                        favClub.textContent = lista_uczestnikow[6].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[8].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[7].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[7].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[7].roles;
+                        rootsImg.src = lista_uczestnikow[7].roots;
+                        aboutText.textContent = lista_uczestnikow[7].historia;
+                        favSport.textContent = lista_uczestnikow[7].favorSports;
+                        favClub.textContent = lista_uczestnikow[7].favorClub;
+                    } else if (secTwoImie.textContent === lista_uczestnikow[9].imie) {
+                        secTwoImgMain.src = lista_uczestnikow[8].userImage;
+                        secTwoImie.textContent = lista_uczestnikow[8].imie;
+                        secTwoTitles.textContent = lista_uczestnikow[8].roles;
+                        rootsImg.src = lista_uczestnikow[8].roots;
+                        aboutText.textContent = lista_uczestnikow[8].historia;
+                        favSport.textContent = lista_uczestnikow[8].favorSports;
+                        favClub.textContent = lista_uczestnikow[8].favorClub;
+                    }
+                }
+
                 userSlideBttn.onclick = function() {
                     userClick = true;
                     mainFunc();
+                }
+
+                userSlideBttnTwo.onclick = function() {
+                    userClick = true;
+                    mainFuncTwo();
                 }
 
                 const sildeAuto = setInterval(() => {
