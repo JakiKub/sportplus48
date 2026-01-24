@@ -20,12 +20,13 @@ app.get("/api/users", (req, res) => {
   res.json({ ok: true });
 });
 
+const isProduction = process.env.NODE_ENV === "production";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static((clientDistPath))); //path.join(__dirname, dist)
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: isProduction ? false : "http://localhost:5173",
   credentials: true
 }));
 
