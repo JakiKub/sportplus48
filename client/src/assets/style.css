@@ -1,0 +1,3487 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.osoba {
+  transition: opacity 300ms ease-in-out;
+}
+.fade-in {
+  opacity: 1;
+}
+.fade-out {
+  opacity: 0;
+}
+
+
+.page {
+  min-height: 100vh;
+  z-index: 1;
+  display: block;
+  /* will-change: opacity; */
+}
+.page-content {
+    opacity: 1;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.layout {
+    isolation: isolate;
+}
+.layout-public #navbar {
+  /* position: relative; */
+  z-index: 10;
+}
+.layout-dashboard #sidebar,
+.layout-dashboard .username-p {
+  /* position: relative; */
+  z-index: 10;
+}
+
+/* main */
+body {
+    background-image: url("/content/about-us/onas_tlo.png");
+    max-height: none !important;
+    height: 100%;
+    background-size: 100% 80%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: visible;
+    position: relative;
+    background-color: #22009f;
+}
+
+/* navbar */
+#navbar {
+    background-image: url("/content/navbar/navbar_tlo.png");
+    max-width: 1919px;
+    width: 100%;
+    aspect-ratio: 1919 / 243;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#navbarTop {
+    background-image: url("/content/navbar/navbar_tlo_fixed.png");
+    max-width: 1919px;
+    width: 100%;
+    aspect-ratio: 1919 / 60;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    z-index: 1001;
+}
+
+#navbarTextLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-pogrubienie {
+    color: #ffffff;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.3em;
+    font-style: normal;
+    font-weight: 500;
+}
+
+#navbarTextLeft > img {
+    max-width: 10px;
+    max-height: 10px;
+    aspect-ratio: 1 / 1;
+}
+
+.navbar-opis-projektu {
+    color: #ffffff;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#navbarTextRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+}
+
+#navbarLogin {
+    cursor: pointer;
+    transition-duration: .3s;
+}
+#navbarLogin:hover {
+    transform: scale(1.05);
+}
+#navbarLogin:active {
+    transform: scale(1);
+}
+
+#navbarUserBttn {
+    background-image: url("/content/navbar/navbar_login.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 43px;
+    height: 43px;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border: none;
+    display: block;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+#navbarUserBttn:hover {
+    transform: scale(1.05);
+}
+#navbarUserBttn:active {
+    transform: scale(1);
+}
+
+#navbarBottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    justify-content: space-between;
+    padding-left: 2.9rem;
+    padding-right: 2.9rem;
+    top: 45%;
+    width: 100%;
+}
+
+#navbarLogoBttn {
+    background-image: url("/content/navbar/navbar_logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 322px;
+    height: 46px;
+    aspect-ratio: 322 / 46;
+    display: block;
+    cursor: pointer;
+}
+
+#navbarLinks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+}
+
+#navbarLinks > details {
+    position: relative;
+}
+
+#navbarLinks > details > summary {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+#navbarLinks > details > summary::after {
+    content: url("/content/navbar/navbar_strzalka.png");
+}
+
+.link-a {
+    transition-duration: .3s;
+}
+.link-a:hover {
+    transform: scale(1.05);
+}
+.link-a:active {
+    transform: scale(1);
+}
+
+#navbarLinks > details > summary, .link-a {
+    color: #ffffff;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#akcjeList, #wiecejList, #langList {
+    position: absolute;
+    top: 150%;
+    left: -50%;
+    background-color: rgba(11, 101, 204, 0.795);
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+#akcjeList li a, #wiecejList li a, #langList li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: "Fira Sans", sans-serif;
+}
+
+#akcjeList li a:hover, #wiecejList li a:hover, #langList li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#szukajBttn {
+    background-image: url("/content/navbar/navbar_szukaj.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 74px;
+    height: 65px;
+    aspect-ratio: 74 / 65;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+#szukajBttn:hover {
+    transform: scale(1.05);
+}
+#szukajBttn:active {
+    transform: scale(1);
+}
+
+.lang-summary {
+    background-image: url("/content/navbar/navbar_polski_v2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 114px 65px;
+    width: 114px;
+    height: 65px;
+    aspect-ratio: 114 / 65;
+    justify-content: center;
+}
+
+
+/* --o nas-- */
+/* o projekcie */
+#oProjekcie {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 12%;
+    left: 5%;
+}
+.o-projekcie-tytul {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 6em;
+    letter-spacing: .7rem;
+}
+
+.o-projekcie-opis {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    line-height: 2rem;
+    max-width: 43%;
+}
+
+.o-projekcie-tytul, .o-projekcie-opis {
+    color: #ffffff;
+}
+
+#dowiedzSieWiecej {
+    background-image: url("/content/about-us/dowiedzsiewiecej.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 511px;
+    height: 75px;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .2rem;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 2rem;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+#dowiedzSieWiecej:hover {
+    background-image: url("/content/about-us/dowiedzsiewiecej_zazn.png");
+    color: #3029bf;
+    transform: scale(1.02);
+}
+#dowiedzSieWiecej:active {
+    transform: scale(1);
+}
+
+
+/* o nas opis */
+#oNasOpis {
+    position: absolute;
+    left: 3%;
+    top: 27%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    scroll-margin-top: 6rem;
+}
+
+.o-nas-tytul {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 5em;
+    max-width: 45%;
+    letter-spacing: .3rem;
+}
+
+.o-nas-opis {
+    max-width: 35%;
+}
+
+.o-nas-opis, .o-nas-opis-2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    letter-spacing: .1rem;
+    font-weight: 500;
+}
+
+.o-nas-tytul, .o-nas-opis, .o-nas-opis-2 {
+    color: #ffffff;
+}
+
+#oNasOpis > img {
+    display: block;
+    max-width: max-content;
+}
+
+#poznajZespol {
+    background-image: url('/content/about-us/poznajnaszzespol.png');
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 2rem;
+    width: 532px;
+    height: 75px;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+#poznajZespol:hover {
+    background-image: url('/content/about-us/poznajnaszzespol_zazn.png');
+    color: #3029bf;
+    transform: scale(1.02);
+}
+#poznajZespol:active {
+    transform: scale(1);
+}
+
+
+/* o zespole */
+#oZespole {
+    position: absolute;
+    top: 56%;
+    left: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    scroll-margin-top: 3rem;
+}
+
+.o-zespole-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 5em;
+    letter-spacing: .2rem;
+}
+
+.o-zespole-rest {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.o-zespole-rest > img {
+    max-width: max-content;
+}
+
+.o-zespole-dane {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.dane-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+    width: 60%;
+}
+
+#daneLewo, #danePrawo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 70px;
+    height: 71px;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+#daneLewo {
+    background-image: url("/content/about-us/strzalkalewo.png");
+}
+#danePrawo {
+    background-image: url("/content/about-us/strzalkaprawo.png");
+}
+#daneLewo:hover, #danePrawo:hover {
+    transform: scale(1.03);
+}
+#daneLewo:active, #danePrawo:active {
+    transform: scale(1);
+}
+
+#imie {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 4.5em;
+    letter-spacing: .2rem;
+}
+
+.role-projektu {
+    background-image: url("/content/about-us/rolawzespole.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 942px;
+    aspect-ratio: 942 / 69;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.role-opis {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.4em;
+    letter-spacing: .2rem;
+}
+
+.narodowosci-projektu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    gap: 2rem;
+}
+.narodowosci-projektu > img {
+    max-width: max-content;
+}
+
+.narodowosci-nar {
+    text-align: center;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    letter-spacing: .2rem;
+}
+
+.narodowosci-nar, #rootsDwa {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+}
+
+.opis-o-osobie {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 500;
+    text-align: center;
+    max-width: 80%;
+}
+
+.fav-rzeczy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.fav-rzecz {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.fav-cos {
+    background-image: url("/content/about-us/ulubionesporty.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 325px;
+    aspect-ratio: 325 / 62;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fav-cos-2 {
+    background-image: url("/content/about-us/ulubionyklub.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 292px;
+    aspect-ratio: 292 / 62;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fav-cos, .fav-eff, .fav-cos-2 {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+
+/* footer */
+#footer {
+    background-image: url("/content/footer/stopka_tlo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    max-width: 1920px;
+    width: 100%;
+    aspect-ratio: 1920 / 846;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding-top: 7rem;
+    gap: 11rem;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.footer-top > img {
+    max-width: max-content;
+}
+
+.footer-top-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-top-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.7em;
+    letter-spacing: .3rem;
+}
+
+.footer-top-linki {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+.footer-top-linki:hover {
+    transform: scale(1.03);
+}
+.footer-top-linki:active {
+    transform: scale(1);
+}
+
+.footer-under {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9rem;
+}
+
+.footer-mid {
+    display: flex;
+    flex-direction: row;
+    background-image: url("/content/footer/stopka_zwzt.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1819px;
+    aspect-ratio: 1819 / 73;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-projekt-realizowany {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.3em;
+    letter-spacing: .1rem;
+}
+
+.link-do-zwol {
+    color: #000000;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+.link-do-zwol:hover {
+    transform: scale(1.03);
+}
+.link-do-zwol:active {
+    transform: scale(1);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-inside {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.footer-linki {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1em;
+}
+
+a.footer-linki {
+    cursor: pointer;
+    transition-duration: .3s;
+}
+a.footer-linki:hover {
+    transform: scale(1.03);
+}
+a.footer-linki:active {
+    transform: scale(1);
+}
+
+
+/* kontakt */
+#kontakt {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 14%;
+    left:5%;
+}
+
+.kontakt-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 6em;
+}
+
+.kontakt-div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#kontaktMiejsce, #kontaktTel, #kontaktMail {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 500;
+}
+#kontaktMiejsce::before {
+    content: url("/content/contact/kontakt_lokalizacja.png");
+}
+#kontaktTel::before {
+    content: url("/content/contact/kontakt_telefon.png");
+}
+#kontaktMail::before {
+    content: url("/content/contact/kontakt_email.png");
+}
+
+.mozesz-wyslac {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mozesz-wys-tekst {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+#formKontakt {
+    background-image: url("/content/contact/formularzkontaktowy.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    width: 796px;
+    height: 68px;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .23rem;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+#formKontakt:hover {
+    background-image: url("/content/contact/formularzkontaktowy_zazn.png");
+    color: #3029bf;
+    transform: scale(1.02);
+}
+#formKontakt:active {
+    transform: scale(1);
+}
+
+
+/* panstwa */
+#panstwaJ {
+    position: absolute;
+    top: 17%;
+    left:3%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    align-items: flex-start;
+}
+
+.panstwa-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 5em;
+    letter-spacing: .2rem;
+}
+
+.panstwa-opis-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.panstwa-opis {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.4em;
+    font-weight: 500;
+    letter-spacing: .05rem;
+}
+
+#dowiedzSiePanstwa {
+    background-image: url("/content/about-us/dowiedzsiewiecej.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 511px;
+    height: 75px;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .2rem;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 2rem;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+#dowiedzSiePanstwa:hover {
+    background-image: url("/content/about-us/dowiedzsiewiecej_zazn.png");
+    color: #3029bf;
+    transform: scale(1.02);
+}
+#dowiedzSiePanstwa:active {
+    transform: scale(1);
+}
+
+#panstwaD {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 47%;
+    left: 5%;
+    gap: 10rem;
+    scroll-margin-top: 15rem;
+}
+
+#panstwaD > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.panstwa-title-2 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 3em;
+    letter-spacing: .2rem;
+    text-align: center;
+    width: 70%;
+}
+
+.panstwa-title-3 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 3em;
+    letter-spacing: .2rem;
+}
+
+.zespol-krajow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-content: center;
+    column-gap: .5rem;
+    row-gap: .5rem;
+}
+
+.zespol-krajow > img {
+    max-width: max-content;
+}
+
+
+/* main */
+#mainJ {
+    position: absolute;
+    top: 8%;
+    left: 13%;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    align-items: center;
+}
+
+.main-j-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 6.4em;
+    letter-spacing: .2rem;
+}
+
+.main-j-text-org {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-j-text {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.4em;
+    text-align: center;
+    letter-spacing: .05rem;
+    width: 55%;
+}
+
+.main-j-bttn-org {
+    display: flex;
+    flex-direction: row;
+    gap: 1.3rem;
+}
+
+.main-j-bttn {
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    background-image: url("/content/main/main_przycisk1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 327px;
+    height: 73px;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.main-j-bttn:hover {
+    background-image: url("/content/main/main_przycisk1_zazn.png");
+    transform: scale(1.05);
+    color: #3029bf;
+}
+.main-j-bttn:active {
+    transform: scale(1);
+}
+
+#mainD {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5rem;
+    scroll-margin-top: 6rem;
+}
+
+.main-d-h-org {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-d-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 5em;
+    letter-spacing: .2rem;
+}
+
+.main-d-sec-title {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .1rem;
+    font-weight: 500;
+}
+
+.main-d-zal-org {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+.main-d-zal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 521px;
+}
+
+.main-d-s-zal {
+    background-image: url("/content/main/main_zaletyprzycisk.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 521px;
+    width: 100%;
+    aspect-ratio: 521 / 77;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.2em;
+    letter-spacing: .15rem;
+}
+
+.main-d-zal-text {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.3em;
+    width: 90%;
+    text-align: left;
+}
+
+.main-d-logreg-org {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.main-d-logreg {
+    background-image: url("/content/main/main_logreg.png");
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 635px;
+    height: 103px;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    color: #ffffff;
+    letter-spacing: .2rem;
+    font-size: 2em;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.main-d-logreg:hover {
+    color: #3029bf;
+    background-image: url("/content/main/main_logreg_zazn.png");
+    transform: scale(1.05);
+}
+.main-d-logreg:active {
+    transform: scale(1);
+}
+
+#mainT {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    scroll-margin-top: 7rem;
+}
+
+.main-t-title {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    color: #ffffff;
+    font-size: 5em;
+    letter-spacing: .2rem;
+}
+
+.akc-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.akcje-div {
+    width: 1686px;
+    aspect-ratio: 1686 / 189;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sportCDiv {
+    background-image: url("/content/main/main_48sc.png");
+}
+
+#arenaDiv {
+    background-image: url("/content/main/main_arena48.png");
+}
+
+#sportRDiv {
+    background-image: url("/content/main/main_48run.png");
+}
+
+.akc-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem
+}
+
+.akc-title-h3 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .12rem;
+}
+
+.akc-title-h6 {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.23em;
+    font-weight: 400;
+}
+
+.akc-right-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.3rem;
+}
+
+.akc-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.akc-time-ogl {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.23em;
+    font-weight: 400;
+}
+
+.akc-time-2 {
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+}
+
+.akc-time-text {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+}
+
+.dowiedz-sie-wiecej-akc {
+    width: 408px;
+    height: 62px;
+    background-image: url("/content/main/main_dowiedzsiewiecej_akcje.png");
+    background-color: transparent;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.1em;
+    letter-spacing: .11rem;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.dowiedz-sie-wiecej-akc:hover {
+    transform: scale(1.05);
+    background-image: url("/content/main/main_dowiedzsiewiecej_akcje_zazn.png");
+    color: #3029bf;
+}
+.dowiedz-sie-wiecej-akc:active {
+    transform: scale(1);
+}
+
+
+/* modal logowania i rejestracji */
+.modal-backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.84);
+    inset: 0;
+    overflow: auto;
+    z-index: 1002;
+}
+
+.modal {
+    position: relative;
+    background-image: url("/content/login-register/log_reg_okno.png");
+    background-color: transparent;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1199px;
+    aspect-ratio: 1199 / 691;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 2.5rem;
+}
+
+.modal-close {
+    background-image: url("/content/login-register/log_reg_x.png");
+    width: 46px;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.modal-close:hover {
+    transform: scale(1.05);
+}
+.modal-close:active {
+    transform: scale(1);
+}
+
+.modal-title {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 3em;
+    letter-spacing: .12rem;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1.5rem;
+}
+
+.modal-email input, .modal-pass input, .modal-username input, .modal-nation select {
+    background-image: url("/content/login-register/log_reg_okno2.png");
+    background-color: transparent;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 506px;
+    aspect-ratio: 506 / 77;
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2em;
+}
+
+.modal-nation select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.modal-nation select option {
+    background-color: #3029bf;
+    color: #ffffff;
+    outline: none;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  background-image: url("/content/login-register/log_reg_regulamin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.checkbox-wrapper input:checked + .custom-checkbox {
+  background-image: url("/content/login-register/log_reg_regulamin_zazn.png");
+}
+
+.modal-email, .modal-pass, .modal-username, .modal-nation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+.modal-pass > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .5rem;
+}
+
+.modal-p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+}
+
+.osw-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-pass > div > a.modal-osw-a {
+    font-size: 1.3em;
+}
+.modal-osw-a {
+    cursor: pointer;
+    text-decoration: underline 1px #ffffff;
+    transition-duration: .4s;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+}
+.modal-osw-a:hover {
+    transform: scale(1.05);
+    color: #fe0067;
+    text-decoration: underline 1px #fe0067;
+}
+.modal-osw-a:active {
+    transform: scale(1);
+}
+
+.modal-actions-bttn {
+    background-image: url("/content/login-register/log_reg_przycisk.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 475px;
+    height: 77px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: .4s;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+.modal-actions-bttn:hover {
+    background-image: url("/content/login-register/log_reg_przycisk_zazn.png");
+    transform: scale(1.05);
+    color: #3029bf;
+}
+.modal-actions-bttn:active {
+    transform: scale(1);
+}
+
+
+/* sidebar */
+#sidebar {
+    position: absolute;
+    top: 7%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.5rem;
+    width: 470px;
+}
+
+#sidebar > img {
+    max-width: max-content;
+    margin-left: 2rem;
+}
+
+.sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-seg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .8rem;
+}
+
+.sidebar-seg-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+}
+
+.sidebar-title {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .08rem;
+    margin-left: 1.5rem;
+}
+
+.sidebar-link {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition-duration: .4s;
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    width: 420px;
+    height: 50px;
+    border-radius: 0 1em 1em 0;
+    padding-left: 2rem;
+}
+.sidebar-link:hover {
+    transform: scale(1.02);
+    background-color: #3029bf;
+}
+.sidebar-link:active {
+    transform: scale(1);
+}
+#sidebarDsh::before {
+    content: url("/content/dashboard/dashboard_dashboard.png");
+}
+#sidebarHome::before {
+    content: url("/content/dashboard/dashboard_home.png");
+}
+#sidebarActiv::before {
+    content: url("/content/dashboard/dashboard_register.png");
+}
+#sidebarProg::before {
+    content: url("/content/dashboard/dashboard_progress.png");
+}
+#sidebarRec::before {
+    content: url("/content/dashboard/dashboard_records.png");
+}
+#sidebarPoints::before {
+    content: url("/content/dashboard/dashboard_points.png");
+}
+#sidebarRank::before {
+    content: url("/content/dashboard/dashboard_ranking.png");
+}
+
+
+.sidebar-logout {
+    background-image: url("/content/dashboard/dashboard_wyloguj.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 435px;
+    height: 57px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition-duration: .4s;
+    margin-left: 1rem;
+}
+.sidebar-logout:hover {
+    background-image: url("/content/dashboard/dashboard_wyloguj_zazn.png");
+    color: #fe0067;
+    transform: scale(1.05);
+}
+.sidebar-logout:active {
+    transform: scale(1);
+}
+
+
+/* dashboard */
+#dashboard {
+    position: absolute;
+    top: 9%;
+    left: 25%;
+    max-width: 1377px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dsh-low {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.dsh-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dsh-title {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+.dsh-title-2 {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    letter-spacing: .05rem;
+}
+
+.dsh-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.dsh-main-wrapper-2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.dsh-main-wrapper-3 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.arena-odl {
+    width: 1377px;
+    aspect-ratio: 1377 / 64;
+    background-image: url("/content/dashboard/dashboard_pasek1.png");
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 1rem;
+}
+
+.arena-odl > h1 {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.8em;
+    letter-spacing: .02rem;
+}
+
+.arena-odl-1 {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.arena-odl-2 {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.streak-div {
+    width: 662px;
+    aspect-ratio: 662 / 298;
+    background-image: url("/content/dashboard/dashboard_pasek2.png");
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .7rem;
+    padding-left: 5rem;
+    padding-top: 2.5rem;
+}
+
+.streak-div > h1 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+}
+
+.streak-div > p  {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 5em;
+    font-weight: 700;
+}
+
+.streak-div > div {
+    display: flex;
+    flex-direction: row;
+    gap: .7rem;
+}
+
+.streak-add, .streak-reset {
+    width: 163px;
+    height: 58px;
+    background-image: url("/content/dashboard/dashboard_streak.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.3em;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.streak-add:hover, .streak-reset:hover {
+    background-image: url("/content/dashboard/dashboard_streak_zazn.png");
+    color: #3029bf;
+    transform: scale(1.05);
+}
+.streak-add:active, .streak-reset:active {
+    transform: scale(1);
+}
+
+.cytat-div {
+    width: 696px;
+    aspect-ratio: 696 / 298;
+    background-image: url("/content/dashboard/dashboard_pasek3.png");
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    padding-top: 1.7rem;
+}
+
+.cytat {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 400;
+    max-width: 90%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+.cytat::before {
+    content: url("/content/dashboard/dashboard_cytat.png");
+}
+
+.autor {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.cytat-div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.cytat-div > div > h1 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+}
+
+.cytat-div > div > button {
+    width: 58px;
+    aspect-ratio: 1 / 1;
+    background-image: url("/content/dashboard/dashboard_change.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+
+.cel-div {
+    width: 832px;
+    aspect-ratio: 832 / 243;
+    background-image: url("/content/dashboard/dashboard_pasek4.png");
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-left: 3rem;
+    padding-top: 2rem;
+}
+
+.cel-div > h1 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+}
+
+.cel-accept, .cel-deny {
+    width: 59px;
+    height: 58px;
+    background-color: transparent;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.cel-accept:hover, .cel-deny:hover {
+    transform: scale(1.05);
+}
+.cel-accept:active, .cel-deny:active {
+    transform: scale(1);
+}
+
+.cel-accept {
+    background-image: url("/content/dashboard/dashboard_cel_zrealizowany.png");
+}
+
+.cel-deny {
+    background-image: url("/content/dashboard/dashboard_cel_niezrealizowany.png");
+}
+
+.cel-div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cel-div > div > select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    background-image: url("/content/dashboard/dashboard_cel.png"), url("/content/dashboard/dashboard_cel_wybierz.png");
+    background-size: contain, 20px 12px;
+    background-position: center, right 1rem center;
+    background-repeat: no-repeat, no-repeat;
+    width: 564px;
+    height: 58px;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    padding-left: 1rem;
+    padding-right: 3rem;
+    cursor: pointer;
+}
+.cel-div > div > select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.cel-div select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.cel-div select:hover {
+  filter: brightness(1.05);
+}
+
+.cel-div > div > select > option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #3029bf;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.inspir-div {
+    width: 526px;
+    aspect-ratio: 832 / 243;
+    background-image: url("/content/dashboard/dashboard_pasek5.png");
+    position: relative;  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-left: 3rem;
+    padding-top: 2.8rem;  
+    cursor: pointer;
+}
+
+.inspir-div > h1 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+}
+
+.inspir-div > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    max-width: 70%;
+}
+
+
+/* stats */
+#statsJ {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5rem;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+}
+
+#statsJ > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+#statsJ > div > h1 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 7em;
+    max-width: 100%;
+    letter-spacing: .3rem;
+    font-weight: 100;
+}
+
+#statsJ > div > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    max-width: 80%;
+    line-height: 2rem;
+    letter-spacing: .05rem;
+}
+
+#statsJ > button {
+    background-color: transparent;
+    border: none;
+    background-image: url("/content/about-us/dowiedzsiewiecej.png");
+    width: 511px;
+    height: 75px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition-duration: .4s;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    text-align: left;
+    padding-left: 3rem;
+    letter-spacing: .1rem;
+}
+#statsJ > button:hover {
+    background-image: url("/content/about-us/dowiedzsiewiecej_zazn.png");
+    color: #3029bf;
+    transform: scale(1.05);
+}
+#statsJ > button:active {
+    transform: scale(1);
+}
+
+#statsD {
+    position: absolute;
+    top: 43.5%;
+    left: 9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 4rem;
+    scroll-margin-top: 15rem;
+}
+
+#statsD > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#statsD > div > h1 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 7em;
+    font-weight: 100;
+}
+
+#statsD > div > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2em;
+    max-width: 70%;
+}
+
+
+/* register activity */
+#registerActiv {
+    position: absolute;
+    top: 9%;
+    left: 24%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+#registerActiv > form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+#registerActiv > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#registerActiv > div > h1 {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+#registerActiv > div > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.select-activity > h1, .dist-activity > h1, .time-activity > h1, .dowod-activity > h1, .wyslij-activity > h1 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+}
+
+.select-activity > select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    background-image: url("/content/register-activity/rejestracja_akt_pasek1.png"), url("/content/register-activity/rejestracja_akt_wybierzakt.png");
+    background-size: contain, 23px 13px;
+    background-position: center, right 1rem center;
+    background-repeat: no-repeat, no-repeat;
+    width: 1097px;
+    aspect-ratio: 1097 / 64;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    padding-right: 3rem;
+    cursor: pointer;
+}
+
+.select-activity > select > option {
+    background-color: #3029bf;
+}
+
+.time-activity > input, .dist-activity > input {
+    background-image: url("/content/register-activity/rejestracja_akt_pasek2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 469px;
+    aspect-ratio: 469 / 64;
+    color: #ffffff;
+    font-size: 2.3em;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+    appearance: none;
+  -moz-appearance: textfield;
+}
+
+.file-upload {
+    background-image: url("/content/register-activity/rejestracja_akt_pasek1.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 1097px;
+    height: 64px;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.wyslij-activity > button {
+    background-image: url("/content/register-activity/rejestracja_akt_pasek1.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 1097px;
+    height: 64px;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.wyslij-activity > button:hover {
+    transform: scale(1.05);
+}
+.wyslij-activity > button:active {
+    transform: scale(1);
+}
+
+.select-activity, .dowod-activity, .wyslij-activity, .dist-activity, .time-activity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+}
+
+.dist-time-activity {
+    display: flex;
+    flex-direction: row;
+    max-width: 1097px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#registerActiv > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.4em;
+    max-width: 65%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+#registerActiv > p::before {
+    content: url("/content/register-activity/rejestracja_akt_disclaimer.png");
+}
+
+
+/* progress */
+#progress {
+    position: absolute;
+    top: 8.5%;
+    left: 25.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#progress > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#progress > div > h1 {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+#progress > div > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+#progressTable {
+    width: 1377px;
+    border-collapse: separate;
+    border-spacing: 0 .7rem;
+}
+
+#progressTable > thead {
+    background-image: url("/content/progress/progress_pasek1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 64px;
+}
+
+#progressTable > thead > tr > th {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One';
+    font-size: 1.7em;
+    font-weight: 200;
+    text-align: center;
+}
+
+#progressTable > tbody > tr {
+    background-image: url("/content/progress/progress_pasek2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 64px;
+}
+
+#progressTable > tbody > tr > td {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+
+/* ranking */
+#ranking {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rank-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rank-title > h1 {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+.rank-title > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.rank-table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .5rem;
+}
+
+.rank-table > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url("/content/ranking/ranking_strony.png");
+    width: 308px;
+    aspect-ratio: 308 / 64;
+}
+
+.rank-prev, .rank-next {
+    background-color: transparent;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 21px;
+    height: 31px;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.rank-prev {
+    background-image: url("/content/ranking/ranking_lewo.png");
+}
+.rank-next {
+    background-image: url("/content/ranking/ranking_prawo.png");
+}
+.rank-prev:hover, .rank-next:hover {
+    transform: scale(1.05);
+}
+.rank-prev:active, .rank-next:active {
+    transform: scale(1);
+}
+
+.rank-page {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2.3em;
+    font-weight: 100;
+    letter-spacing: .1rem;
+}
+
+#rankingTable {
+    width: 1377px;
+    border-collapse: separate;
+    border-spacing: 0 .7rem;
+}
+
+#rankingTable > thead {
+    background-image: url("/content/ranking/ranking_pasek1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 64px;
+}
+
+#rankingTable > thead > tr > th {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One';
+    font-size: 1.7em;
+    font-weight: 200;
+    text-align: center;
+}
+
+#rankingTable > tbody > tr {
+    background-image: url("/content/ranking/ranking_pasek2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 64px;
+}
+
+td.country {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+td.username, td.points {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+}
+
+td.ranking-td {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.6em;
+    font-weight: 200;
+}
+
+#rankingTable > tbody > tr > td {
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/* userProfile */
+.username-p {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.7rem;
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 500;
+    position: absolute;
+    top: 6.5%;
+    left: 25%;
+}
+.username-p::before {
+    content: url("/content/dashboard/dashboard_user.png");
+}
+
+
+/* points */
+#points {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.points-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem
+}
+
+.points-title > h1 {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+.points-title > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.points-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.points-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bilans {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.3rem;
+    padding-left: 3rem;
+    padding-top: 2.5rem;
+    background-image: url("/content/points/punkty_pasek1.png");
+    width: 662px;
+    aspect-ratio: 662 / 298;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bilans > h2, .osiagniecia > h2, .points-right > h2 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .15rem;
+}
+
+.bilans > h1 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 4em;
+    letter-spacing: .1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.bilans > h1::after {
+    content: url("/content/points/punkty_symbolpunktow.png");
+}
+
+.bilans > button {
+    background-image: url("/content/points/punkty_przycisk.png");
+    background-color: transparent;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 411px;
+    height: 58px;
+    cursor: pointer;
+    transition-duration: .4s;
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.3em;
+}
+.bilans > button:hover {
+    background-image: url("/content/points/punkty_przycisk_zazn.png");
+    color: #3029bf;
+    transform: scale(1.05);
+}
+.bilans > button:active {
+    transform: scale(1);
+}
+
+.osiagniecia {
+    display: flex;
+    flex-direction: column;
+    background-image: url("/content/points/punkty_pasek2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 662px;
+    aspect-ratio: 662 / 328;
+    align-items: flex-start;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    gap: 1.5rem;
+}
+
+.osiagniecia-row-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6rem;
+}
+
+.osiagniecia-row-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6rem;
+    margin-left: 3rem;
+}
+
+.points-right {
+    background-image: url("/content/points/punkty_pasek3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 696px;
+    aspect-ratio: 696 / 647;
+    padding-top: 2.5rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.produkty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.produkty > button {
+    background-image: url("/content/points/punkty_przycisk2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 651px;
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.produkty > button:hover {
+    transform: scale(1.05);
+}
+.produkty > button:active {
+    transform: scale(1);
+}
+
+/* records */
+#records {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 9%;
+  left: 25%;
+}
+
+.records-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+}
+
+.records-title > h1 {
+    color: #fe0067;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 2em;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+.records-title > p {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+#recordsTable {
+    width: 1377px;
+    border-collapse: separate;
+    border-spacing: 0 .7rem;
+}
+
+#recordsTable > thead {
+    background-image: url("/content/ranking/ranking_pasek1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 64px;
+}
+
+#recordsTable > thead > tr > th {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One';
+    font-size: 1.5em;
+    font-weight: 200;
+    text-align: left;
+    padding-left: 2rem;
+}
+
+#recordsTable > tbody > tr {
+    background-image: url("/content/ranking/ranking_pasek2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 64px;
+    text-align: left;
+}
+
+.records-data, .records-wynik, .records-global {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.3em;
+    padding-left: 2rem;
+}
+
+.records-table-title {
+    color: #ffffff;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    padding-left: 2rem;
+}
+
+.best-activ {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-left: 4rem;
+    padding-top: 2.5rem;
+    background-image: url("/content/records/rekordy_pasek.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1377px;
+    aspect-ratio: 1377 / 292;
+}
+
+.best-activ > h2 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 1.7em;
+    letter-spacing: .15rem;
+}
+
+.best-activ-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10rem;
+    row-gap: 2rem;
+}
+
+.best-activ-wrapper > div {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.best-activ-wrapper > div > h3 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-weight: 100;
+    font-size: 1.2em;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.best-activ-wrapper > div > h1 {
+    color: #ffffff;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-weight: 400;
+    font-size: 2.4em;
+}
+
+
+/* arena */
+#arena {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.arena-navbar {
+    background-image: url("/content/arena/navbar_arena48.png");
+    width: 1824px;
+    aspect-ratio: 1824 / 120;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.56em;
+}
+
+.arena-navbar > a {
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.arena-navbar > a:hover {
+    transform: scale(1.05);
+}
+.arena-navbar > a:active {
+    transform: scale(1);
+}
+
+.arena-odl-3 {
+    display: flex;
+    flex-direction: row;
+    background-image: url("/content/arena/arena48_odliczanie.png");
+    width: 1822px;
+    aspect-ratio: 1822 / 113;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    gap: 6rem;
+}
+
+.arena-odl-3 img {
+    max-width: max-content;
+    max-height: max-content;
+}
+
+.arena-odl-3 > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.arena-odl-bttn-alike {
+    background-image: url("/content/arena/arena48_odliczaniedata.png");
+    width: 391px;
+    aspect-ratio: 391 / 73;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    letter-spacing: .02rem;
+    font-size: 1.4em;
+    font-weight: 600;
+    padding-bottom: .5rem;
+}
+
+.arena-wlasc-odl {
+    align-items: center;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    gap: 1.56rem;
+}
+
+.arena-wlasc-odl > h1 {
+    font-size: 3.6em;
+}
+
+.arena-wlasc-odl > p {
+    font-size: 1.7em;
+    font-weight: 300;
+    letter-spacing: .03rem;
+}
+
+.arena-ta {
+    background-image: url("/content/arena/arena48_news1graphic.png");
+    width: 1095px;
+    aspect-ratio: 1095 / 687;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.arena-wiad {
+    background-image: url("/content/arena/arena48_news2graphic.png");
+    width: 687px;
+    aspect-ratio: 1 / 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.arena-1-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.arena-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    scroll-margin-top: 3.7rem;
+}
+
+.arena-2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.arena-2-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 64%;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+.arena-wprowadzenie > h1, .arena-harmonogram > h1, .arena-nc > h1 {
+    color: #0094FF;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-weight: 100;
+    font-size: 3em;
+}
+
+.arena-wprowadzenie {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    scroll-margin-top: 3.7rem;
+}
+
+.arena-wprowadzenie > div {
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.arena-wprowadzenie > div > h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: #ffffff;
+    font-size: 1.7em;
+}
+
+.arena-wprowadzenie > div > p {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: #ffffff;
+    font-size: 1.35em;
+    max-width: 80%;
+}
+
+.arena-harmonogram {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    scroll-margin-top: 3.7rem;
+}
+
+.arena-har-div {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.arena-har-div > h2, .arena-wyrzutek > h2 {
+    color: #0094FF;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+}
+
+.arena-har-div > div {
+    background-image: url("/content/arena/arena48_harmonogram.png");
+    width: 1135px;
+    aspect-ratio: 1135 / 60;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 5rem;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.arena-wyrzutek {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7rem;
+}
+
+.arena-wyrzutek > button {
+    background-image: url("/content/arena/arena48_plik.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 507px;
+    height: 61px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.4em;
+    letter-spacing: .05rem;
+    cursor: not-allowed;
+}
+
+.arena-nc, .arena-nc-div, .arena-countries {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arena-nc {
+    gap: 2rem;
+    scroll-margin-top: 3.7rem;
+    margin-bottom: 5rem;
+}
+
+.arena-nc-div, .arena-countries {
+    gap: 1.5rem;
+}
+
+.arena-nc-div > h2, .arena-countries > h2 {
+    color: #21a2ff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.arena-nc-div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    max-width: 72%;
+}
+
+.arena-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url("/content/arena/arena48_coreinfo.png");
+    width: 432px;
+    aspect-ratio: 432 / 511;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: sticky;
+    top: 14rem;
+    align-self: flex-start;
+}
+
+.arena-info-lok , .arena-info-ter {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.arena-info-lok > div, .arena-info-ter > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.arena-info-lok > div > h3, .arena-info-ter > div > h3 {
+    color: #21a2ff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.4em;
+    font-weight: 500;
+    letter-spacing: .1rem;
+}
+
+.arena-info-lok > div > p, .arena-info-ter > div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.arena-info > div > img {
+    max-width: max-content;
+}
+
+.arena-info-lok::before {
+    content: url("/content/arena/arena48_coreinfolokalizacja.png");
+}
+
+.arena-info-ter::before {
+    content: url("/content/arena/arena48_coreinfokalendarz.png");
+}
+
+.arena-info > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.3rem;
+    padding-left: 2rem;
+}
+
+
+/* 48sc */
+#sc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 2rem;
+}
+
+.sc-navbar {
+    background-image: url("/content/48sc/48sc_navbar.png");
+    width: 1824px;
+    aspect-ratio: 1824 / 120;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sc-navbar > img {
+    max-width: max-content;
+}
+
+.sc-nav-a {
+    color: #000000;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.7em;
+    font-weight: 700;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.sc-nav-a:hover {
+    transform: scale(1.05);
+}
+.sc-nav-a:active {
+    transform: scale(1);
+}
+
+.sc-1 {
+    width: 100%;
+    aspect-ratio: 1920 / 1080;
+    background-image: url("/content/48sc/48sc_tlostart.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-bottom: 22.5rem;
+    padding-left: 10rem;
+}
+
+.sc-1 > h3 {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 2.5em
+}
+
+.sc-1 > h1 {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 7em;
+    max-width: 50%;
+}
+
+.sc-odl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 901px;
+}
+
+.sc-odl-txt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url("/content/48sc/48sc_odliczanie.png");
+    width: 901px;
+    aspect-ratio: 901 / 49;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.sc-odl-txt > p {
+    color: #000000;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 900;
+    font-size: 1.7em
+}
+
+.sc-odl-wlasc { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 901px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.sc-odl-wlasc > h2 {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 7em;
+    text-align: center;
+}
+
+.sc-2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.sc-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-self: flex-start;
+    background-image: url("/content/48sc/48sc_core.png");
+    width: 432px;
+    aspect-ratio: 432 / 511;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: sticky;
+    top: 14rem;
+}   
+
+.sc-info > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.3rem;
+}
+
+.sc-info-rozp {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+.sc-info-rozp::before {
+    content: url("/content/48sc/48sc_corestart.png");
+}
+
+.sc-info-rozp > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sc-info-rozp > div > p, .sc-info-zak > div > p {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+.sc-info-rozp > div > h3, .sc-info-zak > div > h3 {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.sc-info-zak {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+.sc-info-zak::before {
+    content: url("/content/48sc/48sc_corefinish.png");
+}   
+
+.sc-info-zak > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sc-info > img {
+    max-width: max-content;
+}
+
+.sc-wrapper {
+    max-width: 64%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.sc-informacje {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    scroll-margin-top: 3rem;
+}
+
+.sc-informacje > h1, .sc-udzial > h1 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+    max-width: 80%;
+}
+
+.sc-informacje > img {
+    max-width: max-content;
+}
+
+.sc-informacje > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+}
+
+.sc-informacje > div > h3 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+}
+
+.sc-informacje > div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    max-width: 74%;
+}
+
+.sc-udzial {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+    scroll-margin-top: 3rem;
+}
+
+.sc-udzial > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+}
+
+.sc-udzial > div > h3 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+}
+
+.sc-udzial > div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    max-width: 74%;
+}
+
+.sc-udzial > a {
+    width: 456px;
+    height: 62px;
+    aspect-ratio: 456 / 62;
+    background-color: #b8ff00;
+    border-radius: 1.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.3em;
+    font-weight: 800;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.sc-udzial > a:hover {
+    transform: scale(1.05);
+}
+.sc-udzial > a:active {
+    transform: scale(1);
+}
+
+.sc-docs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.3rem;
+}   
+
+.sc-docs > h1 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+    letter-spacing: .1rem;
+}
+
+.sc-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.sc-lista > h2 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.6em;
+    letter-spacing: .1rem;
+}
+
+.sc-lista > a {
+    width: 379px;
+    height: 60px;
+    aspect-ratio:  379 / 60;
+    background-color: #b8ff00;
+    color: #000000;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+.sc-lista > a:hover {
+    transform: scale(1.05);
+}
+.sc-lista > a:active {
+    transform: scale(1);
+}
+
+.sc-lista > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.3em;
+}
+
+.sc-faq {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 1253px;
+    margin-bottom: 5rem;
+}
+
+.sc-faq > h1 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+    letter-spacing: .1rem;
+}
+
+.sc-faq > a {
+    width: 1190px;
+    height: 61px;
+    aspect-ratio: 1190 / 61;
+    background-color: #b8ff00;
+    color: #000000;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 3rem;
+    justify-content: center;
+    transition-duration: .4s;
+    cursor: pointer;
+}
+.sc-faq > a:hover {
+    transform: scale(1.05);
+}
+.sc-faq > a:active {
+    transform: scale(1);
+}
+
+.sc-wynik {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.sc-small-h1 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+    letter-spacing: .08rem;
+    font-weight: 600;
+}
+
+.sc-wynik > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.8em;
+    max-width: 82%;
+    font-weight: 300;
+}
+
+.sc-wynik > h3 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.7em;
+}
+
+.sc-big-h1 {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 12em;
+    letter-spacing: .08rem;
+    font-weight: 600;
+}
+
+.sc-wynik > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .8rem;
+}
+
+.sc-wynik > div > h2 {
+    color: #b8ff00;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.sc-wynik > div > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.15rem;
+    row-gap: .45rem;
+}
+
+.sc-wynik > div > div > div {
+    width: 389px;
+    aspect-ratio: 389 / 57;
+    background-image: url('/content/48sc/48sc_rank.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
