@@ -92,7 +92,7 @@ const App = () => {
     <>
       <Routes>
         <Route element={<PublicLayout user={user} openLogin={openLogin} openRegister={openRegister}/>}>
-          <Route index element={<Main/>}/>
+          <Route index element={<Main openLogin={openLogin} openRegister={openRegister}/>}/>
           <Route path="onas" element={<ONas/>}/>
           <Route path="kontakt" element={<Kontakt/>}/>
           <Route path="panstwa" element={<Panstwa/>}/>
