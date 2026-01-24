@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="footer-top-div">
           <h3 className='footer-top-title'>PARTNERZY</h3>
           <a className="footer-top-linki" onClick={() => window.open("https://www.1lo.torun.pl/1lo/")}>I LO Toruń</a>
-          <a className="footer-top-linki" onClick={() => window.open("https://brandelite.pl")}>Brandelite</a>
+          <a className="footer-top-linki" onClick={() => window.alert("nie znam linku")}>Brandelite</a>
         </div>
         <div className="footer-top-div">
           <h3 className='footer-top-title'>KONTAKT</h3>
