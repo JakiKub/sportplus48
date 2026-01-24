@@ -20,7 +20,6 @@ const isProduction = process.env.NODE_ENV === "production";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static((clientDistPath))); //path.join(__dirname, dist)
 app.use(cors({
   origin: isProduction ? false : "http://localhost:5173",
   credentials: true
@@ -52,6 +51,7 @@ app.use("/api", rankingRoutes);
 app.use("/api", goalRoutes);
 app.use("/api", authRoutes);
 
+app.use(express.static((clientDistPath))); //path.join(__dirname, dist)
 app.use( (req, res) => {
   res.sendFile(path.join(clientDistPath, "index.html"));
 });

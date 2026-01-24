@@ -126,7 +126,7 @@ const Dashboard = ({ user }) => {
   }
 
   const setGoal = async (type, name) => {
-    const res = await fetch(" /api/goals/set", {
+    const res = await fetch("/api/goals/set", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
