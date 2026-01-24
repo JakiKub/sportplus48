@@ -16,10 +16,6 @@ const app = express();
 
 const clientDistPath = path.resolve(__dirname, "..", "client", "dist");
 
-app.get("/api/users", (req, res) => {
-  res.json({ ok: true });
-});
-
 const isProduction = process.env.NODE_ENV === "production";
 
 app.use(express.json());
@@ -43,6 +39,10 @@ app.use(session({
     httpOnly: true
   }
 }));
+
+app.get("/api/users", (req, res) => {
+  res.json({ ok: true });
+});
 
 app.use("/api", activityRoutes);
 app.use("/api", userRoutes);
