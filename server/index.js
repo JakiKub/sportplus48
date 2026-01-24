@@ -52,7 +52,10 @@ app.use("/api", goalRoutes);
 app.use("/api", authRoutes);
 
 app.use(express.static((clientDistPath))); //path.join(__dirname, dist)
-app.use( (req, res) => {
+/*app.use( (req, res) => {
+  res.sendFile(path.join(clientDistPath, "index.html"));
+});*/
+app.get("*", (req, res) => {
   res.sendFile(path.join(clientDistPath, "index.html"));
 });
 

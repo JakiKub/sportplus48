@@ -6,7 +6,7 @@ const transporter = require("../utils/mailer");
 
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
+router.post("/api/register", async (req, res) => {
   const { email, password, username, nationality } = req.body;
   if (await User.findOne({ email })) return res.send("user exists");
 
@@ -16,7 +16,7 @@ router.post("/register", async (req, res) => {
   res.send("registered");
 });
 
-router.post("/login", async (req, res) => {
+router.post("/api/login", async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send("no user");
 
