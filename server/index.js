@@ -50,7 +50,7 @@ app.use("/api", streakRoutes);
 app.use("/api", recordsRoutes);
 app.use("/api", rankingRoutes);
 app.use("/api", goalRoutes);
-app.use("/", authRoutes);
+app.use("/api", authRoutes);
 
 app.use( (req, res) => {
   res.sendFile(path.join(clientDistPath, "index.html"));
