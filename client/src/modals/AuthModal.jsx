@@ -14,7 +14,7 @@ const AuthModal = ({ mode, onClose, setUser }) => {
 
   const handleSubmit = async () => {
     if (isLogin) {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -34,7 +34,7 @@ const AuthModal = ({ mode, onClose, setUser }) => {
     } else {
       if (!accepted) return alert("zaakceptuj regulamin");
 
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await fetch("/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, username, nationality: nation })
