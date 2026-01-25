@@ -15,49 +15,56 @@ const pageBackground = () => {
         height: "4096px",
         overflow: "visible",
         size: "100% 80%",
-        att: "scroll"
+        att: "scroll",
+        title: "Home"
       },
       "/onas": {
         img: "/content/about-us/onas_tlo.png",
         height: "4096px",
         overflow: "visible",
         size: "100% 80%",
-        att: "scroll"
+        att: "scroll",
+        title: "O Nas"
       },
       "/kontakt": {
         img: "/content/contact/kontakt_tlo.png",
         height: "1926px",
         overflow: "visible",
         size: "100% 80%",
-        att: "scroll"
+        att: "scroll",
+        title: "Kontakt"
       },
       "/panstwa": {
         img: "/content/countries/panstwa_tlo_v2.png",
         height: "3006px",
         overflow: "visible",
         size: "100% 80%",
-        att: "scroll"
+        att: "scroll",
+        title: "Państwa"
       },
       "/stats": {
         img: "/content/stats/tlo_statystyki.png",
         height: "3006px",
         overflow: "visible",
         size: "100% 80%",
-        att: "scroll"
+        att: "scroll",
+        title: "Statystyki"
       },
       "/events/arena": {
         img: "/content/arena/tlo_arena48.png",
         height: "1080px",
         overflow: "visible",
         size: "100% 100%",
-        att: "fixed"
+        att: "fixed",
+        title: "Arena 48"
       },
       "/events/sc": {
         img: "/content/48sc/48sc_tlo.png",
         height: "1080px",
         overflow: "visible",
         size: "100% 100%",
-        att: "fixed"
+        att: "fixed",
+        title: "48 Sport Challenge"
       }
     };
 
@@ -67,6 +74,7 @@ const pageBackground = () => {
       body.style.overflow = "hidden";
       body.style.backgroundSize = "100% 100%";
       body.style.backgroundAttachment = "fixed";
+      document.title = "Sport +48 - Dashboard"
       return;
     }
 
@@ -78,6 +86,7 @@ const pageBackground = () => {
     body.style.overflow = cfg.overflow;
     body.style.backgroundSize = cfg.size;
     body.style.backgroundAttachment = cfg.att;
+    document.title = `Sport +48 - ${cfg.title}`
 
   }, [pathname]);
 }
