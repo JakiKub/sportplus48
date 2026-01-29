@@ -62,7 +62,7 @@ summary::-webkit-details-marker {
 
 /* main */
 body {
-    background-image: url("/content/about-us/onas_tlo.png");
+    /* background-image: url("/content/about-us/onas_tlo.png"); */
     max-height: none !important;
     height: 100%;
     background-size: 100% 80%;
@@ -71,7 +71,11 @@ body {
     border: none;
     overflow: visible;
     position: relative;
-    background-color: #22009f;
+}
+    
+/* menu */
+#menu {
+    display: none;
 }
 
 /* navbar */
@@ -88,6 +92,10 @@ body {
     position: relative;
     top: 0;
     left: 0;
+}
+
+#navbarBottomMobile, #navbarMobileLeft {
+    display: none;
 }
 
 #navbarTop {
@@ -1077,6 +1085,7 @@ a.footer-linki:active {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: unset;
     gap: 2rem;
 }
 
@@ -3484,4 +3493,550 @@ td.ranking-td {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    /* footer */
+    #footer {
+        display: none;
+    }
+
+    /* navbar */
+    #navbar {
+        max-width: 100%;
+        width: 100%;
+        aspect-ratio: 1080 / 357;
+        background-image: url("/content/mobile/main/mobilna_main_navbar.png");
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: .5rem;
+    }
+
+    #navbarTop {
+        max-width: 100%;
+        width: 100%;
+        height: 40px;
+        aspect-ratio: none;
+        background-image: none;
+        align-items: flex-start;
+        padding: 0;
+        position: static;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    #navbarLogin {
+        font-size: 1em;
+        margin: 0;
+    }
+
+    #navbarTextRight {
+        margin: 0;
+    }
+
+    #navbarUserBttn  {
+        background-image: url("/content/mobile/main/mobilna_main_login.png");
+        width: 23px;
+        aspect-ratio: 1 / 1;
+    }
+    
+    #navbarTextLeft {
+        display: none;
+    }
+
+    #navbarBottomMobile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 2rem;
+        padding-right: 3rem;
+    }
+
+    #navbarBottomMobile > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .8rem;
+    }
+
+    #navbarBottomMobile > div > img {
+        max-width: max-content;
+        aspect-ratio: 474 / 68;
+        width: 170px;
+    }
+
+    #navbarBottomMobile > div > p {
+        color: #ffffff;
+        font-size: .8em;
+        font-family: "Fira Sans", sans-serif;
+    }  
+    
+    #navbarBottomMobile > button {
+        background-image: url("/content/mobile/main/mobilna_main_menu.png");
+        background-color: transparent;
+        border: none;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        aspect-ratio: 1 / 1;
+        width: 30px;
+        transition-duration: .4s;
+    }
+    #navbarBottomMobile > button:active {
+        transform: scale(.9);
+    }
+    
+    #navbarMobileLeft {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #navbarMobileLeft > img {
+        max-width: max-content;
+        aspect-ratio: 77 / 50;
+        height: 25px;
+    }
+
+    #langListMobile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    #navbarMobileLeft > details {
+        position: relative;
+    }
+
+    #navbarMobileLeft > details > summary {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #navbarMobileLeft > details > summary > img {
+        max-width: max-content;
+        aspect-ratio: 33 / 20;
+        height: 10px;
+    }
+
+    .link-a-mobile {
+        transition-duration: .3s;
+    }
+    .link-a-mobile:hover {
+        transform: scale(1.05);
+    }
+    .link-a-mobile:active {
+        transform: scale(1);
+    }
+
+    #navbarMobileLeft > details > summary, .link-a-mobile {
+        color: #ffffff;
+        font-family: "Fira Sans", sans-serif;
+        font-size: .8em;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    #langListMobile {
+        position: absolute;
+        top: 150%;
+        left: 0%;
+        background-color: rgba(11, 101, 204, 0.795);
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        min-width: 100px;
+        z-index: 1000;
+        border-radius: 4px;
+    }
+
+    #langListMobile {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-family: "Fira Sans", sans-serif;
+    }
+
+    #navbarBottom {
+        display: none;
+    }
+
+    /* menu */
+    #menu {
+        display: block;
+        z-index: 1003;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url("/content/mobile/menu/menu_tlo.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        aspect-ratio: 990 / 1920;
+        width: 96%;
+        transform: translateX(-100%); 
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #menu.open {
+        transform: translateX(0);
+    }
+
+    #menu > button {
+        background-image: url("/content/mobile/menu/menu_x.png");
+        background-color: transparent;
+        border: none;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        aspect-ratio: 1 / 1;
+        width: 50px;
+        position: absolute;
+        top: 3%;
+        left: 80%;
+        transition-duration: .4s;
+    }
+    #menu > button:active {
+        transform: scale(.7);
+    }
+
+    #menu > img {
+        max-width: max-content;
+        aspect-ratio: 594 / 86;
+        width: 64%;
+        position: absolute;
+        top: 13%;
+        left: 15%;
+    }
+
+    .menu-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        position: absolute;
+        top: 23%;
+        left: 12%;
+    }
+
+    .menu-list > a {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        color: #ffffff;
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 1.15em;
+        font-weight: 600;
+    }
+
+    .menu-list > a::before {
+        content: "";
+        aspect-ratio: 25 / 24;
+        width: 21px;
+        
+        background-image: url("/content/mobile/menu/menu_plus.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+    }
+
+    .menu-bttns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        position: absolute;
+        top: 76%;
+        left: 2%;
+        width: 100%;
+    }
+
+    .menu-bttns > button {
+        aspect-ratio: 655 / 106;
+        width: 80%;
+        background-image: url("/content/mobile/menu/menu_zaloguj_zarejestruj.png");
+        background-color: transparent;
+        border: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        font-family: 'Special Gothic Expanded One', sans-serif;
+        font-size: 1.3em;
+        color: #ffffff;
+        letter-spacing: .1rem;
+    }
+
+    /* main */
+    #mainJ {
+        left: 2%;
+        top: 7.4%;
+        gap: 1rem;
+    }
+
+    .main-j-title {
+        max-width: 80%;
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .main-j-text {
+        /* max-width: 100%; */
+        width: 80%;
+        font-size: 1em;
+    }
+
+    .main-j-bttn-org {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0rem;
+    }
+
+    .main-j-bttn {
+        background-image: url("/content/mobile/main/mobilna_main_przycisk.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        width: 200px;
+        aspect-ratio: 430 / 96;;
+        border: none;
+        font-size: 1.1em;
+        margin: 0;
+    }
+
+    #mainD {
+        display: flex;
+        flex-direction: column;
+        top: 36%;
+        left: 6%;
+        max-width: 90%;
+        align-items: center;
+        gap: 1rem;
+        scroll-margin-top: 2.2rem;
+    }
+
+    .main-d-h-org {
+
+    }
+
+    .main-d-title {
+        max-width: 90%;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .main-d-sec-title {
+        font-size: .8em;
+        text-align: center;
+    }
+
+    .main-d-zal-org {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: unset;
+        justify-content: unset;
+        max-width: unset;
+    }
+
+    .main-d-zal-text {
+        display: none;
+    }
+
+    .main-d-s-zal {
+        aspect-ratio: 719 / 106;
+        background-image: url("/content/mobile/main/mobilna_main_przycisk2.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        font-size: .8em;
+        max-width: unset;
+        align-self: center;
+    }
+
+    .main-d-logreg-org {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        justify-content: unset;
+        align-items: center;
+    }
+
+    .main-d-logreg {
+        background-image: url("content/mobile/main/mobilna_main_przycisk3.png");
+        aspect-ratio: 719 / 111;
+        width: 90%;
+        font-size: 1em;
+        height: unset;
+    }
+
+    #mainT {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70%;
+        left: 0%;
+        max-width: max-content;
+    }
+
+    .main-t-title {
+        width: 80%;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .akcje-wrapper {
+        width: 100%;
+    }
+
+    .akcje-div {
+        width: 300px;
+        aspect-ratio: 943 / 327;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        align-items: center;
+        padding: 0 0;
+        position: relative;
+        max-width: 100%;
+    }
+
+    #sportCDiv {
+        background-image: url("/content/mobile/main/mobilna_main_48sc.png");
+    }
+
+    #arenaDiv {
+        background-image: url("/content/mobile/main/mobilna_main_arena48.png");
+    }
+
+    #sportRDiv {
+        background-image: url("/content/mobile/main/mobilna_main_bieg.png");
+    }
+
+    .akc-title-h6, .akc-time-ogl {
+        display: none;
+    }
+
+    .dowiedz-sie-wiecej-akc {
+        background-image: url("/content/mobile/main/mobilna_main_wiecejinfo.png");
+        aspect-ratio: 147 / 116;
+        width: 30%;
+        font-size: 0;
+    }
+
+    .akc-title-h3 {
+        font-size: .8em;
+        position: absolute;
+        top: 13%;
+        left: 10%;
+    }
+
+    .akc-time-text {
+        font-size: 1.1em;
+    }
+
+    .akc-right-wrapper {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 77%;
+        justify-content: space-between;
+    }
+
+    /* kontakt */
+    #kontakt {
+        position: absolute;
+        max-width: 90%;
+        width: 100%;
+        top: 25%;
+        left: 8%;
+    }
+
+    .kontakt-title {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .kontakt-div {
+        max-width: 90%;
+        width: 400px;
+    }
+
+    #kontaktMiejsce, #kontaktTel, #kontaktMail {
+        font-size: 1em;
+        gap: .5rem;
+    }
+
+    #kontaktMiejsce::before, #kontaktTel::before, #kontaktMail::before {
+        content: "";
+        aspect-ratio: 1 / 1;
+        width: 40px;
+
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #kontaktMiejsce::before {
+        background-image: url("/content/contact/kontakt_lokalizacja.png");
+    }
+
+    #kontaktTel::before {
+        background-image: url("/content/contact/kontakt_telefon.png");
+    }
+
+    #kontaktMail::before {
+        background-image: url("/content/contact/kontakt_email.png");
+    }
+
+    .mozesz-wyslac {
+        max-width: 90%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mozesz-wys-tekst {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    #formKontakt {
+        background-image: none;
+        border: 2px solid #ffffff;
+        border-radius:  1em .5em 1em .5em;
+        max-width: 80%;
+        width: 90%;
+        font-size: .8em;
+        height: 20%;
+    }
+    #formKontakt:hover {
+        background-image: none;
+        color: #ffffff;
+    }
+    #formKontakt:active {
+        background-image: none;
+        transform: scale(.8);
+    }
 }

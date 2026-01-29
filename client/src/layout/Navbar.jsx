@@ -1,15 +1,31 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const Navbar = ({ openLogin, user }) => {
-  const navigate = useNavigate()
+import Menu from "./Menu"
+
+const Navbar = ({ openLogin, user, openRegister }) => {
+  const navigate = useNavigate();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
     <section id='navbar'>
+      <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} navigate={navigate} user={user} openLogin={openLogin} openRegister={openRegister}/>
       <div id='navbarTop'>
         <div id='navbarTextLeft'>
           <p className='navbar-pogrubienie'>Sport +48</p>
           <img src='/content/navbar/navbar_kropka.png'/>
           <p className='navbar-opis-projektu'>Projekt realizowany w ramach ogólnopolskiej Olimpiady "Zwolnieni z Teorii"</p>
+        </div>
+        <div id="navbarMobileLeft">
+          <img src="/content/mobile/main/mobilna_main_pl.png"/>
+          <details>
+            <summary>Polish <img src="/content/mobile/main/mobilna_main_wybierz.png"/></summary>
+            <ul id="langListMobile">
+              <li><a className="link-a-mobile">still under construction</a></li>
+            </ul>
+          </details>
         </div>
         <div id='navbarTextRight'>
           {!user ? (<a className='navbar-pogrubienie' id='navbarLogin' onClick={openLogin}>LOG IN</a>) : (<a className='navbar-pogrubienie' id='navbarLogin' onClick={() => navigate("/dashboard")}>{user.username}</a>)}
@@ -45,6 +61,13 @@ const Navbar = ({ openLogin, user }) => {
             </ul>
           </details>
         </div>
+      </div>
+      <div id="navbarBottomMobile">
+        <div>
+          <img src="/content/mobile/main/mobilna_main_logo.png"/>
+          <p>Zwolnieni z Teorii 2025-26</p>
+        </div>
+        <button onClick={toggleMenu}></button>
       </div>
     </section>
   )
