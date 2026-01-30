@@ -53,6 +53,7 @@ const pageBackground = () => {
           img: "/content/stats/tlo_statystyki.png",
           imgMobile: "/content/mobile/stats/statystyki_tlo.png", 
           height: "3006px",
+          heightMobile: "1000px",
           overflow: "visible",
           size: "100% 80%",
           att: "scroll",

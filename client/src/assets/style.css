@@ -4039,4 +4039,61 @@ td.ranking-td {
         background-image: none;
         transform: scale(.8);
     }
+
+
+    /* stats */
+    #statsJ {
+        left: 5%;
+        top: 20%;
+        gap: 3rem;
+        max-width: 90%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #statsJ > div {
+        max-width: 100%;
+    }
+
+    #statsJ > div > h1 {
+        font-size: 2em;
+        letter-spacing: .1rem;
+        max-width: 90%;
+    }
+
+    #statsJ > div > p {
+        font-size: 1em;
+        line-height: 1.2rem;
+        letter-spacing: 0;
+        max-width: 100%;
+    }
+
+    #statsJ > button {
+        aspect-ratio: 511 / 75;
+        width: 96%;
+        font-size: 1em;
+        padding-left: 1rem;
+    }
+
+    #statsD {
+        grid-template-columns: 1fr 1fr;
+        left: 7%;
+        max-width: 90%;
+        row-gap: 2rem;
+        top: 55%;
+    }
+
+    #statsD > div {
+        max-width: 100%;
+    }
+
+    #statsD > div > h1 {
+        font-size: 2em;
+        max-width: 80%;
+    }
+
+    #statsD > div > p {
+        font-size: 1em;
+        max-width: 95%;
+    }
 }
