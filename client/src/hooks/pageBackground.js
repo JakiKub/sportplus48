@@ -44,6 +44,7 @@ const pageBackground = () => {
           img: "/content/countries/panstwa_tlo_v2.png",
           imgMobile: "/content/mobile/panstwa/kraje_tlo.png", 
           height: "3006px",
+          heightMobile: "1300px",
           overflow: "visible",
           size: "100% 80%",
           att: "scroll",

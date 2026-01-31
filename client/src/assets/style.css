@@ -4096,4 +4096,70 @@ td.ranking-td {
         font-size: 1em;
         max-width: 95%;
     }
+
+
+    /* panstwa */
+
+    #panstwaJ {
+        max-width: 100%;
+        width: 90%;
+        align-items: center;
+        top: 15%;
+        gap: 1.3rem;
+    }
+
+    .panstwa-title {
+        font-size: 2em;
+        max-width: 90%;
+    }
+
+    .panstwa-opis-div {
+        max-width: 100%;
+    }
+
+    .panstwa-opis {
+        font-size: 1em;
+    }
+
+    #dowiedzSiePanstwa {
+        aspect-ratio: 511 / 71;
+        width: 96%;
+        font-size: 1em;
+        padding-left: 1em;
+        letter-spacing: .1rem;
+    }
+
+    #panstwaD {
+        max-width: 100%;
+        width: 90%;
+        gap: 3rem;
+        top: 43%;
+        margin-bottom: 5rem;
+        scroll-margin-top: 1.3rem;
+    }
+
+    #panstwaD > div {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .panstwa-title-2, .panstwa-title-3 {
+        font-size: 1.4em;
+        width: 98%;
+        letter-spacing: .1rem;
+        text-align: center;
+    }
+
+    .zespol-krajow {
+        max-width: 100%;
+        width: 90%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .zespol-krajow > img {
+        aspect-ratio: 427 / 65;
+        max-width: 100%;
+        width: 95%;
+    }
 }
