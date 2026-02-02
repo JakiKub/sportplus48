@@ -33,6 +33,9 @@ const App = () => {
 
     if (isMobile) return;
 
+    //
+    //probably the worst way of scaling a website, but works "if something's stupid but works, it ain't stupid"
+    //
     const handleDpiZoom = () => {
       const ratio = window.devicePixelRatio || 1;
       const html = document.documentElement;
@@ -41,9 +44,6 @@ const App = () => {
       if (ratio > 1) {
         const zoomValue = 1 / ratio;
         body.style.zoom = zoomValue;
-
-        // KLUCZ: Musimy sztucznie zwiększyć min-height, 
-        // bo przy zoomie 0.5 (skala 200%) 100vh to tylko połowa realnej treści.
         body.style.minHeight = `${100 * ratio}vh`;
         html.style.height = 'auto'; 
       } else {

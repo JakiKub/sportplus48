@@ -405,6 +405,8 @@ body {
 #poznajZespol {
     background-image: url('/content/about-us/poznajnaszzespol.png');
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: transparent;
     border: none;
     color: #ffffff;
@@ -4161,5 +4163,181 @@ td.ranking-td {
         aspect-ratio: 427 / 65;
         max-width: 100%;
         width: 95%;
+    }
+
+
+    /* o zespole */
+    #oProjekcie {
+        max-width: 100%;
+        width: 90%;
+        align-items: center;
+        top: 8%;
+    }
+
+    .o-projekcie-tytul {
+        font-size: 2em;
+        letter-spacing: .2rem;
+        max-width: 100%;
+    }
+
+    .o-projekcie-opis {
+        font-size: 1.3em;
+        line-height: 1.5rem;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #dowiedzSieWiecej {
+        aspect-ratio: 511 / 75;
+        width: 80%;
+        height: auto;
+        font-size: .7em;
+        padding-left: 1.6rem;
+        letter-spacing: .05rem;
+    }
+
+    #oNasOpis {
+        max-width: 100%;
+        width: 90%;
+        align-items: center;
+        top: 25%;
+        left: 5.5%;
+    }
+
+    .o-nas-tytul {
+        font-size: 2em;
+        max-width: 100%;
+        letter-spacing: .2rem;
+        text-align: center;
+    }
+
+    .o-nas-opis, .o-nas-opis-2 {
+        max-width: 100%;
+        text-align: center;
+        letter-spacing: .05rem;
+    }
+
+    #oNasOpis > img {
+        aspect-ratio: 362 / 7;
+        width: 80%;
+    }
+
+    #poznajZespol {
+        aspect-ratio: 532 / 75;
+        width: 80%;
+        height: auto;
+        font-size: .7em;
+        letter-spacing: .05rem;
+        padding-left: 1.5rem;
+    }
+
+    #oZespole {
+        max-width: 100%;
+        width: 90%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        top: 65%;
+        left: 6%;
+    }
+
+    .o-zespole-title {
+        font-size: 1.8em;
+        letter-spacing: .05rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .o-zespole-rest {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .o-zespole-rest > img {
+        aspect-ratio: 766 / 719;
+        width: 80%;
+    }
+
+    .o-zespole-dane {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .dane-top {
+        max-width: 100%;
+        width: 100%;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #daneLewo, #danePrawo {
+        aspect-ratio: 70 / 71;
+        width: 40px;
+        height: auto;
+    }
+
+    #imie {
+        font-size: 2em;
+        letter-spacing: .1rem;
+    }
+
+    .role-projektu {
+        max-width: 100%;
+        width: 95%;
+    }
+
+    .role-opis {
+        font-size: .5em;
+        letter-spacing: .01rem;
+    }
+
+    .narodowosci-projektu {
+        max-width: 90%;
+        width: 90%;
+        justify-content: center;
+        gap: .5rem;
+    }
+
+    .narodowosci-nar > img {
+        aspect-ratio: 1 / 1;
+        width: 10%;
+    }
+
+    .narodowosci-nar {
+        letter-spacing: 0;
+        gap: 1rem;
+    }
+
+    .narodowosci-nar, #rootsDwa {
+        font-size: .7em;
+    }
+
+    .opis-o-osobie {
+        font-size: 1em;
+        max-width: 95%;
+    }
+
+    .fav-rzeczy {
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .fav-rzecz {
+        width: 100%;
+    }
+
+    .fav-cos {
+        width: 80%;
+    }
+
+    .fav-cos-2 {
+        width: 80%;
+    }
+
+    .fav-cos, .fav-eff, .fav-cos-2 {
+        font-size: .7em;
     }
 }

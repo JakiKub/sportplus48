@@ -24,6 +24,7 @@ const pageBackground = () => {
           img: "/content/about-us/onas_tlo.png",
           imgMobile: "/content/mobile/onas/onas_tlo.png", 
           height: "4096px",
+          heightMobile: "2400px",
           overflow: "visible",
           size: "100% 80%",
           att: "scroll",

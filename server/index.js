@@ -21,7 +21,7 @@ const isProduction = process.env.NODE_ENV === "production";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: isProduction ? false : "http://localhost:5173",
+  origin: isProduction ? false : "http://localhost:5173", //so it doesn't really matter if it's in prod or not, u can either go for "npm run dev" on 5173 or "npm run build && npm start" on 3000, but the second option is far more superior because render doesn't explode:))
   credentials: true
 }));
 
