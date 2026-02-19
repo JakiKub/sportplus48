@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 
 const Arena = () => {
-    const targetDateAr = new Date(2026, 1, 26);
+    const targetDateAr = new Date(2026, 2, 12);
+
+    const navigate = useNavigate();
 
     const calcTimeAr = () => {
         const now = new Date();
@@ -40,12 +43,21 @@ const Arena = () => {
                 <a>Więcej</a>
             </div>
             <div className="arena-1" id="arenaOne">
-                <div className="arena-1-wrapper">
+                <div className="arena-1-wrapper" onClick={() => navigate("/events/arena/messages/theme-art")}>
                     <div className="arena-ta">
-
+                        <img src="/content/arena-wiad/news1big.png"/>
+                        <div>
+                            <h3>Dołącz do gry:</h3>
+                            <h3>Oto oficjalny THEME ART Areny 48</h3>
+                        </div>
                     </div>
                     <div className="arena-wiad">
-                        
+                        {/* <div className="arena-wiad-div">
+                            <img src="/content/arena-wiad/news1small"/>
+                        </div>
+                        <div className="arena-wiad-div">
+                            <img src="/content/arena-wiad"/>
+                        </div> */}
                     </div>
                 </div>
                 <div className="arena-odl-3">

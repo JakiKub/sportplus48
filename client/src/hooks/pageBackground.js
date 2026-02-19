@@ -63,7 +63,6 @@ const pageBackground = () => {
         },
         "/events/arena": {
           img: "/content/arena/tlo_arena48.png",
-          imgMobile: "/content/mobile/main/mobilna_main_tlo.png", 
           height: "1080px",
           overflow: "visible",
           size: "100% 100%",
@@ -72,13 +71,20 @@ const pageBackground = () => {
         },
         "/events/sc": {
           img: "/content/48sc/48sc_tlo.png",
-          imgMobile: "/content/mobile/main/mobilna_main_tlo.png", 
           height: "1080px",
           overflow: "visible",
           size: "100% 100%",
           att: "fixed",
           title: "48 Sport Challenge",
         },
+        "/events/arena/messages/theme-art": {
+          img: "/content/arena/tlo_arena48.png",
+          height: "1080px",
+          overflow: "visible",
+          size: "100% 100%",
+          att: "fixed",
+          title: "Arena 48 - Oficjalny Theme Art"
+        }
       };
     
       let cfg = map[pathname];

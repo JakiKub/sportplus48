@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const Dashboard = ({ user }) => {
-  const targetdateAr2 = new Date(2026, 1, 26, 14, 0);
+  const targetdateAr2 = new Date(2026, 2, 12, 14, 0);
   const [streak, setStreak] = useState(0);
   const [lastClick, setLastClick] = useState(null);
   const [rotation, setRotation] = useState(0);
