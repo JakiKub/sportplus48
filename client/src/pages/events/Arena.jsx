@@ -63,7 +63,7 @@ const Arena = () => {
                 <div className="arena-odl-3">
                     <img src="/content/arena/arena48_odliczanielogo1.png"/>
                     <img src="/content/arena/arena48_odliczanielogo2.png"/>
-                    <div className="arena-odl-bttn-alike">26 Luty 2026</div>
+                    <div className="arena-odl-bttn-alike">13 Marzec 2026</div>
                     <div className="arena-wlasc-odl">
                         <h1>{timeAr.days}</h1>
                         <p>days /</p>

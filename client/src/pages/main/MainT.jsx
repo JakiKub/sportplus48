@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 const MainT = () => {
   const navigate = useNavigate();
 
-  const targetDateSC = new Date(2026, 1, 1);
-  const targetDateAr = new Date(2026, 1, 26);
+  const targetDateSC = new Date(2026, 2, 21);
+  const targetDateAr = new Date(2026, 2, 12);
 
   const calcTimeSC = () => {
     const now = new Date();
@@ -61,7 +61,7 @@ const MainT = () => {
             <div className='akc-time-wrapper'>
               <h5 className='akc-time-ogl'>1 Luty - 21 Marzec 2026</h5>
               <div className='akc-time-2'>
-                <p className='akc-time-text'>ZA</p>
+                <p className='akc-time-text'>KONIEC ZA</p>
                 <p className='akc-time-text'>{timeSC}</p>
                 <p className='akc-time-text'>DNI</p>
               </div>
@@ -76,7 +76,7 @@ const MainT = () => {
           </div>
           <div className='akc-right-wrapper'>
             <div className='akc-time-wrapper'>
-              <h5 className='akc-time-ogl'>26 Luty 2026</h5>
+              <h5 className='akc-time-ogl'>12 Marzec 2026</h5>
               <div className='akc-time-2'>
                 <p className='akc-time-text'>ZA</p>
                 <p className='akc-time-text'>{timeAr}</p>
@@ -93,7 +93,7 @@ const MainT = () => {
           </div>
           <div className='akc-right-wrapper'>
             <div className='akc-time-wrapper'>
-              <h5 className='akc-time-ogl'>Styczeń/Luty 2026</h5>
+              <h5 className='akc-time-ogl'>Marzec 2026</h5>
               <p className='akc-time-text'>TBD</p>
             </div>
             {/* potem zamienic na () => navigate("/events/sc");;; to samo w navbarze w tej liscie */}
