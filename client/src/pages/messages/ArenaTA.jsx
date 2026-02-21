@@ -5,8 +5,8 @@ const ArenaTA = () => {
 
     return (
         <section id="arenaTA">
-             <div className="arena-navbar-msgs">
-                <img src="/content/arena/arena48_logonavbar.png"/>
+            <div className="arena-navbar-msgs">
+                <img src="/content/arena/arena48_logonavbar.png" onClick={() => navigate("/events/arena")}/>
                 <a onClick={() => navigate("/events/arena#arenaOne")}>Wiadomości</a>
                 <a onClick={() => navigate("/events/arena#arenaWprowadzenie")}>Informacje</a>
                 <a onClick={() => navigate("/events/arena#arenaHarm")}>Plan wydarzenia</a>

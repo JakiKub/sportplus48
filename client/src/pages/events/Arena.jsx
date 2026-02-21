@@ -68,12 +68,15 @@ const Arena = () => {
                         </div>
                     </div>
                     <div className="arena-wiad">
-                        {/* <div className="arena-wiad-div">
-                            <img src="/content/arena-wiad/news1small"/>
+                        <h1>Wiadomości</h1>
+                        <div className="arena-wiad-div" onClick={(e) => {e.stopPropagation(); navigate("/events/arena/messages/48nc")}}>
+                            <img src="/content/arena-wiad/news2small.png"/>
+                            <p>48 Nations Cup 2026 wyjaśniony</p>
                         </div>
-                        <div className="arena-wiad-div">
-                            <img src="/content/arena-wiad"/>
-                        </div> */}
+                        <div className="arena-wiad-div" onClick={(e) => {e.stopPropagation(); navigate("/events/arena/messages/miejsce")}}>
+                            <img src="/content/arena-wiad/news3small.png"/>
+                            <p>Arena 48 już 12 marca 2026 r. w Toruniu (Polska)</p>
+                        </div>
                     </div>
                 </div>
                 <div className="arena-odl-3">

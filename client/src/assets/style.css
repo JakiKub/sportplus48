@@ -2836,6 +2836,46 @@ td.ranking-td {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-top: 3rem;
+    gap: 3rem;
+}
+
+.arena-wiad > h1 {
+    color: #0094FF;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    letter-spacing: .05rem;
+    font-size: 3em;
+}
+
+.arena-wiad-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.arena-wiad-div:hover {
+    transform: scale(1.01);
+}
+
+.arena-wiad-div:active {
+    transform: scale(1);
+}
+
+.arena-wiad-div > img {
+    max-width: max-content;
+}
+
+.arena-wiad-div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.8em;
+    font-weight: 600;
+    max-width: 50%;
 }
 
 .arena-1-wrapper {
@@ -3166,6 +3206,10 @@ td.ranking-td {
     font-size: 1.56em;
 }
 
+.arena-navbar-msgs > img {
+    cursor: pointer;
+}
+
 .arena-navbar-msgs > a {
     cursor: pointer;
     transition-duration: .4s;
@@ -3177,8 +3221,64 @@ td.ranking-td {
     transform: scale(1);
 }
 
-.arena-ta-main {
 
+#arenaNC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 6rem;
+}
+
+.arena-nc-main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 8rem;
+}
+
+.arena-nc-main {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    gap: 3rem;
+}
+.arena-nc-artyk > img {
+    max-width: max-content;
+    aspect-ratio: 16 / 9;
+    width: 90%;
+}
+
+.arena-nc-artyk {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.arena-nc-artyk > h1 {
+    color: #0094FF;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+}
+
+.arena-nc-artyk > p, .arena-nc-artyk > div > div > p, .arena-nc-artyk > div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.6em;
+    max-width: 90%;
+}
+
+.arena-nc-artyk > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.arena-nc-artyk > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 

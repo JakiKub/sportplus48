@@ -24,6 +24,7 @@ import SC from './pages/events/SC';
 import SR from './pages/events/SR';
 
 import ArenaTA from './pages/messages/ArenaTA';
+import ArenaNC from './pages/messages/ArenaNC';
 
 import PublicLayout from './layout/PublicLayout';
 import DashboardLayout from './layout/DashboardLayout';
@@ -107,6 +108,7 @@ const App = () => {
           <Route path='sc' element={<SC/>}/>
           <Route path='sr' element={<SR/>}/>
           <Route path='arena/messages/theme-art' element={<ArenaTA/>}/>
+          <Route path='arena/messages/48nc' element={<ArenaNC/>}/>
         </Route>
 
         <Route element={<ReqAuth />}>

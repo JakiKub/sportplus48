@@ -84,6 +84,22 @@ const pageBackground = () => {
           size: "100% 100%",
           att: "fixed",
           title: "Arena 48 - Oficjalny Theme Art"
+        },
+        "/events/arena/messages/48nc": {
+          img: "/content/arena/tlo_arena48.png",
+          height: "1080px",
+          overflow: "visible",
+          size: "100% 100%",
+          att: "fixed",
+          title: "Arena 48 - 48 Nations Cup"
+        },
+        "/events/arena/messages/miejsce": {
+          img: "/content/arena/tlo_arena48.png",
+          height: "1080px",
+          overflow: "visible",
+          size: "100% 100%",
+          att: "fixed",
+          title: "Arena 48 - Miejsce"
         }
       };
     
