@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 const SC = () => {
-    const targetDateSC = new Date(2026, 1, 1);
+    const targetDateSC = new Date(2026, 2, 21);
 
     const calcTimeSC = () => {
         const now = new Date();

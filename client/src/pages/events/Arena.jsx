@@ -1,7 +1,23 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Arena = () => {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const id = hash.replace("#", "");
+            const element = document.getElementById(id);
+
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 100); 
+            }
+        }
+    }, [hash])
+
     const targetDateAr = new Date(2026, 2, 12);
 
     const navigate = useNavigate();

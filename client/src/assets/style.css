@@ -3059,6 +3059,129 @@ td.ranking-td {
 }
 
 
+/* arena msgs */
+#arenaTA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 6rem;
+}
+
+.arena-ta-main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 8rem;
+}
+
+.arena-ta-main {
+    max-width: 60%;
+    width: 100%;
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.arena-msg-author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .8rem;
+}
+
+.arena-msg-author > img {
+    max-width: max-content;
+}
+
+.arena-msg-author > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
+}
+
+.arena-msg-author > div > h4 {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.2em;
+}
+
+.arena-msg-author > div > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.2em;
+}
+
+.arena-artyk {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ar-ta-main-title {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+    max-width: 90%;
+    letter-spacing: .1rem;
+}
+
+.ar-ta-nd-title {
+    color: #0094FF;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 4em;
+    max-width: 90%;
+    letter-spacing: .1rem;
+}
+
+.arena-artyk > img {
+    aspect-ratio: 16 / 9;
+    width: 95%;
+}
+
+.arena-artyk > p {
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.7em;
+    letter-spacing: .07rem;
+    max-width: 95%;
+}
+
+.arena-navbar-msgs {
+    background-image: url("/content/arena/navbar_arena48.png");
+    width: 1824px;
+    aspect-ratio: 1824 / 120;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ffffff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 1.56em;
+}
+
+.arena-navbar-msgs > a {
+    cursor: pointer;
+    transition-duration: .4s;
+}
+.arena-navbar-msgs > a:hover {
+    transform: scale(1.05);
+}
+.arena-navbar-msgs > a:active {
+    transform: scale(1);
+}
+
+.arena-ta-main {
+
+}
+
+
 /* 48sc */
 #sc {
     display: flex;
