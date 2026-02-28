@@ -27,7 +27,7 @@ const ArenaTA = () => {
                                 <div  className="arena-info-ter">
                                     <div>
                                         <h3>Termin</h3>
-                                        <p>26 lutego 2026 r.</p>
+                                        <p>12 marca 2026 r.</p>
                                     </div>
                                 </div>
                             </div>

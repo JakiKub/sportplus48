@@ -82,7 +82,7 @@ const Arena = () => {
                 <div className="arena-odl-3">
                     <img src="/content/arena/arena48_odliczanielogo1.png"/>
                     <img src="/content/arena/arena48_odliczanielogo2.png"/>
-                    <div className="arena-odl-bttn-alike">13 Marzec 2026</div>
+                    <div className="arena-odl-bttn-alike">12 Marzec 2026</div>
                     <div className="arena-wlasc-odl">
                         <h1>{timeAr.days}</h1>
                         <p>days /</p>
@@ -107,7 +107,7 @@ const Arena = () => {
                         <div  className="arena-info-ter">
                             <div>
                                 <h3>Termin</h3>
-                                <p>26 lutego 2026 r.</p>
+                                <p>12 marca 2026 r.</p>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const Arena = () => {
                         </div>
                         <div>
                             <h2>Jak wziąć udział w wydarzeniu?</h2>
-                            <p>Każdy ma możliwość udziału w wydarzeniu, organizatorzy nie wymagają dokonywania opłat lub rezerwacji biletó. Wydarzenie będzie rejestrowane, a następnie retransmitowane w marcu 2026 r.</p>
+                            <p>Każdy ma możliwość udziału w wydarzeniu, organizatorzy nie wymagają dokonywania opłat lub rezerwacji biletów. Wydarzenie będzie rejestrowane, a następnie retransmitowane w marcu 2026 r.</p>
                         </div>
                         <div>
                             <h2>Organizator</h2>
@@ -142,7 +142,7 @@ const Arena = () => {
                             <div>Losowanie 48 Nations Cup, Ogłoszenie prowadzących, Przedstawienie logo Arena 48</div>
                         </div>
                         <div className="arena-har-div">
-                            <h2>Czwartek, 26 lutego 2026</h2>
+                            <h2>Czwartek, 13 marca 2026</h2>
                             <div>Wielki Finał Arena 48</div>
                         </div>
                         <div className="arena-har-div">

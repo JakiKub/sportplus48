@@ -76,30 +76,6 @@ const pageBackground = () => {
           size: "100% 100%",
           att: "fixed",
           title: "48 Sport Challenge",
-        },
-        "/events/arena/messages/theme-art": {
-          img: "/content/arena/tlo_arena48.png",
-          height: "1080px",
-          overflow: "visible",
-          size: "100% 100%",
-          att: "fixed",
-          title: "Arena 48 - Oficjalny Theme Art"
-        },
-        "/events/arena/messages/48nc": {
-          img: "/content/arena/tlo_arena48.png",
-          height: "1080px",
-          overflow: "visible",
-          size: "100% 100%",
-          att: "fixed",
-          title: "Arena 48 - 48 Nations Cup"
-        },
-        "/events/arena/messages/miejsce": {
-          img: "/content/arena/tlo_arena48.png",
-          height: "1080px",
-          overflow: "visible",
-          size: "100% 100%",
-          att: "fixed",
-          title: "Arena 48 - Miejsce"
         }
       };
     
@@ -112,12 +88,23 @@ const pageBackground = () => {
       if (pathname.startsWith("/dashboard")) {
         cfg = {
             img: "/content/dashboard/dashboard_tlo.png",
+            imgMobile: "/content/mobile/dashboard/tlo_ds.png",
             height: "1080px",
+            heightMobile: "100vh",
             overflow: "hidden",
-            size: "100% 100%",
+            size: isMobile ? "cover" : "100% 100%",
             att: "fixed",
             title: "Dashboard"
         };
+      } else if (pathname.startsWith("/events/arena/messages")) {
+        cfg = {
+          img: "/content/arena/tlo_arena48.png",
+          height: "1080px",
+          overflow: "visible",
+          size: "100% 100%",
+          att: "fixed",
+          title: "Wiadomości"
+        }
       }
 
       if (!cfg) return;
