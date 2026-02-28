@@ -142,7 +142,7 @@ const Arena = () => {
                             <div>Losowanie 48 Nations Cup, Ogłoszenie prowadzących, Przedstawienie logo Arena 48</div>
                         </div>
                         <div className="arena-har-div">
-                            <h2>Czwartek, 13 marca 2026</h2>
+                            <h2>Czwartek, 12 marca 2026</h2>
                             <div>Wielki Finał Arena 48</div>
                         </div>
                         <div className="arena-har-div">
