@@ -37,6 +37,7 @@ const Menu = ({ isOpen, onClose, navigate, user, openLogin, openRegister }) => {
                 <a onClick={() => handleNavigate("/kontakt")}>Kontakt</a>
                 <a onClick={() => handleNavigate("/")}>Społeczność</a>
                 <a onClick={() => window.open("https://discord.gg/6WeJ7xjSav")}>Podcast</a>
+                <a onClick={() => handleNavigate("/polityka-prywatnosci")}>Polityka prywatności</a>
             </div>
             <div className="menu-bttns">
                 <button onClick={openLogin}>ZALOGUJ SIĘ</button>

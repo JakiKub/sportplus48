@@ -13,6 +13,28 @@ const AuthModal = ({ mode, onClose, setUser }) => {
   const [accepted, setAccepted] = useState(false);
 
   const handleSubmit = async () => {
+    const consent = JSON.parse(localStorage.getItem("cookieConsent"));
+
+    if (!consent?.analytics) {
+      window.alert(
+        "Rejestrując się akceptujesz wszystkie pliki cookie, w tym analityczne."
+      );
+
+      localStorage.setItem(
+        "cookieConsent",
+        JSON.stringify({
+          necessary: true,
+          analytics: true
+        })
+      );
+
+      // doładuj GA
+      const script = document.createElement("script");
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
     if (isLogin) {
       const res = await fetch("/api/login", {
         method: "POST",

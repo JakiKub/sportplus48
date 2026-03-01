@@ -1,0 +1,54 @@
+Polityka Prywatności i Cookies serwisu Sport +48
+
+
+I. Informacje ogólne
+
+Niniejsza polityka dotyczy serwisu znajdującego się pod adresem: https://sportplus48.onrender.com.
+
+Administratorem danych jest projekt społeczny Sport +48, realizowany w ramach XI edycji olimpiady "Zwolnieni z Teorii".
+
+Kontakt z administratorem: contact.sportplus48@gmail.com.
+
+
+II. Jakie dane przetwarzamy i po co?
+
+Abyś mógł w pełni korzystać z naszej platformy, zbieramy dane, które podajesz przy rejestracji i podczas aktywności:
+
+1. Profil użytkownika: adres e-mail, nazwa użytkownika oraz jego narodowość.
+
+2. Rywalizacja i postępy: Twoje punkty , serie dni aktywności oraz historia Twoich rekordów.
+
+3. Twoje cele: informacje o Twoich celach krótko- i długoterminowych, abyśmy mogli wyświetlać Ci Twoje postępy.
+
+4. Bezpieczeństwo: zaszyfrowane hasło oraz tokeny.
+
+5. Okres przechowywania: Twoje dane przechowujemy przez okres posiadania przez Ciebie konta na stronie. W przypadku usunięcia konta, dane zostają trwale usunięte z bazy danych
+
+Podstawa prawna: Twoja zgoda (art. 6 ust. 1 lit. a RODO) oraz niezbędność do wykonania usługi (prowadzenie Twojego konta).
+
+
+III. Pliki Cookies
+
+Nasz serwis korzysta z plików cookies, aby „pamiętać”, że jesteś zalogowany.
+
+1. Cookies Niezbędne: Są kluczowe do działania strony. Pozwalają utrzymać sesję po zalogowaniu, dzięki czemu widzisz swoje punkty i cele. Bez nich strona nie wiedziałaby, kim jesteś po przejściu na kolejną zakładkę.
+
+2. Cookies Analityczne (Google Analytics): Pomagają nam sprawdzać, ile osób nas odwiedza i które funkcje są najpopularniejsze. Dane te są zanonimizowane.
+
+3. Zarządzanie: Możesz wyłączyć cookies w ustawieniach przeglądarki, jednak wtedy nie będziesz mógł się zalogować do swojego profilu.
+
+
+IV. Odbiorcy danych i bezpieczeństwo
+
+Twoje dane są bezpieczne dzięki szyfrowaniu połączenia (SSL). Korzystamy z zaufanych dostawców:
+
+1. MongoDB Atlas – przechowujemy tu Twój profil
+
+2. Render.com – host naszej strony.
+
+3. Google Analytics – używamy do analizy ruchu na stronie.
+
+
+V. Twoje prawa
+
+Masz prawo do wglądu w swoje dane, ich poprawienia, a także żądania ich usunięcia (co wiąże się z zamknięciem konta). W tym celu napisz do nas na e-mail podany w punkcie I.

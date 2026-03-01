@@ -61,6 +61,16 @@ const pageBackground = () => {
           att: "scroll",
           title: "Statystyki",
         },
+        "/polityka-prywatnosci": {
+          img: "/content/stats/tlo_statystyki.png",
+          imgMobile: "/content/mobile/stats/statystyki_tlo.png", 
+          height: "3100px",
+          heightMobile: "2490px",
+          overflow: "visible",
+          size: "100% 80%",
+          att: "scroll",
+          title: "Polityka Prywatności"
+        },
         "/events/arena": {
           img: "/content/arena/tlo_arena48.png",
           height: "1080px",

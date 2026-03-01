@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         <div className='footer-bottom'>
           <div className='footer-inside'>
-            <a className="footer-linki">POLITYKA PRYWATNOŚCI I PLIKÓW COOKIES</a>
+            <a className="footer-linki" onClick={() => navigate("polityka-prywatnosci")}>POLITYKA PRYWATNOŚCI I PLIKÓW COOKIES</a>
             <a className="footer-linki">REGULAMIN PLATFORMY</a>
             <a className="footer-linki">WZORY DOKUMENTÓW</a>
           </div>

@@ -5,12 +5,14 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import pageBackground from './hooks/pageBackground';
 
 import AuthModal from "./modals/AuthModal";
+import PrivacyBanner from './modals/PrivacyBanner';
 
 import Kontakt from "./pages/kontakt/Kontakt";
 import ONas from "./pages/o-nas/ONas";
 import Panstwa  from './pages/countries/Panstwa';
 import Statystyki from './pages/stats/Statystyki';
 import Main from './pages/main/Main';
+import PrivacyPolicy from './pages/privacy-policy/PrivacyPolicy';
 
 import Dashboard from './pages/dashboard/Dashboard';
 import RegisterActiv from './pages/dashboard/RegisterActiv';
@@ -93,6 +95,8 @@ const App = () => {
 
   return (
     <>
+      <PrivacyBanner/>
+
       <Routes>
         <Route element={<PublicLayout user={user} openLogin={openLogin} openRegister={openRegister}/>}>
           <Route index element={<Main openLogin={openLogin} openRegister={openRegister}/>}/>
@@ -100,6 +104,7 @@ const App = () => {
           <Route path="kontakt" element={<Kontakt/>}/>
           <Route path="panstwa" element={<Panstwa/>}/>
           <Route path="stats" element={<Statystyki/>}/>
+          <Route path='polityka-prywatnosci' element={<PrivacyPolicy/>}/>
           <Route path="test" element={<h1>ROUTER DZIAŁA</h1>}/>
         </Route>
 
