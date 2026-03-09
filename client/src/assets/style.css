@@ -2987,7 +2987,7 @@ td.ranking-td {
     gap: 7rem;
 }
 
-.arena-wyrzutek > button {
+.arena-wyrzutek > a {
     background-image: url("/content/arena/arena48_plik.png");
     background-position: center;
     background-size: contain;
@@ -2998,9 +2998,19 @@ td.ranking-td {
     border: none;
     color: #ffffff;
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 1.4em;
+    font-size: 1.8em;
     letter-spacing: .05rem;
-    cursor: not-allowed;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .4s;
+}
+.arena-wyrzutek > a:hover {
+    transform: scale(1.05);
 }
 
 .arena-nc, .arena-nc-div, .arena-countries {

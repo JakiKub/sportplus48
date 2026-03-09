@@ -155,7 +155,9 @@ const Arena = () => {
                         </div>
                         <div className="arena-wyrzutek">
                             <h2>Szczegółowy plan wydarzenia znajdziesz tu:</h2>
-                            <button>Plik zostanie opublikowany później</button>
+                            <a href="/content/misc/Arena48_Plan_Wydarzenia.pdf" download="Arena48_Plan_Wydarzenia.pdf">
+                                Plan Areny 48
+                            </a>
                         </div>
                     </div>
                     <div className="arena-nc" id="arenaNC">
