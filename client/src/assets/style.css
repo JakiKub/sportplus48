@@ -2909,6 +2909,10 @@ td.ranking-td {
     gap: 2.5rem;
 }
 
+.img-prezydent {
+    transform: scale(.8);
+}
+
 .arena-wprowadzenie > h1, .arena-harmonogram > h1, .arena-nc > h1 {
     color: #0094FF;
     font-family: 'Special Gothic Expanded One', sans-serif;

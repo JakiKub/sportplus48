@@ -112,6 +112,7 @@ const Arena = () => {
                         </div>
                     </div>
                     <img src="/content/arena/arena48_coreinfoorganizedby.png"/>
+                    <img className="img-prezydent" src="/content/misc/prezydent_logo.png"/>
                 </div>
                 <div className="arena-2-wrapper">
                     <div className="arena-wprowadzenie" id="arenaWprowadzenie">
