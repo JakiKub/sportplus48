@@ -30,7 +30,7 @@ const AuthModal = ({ mode, onClose, setUser }) => {
 
       // doładuj GA
       const script = document.createElement("script");
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZPN0Q6QMXV";
       script.async = true;
       document.head.appendChild(script);
     }
@@ -96,7 +96,7 @@ const AuthModal = ({ mode, onClose, setUser }) => {
             <div>
               <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
               {isLogin && (
-                <a className='modal-osw-a' onClick={() => window.alert("to masz problem")}>Zapomniałeś hasła?</a>
+                <a className='modal-osw-a' onClick={() => window.alert("For further instructions please contact us on: s.sportplus48@gmail.com")}>Zapomniałeś hasła?</a>
               )}
             </div>
           </div>
