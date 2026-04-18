@@ -25,7 +25,7 @@ const Sidebar = ({ onLogout }) => {
         </div>
         <div className="sidebar-seg">
           <h2 className="sidebar-title">INNE</h2>
-          <a className='sidebar-link' id='sidebarRank' onClick={() => navigate("/dashboard/ranking")}>RANKING</a>
+          <a className='sidebar-link' id='sidebarRank' onClick={() => window.alert("site under contruction")}>RANKING</a>
         </div>
       </div>
 

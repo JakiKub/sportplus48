@@ -17,7 +17,7 @@ import PrivacyPolicy from './pages/privacy-policy/PrivacyPolicy';
 import Dashboard from './pages/dashboard/Dashboard';
 import RegisterActiv from './pages/dashboard/RegisterActiv';
 import Progress from './pages/dashboard/Progress';
-import Ranking from './pages/dashboard/Ranking';
+//import Ranking from './pages/dashboard/Ranking';
 import Records from './pages/dashboard/Records';
 import Points from './pages/dashboard/Points';
 
@@ -123,7 +123,7 @@ const App = () => {
             <Route path="progress" element={<Progress user={user}/>}/>
             <Route path="records" element={<Records user={user}/>}/>
             <Route path="points" element={<Points user={user}/>}/>
-            <Route path="ranking" element={<Ranking/>}/>
+            {/*<Route path="ranking" element={<Ranking/>}/>*/}
           </Route>
         </Route>
       </Routes>
